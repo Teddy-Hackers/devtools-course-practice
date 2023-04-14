@@ -28,7 +28,7 @@ async function checkReadiness(pull_id) {
         }
     });
 
-    if (approvers.size < 1)
+    if (approvers.size < 2)
         return;
 
     // Put a readiness label
@@ -48,8 +48,6 @@ http.createServer(function (req, res) {
     });
     req.on('end', () => {
         body = JSON.parse(body);
-
-        console.log(body);
 
         if (body.review.state == "approved") {
             checkReadiness(body.pull_request.number);

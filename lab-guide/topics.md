@@ -59,7 +59,7 @@
 | Множества |||
 | Priority queue |||
 | d-куча |||
-| hashmap |||
+| hashmap |Шипилов А. 382003_3||
 | template binary heap |||
 | Fibonacci heap |||
 | Дерево отрезков |||

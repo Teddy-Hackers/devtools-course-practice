@@ -6,7 +6,7 @@
 
 TEST(Kolesov_Maxim_ComplexNumberTest, Divide_By_Zero) {
   ComplexNumber num1(42, 42);
-  ComplexNumber zero = ComplexNumber(0,0);
+  ComplexNumber zero = ComplexNumber(0, 0);
 
   ASSERT_THROW((num1 / zero), std::string);
 }

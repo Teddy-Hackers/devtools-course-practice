@@ -31,11 +31,13 @@ TEST(Kandrin_Alexey_ComplexNumberTest, Can_set_im) {
 TEST(Kandrin_Alexey_ComplexNumberTest, Can_copy) {
     // Arrange
     double re = 5.0, im = -7.0;
-    ComplexNumber z{ 5.0, -7.0 };
+    ComplexNumber z{ re, im };
 
     // Act
     ComplexNumber z_copy{ z };
 
     // Assert
     EXPECT_EQ(z, z_copy);
+    EXPECT_EQ(re, z_copy.getRe());
+    EXPECT_EQ(im, z_copy.getIm());
 }

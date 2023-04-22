@@ -247,8 +247,7 @@ TEST(Kandrin_Alexey_ListTest, Move_constructor_clear_argument) {
     List<int> list;
     list.push_back(1);
     list.push_back(2);
-    
-    
+
     // Act
     List<int> moveList(std::move(list));
 
@@ -322,7 +321,7 @@ TEST(Kandrin_Alexey_ListTest, Move_assignment_returns_reference_to_this) {
     List<int> moveList;
 
     // Act
-    auto && reference = (moveList = std::move(list));
+    auto&& reference = (moveList = std::move(list));
 
     // Assert
     ASSERT_EQ(&moveList, &reference);
@@ -332,7 +331,7 @@ TEST(Kandrin_Alexey_ListTest, Push_back_changes_back_1) {
     // Arrange
     List<int> list;
     int value = 1;
-    
+
     // Act
     list.push_back(value);
 
@@ -373,7 +372,7 @@ TEST(Kandrin_Alexey_ListTest, Push_back_changes_front_if_list_was_empty) {
     // Arrange
     List<int> list;
     int value1 = 0;
-    
+
     // Act
     list.push_back(value1);
 
@@ -523,7 +522,7 @@ TEST(Kandrin_Alexey_ListTest, Push_back_increments_list) {
     list.push_back(3);
     ++size;
     ASSERT_EQ(size, list.size());
-    
+
     list.push_back(4);
     ++size;
     ASSERT_EQ(size, list.size());
@@ -584,8 +583,7 @@ TEST(Kandrin_Alexey_ListTest, Comparison_for_list_with_same_elements) {
     // Arrange
     List<int> list1;
     List<int> list2;
-    for (int i = 0; i < 5; ++i)
-    {
+    for (int i = 0; i < 5; ++i) {
         list1.push_back(i);
         list2.push_back(i);
     }
@@ -599,8 +597,7 @@ TEST(Kandrin_Alexey_ListTest, Comparison_for_list_with_different_elements) {
     // Arrange
     List<int> list1;
     List<int> list2;
-    for (int i = 0; i < 5; ++i)
-    {
+    for (int i = 0; i < 5; ++i) {
         list1.push_back(i);
         list2.push_back(i);
     }

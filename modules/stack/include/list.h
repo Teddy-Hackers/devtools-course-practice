@@ -11,8 +11,8 @@
 /**
  * @brief A template class representing a data structure called a two-linked list
  *
- * Two-linked list is a linear collection of data elements whose order is not given 
- * by their physical placement in memory. Instead, each element points to the next 
+ * Two-linked list is a linear collection of data elements whose order is not given
+ * by their physical placement in memory. Instead, each element points to the next
  * and to the previous.
  */
 template <class T>
@@ -112,7 +112,7 @@ public:
     void pop_back();
 
     /**
-     * @brief Swap lists 
+     * @brief Swap lists
      * @param other List to be swapped
      */
     void swap(List& other);
@@ -123,7 +123,7 @@ public:
      * @param[in] other List to compare
      * @return True if the elements of the lists are pairwise equal; otherwise False.
      */
-    bool operator==(const List & other) const;
+    bool operator==(const List& other) const;
 
 
     /**
@@ -134,19 +134,18 @@ public:
     bool operator!=(const List& other) const;
 
 private:
-    /** 
+    /**
      * @brief Capture data from list. The captured list is then cleared
      * @param other The list from which the data is captured
      */
-    void capture(List & other);
+    void capture(List& other);
 
 private:
-    struct Node
-    {
+    struct Node {
         T value;
         Node* prev;
         Node* next;
-        
+
         Node(const T& value, Node* prev, Node* next) : value(value), prev(prev), next(next) {}
     };
 

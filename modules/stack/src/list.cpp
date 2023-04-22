@@ -2,12 +2,11 @@
 
 template<class T>
 List<T>::List(const List& other)
-    : List()
-{
+    : List() {
     Node** currentNode = &m_firstNode;
     Node* prevNode = nullptr;
-    for (auto currentOtherNode = other.m_firstNode; currentOtherNode != nullptr; currentOtherNode = currentOtherNode->next)
-    {
+    for (auto currentOtherNode = other.m_firstNode; currentOtherNode != nullptr;
+        currentOtherNode = currentOtherNode->next) {
         *currentNode = new Node{ currentOtherNode->value, prevNode, nullptr };
         prevNode = *currentNode;
         currentNode = &(*currentNode)->next;
@@ -18,39 +17,30 @@ List<T>::List(const List& other)
 
 
 template<class T>
-List<T>::List(List&& other)
-{
+List<T>::List(List&& other) {
     capture(other);
 }
 
 
 template<class T>
-List<T>& List<T>::operator=(const List& other)
-{
+List<T>& List<T>::operator=(const List& other) {
     if (this != &other)
-    {
         *this = List(other); // copy constructor + move assignment
-    }
     return *this;
 }
 
 
 template<class T>
-List<T>& List<T>::operator=(List&& other)
-{
+List<T>& List<T>::operator=(List&& other) {
     if (this != &other)
-    {
         capture(other);
-    }
     return *this;
 }
 
 
 template<class T>
-List<T>::~List()
-{
-    for (auto currentNode = m_firstNode; currentNode != nullptr;)
-    {
+List<T>::~List() {
+    for (auto currentNode = m_firstNode; currentNode != nullptr;) {
         auto nextNode = currentNode->next;
         delete currentNode;
         currentNode = nextNode;
@@ -61,15 +51,13 @@ List<T>::~List()
 
 
 template<class T>
-T& List<T>::front()
-{
+T& List<T>::front() {
     return const_cast<T&>(const_cast<const List&>(*this).front());
 }
 
 
 template<class T>
-const T& List<T>::front() const
-{
+const T& List<T>::front() const {
     if (m_firstNode == nullptr)
         throw std::out_of_range("Cant front() because list is empty");
     return m_firstNode->value;
@@ -77,15 +65,13 @@ const T& List<T>::front() const
 
 
 template<class T>
-T& List<T>::back()
-{
+T& List<T>::back() {
     return const_cast<T&>(const_cast<const List&>(*this).back());
 }
 
 
 template<class T>
-const T& List<T>::back() const
-{
+const T& List<T>::back() const {
     if (m_lastNode == nullptr)
         throw std::out_of_range("Cant back() because list is empty");
     return m_lastNode->value;
@@ -93,36 +79,29 @@ const T& List<T>::back() const
 
 
 template<class T>
-bool List<T>::empty() const
-{
+bool List<T>::empty() const {
     return size() == 0;
 }
 
 
 template<class T>
-size_t List<T>::size() const
-{
+size_t List<T>::size() const {
     size_t result = 0;
     for (auto currentNode = m_firstNode; currentNode != nullptr; currentNode = currentNode->next)
-    {
         ++result;
-    }
 
     return result;
 }
 
 
 template<class T>
-void List<T>::push_back(const T& value)
-{
+void List<T>::push_back(const T& value) {
     Node* newNode = new Node{ value, m_lastNode, nullptr };
 
-    if (m_firstNode == nullptr)
-    {
+    if (m_firstNode == nullptr) {
         m_firstNode = m_lastNode = newNode;
     }
-    else
-    {
+    else {
         m_lastNode->next = newNode;
         m_lastNode = newNode;
     }
@@ -130,8 +109,7 @@ void List<T>::push_back(const T& value)
 
 
 template<class T>
-void List<T>::pop_back()
-{
+void List<T>::pop_back() {
     if (m_lastNode == nullptr)
         throw std::out_of_range("Cant pop_back() because list is empty");
 
@@ -148,27 +126,23 @@ void List<T>::pop_back()
 
 
 template<class T>
-void List<T>::swap(List& other)
-{
+void List<T>::swap(List& other) {
     std::swap(m_firstNode, other.m_firstNode);
     std::swap(m_lastNode, other.m_lastNode);
 }
 
 
 template<class T>
-void List<T>::capture(List& other)
-{
+void List<T>::capture(List& other) {
     swap(other);
     List().swap(other);
 }
 
 
 template<class T>
-bool List<T>::operator==(const List& other) const
-{
+bool List<T>::operator==(const List& other) const {
     auto node = m_firstNode, otherNode = other.m_firstNode;
-    while (node != nullptr && otherNode != nullptr)
-    {
+    while (node != nullptr && otherNode != nullptr) {
         if (node->value != otherNode->value)
             return false;
 
@@ -181,8 +155,7 @@ bool List<T>::operator==(const List& other) const
 
 
 template<class T>
-bool List<T>::operator!=(const List& other) const
-{
+bool List<T>::operator!=(const List& other) const {
     return !(*this == other);
 }
 

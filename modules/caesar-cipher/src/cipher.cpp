@@ -42,7 +42,7 @@ std::string CaesarCipher::encode(const std::string &message) const {
   for (const auto &c : message) {
     const std::string::size_type index = m_kernel.alphabet.find(c);
 
-    if (index == std::string::npos) { // does not contain
+    if (index == std::string::npos) {  // does not contain
       if (m_kernel.foreignChars) {
         builder.push_back(c);
       }
@@ -50,7 +50,9 @@ std::string CaesarCipher::encode(const std::string &message) const {
       continue;
     }
 
-    builder.push_back(m_kernel.alphabet[(index + m_kernel.shift) % m_kernel.alphabet.size()]);
+    builder.push_back(
+        m_kernel.alphabet[(index + m_kernel.shift) % m_kernel.alphabet.size()]
+    );
   }
 
   return builder;
@@ -60,7 +62,7 @@ std::string CaesarCipher::decode(const std::string &message) const {
 
   for (const auto &c : message) {
     const std::string::size_type index = m_kernel.alphabet.find(c);
-    if (index == std::string::npos) { // does not contain
+    if (index == std::string::npos) {  // does not contain
       if (m_kernel.foreignChars) {
         builder.push_back(c);
       }
@@ -68,8 +70,12 @@ std::string CaesarCipher::decode(const std::string &message) const {
       continue;
     }
 
+    const auto i = static_cast<int32_t>(index);
+    const auto s = static_cast<int32_t>(m_kernel.shift);
     builder.push_back(
-        m_kernel.alphabet[std::abs(static_cast<int32_t>(index) - static_cast<int32_t>(m_kernel.shift)) % m_kernel.alphabet.size()]
+        m_kernel.alphabet[
+            std::abs(i - s) % m_kernel.alphabet.size()
+          ]
     );
   }
 

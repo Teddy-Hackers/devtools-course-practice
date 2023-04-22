@@ -114,8 +114,8 @@ class CaesarCipher {
  * @return cipher is not equal to c
  */
   bool operator!=(const CaesarCipher &c) const;
- private:
 
+ private:
   /**
    * @brief contains current cipher settings
    */

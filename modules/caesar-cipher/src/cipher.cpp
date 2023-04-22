@@ -51,8 +51,7 @@ std::string CaesarCipher::encode(const std::string &message) const {
     }
 
     builder.push_back(
-        m_kernel.alphabet[(index + m_kernel.shift) % m_kernel.alphabet.size()]
-    );
+        m_kernel.alphabet[(index + m_kernel.shift) % m_kernel.alphabet.size()]);
   }
 
   return builder;
@@ -75,8 +74,7 @@ std::string CaesarCipher::decode(const std::string &message) const {
     builder.push_back(
         m_kernel.alphabet[
             std::abs(i - s) % m_kernel.alphabet.size()
-          ]
-    );
+          ]);
   }
 
   return builder;

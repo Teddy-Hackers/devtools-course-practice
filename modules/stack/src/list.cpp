@@ -89,7 +89,8 @@ bool List<T>::empty() const {
 template<class T>
 size_t List<T>::size() const {
     size_t result = 0;
-    for (auto currentNode = m_firstNode; currentNode != nullptr; currentNode = currentNode->next)
+    for (auto currentNode = m_firstNode; currentNode != nullptr;
+        currentNode = currentNode->next)
         ++result;
 
     return result;

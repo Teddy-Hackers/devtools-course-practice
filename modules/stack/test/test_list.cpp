@@ -13,10 +13,10 @@ TEST(Kandrin_Alexey_ListTest, Can_copy_empty_list) {
     // Arrange
     List<int> list;
 
-    // Act 
+    // Act
     List<int> copyList(list);
 
-    //Assert
+    // Assert
     ASSERT_EQ(list, copyList);
 }
 
@@ -94,10 +94,10 @@ TEST(Kandrin_Alexey_ListTest, Can_copy_assign_empty_list) {
     List<int> list;
     List<int> copyList;
 
-    // Act 
+    // Act
     copyList = list;
 
-    //Assert
+    // Assert
     ASSERT_EQ(list, copyList);
 }
 
@@ -204,7 +204,6 @@ TEST(Kandrin_Alexey_ListTest, Moved_list_captures_nodes) {
     // Assert
     ASSERT_EQ(firstPtr, &moveList.front());
     ASSERT_EQ(lastPtr, &moveList.back());
-
 }
 
 TEST(Kandrin_Alexey_ListTest, Copied_list_by_assign_has_own_memory) {
@@ -239,7 +238,6 @@ TEST(Kandrin_Alexey_ListTest, Moved_list_by_assign_captures_nodes) {
     // Assert
     ASSERT_EQ(firstPtr, &moveList.front());
     ASSERT_EQ(lastPtr, &moveList.back());
-
 }
 
 TEST(Kandrin_Alexey_ListTest, Move_constructor_clear_argument) {
@@ -380,7 +378,8 @@ TEST(Kandrin_Alexey_ListTest, Push_back_changes_front_if_list_was_empty) {
     ASSERT_EQ(value1, list.front());
 }
 
-TEST(Kandrin_Alexey_ListTest, Push_back_doesnt_change_front_if_list_wasnot_empty) {
+TEST(Kandrin_Alexey_ListTest,
+    Push_back_doesnt_change_front_if_list_wasnot_empty) {
     // Arrange
     List<int> list;
     int value1 = 0;
@@ -447,7 +446,8 @@ TEST(Kandrin_Alexey_ListTest, Push_back_changes_const_front_if_list_was_empty) {
     ASSERT_EQ(value1, const_cast<const List<int>&>(list).front());
 }
 
-TEST(Kandrin_Alexey_ListTest, Push_back_doesnt_change_const_front_if_list_wasnot_empty) {
+TEST(Kandrin_Alexey_ListTest,
+    Push_back_doesnt_change_const_front_if_list_wasnot_empty) {
     // Arrange
     List<int> list;
     int value1 = 0;
@@ -526,7 +526,6 @@ TEST(Kandrin_Alexey_ListTest, Push_back_increments_list) {
     list.push_back(4);
     ++size;
     ASSERT_EQ(size, list.size());
-
 }
 
 TEST(Kandrin_Alexey_ListTest, Pop_back_decrements_list) {

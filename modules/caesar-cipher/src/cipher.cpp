@@ -34,7 +34,7 @@ bool CaesarCipher::operator==(const CaesarCipher &c) const {
   return m_kernel == c.m_kernel;
 }
 bool CaesarCipher::operator!=(const CaesarCipher &c) const {
-  return m_kernel == c.m_kernel;
+  return !(m_kernel == c.m_kernel);
 }
 std::string CaesarCipher::encode(const std::string &message) const {
   std::string builder;

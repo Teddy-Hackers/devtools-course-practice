@@ -60,9 +60,9 @@ TEST(CaesarCipher, kernel_not_equal) {
   e.shift = 6;
   e.foreignChars = false;
 
-  bool check = k == e;
+  bool check = k != e;
 
-  EXPECT_FALSE(check);
+  EXPECT_TRUE(check);
 }
 
 TEST(CaesarCipher, equal) {
@@ -78,9 +78,9 @@ TEST(CaesarCipher, not_equal) {
   k.shift = 42;
   CaesarCipher c1, c2(k);
 
-  bool check = c1 == c2;
+  bool check = c1 != c2;
 
-  EXPECT_FALSE(check);
+  EXPECT_TRUE(check);
 }
 
 TEST(CaesarCipher, remove_equal_characters_in_constructor) {

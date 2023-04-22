@@ -17,7 +17,7 @@
  */
 template <class T, class Container = List<T>>
 class Stack {
-public:
+ public:
     /**
      * @brief Getter for the most recently added element
      * @return Non-constant reference to the most recently added element
@@ -51,7 +51,7 @@ public:
      */
     void pop();
 
-private:
+ private:
     Container m_data;
 };
 

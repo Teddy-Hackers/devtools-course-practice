@@ -18,7 +18,7 @@
  */
 template <class T>
 class List {
-public:
+ public:
     /**
      * @brief Default constructor
      */
@@ -134,14 +134,14 @@ public:
      */
     bool operator!=(const List& other) const;
 
-private:
+ private:
     /**
      * @brief Capture data from list. The captured list is then cleared
      * @param other The list from which the data is captured
      */
     void capture(List* other);
 
-private:
+ private:
     struct Node {
         T value;
         Node* prev;

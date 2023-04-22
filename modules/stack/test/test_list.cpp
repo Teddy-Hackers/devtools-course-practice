@@ -647,3 +647,27 @@ TEST(Kandrin_Alexey_ListTest, Pop_back_throws_out_of_range_if_list_is_empty) {
     // Act & asserts
     ASSERT_THROW(list.pop_back(), std::out_of_range);
 }
+
+TEST(Kandrin_Alexey_ListTest, Clear_makes_list_empty) {
+    // Arrange
+    List<int> list;
+    list.push_back(1);
+    list.push_back(2);
+
+    // Act
+    list.clear();
+
+    // Assert
+    ASSERT_TRUE(list.empty());
+}
+
+TEST(Kandrin_Alexey_ListTest, Clear_with_empty_list_is_correct) {
+    // Arrange
+    List<int> list;
+
+    // Act
+    list.clear();
+
+    // Assert
+    ASSERT_TRUE(list.empty());
+}

@@ -112,6 +112,13 @@ class List {
      */
     void pop_back();
 
+
+    /**
+     * @brief Remove all elements from the list
+     */
+    void clear();
+
+
     /**
      * @brief Swap lists
      * @param other List to be swapped

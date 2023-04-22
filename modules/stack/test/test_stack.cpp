@@ -105,3 +105,27 @@ TEST(Kandrin_Alexey_StackTest, Stack_is_not_empty_after_pop) {
     // Assert
     ASSERT_FALSE(stack.empty());
 }
+
+TEST(Kandrin_Alexey_StackTest, Clear_makes_stack_empty) {
+    // Arrange
+    Stack<int> stack;
+    stack.push(1);
+    stack.push(2);
+
+    // Act
+    stack.clear();
+
+    // Assert
+    ASSERT_TRUE(stack.empty());
+}
+
+TEST(Kandrin_Alexey_StackTest, Clear_with_empty_stack_is_correct) {
+    // Arrange
+    Stack<int> stack;
+
+    // Act
+    stack.clear();
+
+    // Assert
+    ASSERT_TRUE(stack.empty());
+}

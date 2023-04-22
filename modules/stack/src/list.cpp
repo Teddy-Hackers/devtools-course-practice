@@ -46,13 +46,7 @@ List<T>& List<T>::operator=(List&& other) noexcept {
 
 template<class T>
 List<T>::~List() {
-    for (auto currentNode = m_firstNode; currentNode != nullptr;) {
-        auto nextNode = currentNode->next;
-        delete currentNode;
-        currentNode = nextNode;
-    }
-    m_firstNode = nullptr;
-    m_lastNode = nullptr;
+    clear();
 }
 
 
@@ -128,6 +122,18 @@ void List<T>::pop_back() {
         m_lastNode->next = nullptr;
 
     delete lastNode;
+}
+
+
+template<class T>
+void List<T>::clear() {
+    for (auto currentNode = m_firstNode; currentNode != nullptr;) {
+        auto nextNode = currentNode->next;
+        delete currentNode;
+        currentNode = nextNode;
+    }
+    m_firstNode = nullptr;
+    m_lastNode = nullptr;
 }
 
 

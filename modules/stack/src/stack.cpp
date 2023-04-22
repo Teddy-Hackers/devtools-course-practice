@@ -32,4 +32,10 @@ void Stack<T, Container>::pop() {
 }
 
 
+template<class T, class Container>
+void Stack<T, Container>::clear() {
+    m_data.clear();
+}
+
+
 template class Stack<int>;  // explicit template instantiation

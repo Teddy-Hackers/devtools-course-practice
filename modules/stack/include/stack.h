@@ -51,6 +51,11 @@ class Stack {
      */
     void pop();
 
+    /**
+     * @brief Remove all elements from the stack
+     */
+    void clear();
+
  private:
     Container m_data;
 };

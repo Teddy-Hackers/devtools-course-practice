@@ -129,3 +129,43 @@ TEST(Kandrin_Alexey_StackTest, Clear_with_empty_stack_is_correct) {
     // Assert
     ASSERT_TRUE(stack.empty());
 }
+
+TEST(Kandrin_Alexey_StackTest, Default_constructor_gives_zero_size_stack) {
+    // Arrange & act
+    Stack<int> stack;
+
+    // Assert
+    ASSERT_EQ(static_cast<size_t>(0), stack.size());
+}
+
+TEST(Kandrin_Alexey_StackTest, Push_back_increments_stack_size) {
+    // Arrange
+    Stack<int> stack;
+    size_t size = 0;
+
+    // Act & asserts
+    stack.push(3);
+    ++size;
+    ASSERT_EQ(size, stack.size());
+
+    stack.push(4);
+    ++size;
+    ASSERT_EQ(size, stack.size());
+}
+
+TEST(Kandrin_Alexey_StackTest, Pop_back_decrements_stack_size) {
+    // Arrange
+    Stack<int> stack;
+    stack.push(3);
+    stack.push(4);
+    size_t size = stack.size();
+
+    // Act & asserts
+    stack.pop();
+    --size;
+    ASSERT_EQ(size, stack.size());
+
+    stack.pop();
+    --size;
+    ASSERT_EQ(size, stack.size());
+}

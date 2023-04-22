@@ -38,4 +38,10 @@ void Stack<T, Container>::clear() {
 }
 
 
+template<class T, class Container>
+size_t Stack<T, Container>::size() const {
+    return m_data.size();
+}
+
+
 template class Stack<int>;  // explicit template instantiation

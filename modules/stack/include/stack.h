@@ -56,6 +56,12 @@ class Stack {
      */
     void clear();
 
+    /**
+     * @brief Get size of the stack
+     * @return Size of the stack
+     */
+    size_t size() const;
+
  private:
     Container m_data;
 };

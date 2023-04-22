@@ -26,10 +26,10 @@ TEST(Selivankin_Sergey_ComplexNumberTest, Test_Not_Equal) {
     ComplexNumber b(re, im);
 
     // Act
-    bool isEqual = a != b;
+    bool isNotEqual = a != b;
 
     // Assert
-    EXPECT_FALSE(isEqual);
+    EXPECT_FALSE(isNotEqual);
 }
 
 TEST(Selivankin_Sergey_ComplexNumberTest, Test_Sum) {

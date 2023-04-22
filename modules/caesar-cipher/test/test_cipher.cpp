@@ -28,6 +28,16 @@ TEST(CaesarCipher, copy_cipher) {
   EXPECT_EQ(origin, copy);
 }
 
+TEST(CaesarCipher, move_cipher) {
+  Kernel kernel;
+  kernel.shift = 2;
+  CaesarCipher origin(kernel);
+
+  CaesarCipher mv = std::move(origin);
+
+  EXPECT_EQ(kernel, mv.getKernel());
+}
+
 TEST(CaesarCipher, kernel_equal) {
   Kernel k, e;
   k.alphabet = "tes";

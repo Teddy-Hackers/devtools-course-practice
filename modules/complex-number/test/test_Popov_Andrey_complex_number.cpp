@@ -30,5 +30,5 @@ TEST(Popov_A_complex_number, Multiply) {
 
   ComplexNumber z1_M_z2 = z1 * z2;
 
-  EXPECT_EQ(z1_M_z2, ComplexNumber(0,30));
+  EXPECT_EQ(z1_M_z2, ComplexNumber(0, 30));
 }

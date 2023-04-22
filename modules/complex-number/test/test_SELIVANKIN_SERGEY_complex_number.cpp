@@ -11,25 +11,17 @@ TEST(Selivankin_Sergey_ComplexNumberTest, Test_Equal) {
     ComplexNumber a(re, im);
     ComplexNumber b(re, im);
 
-    // Act
-    bool isEqual = a == b;
-
-    // Assert
-    EXPECT_TRUE(isEqual);
+    // Act & Assert
+    EXPECT_EQ(a, b);
 }
 
 TEST(Selivankin_Sergey_ComplexNumberTest, Test_Not_Equal) {
     // Arrange
-    double re = 0.0;
-    double im = 0.0;
-    ComplexNumber a(re, im);
-    ComplexNumber b(re, im);
+    ComplexNumber a(1.0, 2.0);
+    ComplexNumber b(1.0, 3.0);
 
-    // Act
-    bool isNotEqual = a != b;
-
-    // Assert
-    EXPECT_FALSE(isNotEqual);
+    // Act & Assert
+    EXPECT_NE(a, b);
 }
 
 TEST(Selivankin_Sergey_ComplexNumberTest, Test_Sum) {
@@ -42,5 +34,6 @@ TEST(Selivankin_Sergey_ComplexNumberTest, Test_Sum) {
     ComplexNumber result = a + b;
 
     // Assert
-    ASSERT_EQ(expected, result);
+    ASSERT_EQ(expected.getIm(), result.getIm());
+    ASSERT_EQ(expected.getRe(), result.getRe());
 }

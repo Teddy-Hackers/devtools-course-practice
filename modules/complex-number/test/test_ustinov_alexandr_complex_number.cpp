@@ -1,8 +1,26 @@
 // Copyright 2023 Ustinov Alexandr
 
 #include <gtest/gtest.h>
-
+#include <random>
 #include "include/complex_number.h"
+
+TEST(Ustinov_ComplexNumberTest, Equality1) {
+    ComplexNumber z1(3.0, 1.0),
+                  z2(3.0, 1.0);
+
+    bool eq = (z1 == z2);
+
+    EXPECT_EQ(eq, true);
+}
+
+TEST(Ustinov_ComplexNumberTest, Equality2) {
+    ComplexNumber z1(1.0, 1.0),
+                  z2(1.0, -1.0);
+
+    bool eq = (z1 == z2);
+
+    EXPECT_EQ(eq, false);
+}
 
 TEST(Ustinov_ComplexNumberTest, Sum1) {
     ComplexNumber z1(1.0, 0.0);
@@ -66,3 +84,50 @@ TEST(Ustinov_ComplexNumberTest, Diff4) {
 
     EXPECT_EQ(z1_minus_z2, ComplexNumber(0.0, 0.0));
 }
+
+TEST(Ustinov_ComplexNumberTest, Product1) {
+    ComplexNumber z1(0.0, 0.0);
+    ComplexNumber z2(0.0, 0.0);
+
+    ComplexNumber z1_times_z2 = z1 * z2;
+
+    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 0.0));
+}
+
+TEST(Ustinov_ComplexNumberTest, Product2) {
+    ComplexNumber z1(3.0, 0.0);
+    ComplexNumber z2(5.0, 0.0);
+
+    ComplexNumber z1_times_z2 = z1 * z2;
+
+    EXPECT_EQ(z1_times_z2, ComplexNumber(15.0, 0.0));
+}
+
+TEST(Ustinov_ComplexNumberTest, Product3) {
+    ComplexNumber z1(0.0, 2.0);
+    ComplexNumber z2(0.0, 1.0);
+
+    ComplexNumber z1_times_z2 = z1 * z2;
+
+    EXPECT_EQ(z1_times_z2, ComplexNumber(-2.0, 0.0));
+}
+
+TEST(Ustinov_ComplexNumberTest, Product4) {
+    ComplexNumber z1(1.0, 1.0);
+    ComplexNumber z2(1.0, 1.0);
+
+    ComplexNumber z1_times_z2 = z1 * z2;
+
+    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 2.0));
+}
+
+TEST(Ustinov_ComplexNumberTest, Product5) {
+    ComplexNumber z1(3.0, 2.0);
+    ComplexNumber z2(0.0, 0.0);
+
+    ComplexNumber z1_times_z2 = z1 * z2;
+
+    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 0.0));
+}
+
+

@@ -1,7 +1,0 @@
-# Target labels
- complex-number
- Application
-# Source files and their labels
-D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/application/complex-number.cpp
- complex-number
- Application

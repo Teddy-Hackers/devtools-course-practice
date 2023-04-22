@@ -4,6 +4,7 @@
 #define MODULES_STACK_INCLUDE_LIST_H_
 
 #include <stdexcept>
+#include <utility>
 
 //! @addtogroup list
 //! @{
@@ -33,7 +34,7 @@ public:
      * @brief Move constructor
      * @param[in] other List to copy from
      */
-    List(List&& other);
+    List(List&& other) noexcept;
 
 
     /**
@@ -49,7 +50,7 @@ public:
      * @param[in] other List to move from
      * @return Current object with changed values
      */
-    List& operator=(List&& other);
+    List& operator=(List&& other) noexcept;
 
 
     /**
@@ -138,7 +139,7 @@ private:
      * @brief Capture data from list. The captured list is then cleared
      * @param other The list from which the data is captured
      */
-    void capture(List& other);
+    void capture(List* other);
 
 private:
     struct Node {
@@ -146,7 +147,8 @@ private:
         Node* prev;
         Node* next;
 
-        Node(const T& value, Node* prev, Node* next) : value(value), prev(prev), next(next) {}
+        Node(const T& value, Node* prev, Node* next)
+            : value(value), prev(prev), next(next) {}
     };
 
     Node* m_firstNode = nullptr;

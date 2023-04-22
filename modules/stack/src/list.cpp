@@ -17,8 +17,8 @@ List<T>::List(const List& other)
 
 
 template<class T>
-List<T>::List(List&& other) {
-    capture(other);
+List<T>::List(List&& other) noexcept {
+    capture(&other);
 }
 
 
@@ -31,9 +31,9 @@ List<T>& List<T>::operator=(const List& other) {
 
 
 template<class T>
-List<T>& List<T>::operator=(List&& other) {
+List<T>& List<T>::operator=(List&& other) noexcept {
     if (this != &other)
-        capture(other);
+        capture(&other);
     return *this;
 }
 
@@ -133,9 +133,9 @@ void List<T>::swap(List& other) {
 
 
 template<class T>
-void List<T>::capture(List& other) {
-    swap(other);
-    List().swap(other);
+void List<T>::capture(List* other) {
+    swap(*other);
+    List().swap(*other);
 }
 
 

@@ -510,7 +510,7 @@ TEST(Kandrin_Alexey_ListTest, Default_constructor_gives_zero_size_list) {
     List<int> list;
 
     // Assert
-    ASSERT_EQ(0, list.size());
+    ASSERT_EQ(static_cast<size_t>(0), list.size());
 }
 
 TEST(Kandrin_Alexey_ListTest, Push_back_increments_list) {

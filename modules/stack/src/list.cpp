@@ -1,3 +1,5 @@
+// Copyright 2023 Kandrin Alexey
+
 #include "include/list.h"
 
 template<class T>
@@ -25,7 +27,7 @@ List<T>::List(List&& other) noexcept {
 template<class T>
 List<T>& List<T>::operator=(const List& other) {
     if (this != &other)
-        *this = List(other); // copy constructor + move assignment
+        *this = List(other);  // copy constructor + move assignment
     return *this;
 }
 
@@ -100,8 +102,7 @@ void List<T>::push_back(const T& value) {
 
     if (m_firstNode == nullptr) {
         m_firstNode = m_lastNode = newNode;
-    }
-    else {
+    } else {
         m_lastNode->next = newNode;
         m_lastNode = newNode;
     }
@@ -150,7 +151,7 @@ bool List<T>::operator==(const List& other) const {
         otherNode = otherNode->next;
     }
 
-    return node == otherNode; // both equal nullptr
+    return node == otherNode;  // both equal nullptr
 }
 
 
@@ -159,4 +160,5 @@ bool List<T>::operator!=(const List& other) const {
     return !(*this == other);
 }
 
-template class List<int>; // explicit template instantiation
+
+template class List<int>;  // explicit template instantiation

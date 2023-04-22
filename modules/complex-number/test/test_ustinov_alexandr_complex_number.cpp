@@ -1,158 +1,103 @@
 // Copyright 2023 Ustinov Alexandr
 
 #include <gtest/gtest.h>
-#include <random>
+
+#include <utility>
+
 #include "include/complex_number.h"
 
-TEST(Ustinov_ComplexNumberTest, Equality1) {
-    ComplexNumber z1(3.0, 1.0),
-                  z2(3.0, 1.0);
+TEST(Ustinov_ComplexNumberTest, Equality) {
+    std::pair<ComplexNumber, ComplexNumber> eq_pair
+        {ComplexNumber(3.0, 1.0), ComplexNumber(3.0, 1.0)};
+    std::pair<ComplexNumber, ComplexNumber> neq_pair
+        {ComplexNumber(1.0, 1.0), ComplexNumber(1.0, -1.0)};
 
-    bool eq = (z1 == z2);
-
-    EXPECT_EQ(eq, true);
+    EXPECT_EQ(eq_pair.first, eq_pair.second);
+    EXPECT_NE(neq_pair.first, neq_pair.second);
 }
 
-TEST(Ustinov_ComplexNumberTest, Equality2) {
-    ComplexNumber z1(1.0, 1.0),
-                  z2(1.0, -1.0);
+TEST(Ustinov_ComplexNumberTest, Addition) {
+    std::pair<ComplexNumber, ComplexNumber> z1_z2_pair_array[3]{
+        {ComplexNumber(1.0, 0.0), ComplexNumber(0.0, 1.0)},
+        {ComplexNumber(2.0, 3.0), ComplexNumber(3.0, 5.0)},
+        {ComplexNumber(0.0, 1.0), ComplexNumber(0.0, -1.0)}};
+    ComplexNumber expected_z1_plus_z2_array[3]{
+        ComplexNumber(1.0, 1.0),
+        ComplexNumber(5.0, 8.0),
+        ComplexNumber(0.0, 0.0)};
+    ComplexNumber actual_z1_plus_z2_array[3];
 
-    bool eq = (z1 == z2);
+    for (int i = 0; i < 3; ++i)
+        actual_z1_plus_z2_array[i] = z1_z2_pair_array[i].first +
+                                     z1_z2_pair_array[i].second;
 
-    EXPECT_EQ(eq, false);
+    for (int i = 0; i < 3; ++i)
+        EXPECT_EQ(actual_z1_plus_z2_array[i], expected_z1_plus_z2_array[i]);
 }
 
-TEST(Ustinov_ComplexNumberTest, Addition1) {
-    ComplexNumber z1(1.0, 0.0);
-    ComplexNumber z2(0.0, 1.0);
+TEST(Ustinov_ComplexNumberTest, Subtraction) {
+    std::pair<ComplexNumber, ComplexNumber> z1_z2_pair_array[4]{
+        {ComplexNumber(1.0, 0.0), ComplexNumber(0.0, 1.0)},
+        {ComplexNumber(3.0, 1.0), ComplexNumber(1.0, 3.0)},
+        {ComplexNumber(0.0, 1.0), ComplexNumber(0.0, 1.0)},
+        {ComplexNumber(0.0, 0.0), ComplexNumber(0.0, -0.0)}};
+    ComplexNumber expected_z1_minus_z2_array[4]{
+        ComplexNumber(1.0, -1.0),
+        ComplexNumber(2.0, -2.0),
+        ComplexNumber(0.0, 0.0),
+        ComplexNumber(0.0, 0.0)};
+    ComplexNumber actual_z1_minus_z2_array[4];
 
-    ComplexNumber z1_plus_z2 = z1 + z2;
+    for (int i = 0; i < 4; ++i)
+        actual_z1_minus_z2_array[i] = z1_z2_pair_array[i].first -
+                                      z1_z2_pair_array[i].second;
 
-    EXPECT_EQ(z1_plus_z2, ComplexNumber(1.0, 1.0));
+    for (int i = 0; i < 4; ++i)
+        EXPECT_EQ(actual_z1_minus_z2_array[i], expected_z1_minus_z2_array[i]);
 }
 
-TEST(Ustinov_ComplexNumberTest, Addition2) {
-    ComplexNumber z1(2.0, 3.0);
-    ComplexNumber z2(3.0, 5.0);
+TEST(Ustinov_ComplexNumberTest, Multiplication) {
+    std::pair<ComplexNumber, ComplexNumber> z1_z2_pair_array[5]{
+        {ComplexNumber(0.0, 0.0), ComplexNumber(0.0, 0.0)},
+        {ComplexNumber(3.0, 0.0), ComplexNumber(5.0, 0.0)},
+        {ComplexNumber(0.0, 2.0), ComplexNumber(0.0, 1.0)},
+        {ComplexNumber(1.0, 1.0), ComplexNumber(1.0, 1.0)},
+        {ComplexNumber(2.0, 3.0), ComplexNumber(0.0, 0.0)}
+    };
+    ComplexNumber expected_z1_times_z2_array[5]{
+        ComplexNumber(0.0, 0.0),
+        ComplexNumber(15.0, 0.0),
+        ComplexNumber(-2.0, 0.0),
+        ComplexNumber(0.0, 2.0),
+        ComplexNumber(0.0, 0.0)
+    };
+    ComplexNumber actual_z1_times_z2_array[5];  // z1 * z2
 
-    ComplexNumber z1_plus_z2 = z1 + z2;
+    for (int i = 0; i < 5; ++i)
+        actual_z1_times_z2_array[i] = z1_z2_pair_array[i].first *
+                                      z1_z2_pair_array[i].second;
 
-    EXPECT_EQ(z1_plus_z2, ComplexNumber(5.0, 8.0));
+    for (int i = 0; i < 5; ++i)
+        EXPECT_EQ(actual_z1_times_z2_array[i], expected_z1_times_z2_array[i]);
 }
 
-TEST(Ustinov_ComplexNumberTest, Addition3) {
-    ComplexNumber z1(0.0, 1.0);
-    ComplexNumber z2(0.0, -1.0);
+TEST(Ustinov_ComplexNumberTest, Division) {
+    std::pair<ComplexNumber, ComplexNumber> z1_z2_pair_array[3]{
+        {ComplexNumber(5.0, 8.0), ComplexNumber(1.0, 0.0)},
+        {ComplexNumber(5.0, 8.0), ComplexNumber(0.0, 1.0)},
+        {ComplexNumber(1.0, 0.0), ComplexNumber(1.0, 1.0)},
+    };
+    ComplexNumber expected_z1_over_z2_array[3]{
+        ComplexNumber(5.0, 8.0),
+        ComplexNumber(8.0, -5.0),
+        ComplexNumber(0.5, -0.5),
+    };
+    ComplexNumber actual_z1_over_z2_array[3];  // z1 / z2
 
-    ComplexNumber z1_plus_z2 = z1 + z2;
+    for (int i = 0; i < 3; ++i)
+        actual_z1_over_z2_array[i] = z1_z2_pair_array[i].first /
+                                     z1_z2_pair_array[i].second;
 
-    EXPECT_EQ(z1_plus_z2, ComplexNumber(0.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Subtraction1) {
-    ComplexNumber z1(1.0, 0.0);
-    ComplexNumber z2(0.0, 1.0);
-
-    ComplexNumber z1_minus_z2 = z1 - z2;
-
-    EXPECT_EQ(z1_minus_z2, ComplexNumber(1.0, -1.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Subtraction2) {
-    ComplexNumber z1(3.0, 1.0);
-    ComplexNumber z2(1.0, 3.0);
-
-    ComplexNumber z1_minus_z2 = z1 - z2;
-
-    EXPECT_EQ(z1_minus_z2, ComplexNumber(2.0, -2.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Subtraction3) {
-    ComplexNumber z1(0.0, 1.0);
-    ComplexNumber z2(0.0, 1.0);
-
-    ComplexNumber z1_minus_z2 = z1 - z2;
-
-    EXPECT_EQ(z1_minus_z2, ComplexNumber(0.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Subtraction4) {
-    ComplexNumber z1(0.0, 0.0);
-    ComplexNumber z2(0.0, -0.0);
-
-    ComplexNumber z1_minus_z2 = z1 - z2;
-
-    EXPECT_EQ(z1_minus_z2, ComplexNumber(0.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Multiplication1) {
-    ComplexNumber z1(0.0, 0.0);
-    ComplexNumber z2(0.0, 0.0);
-
-    ComplexNumber z1_times_z2 = z1 * z2;
-
-    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Multiplication2) {
-    ComplexNumber z1(3.0, 0.0);
-    ComplexNumber z2(5.0, 0.0);
-
-    ComplexNumber z1_times_z2 = z1 * z2;
-
-    EXPECT_EQ(z1_times_z2, ComplexNumber(15.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Multiplication3) {
-    ComplexNumber z1(0.0, 2.0);
-    ComplexNumber z2(0.0, 1.0);
-
-    ComplexNumber z1_times_z2 = z1 * z2;
-
-    EXPECT_EQ(z1_times_z2, ComplexNumber(-2.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Multiplication4) {
-    ComplexNumber z1(1.0, 1.0);
-    ComplexNumber z2(1.0, 1.0);
-
-    ComplexNumber z1_times_z2 = z1 * z2;
-
-    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 2.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Multiplication5) {
-    ComplexNumber z1(3.0, 2.0);
-    ComplexNumber z2(0.0, 0.0);
-
-    ComplexNumber z1_times_z2 = z1 * z2;
-
-    EXPECT_EQ(z1_times_z2, ComplexNumber(0.0, 0.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Division1) {
-    ComplexNumber z1(5.0, 8.0);
-    ComplexNumber z2(1.0, 0.0);
-
-    ComplexNumber z1_div_by_z2 = z1 / z2;
-
-    EXPECT_EQ(z1_div_by_z2, ComplexNumber(5.0, 8.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Division2) {
-    ComplexNumber z1(5.0, 8.0);
-    ComplexNumber z2(0.0, 1.0);
-
-    ComplexNumber z1_div_by_z2 = z1 / z2;
-
-    EXPECT_EQ(z1_div_by_z2, ComplexNumber(8.0, -5.0));
-}
-
-TEST(Ustinov_ComplexNumberTest, Division3) {
-    ComplexNumber z1(1.0, 0.0);
-    ComplexNumber z2(1.0, 1.0);
-
-    ComplexNumber z1_div_by_z2 = z1 / z2;
-
-    EXPECT_EQ(z1_div_by_z2, ComplexNumber(0.5, -0.5));
+    for (int i = 0; i < 3; ++i)
+        EXPECT_EQ(actual_z1_over_z2_array[i], expected_z1_over_z2_array[i]);
 }

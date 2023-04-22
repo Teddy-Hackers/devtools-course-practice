@@ -640,3 +640,10 @@ TEST(Kandrin_Alexey_ListTest, Const_back_throws_out_of_range) {
     ASSERT_THROW(const_cast<const List<int>&>(list).back(), std::out_of_range);
 }
 
+TEST(Kandrin_Alexey_ListTest, Pop_back_throws_out_of_range_if_list_is_empty) {
+    // Arrange
+    List<int> list;
+
+    // Act & asserts
+    ASSERT_THROW(list.pop_back(), std::out_of_range);
+}

@@ -3,6 +3,10 @@
 #include "include/list.h"
 
 template<class T>
+List<T>::List() = default;
+
+
+template<class T>
 List<T>::List(const List& other)
     : List() {
     Node** currentNode = &m_firstNode;

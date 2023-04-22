@@ -22,7 +22,7 @@ class List {
     /**
      * @brief Default constructor
      */
-    List() = default;
+    List();
 
     /**
      * @brief Copy constructor

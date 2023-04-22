@@ -79,3 +79,11 @@ std::string CaesarCipher::decode(const std::string &message) const {
 
   return builder;
 }
+CaesarCipher &CaesarCipher::operator=(const CaesarCipher &c)  {
+  if (this == &c) {
+    return *this;
+  }
+
+  m_kernel = c.m_kernel;
+  return *this;
+}

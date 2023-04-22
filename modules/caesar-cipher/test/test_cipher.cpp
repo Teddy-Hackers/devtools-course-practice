@@ -65,6 +65,16 @@ TEST(CaesarCipher, kernel_not_equal) {
   EXPECT_TRUE(check);
 }
 
+TEST(CaesarCipher, assign) {
+  Kernel k;
+  k.shift = 42;
+  CaesarCipher origin(k);
+
+  CaesarCipher assigned = origin;
+
+  EXPECT_EQ(assigned.getKernel(), k);
+}
+
 TEST(CaesarCipher, equal) {
   CaesarCipher c1, c2;
 

@@ -82,6 +82,13 @@ class CaesarCipher {
   ~CaesarCipher() = default;
 
   /**
+   * @brief Assigment operator
+   * @param[in] c CaesarCipher to copy
+   * @return Reference to current object with new kernel
+   */
+  CaesarCipher &operator=(const CaesarCipher &c);
+
+  /**
    * @brief Encode message with current kernel
    * @param[in] message
    * @return Encoded message

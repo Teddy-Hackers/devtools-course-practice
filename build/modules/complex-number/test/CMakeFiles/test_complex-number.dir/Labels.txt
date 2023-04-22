@@ -1,0 +1,13 @@
+# Target labels
+ complex-number
+ Test
+# Source files and their labels
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/test/test_Popov_Andrey_complex_number.cpp
+ complex-number
+ Test
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/test/test_main.cpp
+ complex-number
+ Test
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/test/test_simple.cpp
+ complex-number
+ Test

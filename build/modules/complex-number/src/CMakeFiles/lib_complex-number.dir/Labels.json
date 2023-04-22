@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/\u0432\u0443\u0437 - 3 \u043a\u0443\u0440\u0441/\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f/devtools-course-practice/modules/complex-number/src/complex_calculator.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Library"
+			]
+		},
+		{
+			"file" : "D:/\u0432\u0443\u0437 - 3 \u043a\u0443\u0440\u0441/\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f/devtools-course-practice/modules/complex-number/src/complex_number.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Library"
+			]
+		},
+		{
+			"file" : "D:/\u0432\u0443\u0437 - 3 \u043a\u0443\u0440\u0441/\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f/devtools-course-practice/modules/complex-number/include/complex_calculator.h",
+			"labels" : 
+			[
+				"complex-number",
+				"Library"
+			]
+		},
+		{
+			"file" : "D:/\u0432\u0443\u0437 - 3 \u043a\u0443\u0440\u0441/\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f/devtools-course-practice/modules/complex-number/include/complex_number.h",
+			"labels" : 
+			[
+				"complex-number",
+				"Library"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"complex-number",
+			"Library"
+		],
+		"name" : "lib_complex-number"
+	}
+}

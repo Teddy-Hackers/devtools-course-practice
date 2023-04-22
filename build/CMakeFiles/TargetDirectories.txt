@@ -1,0 +1,13 @@
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/CMakeFiles/cpplint.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/CMakeFiles/RUN_TESTS.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/CMakeFiles/ALL_BUILD.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/CMakeFiles/ZERO_CHECK.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/3rdparty/gtest/CMakeFiles/gtest.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/3rdparty/gtest/CMakeFiles/RUN_TESTS.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/CMakeFiles/RUN_TESTS.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/src/CMakeFiles/lib_complex-number.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/src/CMakeFiles/RUN_TESTS.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/test/CMakeFiles/test_complex-number.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/test/CMakeFiles/RUN_TESTS.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/application/CMakeFiles/app_complex-number.dir
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/build/modules/complex-number/application/CMakeFiles/RUN_TESTS.dir

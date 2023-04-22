@@ -1,0 +1,16 @@
+# Target labels
+ complex-number
+ Library
+# Source files and their labels
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/src/complex_calculator.cpp
+ complex-number
+ Library
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/src/complex_number.cpp
+ complex-number
+ Library
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/include/complex_calculator.h
+ complex-number
+ Library
+D:/вуз - 3 курс/инструмены программирования/devtools-course-practice/modules/complex-number/include/complex_number.h
+ complex-number
+ Library

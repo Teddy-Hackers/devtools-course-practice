@@ -1,0 +1,22 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/\u0432\u0443\u0437 - 3 \u043a\u0443\u0440\u0441/\u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u044b \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f/devtools-course-practice/modules/complex-number/application/complex-number.cpp",
+			"labels" : 
+			[
+				"complex-number",
+				"Application"
+			]
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"complex-number",
+			"Application"
+		],
+		"name" : "app_complex-number"
+	}
+}

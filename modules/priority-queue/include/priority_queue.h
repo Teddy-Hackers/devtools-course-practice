@@ -23,4 +23,4 @@ class PriorityQueue {
   void clear();
 };
 
-#endif //MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_
+#endif  // MODULES_PRIORITY_QUEUE_INCLUDE_PRIORITY_QUEUE_H_

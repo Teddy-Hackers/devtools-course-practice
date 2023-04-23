@@ -7,22 +7,22 @@
 TEST(Yurin_Evgeny_ComplexNumberTest, Test_Summ) {
   ComplexNumber first(1337.0, 42.0);
   ComplexNumber second(3.0, 8.0);
-  ComplexNumber expectedResult = ComplexNumber(1400.0, 50.0);
+  ComplexNumber expectedResult = ComplexNumber(1340.0, 50.0);
 
   ComplexNumber result = first + second;
 
-  EXPECT_NE(expectedResult.getIm(), result.getIm());
+  ASSERT_EQ(expectedResult.getIm(), result.getIm());
   ASSERT_EQ(expectedResult.getRe(), result.getRe());
 }
 
 TEST(Yurin_Evgeny_ComplexNumberTest, Test_minus) {
   ComplexNumber first(1337.0, 42.0);
   ComplexNumber second(3.0, 8.0);
-  ComplexNumber expectedResult = ComplexNumber(1336.0, 34.0);
+  ComplexNumber expectedResult = ComplexNumber(1334.0, 34.0);
 
   ComplexNumber result = first - second;
 
-  EXPECT_NE(expectedResult.getIm(), result.getIm());
+  ASSERT_EQ(expectedResult.getIm(), result.getIm());
   ASSERT_EQ(expectedResult.getRe(), result.getRe());
 }
 

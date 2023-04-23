@@ -33,13 +33,14 @@ TEST(Yurin_Evgeny_ComplexNumberTest, Test_Not_Equal) {
   EXPECT_NE(first, second);
 }
 
-Test(Yurin_Evgeny_ComplexNumberTest, Test_DIV) {
-  ComplexNumber first(6.0, 4.0);
-  ComplexNumber second(3.0, 2.0);
+Test(Yurin_Evgeny_ComplexNumberTest, Test_Set) {
+  ComplexNumber number;
+  double expectedRe = 5.0;
+  double expectedIm = 4.0;
 
-  ComplexNumber expectedResult(2.0, 2.0);
-  ComplexNumber result = first / second;
+  number.setIm(4.0);
+  number.setRe(5.0);
 
-  ASSERT_EQ(expectedResult.getIm(), result.getIm());
-  ASSERT_EQ(expectedResult.getRe(), result.getRe());
+  EXPECT_EQ(expectedRe, number.getRe());
+  EXPECT_EQ(expectedIm, number.getIm());
 }

@@ -15,7 +15,7 @@ TEST(Yurin_Evgeny_ComplexNumberTest, Test_Summ) {
   ASSERT_EQ(expectedResult.getRe(), result.getRe());
 }
 
-TEST(Yurin_Evgeny_ComplexNumberTest, Test_minus) {
+TEST(Yurin_Evgeny_ComplexNumberTest, Test_Substraction) {
   ComplexNumber first(1337.0, 42.0);
   ComplexNumber second(3.0, 8.0);
   ComplexNumber expectedResult = ComplexNumber(1334.0, 34.0);
@@ -38,8 +38,8 @@ TEST(Yurin_Evgeny_ComplexNumberTest, Test_Set) {
   double expectedRe = 5.0;
   double expectedIm = 4.0;
 
-  number.setIm(4.0);
-  number.setRe(5.0);
+  number.setIm(expectedIm);
+  number.setRe(expectedRe);
 
   EXPECT_EQ(expectedRe, number.getRe());
   EXPECT_EQ(expectedIm, number.getIm());

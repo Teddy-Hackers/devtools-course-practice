@@ -43,7 +43,7 @@ struct Kernel {
    * @param foreignChars @see #foreignChars
    */
   explicit Kernel(
-      uint32_t shift=5,
+      uint32_t shift = 5,
       const std::string &alphabet = "abcdefghijklmnopqrstuvwxyz",
       bool foreignChars = true);
 

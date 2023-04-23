@@ -16,9 +16,7 @@ class PriorityQueueIntTest : public ::testing::Test {
     Q.put(-2);
     Q.put(-15);
   }
-  virtual void TearDown() {
-
-  }
+  virtual void TearDown() {}
 };
 
 TEST(PriorityQueueTest, Size_Null_When_Empty) {

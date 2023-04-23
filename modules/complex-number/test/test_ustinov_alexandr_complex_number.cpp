@@ -9,10 +9,14 @@
 TEST(Ustinov_ComplexNumberTest, Equality) {
     std::pair<ComplexNumber, ComplexNumber> eq_pair
         {ComplexNumber(3.0, 1.0), ComplexNumber(3.0, 1.0)};
+
+    EXPECT_EQ(eq_pair.first, eq_pair.second);
+}
+
+TEST(Ustinov_ComplexNumberTest, NonEquality) {
     std::pair<ComplexNumber, ComplexNumber> neq_pair
         {ComplexNumber(1.0, 1.0), ComplexNumber(1.0, -1.0)};
 
-    EXPECT_EQ(eq_pair.first, eq_pair.second);
     EXPECT_NE(neq_pair.first, neq_pair.second);
 }
 

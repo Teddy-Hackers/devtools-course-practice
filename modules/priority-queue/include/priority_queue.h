@@ -5,6 +5,7 @@
 
 #include <list>
 #include <algorithm>
+#include <stdexcept>
 
 template<class T>
 class PriorityQueue {

@@ -19,12 +19,54 @@ class PriorityQueueIntTest : public ::testing::Test {
   virtual void TearDown() {}
 };
 
+TEST(PriorityQueueTest, Can_Construct) {
+  ASSERT_NO_THROW(PriorityQueue<int> Q);
+}
+
+TEST(PriorityQueueTest, Can_Copy) {
+  PriorityQueue<int> Q1;
+
+  ASSERT_NO_THROW(PriorityQueue<int> Q2(Q1));
+}
+
+TEST(PriorityQueueTest, Can_Assign_Copy_Other) {
+  PriorityQueue<int> Q1;
+
+  PriorityQueue<int> Q2;
+
+  ASSERT_NO_THROW(Q2 = Q1);
+}
+
+TEST(PriorityQueueTest, Can_Assign_Copy_This) {
+  PriorityQueue<int> Q;
+
+  ASSERT_NO_THROW(Q = Q);
+}
+
 TEST(PriorityQueueTest, Size_Null_When_Empty) {
   PriorityQueue<int> Q;
 
   size_t size = Q.size();
 
   ASSERT_EQ((size_t) 0, size);
+}
+
+TEST(PriorityQueueTest, Cant_Top_When_Empty) {
+  PriorityQueue<int> Q;
+
+  ASSERT_THROW(Q.top(), std::out_of_range);
+}
+
+TEST(PriorityQueueTest, Cant_Pop_When_Empty) {
+  PriorityQueue<int> Q;
+
+  ASSERT_THROW(Q.pop(), std::out_of_range);
+}
+
+TEST(PriorityQueueTest, Cant_Get_When_Empty) {
+  PriorityQueue<int> Q;
+
+  ASSERT_THROW(Q.get(), std::out_of_range);
 }
 
 TEST(PriorityQueueTest, Can_Put_One_Element) {
@@ -36,7 +78,7 @@ TEST(PriorityQueueTest, Can_Put_One_Element) {
   ASSERT_EQ(value, Q.top());
 }
 
-TEST(PriorityQueueTest, Can_Get) {
+TEST(PriorityQueueTest, Can_Get_One_Element) {
   PriorityQueue<int> Q;
   const int expectedValue = 5;
   Q.put(expectedValue);
@@ -108,4 +150,38 @@ TEST_F(PriorityQueueIntTest, Empty_When_Clear) {
   Q.clear();
 
   ASSERT_TRUE(Q.empty());
+}
+
+TEST_F(PriorityQueueIntTest, Copy_Top_Same) {
+  PriorityQueue<int> copyQ(Q);
+
+  const int &value = Q.top();
+  const int &copy_value = copyQ.top();
+
+  ASSERT_EQ(value, copy_value);
+}
+
+TEST_F(PriorityQueueIntTest, Assign_Copy_Top_Same) {
+  PriorityQueue<int> copyQ = Q;
+
+  const int &value = Q.top();
+  const int &copy_value = copyQ.top();
+
+  ASSERT_EQ(value, copy_value);
+}
+
+TEST_F(PriorityQueueIntTest, Copy_Has_Own_Memory) {
+  PriorityQueue<int> copyQ(Q);
+
+  Q.pop();
+
+  ASSERT_NE(copyQ.top(), Q.top());
+}
+
+TEST_F(PriorityQueueIntTest, Assign_Copy_Has_Own_Memory) {
+  PriorityQueue<int> copyQ = Q;
+
+  Q.pop();
+
+  ASSERT_NE(copyQ.top(), Q.top());
 }

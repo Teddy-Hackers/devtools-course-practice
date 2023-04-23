@@ -95,11 +95,18 @@ class CaesarCipher {
   ~CaesarCipher() = default;
 
   /**
-   * @brief Assigment operator
+   * @brief Copy assigment operator
    * @param[in] c CaesarCipher to copy
    * @return Reference to current object with new kernel
    */
   CaesarCipher &operator=(const CaesarCipher &c) = default;
+
+  /**
+   * @brief Move assigment operator
+   * @param[in] c CaesarCipher to copy
+   * @return Reference to current object with new kernel
+   */
+  CaesarCipher &operator=(CaesarCipher &&c) = default;
 
   /**
    * @brief Encode message with current kernel

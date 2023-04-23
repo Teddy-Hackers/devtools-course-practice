@@ -35,19 +35,17 @@ TEST(CaesarCipher, move_cipher) {
 }
 
 TEST(CaesarCipher, kernel_equal) {
-  Kernel k(6, "tes", false), e(6, "tes", false);
+  Kernel k(6, "tes", false),
+         e(6, "tes", false);
 
-  bool check = k == e;
-
-  EXPECT_TRUE(check);
+  EXPECT_EQ(k, e);
 }
 
 TEST(CaesarCipher, kernel_not_equal) {
-  Kernel k(6, "tes"), e(6, "tes", false);
+  Kernel k(6, "tes"),
+         e(6, "tes", false);
 
-  bool check = k != e;
-
-  EXPECT_TRUE(check);
+  EXPECT_NE(k, e);
 }
 
 TEST(CaesarCipher, assign) {
@@ -62,18 +60,14 @@ TEST(CaesarCipher, assign) {
 TEST(CaesarCipher, equal) {
   CaesarCipher c1, c2;
 
-  bool check = c1 == c2;
-
-  EXPECT_TRUE(check);
+  EXPECT_EQ(c1, c2);
 }
 
 TEST(CaesarCipher, not_equal) {
   Kernel k(42);
   CaesarCipher c1, c2(k);
 
-  bool check = c1 != c2;
-
-  EXPECT_TRUE(check);
+  EXPECT_NE(c1, c2);
 }
 
 TEST(CaesarCipher, remove_equal_characters_in_constructor) {

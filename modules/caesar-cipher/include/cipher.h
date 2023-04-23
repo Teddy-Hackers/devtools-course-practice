@@ -37,6 +37,19 @@ struct Kernel {
   bool foreignChars = true;
 
   /**
+   * @brief Kernel constructor
+   * @param shift @see #shift
+   * @param alphabet @see #alphabet
+   * @param foreignChars @see #foreignChars
+   */
+  explicit Kernel(
+      uint32_t shift=5,
+      const std::string &alphabet = "abcdefghijklmnopqrstuvwxyz",
+      bool foreignChars = true);
+
+  Kernel &operator=(const Kernel &k) = default;
+
+  /**
    * Check if this kernel is equal to k
    * @param[in] k another kernel
    * @return kernel equals to k

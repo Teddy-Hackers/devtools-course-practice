@@ -12,6 +12,8 @@ bool Kernel::operator==(const Kernel &k) const {
 bool Kernel::operator!=(const Kernel &k) const {
   return !(*this == k);
 }
+Kernel::Kernel(uint32_t shift, const std::string &alphabet, bool foreignChars)
+  : alphabet(alphabet), shift(shift), foreignChars(foreignChars){}
 
 CaesarCipher::CaesarCipher(const Kernel &k) {
   std::string builder;

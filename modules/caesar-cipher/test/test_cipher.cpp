@@ -8,9 +8,7 @@ TEST(CaesarCipher, assert_no_throw_in_default_constructor) {
 }
 
 TEST(CaesarCipher, create_cipher_with_specific_kernel) {
-  Kernel kernel;
-  kernel.alphabet = "abc";
-  kernel.shift = 7;
+  Kernel kernel(7, "abc");
 
   CaesarCipher cipher(kernel);
 
@@ -18,9 +16,8 @@ TEST(CaesarCipher, create_cipher_with_specific_kernel) {
 }
 
 TEST(CaesarCipher, copy_cipher) {
-  Kernel kernel;
-  kernel.alphabet = "abc";
-  kernel.shift = 7;
+  Kernel kernel(7, "abc");
+
   CaesarCipher origin = CaesarCipher(kernel);
 
   CaesarCipher copy = CaesarCipher(origin);
@@ -29,8 +26,7 @@ TEST(CaesarCipher, copy_cipher) {
 }
 
 TEST(CaesarCipher, move_cipher) {
-  Kernel kernel;
-  kernel.shift = 2;
+  Kernel kernel(2);
   CaesarCipher origin(kernel);
 
   CaesarCipher mv = std::move(origin);
@@ -39,13 +35,7 @@ TEST(CaesarCipher, move_cipher) {
 }
 
 TEST(CaesarCipher, kernel_equal) {
-  Kernel k, e;
-  k.alphabet = "tes";
-  k.shift = 6;
-  k.foreignChars = false;
-  e.alphabet = "tes";
-  e.shift = 6;
-  e.foreignChars = false;
+  Kernel k(6, "tes", false), e(6, "tes", false);
 
   bool check = k == e;
 
@@ -53,12 +43,7 @@ TEST(CaesarCipher, kernel_equal) {
 }
 
 TEST(CaesarCipher, kernel_not_equal) {
-  Kernel k, e;
-  k.alphabet = "tes";
-  k.shift = 6;
-  e.alphabet = "tes";
-  e.shift = 6;
-  e.foreignChars = false;
+  Kernel k(6, "tes"), e(6, "tes", false);
 
   bool check = k != e;
 
@@ -66,8 +51,7 @@ TEST(CaesarCipher, kernel_not_equal) {
 }
 
 TEST(CaesarCipher, assign) {
-  Kernel k;
-  k.shift = 42;
+  Kernel k(42);
   CaesarCipher origin(k);
 
   CaesarCipher assigned = origin;
@@ -84,8 +68,7 @@ TEST(CaesarCipher, equal) {
 }
 
 TEST(CaesarCipher, not_equal) {
-  Kernel k;
-  k.shift = 42;
+  Kernel k(42);
   CaesarCipher c1, c2(k);
 
   bool check = c1 != c2;
@@ -103,8 +86,7 @@ TEST(CaesarCipher, remove_equal_characters_in_constructor) {
 }
 
 TEST(CaesarCipher, get_kernel) {
-  Kernel k;
-  k.shift = 42;
+  Kernel k(42);
   CaesarCipher c(k);
 
   const Kernel &get = c.getKernel();

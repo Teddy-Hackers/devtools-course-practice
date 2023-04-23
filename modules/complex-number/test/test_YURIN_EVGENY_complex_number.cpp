@@ -32,3 +32,10 @@ TEST(Yurin_Evgeny_ComplexNumberTest, Test_Not_Equal) {
  
  EXPECT_NE(first, second);
 }
+
+TEST(Yurin_Evgeny_ComplexNumberTest, Divide_By_Zero_Error) {
+  ComplexNumber x{ 1.0, 1.0 };
+  ComplexNumber y{ 0.0, 0.0 };
+
+  ASSERT_ANY_THROW(x / y);
+}

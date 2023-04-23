@@ -5,6 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Yurin_Evgeny_ComplexNumberTest, Test_Summ) {
+
   ComplexNumber first(1337.0, 42.0);
   ComplexNumber second(3.0, 8.0);
   ComplexNumber expectedResult = ComplexNumber(1400.0, 50.0);
@@ -34,7 +35,7 @@ TEST(Yurin_Evgeny_ComplexNumberTest, Test_Not_Equal) {
 }
 
 Test(Yurin_Evgeny_ComplexNumberTest, Test_Set) {
-  ComplexNumber number;
+  ComplexNumber number(0, 0);
   double expectedRe = 5.0;
   double expectedIm = 4.0;
 

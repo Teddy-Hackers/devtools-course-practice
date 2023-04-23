@@ -1,4 +1,4 @@
-_// Copyright 2023 Yurin Evgeny
+// Copyright 2023 Yurin Evgeny
 
 #include <gtest/gtest.h>
 

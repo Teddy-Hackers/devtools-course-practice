@@ -7,8 +7,8 @@ void BinarySearch::sort() {
 }
 
 BinarySearch::BinarySearch(const std::vector<int> &numbers) {
-    sort();
     this->numbers = numbers;
+    sort();
 }
 
 int BinarySearch::find(const int& target) {
@@ -31,7 +31,7 @@ int BinarySearch::find(const int& target) {
 }
 
 int BinarySearch::findIn(const int& target, const std::vector<int>& _numbers) {
-    sort();
     this->numbers = std::vector<int>(_numbers);
+    sort();
     return find(target);
 }

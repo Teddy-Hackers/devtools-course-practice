@@ -48,7 +48,6 @@ TEST(Shokurov_Daniil_ComplexNumberTest, sum_is_correct) {
     EXPECT_DOUBLE_EQ(ans.getRe(), z.getRe());
 }
 
-
 TEST(Shokurov_Daniil_ComplexNumberTest, sub_is_correct) {
     // Arrange
     ComplexNumber z, ans{ 1.0, 2.0 };
@@ -61,4 +60,32 @@ TEST(Shokurov_Daniil_ComplexNumberTest, sub_is_correct) {
     // Assert
     EXPECT_DOUBLE_EQ(ans.getIm(), z.getIm());
     EXPECT_DOUBLE_EQ(ans.getRe(), z.getRe());
+}
+
+TEST(Shokurov_Daniil_ComplexNumberTest, mul_is_correct) {
+    // Arrange
+    ComplexNumber z, ans{ 2.0, 0.0 };
+    ComplexNumber z1{ 1.0, 0.0 };
+    ComplexNumber z2{ 2.0, 0.0 };
+
+    // Act
+    z = z1 * z2;
+
+    // Assert
+    EXPECT_EQ(z.getIm(), ans.getIm());
+    EXPECT_EQ(z.getRe(), ans.getRe());
+}
+
+TEST(Shokurov_Daniil_ComplexNumberTest, div_is_correct) {
+    // Arrange
+    ComplexNumber z, ans{ 2.0, 0.0 };
+    ComplexNumber z1{ 2.0, 0.0 };
+    ComplexNumber z2{ 1.0, 0.0 };
+
+    // Act
+    z = z1 / z2;
+
+    // Assert
+    EXPECT_EQ(z.getIm(), ans.getIm());
+    EXPECT_EQ(z.getRe(), ans.getRe());
 }

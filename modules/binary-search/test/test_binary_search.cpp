@@ -16,17 +16,12 @@ TEST(BinarySearch, can_search_in_sorted_array) {
     EXPECT_EQ(expected, result);
 }
 
-TEST(BinarySearch, can_search_in_unsorted_array) {
+TEST(BinarySearch, cant_search_in_unsorted_array) {
     // Arrange
     std::vector<int> a = {1, 32, 3, 434, 544, 6};
-    BinarySearch binarySearch(a);
-    int expected = 2;
 
-    // Act
-    int result = binarySearch.find(a[expected]);
-
-    // Assert
-    EXPECT_EQ(expected, result);
+    // Act & Assert
+    ASSERT_ANY_THROW(new BinarySearch(a));
 }
 
 TEST(BinarySearch, search_in_null_array_return_negative_number) {
@@ -43,8 +38,8 @@ TEST(BinarySearch, search_in_null_array_return_negative_number) {
 
 TEST(BinarySearch, search_for_non_existent_return_negative_number) {
     // Arrange
-    std::vector<int> a = {1, 32, 3, 434, 544, 6};
-    BinarySearch binarySearch;
+    std::vector<int> a = {1, 6, 66, 434, 544, 656566};
+    BinarySearch binarySearch(a);
     int expected = -1;
 
     // Act
@@ -54,15 +49,3 @@ TEST(BinarySearch, search_for_non_existent_return_negative_number) {
     EXPECT_EQ(expected, result);
 }
 
-TEST(BinarySearch, test_findIn) {
-    // Arrange
-    std::vector<int> a = {1, 32, 3, 434, 544, 6};
-    BinarySearch binarySearch;
-    int expected = 4;
-
-    // Act
-    int result = binarySearch.findIn(a[expected], a);
-
-    // Assert
-    EXPECT_EQ(expected, result);
-}

@@ -4,6 +4,7 @@
 
 #include <vector>
 #include <algorithm>
+#include <stdexcept>
 
 //! @addtogroup binary-search
 //! @{
@@ -26,24 +27,23 @@ class BinarySearch {
     explicit BinarySearch(const std::vector<int>& numbers);
 
     /**
+    * @brief setter
+    * @param[in] numbers is a vector of numbers
+    */
+    void setNumbers(const std::vector<int>& _numbers);
+
+    /**
     * @brief find
     * @param[in] target is a number for search in numbers
     */
     int find(const int& target);
 
-    /**
-    * @brief findIn
-    * @param[in] target is a number for search in numbers
-    * @param[in] _numbers is a vector of numbers
-    */
-    int findIn(const int& target, const std::vector<int>& _numbers);
-
  private:
     std::vector<int> numbers;
     /**
-    * @brief Sort numbers
+    * @brief check if vector numbers is sorted
     */
-    void sort();
+    static bool checkSort(const std::vector<int> &_numbers);
 };
 
 //! @}

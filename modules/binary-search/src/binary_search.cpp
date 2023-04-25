@@ -2,13 +2,21 @@
 
 #include "include/binary_search.h"
 
-void BinarySearch::sort() {
-    std::sort(std::begin(this->numbers), std::end(this->numbers));
+bool BinarySearch::checkSort(const std::vector<int> &_numbers) {
+    for (int i = 0; i < static_cast<int>(_numbers.size() - 1); ++i) {
+        if (_numbers[i] > _numbers[i + 1]) return false;
+    }
+    return true;
 }
 
-BinarySearch::BinarySearch(const std::vector<int> &numbers) {
-    this->numbers = numbers;
-    sort();
+BinarySearch::BinarySearch(const std::vector<int> &_numbers) {
+    this->setNumbers(_numbers);
+}
+
+void BinarySearch::setNumbers(const std::vector<int> &_numbers) {
+    checkSort(_numbers) ?
+    numbers = _numbers :
+    throw std::invalid_argument("unsorted vector");
 }
 
 int BinarySearch::find(const int& target) {
@@ -28,10 +36,4 @@ int BinarySearch::find(const int& target) {
     }
 
     return -1;
-}
-
-int BinarySearch::findIn(const int& target, const std::vector<int>& _numbers) {
-    this->numbers = std::vector<int>(_numbers);
-    sort();
-    return find(target);
 }

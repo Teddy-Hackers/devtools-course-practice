@@ -9,7 +9,7 @@ TEST(Shokurov_Daniil_ComplexNumberTest, Can_create_ComplexNumber) {
     double real = 5.0, im = 2.0;
 
     // Assert
-    EXPECT_NO_THROW(ComplexNumber z(real,im));
+    EXPECT_NO_THROW(ComplexNumber z(real, im));
 }
 
 

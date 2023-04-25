@@ -6,11 +6,13 @@
 
 TEST(Bulgakov_Daniil_ComplexNumberTest, Can_Multiple_Sum) {
     // Arrange
-    ComplexNumber a(1.0, 1.0);
-    ComplexNumber expect(3.0, 3.0);
+    ComplexNumber a(1.0, 2.0);
+    ComplexNumber b(3.0, 4.0);
+    ComplexNumber c(5.0, 6.0);
+    ComplexNumber expect(9.0, 12.0);
 
     // Act
-    ComplexNumber result = a + a + a;
+    ComplexNumber result = a + b + c;
 
     // Assert
     ASSERT_EQ(expect.getIm(), result.getIm());
@@ -19,7 +21,7 @@ TEST(Bulgakov_Daniil_ComplexNumberTest, Can_Multiple_Sum) {
 
 TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Selfsubstruct_Zero) {
     // Arrange
-    ComplexNumber a(1.0, 1.0);
+    ComplexNumber a(12.5, 32.1);
     ComplexNumber expect(0.0, 0.0);
 
     // Act

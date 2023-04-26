@@ -4,21 +4,6 @@
 
 #include "include/complex_number.h"
 
-TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Can_Multi_Sum) {
-    // Arrange
-    ComplexNumber a(2.0, 3.0);
-    ComplexNumber b(5.0, -7.0);
-    ComplexNumber c(3.0, 2.0);
-    ComplexNumber ans(10.0, -2.0);
-
-    // Act
-    ComplexNumber result = a + b + c;
-
-    // Assert
-    ASSERT_EQ(ans.getIm(), result.getIm());
-    ASSERT_EQ(ans.getRe(), result.getRe());
-}
-
 TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Selfsubstruct) {
     // Arrange
     ComplexNumber a(1, 1);
@@ -40,6 +25,21 @@ TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Negative_Mult) {
 
     // Act
     ComplexNumber result = a * b;
+
+    // Assert
+    ASSERT_EQ(ans.getIm(), result.getIm());
+    ASSERT_EQ(ans.getRe(), result.getRe());
+}
+
+TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Can_Multi_Sum) {
+    // Arrange
+    ComplexNumber a(2.0, 3.0);
+    ComplexNumber b(5.0, -7.0);
+    ComplexNumber c(3.0, 2.0);
+    ComplexNumber ans(10.0, -2.0);
+
+    // Act
+    ComplexNumber result = a + b + c;
 
     // Assert
     ASSERT_EQ(ans.getIm(), result.getIm());

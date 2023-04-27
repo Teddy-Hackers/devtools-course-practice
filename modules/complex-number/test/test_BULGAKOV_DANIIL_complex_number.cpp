@@ -19,7 +19,7 @@ TEST(Bulgakov_Daniil_ComplexNumberTest, Can_Multiple_Sum) {
     ASSERT_EQ(expect.getRe(), result.getRe());
 }
 
-TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Substruct_Zero) {
+TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Substruct) {
     // Arrange
     ComplexNumber a(12.5, 32.1);
     ComplexNumber b(12, 32);

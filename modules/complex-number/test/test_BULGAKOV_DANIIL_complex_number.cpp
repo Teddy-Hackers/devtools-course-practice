@@ -19,17 +19,18 @@ TEST(Bulgakov_Daniil_ComplexNumberTest, Can_Multiple_Sum) {
     ASSERT_EQ(expect.getRe(), result.getRe());
 }
 
-TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Selfsubstruct_Zero) {
+TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Substruct_Zero) {
     // Arrange
     ComplexNumber a(12.5, 32.1);
-    ComplexNumber expect(0.0, 0.0);
+    ComplexNumber b(12, 32);
+    ComplexNumber expect(0.5, 0.1);
 
     // Act
-    ComplexNumber result = a - a;
+    ComplexNumber result = a - b;
 
     // Assert
-    ASSERT_EQ(expect.getIm(), result.getIm());
-    ASSERT_EQ(expect.getRe(), result.getRe());
+    ASSERT_NEAR(expect.getIm(), result.getIm(), 0.001);
+    ASSERT_NEAR(expect.getRe(), result.getRe(), 0.001);
 }
 
 TEST(Bulgakov_Daniil_ComplexNumberTest, Test_Negative_Mult) {

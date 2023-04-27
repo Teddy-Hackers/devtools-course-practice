@@ -18,6 +18,11 @@
 
     const octokit = new Octokit();
 
+    let realNames = {};
+    try {
+      let res = await fetch("https://devtools-course-practice.onrender.com/names");
+      realNames = await res.json();
+    } catch {};
 
     octokit.paginate(octokit.rest.pulls.list, {
         owner: "Teddy-Hackers",
@@ -62,7 +67,8 @@
 
         for (const [userId, progress] of Object.entries(results)) {
           var row = table.insertRow();
-          row.insertCell().innerHTML = "<a href=https://github.com/" + userId + ">" + userId + "</a>";
+          let name = userId in realNames ? realNames[userId] : userId;
+          row.insertCell().innerHTML = "<a href=https://github.com/" + userId + ">" + name + "</a>";
           for (let i = 1; i <= 3; ++i) {
             var cell = row.insertCell();
             if (!progress[i].status)

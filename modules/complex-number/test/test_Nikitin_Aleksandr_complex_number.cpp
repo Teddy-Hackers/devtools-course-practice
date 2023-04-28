@@ -9,8 +9,8 @@ TEST(Nikitin_Aleksandr_ComplexNumberTest, Test_Get) {
   ComplexNumber x(1.2, 2.1);
 
   // Act
-  double re = number.getRe();
-  double im = number.getIm();
+  double re = x.getRe();
+  double im = x.getIm();
 
   // Assert
   ASSERT_EQ(re, 1.2);
@@ -26,8 +26,8 @@ TEST(Nikitin_Aleksandr_ComplexNumberTest, Test_Set) {
   x.setIm(5.6);
 
   // Assert
-  ASSERT_EQ(re, 3.4);
-  ASSERT_EQ(im, 5.6);
+  ASSERT_EQ(x.getRe(), 3.4);
+  ASSERT_EQ(x.getIm(), 5.6);
 }
 
 TEST(Nikitin_Aleksandr_ComplexNumberTest, Test_Difference) {

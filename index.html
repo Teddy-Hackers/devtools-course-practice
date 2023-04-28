@@ -37,7 +37,7 @@
             if (!task_id)
                 return;
 
-            task_id = parseInt(task_id[-1]);
+            task_id = parseInt(task_id.at(-1));
             if (task_id < 1 || task_id > 3)
                 return;
 

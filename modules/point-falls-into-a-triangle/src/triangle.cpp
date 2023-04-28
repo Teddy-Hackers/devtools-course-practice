@@ -6,7 +6,7 @@ Triangle::Triangle(const Point& p1, const Point& p2, const Point& p3)
     : p1{p1}, p2{p2}, p3{p3} {}
 
 std::array<Point, 3> Triangle::GetPoints() const {
-    return std::array<Point, 3>{p1, p2, p3};
+    return {p1, p2, p3};
 }
 
 bool Triangle::Consist(const Point& p) const {

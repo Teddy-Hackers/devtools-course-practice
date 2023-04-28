@@ -12,7 +12,7 @@ static bool operator==(const Point& p1, const Point& p2) {
   return approximatelyEqual(p1.x, p2.x) && approximatelyEqual(p1.y, p2.y);
 }
 
-TEST(Default, ParametrizedConstructor) {
+TEST(Korobeynikova_Alice_PointFallsIntoATriangleTest, ParametrizedConstructor) {
   const Point p[3] = {Point{0, 0}, Point{0, 1}, Point{1, 0}};
   Triangle t(p[0], p[1], p[2]);
   auto points = t.GetPoints();
@@ -21,14 +21,14 @@ TEST(Default, ParametrizedConstructor) {
   }
 }
 
-TEST(Default, TriangleConsistsPoint) {
+TEST(Korobeynikova_Alice_PointFallsIntoATriangleTest, TriangleConsistsPoint) {
   const Point p[3] = {{0, 0}, {0, 1}, {1, 0}};
   Triangle t(p[0], p[1], p[2]);
   Point p_inside_t{0.2, 0.2};
   ASSERT_TRUE(t.Consist(p_inside_t));
 }
 
-TEST(Default, TriangleDoesNotConsistPoint) {
+TEST(Korobeynikova_Alice_PointFallsIntoATriangleTest, TriangleDoesNotConsistPoint) {
   const Point p[3] = {{0, 0}, {0, 1}, {1, 0}};
   Triangle t(p[0], p[1], p[2]);
   Point p_not_inside_t{-0.5, 0.5};

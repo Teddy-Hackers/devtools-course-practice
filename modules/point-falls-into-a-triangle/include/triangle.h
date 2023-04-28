@@ -2,8 +2,6 @@
 
 #pragma once
 #include <array>
-#include <cmath>
-#include <limits>
 
 struct Point {
   double x, y;

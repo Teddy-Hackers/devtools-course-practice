@@ -39,6 +39,6 @@ TEST(Nikitin_Aleksandr_ComplexNumberTest, Test_Difference) {
   ComplexNumber result = x - y;
 
   // Assert
-  ASSERT_EQ(result.getRe, 3.3);
-  ASSERT_EQ(result.getIm, 3.3);
+  ASSERT_EQ(result.getRe(), 3.3);
+  ASSERT_EQ(result.getIm(), 3.3);
 }

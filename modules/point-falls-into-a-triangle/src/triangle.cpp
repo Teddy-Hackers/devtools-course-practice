@@ -18,11 +18,3 @@ bool Triangle::Consist(const Point& p) const {
 
   return (a >= 0 && b >= 0 && c >= 0) || (a <= 0 && b <= 0 && c <= 0);
 }
-
-static bool approximatelyEqual(double x, double y) {
-  return std::fabs(x - y) < std::numeric_limits<double>::epsilon();
-}
-
-bool Point::operator==(const Point& p2) const {
-  return approximatelyEqual(x, p2.x) && approximatelyEqual(y, p2.y);
-}

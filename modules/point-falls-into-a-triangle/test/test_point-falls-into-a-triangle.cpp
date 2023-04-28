@@ -4,6 +4,14 @@
 
 #include "include/triangle.h"
 
+static bool approximatelyEqual(double x, double y) {
+  return std::fabs(x - y) < std::numeric_limits<double>::epsilon();
+}
+
+static bool operator==(const Point& p1, const Point& p2) {
+  return approximatelyEqual(p1.x, p2.x) && approximatelyEqual(p1.y, p2.y);
+}
+
 TEST(Default, ParametrizedConstructor) {
   const Point p[3] = {Point{0, 0}, Point{0, 1}, Point{1, 0}};
   Triangle t(p[0], p[1], p[2]);

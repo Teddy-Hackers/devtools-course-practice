@@ -7,7 +7,6 @@
 
 struct Point {
   double x = 0, y = 0;
-  bool operator==(const Point& p2) const;
 };
 
 class Triangle {

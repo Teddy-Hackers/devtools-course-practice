@@ -28,7 +28,12 @@
     .then(pulls => {
         let results = {};
         pulls.forEach(pull => {
-            let task_id = pull.title.labels[0].name;
+            let task_id
+            pull.labels.forEach(label => {
+              if(label.name == "lab 1" || label.name == "lab 2" || label.name == "lab 3") {
+                task_id = label.name;
+              }
+            });
             if (!task_id)
                 return;
 

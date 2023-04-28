@@ -5,21 +5,21 @@
 #include "include/complex_number.h"
 
 TEST(Korobeynikova_Alice_ComplexNumberTest, ParametrizedConstructor) {
-  double re = -7.5, im = 2;
-  ComplexNumber number(re, im);
-  ASSERT_EQ(number.getRe(), re);
-  ASSERT_EQ(number.getIm(), im);
+  double real = -7.5, imaginary = 2;
+  ComplexNumber number(real, imaginary);
+  ASSERT_EQ(number.getRe(), real);
+  ASSERT_EQ(number.getIm(), imaginary);
 }
 
 TEST(Korobeynikova_Alice_ComplexNumberTest, CopyConstructor) {
-  double re = -7.5, im = 2;
-  ComplexNumber number(ComplexNumber(re, im));
-  ASSERT_EQ(number.getRe(), re);
-  ASSERT_EQ(number.getIm(), im);
+  double real = -7.5, imaginary = 2;
+  ComplexNumber number(ComplexNumber(real, imaginary));
+  ASSERT_EQ(number.getRe(), real);
+  ASSERT_EQ(number.getIm(), imaginary);
 }
 
 TEST(Korobeynikova_Alice_ComplexNumberTest, ComparisonOperator) {
-  double re = -7.5, im = 2;
-  ComplexNumber number1(re, im), number2(re, im);
+  double real = -7.5, imaginary = 2;
+  ComplexNumber number1(real, imaginary), number2(-7.5, 2);
   ASSERT_EQ(number1, number2);
 }

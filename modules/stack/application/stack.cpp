@@ -6,7 +6,6 @@
 
 int main(int argc, const char** argv) {
   StackApp app;
-  //char* _argv[] = {};
   std::cout << app(argc, argv);
   return 0;
 }

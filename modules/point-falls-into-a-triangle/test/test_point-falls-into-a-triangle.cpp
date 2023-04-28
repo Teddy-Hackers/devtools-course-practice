@@ -10,7 +10,7 @@ TEST(Default, ParametrizedConstructor) {
   auto points = t.GetPoints();
   for (size_t i = 0; i < 3; ++i) {
     ASSERT_EQ(points[i], p[i]);
-  }  
+  }
 }
 
 TEST(Default, TriangleConsistsPoint) {

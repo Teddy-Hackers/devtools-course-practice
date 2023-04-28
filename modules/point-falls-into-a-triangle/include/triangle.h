@@ -6,7 +6,7 @@
 #include <limits>
 
 struct Point {
-  double x = 0, y = 0;
+  double x, y;
 };
 
 class Triangle {

@@ -52,8 +52,8 @@ TEST(Tychinin_Alexey_ComplexNumberTest, Test_Assign) {
 TEST(Tychinin_Alexey_ComplexNumberTest, Test_Add) {
   ComplexNumber first(12., 11.0);
   ComplexNumber second(9., 3.);
-  ComplexNumber expected = ComplexNumber(first.getRe() + second.getRe(),
-                                         first.getIm() + second.getIm());
+  ComplexNumber expected(first.getRe() + second.getRe(),
+                         first.getIm() + second.getIm());
 
   ASSERT_EQ(first + second, expected);
 }
@@ -61,8 +61,8 @@ TEST(Tychinin_Alexey_ComplexNumberTest, Test_Add) {
 TEST(Tychinin_Alexey_ComplexNumberTest, Test_Sub) {
   ComplexNumber first(12., 11.0);
   ComplexNumber second(9., 3.);
-  ComplexNumber expected = ComplexNumber(first.getRe() - second.getRe(),
-                                         first.getIm() - second.getIm());
+  ComplexNumber expected(first.getRe() - second.getRe(),
+                         first.getIm() - second.getIm());
 
   ASSERT_EQ(first - second, expected);
 }

@@ -21,7 +21,7 @@ std::string StackApp::operator()(int argc, const char** argv) {
     help();
   }
 
-  for (size_t i = 1; i < argc; ++i) {
+  for (int i = 1; i < argc; ++i) {
     if (i != 1) message += " ";
     std::string key(argv[i]);
     if (key == "s") {
@@ -31,13 +31,13 @@ std::string StackApp::operator()(int argc, const char** argv) {
     } else if (key == "t") {
       try {
         message += std::to_string(stack.top());
-      } catch (std::out_of_range) {
+      } catch (const std::out_of_range&) {
         message += "error: can't get top, stack is empty";
       }
     } else if (key == "pop") {
       try {
         stack.pop();
-      } catch (std::out_of_range) {
+      } catch (const std::out_of_range&) {
         std::cout << "error: can't pop, stack is empty";
       }
     } else if (key == "push") {

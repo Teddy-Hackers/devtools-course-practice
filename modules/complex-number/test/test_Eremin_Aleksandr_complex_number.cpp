@@ -7,8 +7,8 @@
 TEST(Eremin_Aleksandr_ComplexNumberTest,
     Correctly_creates_ComplexNumber_equal_to_zero) {
     ComplexNumber z;
-    EXPECT_DOUBLE_EQ((z.getRe()), 0.0);
-    EXPECT_DOUBLE_EQ((z.getIm()), 0.0);
+    EXPECT_EQ((z.getRe()), 0.0);
+    EXPECT_EQ((z.getIm()), 0.0);
 }
 
 TEST(Eremin_Aleksandr_ComplexNumberTest, Can_set_only_Re) {
@@ -29,7 +29,7 @@ TEST(Eremin_Aleksandr_ComplexNumberTest, Can_assign_two_complex_number) {
     ASSERT_NO_THROW(a = b);
 }
 
-TEST(Eremin_Aleksandr_ComplexNumberTest, Can_Sum_Complex_Numbers) {
+TEST(Eremin_Aleksandr_ComplexNumberTest, test_5) {
     double re1 = 2.0;
     double im1 = 1.234;
 

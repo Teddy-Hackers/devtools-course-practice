@@ -45,9 +45,7 @@ std::string StackApp::operator()(int argc, const char** argv) {
     } else if (key == "c") {
       stack.clear();
     } else {
-      if (*argv[i] != '\0') {
-        message += "error: unknown key " + key;
-      }
+      message += "error: unknown key " + key;
     }
   }
   message += '\n';

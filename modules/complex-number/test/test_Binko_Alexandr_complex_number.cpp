@@ -17,7 +17,7 @@ TEST(Binko_Alexandr_ComplexNumberTest, TEST_Get_Set) {
 TEST(Binko_Alexandr_ComplexNumberTest, TEST_Sum) {
   ComplexNumber a(4.0, 9.0),
                 b(3.0, 5.0),
-=               expected(7.0, 14.0);
+                expected(7.0, 14.0);
 
   ComplexNumber result = a + b;
 

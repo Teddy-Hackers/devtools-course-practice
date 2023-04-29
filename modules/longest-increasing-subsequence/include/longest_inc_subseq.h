@@ -11,6 +11,7 @@
 // 
 // the found subsequence is lexicographically smallest among
 // all longest increasing subsequences
+
 std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array);
 
 #endif  // MODULES_LONGEST_INCREASING_SUBSEQUENCE_INCLUDE_LONGEST_INC_SUBSEQ_H_

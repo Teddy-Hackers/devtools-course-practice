@@ -9,6 +9,10 @@
 // vector 'v' of size 's' s.t. v[i] = array[k_i],
 // 0 <= k_0 < k_1 < ... < k_{s-2} < k_{s-1} < array.size(),
 // v[0] < v[1] < ... < v[s-2] < v[s-1]
+// 
+// the found subsequence is lexicographically smallest among
+// all longest increasing subsequences
+
 std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
     size_t longest_inc_subseq_len = 0;
     // index of previous element in increasing subsequence

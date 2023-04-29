@@ -70,4 +70,4 @@ TEST(Shipilov_Artem_ComplexNumberTest, Divsion_Of_Negative_Complex_Numbers) {
     // Assert
     EXPECT_EQ(answer_re, result.getRe());
     EXPECT_EQ(answer_im, result.getIm());
-}
+} 

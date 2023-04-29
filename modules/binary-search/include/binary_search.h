@@ -21,7 +21,7 @@ namespace BinarySearch {
     * @param[in] numbers is a vector of numbers
     * @param[in] target is a number for search in numbers
     */
-    std::size_t find(const std::vector<int>& numbers, int target);
+    int find(const std::vector<int>& numbers, int target);
 }
 
 //! @}

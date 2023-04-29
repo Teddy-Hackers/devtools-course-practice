@@ -2,12 +2,12 @@
 
 #include "include/binary_search.h"
 
-std::size_t BinarySearch::find(const std::vector<int> &numbers, int target) {
-    std::size_t left = 0;
-    std::size_t right = numbers.size() - 1;
+int BinarySearch::find(const std::vector<int> &numbers, int target) {
+    int left = 0;
+    int right = static_cast<int>(numbers.size()) - 1;
 
     while (left <= right) {
-        std::size_t mid = (left + right) / 2;
+        int mid = (left + right) / 2;
         if (numbers[mid] == target) {
             return mid;
         }

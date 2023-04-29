@@ -11,13 +11,13 @@
 // v[0] < v[1] < ... < v[s-2] < v[s-1]
 std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
     size_t longest_inc_subseq_len = 0;
-    // last element in longest increasing subsequence
-    size_t last_element_idx = 0;
     // index of previous element in increasing subsequence
     // which ends in element 'array[i]'
-    std::vector<int64_t> prev_element_idx(array.size());
+    std::vector<size_t> prev_element_idx(array.size());
     // smallest last element in increasing subsequence of length 'i'
     std::vector<int> last_element(array.size() + 1);
+    // index of smallest last element in increasing subsequence of length 'i'
+    std::vector<size_t> last_element_idx(array.size() + 1);
 
     // initialize 'last_number[]':
     last_element[0] = std::numeric_limits<int>::min();
@@ -31,23 +31,22 @@ std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
                                     array[i]) - last_element.begin();
         // if 'array[i]' is an element of increasing subsequence
         // then 'last_element[j-1]' is the previous element in the subsequence
-        prev_element_idx[i] = last_element[j-1];
+        prev_element_idx[i] = last_element_idx[j-1];
 
         // update smallest last element in subsequence of length 'j'
         last_element[j] = array[i];
+        last_element_idx[j] = i;
 
         // update maximal length of increasing subsequence
-        if (j > longest_inc_subseq_len) {
+        if (j > longest_inc_subseq_len)
             longest_inc_subseq_len = j;
-            last_element_idx = i;
-        }
     }
 
     // vector which contains longest increasing subsequence
     std::vector<int> longest_inc_subseq(longest_inc_subseq_len);
     // current index in 'prev_element_idx[]' as we go
     // from last element to first in longest increasing subsequence
-    size_t current_idx = last_element_idx;
+    size_t current_idx = last_element_idx[longest_inc_subseq_len];
 
     for (size_t i = 0; i < longest_inc_subseq_len; ++i) {
         longest_inc_subseq[longest_inc_subseq_len - 1 - i] = array[current_idx];

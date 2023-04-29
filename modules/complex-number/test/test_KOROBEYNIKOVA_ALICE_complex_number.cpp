@@ -23,3 +23,9 @@ TEST(Korobeynikova_Alice_ComplexNumberTest, ComparisonOperator) {
   ComplexNumber number1(real, imaginary), number2(-7.5, 2);
   ASSERT_EQ(number1, number2);
 }
+
+TEST(Korobeynikova_Alice_ComplexNumberTest, OperatorPlus) {
+  double real = -7.5, imaginary = 2;
+  ComplexNumber number1(real, imaginary), number2(-real, -imaginary);
+  ASSERT_EQ(number1 + number2, ComplexNumber(0,0));
+}

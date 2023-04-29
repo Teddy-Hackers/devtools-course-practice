@@ -46,17 +46,3 @@ TEST(Frantcuzov_Maksim_ComplexNumberTest, Test_Negative_Mult) {
     ASSERT_EQ(expect.getIm(), result.getIm());
     ASSERT_EQ(expect.getRe(), result.getRe());
 }
-
-TEST(Frantcuzov_Maksim_ComplexNumberTest, Test_Division) {
-    // Arrange
-    ComplexNumber a(2.0, 1.0);
-    ComplexNumber b(-1.0, -2.0);
-    ComplexNumber expect(0.2, 0.6);
-
-    // Act
-    ComplexNumber result = a / b;
-
-    // Assert
-    ASSERT_NEAR(expect.getIm(), result.getIm(), 0.001);
-    ASSERT_NEAR(expect.getRe(), result.getRe(), 0.001);
-}

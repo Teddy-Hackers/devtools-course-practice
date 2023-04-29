@@ -28,13 +28,14 @@ std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
     for (size_t i = 1; i <= array.size(); ++i)
         last_element[i] = std::numeric_limits<int>::max();
 
-    // dynamic programming to fill 'prev_element_idx[]' and 'last_element[]'
+    // dynamic programming to fill 'prev_element_idx[]', 'last_element[]'
+    // and 'last_element_idx[]'
     for (size_t i = 0; i < array.size(); ++i) {
         // find smallest index 'j' s.t. last_element[j] >= array[i]
         size_t j = std::lower_bound(last_element.begin(), last_element.end(),
                                     array[i]) - last_element.begin();
 
-        // if 'array[i]' is an element of increasing subsequence
+        // consider 'array[i]' is an element of increasing subsequence,
         // then 'last_element[j-1]' is the previous element in the subsequence
         prev_element_idx[i] = last_element_idx[j-1];
 

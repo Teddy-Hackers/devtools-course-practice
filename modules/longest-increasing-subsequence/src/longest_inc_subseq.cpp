@@ -29,6 +29,7 @@ std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
         // find smallest index 'j' s.t. last_element[j] >= array[i]
         size_t j = std::lower_bound(last_element.begin(), last_element.end(),
                                     array[i]) - last_element.begin();
+
         // if 'array[i]' is an element of increasing subsequence
         // then 'last_element[j-1]' is the previous element in the subsequence
         prev_element_idx[i] = last_element_idx[j-1];
@@ -48,6 +49,8 @@ std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
     // from last element to first in longest increasing subsequence
     size_t current_idx = last_element_idx[longest_inc_subseq_len];
 
+    // iterate from last element to first and
+    // write the subsequence in correct order
     for (size_t i = 0; i < longest_inc_subseq_len; ++i) {
         longest_inc_subseq[longest_inc_subseq_len - 1 - i] = array[current_idx];
         current_idx = prev_element_idx[current_idx];

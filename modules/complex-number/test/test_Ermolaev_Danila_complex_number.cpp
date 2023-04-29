@@ -4,7 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Ermolaev_Danila_ComplexNumberTest, test_1) {
+TEST(Ermolaev_Danila_ComplexNumberTest, New_number_equal_null) {
   ComplexNumber z;
   EXPECT_DOUBLE_EQ((z.getRe()), 0.0);
   EXPECT_DOUBLE_EQ((z.getIm()), 0.0);

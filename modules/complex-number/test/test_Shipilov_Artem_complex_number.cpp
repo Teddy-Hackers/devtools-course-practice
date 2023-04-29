@@ -18,7 +18,8 @@ TEST(Shipilov_Artem_ComplexNumberTest, Assignment_Of_Complex_Numbers) {
     EXPECT_EQ(z.getIm(), result.getIm());
 }
 
-TEST(Shipilov_Artem_ComplexNumberTest, test) {
+TEST(Shipilov_Artem_ComplexNumberTest,
+    Comparison_Of_Two_Identical_Complex_Numbers) {
     // Arrange
     double a1_re = 1.11;
     double a1_im = 1.11;

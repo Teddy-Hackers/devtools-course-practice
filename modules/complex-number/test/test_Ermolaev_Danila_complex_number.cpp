@@ -35,3 +35,19 @@ TEST(Ermolaev_Danila_ComplexNumberTest, Can_Sum_Complex_Numbers) {
   EXPECT_EQ(8, sum.getRe());
   EXPECT_EQ(0.923, sum.getIm());
 }
+
+TEST(Ermolaev_Danila_ComplexNumberTest, Can_get_Re) {
+  ComplexNumber number(42, 24);
+
+  const double re = number.getRe();
+
+  ASSERT_EQ(re, 42);
+}
+
+TEST(Ermolaev_Danila_ComplexNumberTest, Can_get_Im) {
+  ComplexNumber number(42, 24);
+
+  const double im = number.getIm();
+
+  ASSERT_EQ(im, 24);
+}

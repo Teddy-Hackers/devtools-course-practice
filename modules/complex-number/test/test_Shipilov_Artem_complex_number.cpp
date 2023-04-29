@@ -4,8 +4,7 @@
 
 #include "include/complex_number.h"
 
-TEST(Shipilov_Artem_ComplexNumberTest, Assignment_Of_Complex_Numbers)
-{
+TEST(Shipilov_Artem_ComplexNumberTest, Assignment_Of_Complex_Numbers) {
     // Arrange
     double a_re = 1.5;
     double a_im = 1.5;
@@ -19,8 +18,7 @@ TEST(Shipilov_Artem_ComplexNumberTest, Assignment_Of_Complex_Numbers)
     EXPECT_EQ(z.getIm(), result.getIm());
 }
 
-TEST(Shipilov_Artem_ComplexNumberTest, test)
-{
+TEST(Shipilov_Artem_ComplexNumberTest, test) {
     // Arrange
     double a1_re = 1.11;
     double a1_im = 1.11;
@@ -35,8 +33,8 @@ TEST(Shipilov_Artem_ComplexNumberTest, test)
     ASSERT_TRUE(z1 == z2);
 }
 
-TEST(Shipilov_Artem_ComplexNumberTest, Multiplicationand_Division_Of_Complex_Numbers)
-{
+TEST(Shipilov_Artem_ComplexNumberTest,
+    Multiplicationand_Division_Of_Complex_Numbers) {
     // Arrange
     double a1_re = 1.5;
     double a1_im = 1.5;
@@ -56,8 +54,7 @@ TEST(Shipilov_Artem_ComplexNumberTest, Multiplicationand_Division_Of_Complex_Num
     EXPECT_EQ(answer_im, result2.getIm());
 }
 
-TEST(Shipilov_Artem_ComplexNumberTest, Divsion_Of_Negative_Complex_Numbers)
-{
+TEST(Shipilov_Artem_ComplexNumberTest, Divsion_Of_Negative_Complex_Numbers) {
     // Arrange
     double a1_re = -1.5;
     double a1_im = -1.5;

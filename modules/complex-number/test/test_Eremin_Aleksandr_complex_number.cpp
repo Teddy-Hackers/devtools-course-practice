@@ -29,7 +29,7 @@ TEST(Eremin_Aleksandr_ComplexNumberTest, Can_assign_two_complex_number) {
     ASSERT_NO_THROW(a = b);
 }
 
-TEST(Eremin_Aleksandr_ComplexNumberTest, test_5) {
+TEST(Eremin_Aleksandr_ComplexNumberTest, Can_Sum_Complex_Numbers) {
     double re1 = 2.0;
     double im1 = 1.234;
 

@@ -52,3 +52,22 @@ TEST(Shipilov_Artem_ComplexNumberTest, Multiplicationand_Division_Of_Complex_Num
     EXPECT_EQ(answer_re, result2.getRe());
     EXPECT_EQ(answer_im, result2.getIm());
 }
+
+TEST(Shipilov_Artem_ComplexNumberTest, Divsion_Of_Negative_Complex_Numbers) {
+    // Arrange
+    double a1_re = -1.5;
+    double a1_im = -1.5;
+    double a2_re = -1.5;
+    double a2_im = -1.5;
+    double answer_re = 1.0;
+    double answer_im = 0.0;
+    
+    // Act
+    ComplexNumber z1(a1_re, a1_im);
+    ComplexNumber z2(a2_re, a2_im);
+    ComplexNumber result = z1 / z2;
+    
+    // Assert
+    EXPECT_EQ(answer_re, result.getRe());
+    EXPECT_EQ(answer_im, result.getIm());
+}

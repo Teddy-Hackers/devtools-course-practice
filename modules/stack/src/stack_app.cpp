@@ -2,18 +2,15 @@
 
 #include "include/stack_app.h"
 
-#include <iostream>
-#include <sstream>
-
 void StackApp::help() {
-  std::cout << "This is an integer stack application.\n\n";
-  std::cout << "Parameters:\n";
-  std::cout << "s \t\t Output size of stack.\n";
-  std::cout << "e \t\t Output if stack is empty.\n";
-  std::cout << "t \t\t Output top element of stack.\n";
-  std::cout << "pop \t\t Pop element from stack.\n";
-  std::cout << "push <values> \t Input element(s) and push it into stack.\n";
-  std::cout << "c \t\t Clear stack.\n\n";
+  message += "This is an integer stack application.\n\n";
+  message += "Parameters:\n";
+  message += "s \t\t Output size of stack.\n";
+  message += "e \t\t Output if stack is empty.\n";
+  message += "t \t\t Output top element of stack.\n";
+  message += "pop \t\t Pop element from stack.\n";
+  message += "push <values> \t Input element(s) and push it into stack.\n";
+  message += "c \t\t Clear stack.\n\n";
 }
 
 std::string StackApp::operator()(int argc, const char** argv) {
@@ -38,7 +35,7 @@ std::string StackApp::operator()(int argc, const char** argv) {
       try {
         stack.pop();
       } catch (const std::out_of_range&) {
-        std::cout << "error: can't pop, stack is empty";
+        message += "error: can't pop, stack is empty";
       }
     } else if (key == "push") {
       for (++i; i < argc && (std::isdigit(*argv[i]) || *argv[i] == '-'); ++i) {

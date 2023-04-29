@@ -16,7 +16,6 @@ TEST(Mitin_Roman_ComplexNumberTest, assigment_test) {
     // Assert
     EXPECT_EQ(z1.getRe(), 123);
     EXPECT_EQ(z1.getIm(), 13);
-
 }
 
 TEST(Mitin_Roman_ComplexNumberTest, 4root_of_minus_1) {
@@ -35,7 +34,6 @@ TEST(Mitin_Roman_ComplexNumberTest, 4root_of_minus_1) {
 
     EXPECT_DOUBLE_EQ(z2.getRe(), -1.0);
     EXPECT_DOUBLE_EQ(z2.getIm(), 0.0);
-
 }
 
 TEST(Mitin_Roman_ComplexNumberTest, divide_1_by_i) {
@@ -57,5 +55,4 @@ TEST(Mitin_Roman_ComplexNumberTest, divide_1_by_i) {
 
     EXPECT_DOUBLE_EQ(z3.getRe(), 0.0);
     EXPECT_DOUBLE_EQ(z3.getIm(), 1.0);
-
 }

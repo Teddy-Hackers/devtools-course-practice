@@ -54,10 +54,10 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
                 return std::string("Error: incorrect param in ") +
                   triangleToken;
 
-            triangle = std::unique_ptr<Triangle>(new Triangle(
-                Point{ coords[0], coords[1] },
-                Point{ coords[2], coords[3] },
-                Point{ coords[4], coords[5] }));
+            Point point1{ coords[0], coords[1] };
+            Point point2{ coords[2], coords[3] };
+            Point point3{ coords[4], coords[5] };
+            triangle.reset(new Triangle(point1, point2, point3));
         } else if (key == pointToken) {
             ++i;
 
@@ -66,7 +66,7 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
             if (!readPoints(i, coords, coordsCount))
                 return std::string("Error: incorrect param in ") + pointToken;
 
-            point = std::unique_ptr<Point>(new Point{ coords[0], coords[1] });
+            point.reset(new Point{ coords[0], coords[1] });
         } else {
             return "Error: unknown key " + key;
         }

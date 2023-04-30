@@ -20,7 +20,7 @@ TEST(Ustinov_LongestIncreasingSubsequenceTest, OneElement) {
     std::vector<int> source_array(1);
     std::vector<int> expected_array(1);
     std::vector<int> actual_array(1);
-    
+
     for (int i = -500; i <= 500; ++i) {
         source_array[0] = i;
         expected_array[0] = i;

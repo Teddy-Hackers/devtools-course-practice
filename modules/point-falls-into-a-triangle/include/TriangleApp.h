@@ -2,9 +2,9 @@
 
 #pragma once
 
-#include "include/triangle.h"
-
 #include <string>
+
+#include "include/triangle.h"
 
 class TriangleApp {
  public:

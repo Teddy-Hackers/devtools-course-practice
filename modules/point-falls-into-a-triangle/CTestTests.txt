@@ -58,3 +58,19 @@ add_test(
 set_tests_properties (${prefix}_print_Error_If_Incorrect_Param_In_Point PROPERTIES
     PASS_REGULAR_EXPRESSION "Error: incorrect param in point"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_print_Error_If_Missing_Point
+    COMMAND ${APPLICATION} triangle 0 0 0 1 1 0
+)
+set_tests_properties (${prefix}_print_Error_If_Missing_Point PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: missing point parameter"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_print_Error_If_Missing_Triangle
+    COMMAND ${APPLICATION} point 0 0
+)
+set_tests_properties (${prefix}_print_Error_If_Missing_Triangle PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: missing triangle parameter"
+    LABELS "${MODULE}")

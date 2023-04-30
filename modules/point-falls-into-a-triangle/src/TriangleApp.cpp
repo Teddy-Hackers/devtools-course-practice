@@ -2,12 +2,18 @@
 
 #include <cstdlib>
 #include <cerrno>
+#include <regex>
 
 #include "include/TriangleApp.h"
 #include "include/triangle.h"
 
 static const std::string triangleToken{ "triangle" };
 static const std::string pointToken{ "point" };
+
+static bool IsFloatNumber(const std::string& str) {
+    static std::regex floatNumberRegex{ R"(^(?:\d+(?:\.\d*)?|\.\d+)$)" }; // "123" "123.123" "123." ".123"
+    return std::regex_match(str, floatNumberRegex);
+}
 
 std::string TriangleApp::help() {
     return std::string{ "With this application you can determine if a point falls within a triangle.\n\n" } +
@@ -23,14 +29,15 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
     std::unique_ptr<Triangle> triangle;
     std::unique_ptr<Point> point;
 
-    auto readPoints = [argc, argv](int & argvIndex, double* coords, int coordsCount)
+    auto readPoints = [argc, argv](int& argvIndex, double* coords, int coordsCount)
     {
         for (int coordIndex = 0; argvIndex < argc && coordIndex < coordsCount; ++argvIndex, ++coordIndex)
         {
-            coords[coordIndex] = atof(argv[argvIndex]);
-            if (errno == ERANGE)
+            if (!IsFloatNumber(argv[argvIndex]))
                 return false;
+            coords[coordIndex] = atof(argv[argvIndex]);
         }
+        --argvIndex;
         return true;
     };
 
@@ -42,7 +49,7 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
             double coords[coordsCount] = {};
             if (!readPoints(i, coords, coordsCount))
                 return "Error: incorrect param in " + triangleToken;
-            
+
             triangle = std::make_unique<Triangle>(
                 Point{ coords[0], coords[1] },
                 Point{ coords[2], coords[3] },
@@ -66,5 +73,7 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
     if (triangle && point)
         return triangle->Consist(*point) ? "Triangle contains point" : "Triangle does not contain point";
     else
-        return "Invalid parameters";
+    {
+        return "Error: missing " + (!triangle ? triangleToken : pointToken) + " parameter";
+    }
 }

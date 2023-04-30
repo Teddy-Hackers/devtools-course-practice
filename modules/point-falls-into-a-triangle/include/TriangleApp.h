@@ -3,7 +3,6 @@
 #pragma once
 
 #include "include/triangle.h"
-#include <memory>
 
 #include <string>
 

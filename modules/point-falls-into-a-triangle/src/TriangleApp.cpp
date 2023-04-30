@@ -54,10 +54,10 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
                 return std::string("Error: incorrect param in ") +
                   triangleToken;
 
-            triangle = std::make_unique<Triangle>(
+            triangle = std::unique_ptr<Triangle>(new Triangle(
                 Point{ coords[0], coords[1] },
                 Point{ coords[2], coords[3] },
-                Point{ coords[4], coords[5] });
+                Point{ coords[4], coords[5] }));
         } else if (key == pointToken) {
             ++i;
 

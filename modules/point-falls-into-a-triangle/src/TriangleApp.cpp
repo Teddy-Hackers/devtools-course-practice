@@ -2,18 +2,18 @@
 
 #include "include/TriangleApp.h"
 
-#include <cstdlib>
-#include <cerrno>
+#include <memory>
+#include <sstream>
 
 #include "include/triangle.h"
-#include "include/unapproved.h"
 
 static const char* const triangleToken = "triangle";
 static const char* const pointToken = "point";
 
-static bool IsFloatNumber(const std::string& str) {
-    static std::regex floatNumberRegex{ R"(^(?:\d+(?:\.\d*)?|\.\d+)$)" };  // "123" "123.123" "123." ".123"
-    return std::regex_match(str, floatNumberRegex);
+static bool ReadDouble(const char * str, double * value) {
+    std::istringstream istr(str);
+    istr >> *value;
+    return !istr.fail();
 }
 
 std::string TriangleApp::help() {
@@ -36,9 +36,8 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
         for (int coordIndex = 0;
             argvIndex < argc && coordIndex < coordsCount;
             ++argvIndex, ++coordIndex) {
-            if (!IsFloatNumber(argv[argvIndex]))
+            if (!ReadDouble(argv[argvIndex], &coords[coordIndex]))
                 return false;
-            coords[coordIndex] = atof(argv[argvIndex]);
         }
         --argvIndex;
         return true;
@@ -52,7 +51,8 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
             const int coordsCount = 6;
             double coords[coordsCount] = {};
             if (!readPoints(i, coords, coordsCount))
-                return std::string("Error: incorrect param in ") + triangleToken;
+                return std::string("Error: incorrect param in ") +
+                  triangleToken;
 
             triangle = std::make_unique<Triangle>(
                 Point{ coords[0], coords[1] },
@@ -73,9 +73,9 @@ std::string TriangleApp::operator()(int argc, const char** argv) {
     }
 
     if (triangle && point)
-        return triangle->Consist(*point) ? 
+        return triangle->Consist(*point) ?
           "Triangle contains point" : "Triangle does not contain point";
     else
-        return std::string("Error: missing ") + (!triangle ? triangleToken : pointToken) +
-          " parameter";
+        return std::string("Error: missing ") +
+          (!triangle ? triangleToken : pointToken) + " parameter";
 }

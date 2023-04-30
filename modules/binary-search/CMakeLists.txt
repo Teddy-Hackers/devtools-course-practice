@@ -16,5 +16,4 @@ add_subdirectory(application)
 #############################################
 ##### Testing
 #############################################
-#TODO: Add CTestTests.txt
-#include("CTestTests.txt")
+include("CTestTests.txt")

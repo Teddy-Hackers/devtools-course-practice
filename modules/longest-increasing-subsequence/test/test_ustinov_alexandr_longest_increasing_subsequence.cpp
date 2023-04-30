@@ -192,7 +192,7 @@ TEST(Ustinov_LongestIncreasingSubsequenceTest, WithMinimalValue3) {
 TEST(Ustinov_LongestIncreasingSubsequenceTest, WithMaximalValue1) {
     constexpr int int_max = std::numeric_limits<int>::max();
     std::vector<int> source_array{int_max, 1};
-    std::vector<int> expected_array{int_max};
+    std::vector<int> expected_array{1};
 
     std::vector<int> actual_array =
         longestIncreasingSubsequence(source_array);

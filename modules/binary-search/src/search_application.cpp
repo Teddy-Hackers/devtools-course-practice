@@ -17,7 +17,7 @@ int parseInt(const char *value) {
 size_t parseUInt(const char *value) {
   try {
     int integer = std::stoi(value);
-    if (integer <= 0) {
+    if (integer < 0) {
       throw std::exception();
     }
 

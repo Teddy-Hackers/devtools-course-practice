@@ -29,10 +29,10 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format
+    NAME ${prefix}_can_Detect_Wrong_Size_Format
     COMMAND ${APPLICATION} 1 -2 1 2
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Wrong_Size_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Can't parse <array size>"
     LABELS "${MODULE}")
 
@@ -66,4 +66,28 @@ add_test(
 )
 set_tests_properties(${prefix}_Element_Not_Found PROPERTIES
         PASS_REGULAR_EXPRESSION "not found"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_Can_Detect_Zero_Size
+        COMMAND ${APPLICATION} 6 0 1
+)
+set_tests_properties(${prefix}_Can_Detect_Zero_Size PROPERTIES
+        PASS_REGULAR_EXPRESSION "Array must be not empty"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Target_Format
+        COMMAND ${APPLICATION} a 2 1 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format PROPERTIES
+        PASS_REGULAR_EXPRESSION "Can't parse <search element>"
+        LABELS "${MODULE}")
+
+add_test(
+        NAME ${prefix}_can_Detect_Wrong_Array_Format
+        COMMAND ${APPLICATION} 1 2 a 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Array_Format PROPERTIES
+        PASS_REGULAR_EXPRESSION "Can't parse <array element>"
         LABELS "${MODULE}")

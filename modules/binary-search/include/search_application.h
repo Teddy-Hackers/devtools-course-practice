@@ -6,15 +6,16 @@
 
 class SearchApplication {
  public:
-  SearchApplication();
+  SearchApplication() = default;
+
+  SearchApplication(const SearchApplication &sa) = delete;
+  SearchApplication(SearchApplication &&sa) = delete;
 
   std::string operator()(int argc, const char **argv);
  private:
-  void help(const char *appName, const char *message = "");
+  void help(const char *appName);
 
-  int parseInt(const char *value);
-
-  void validateArguments(int argc, const char **argv);
+  bool validateArguments(int argc, const char **argv);
 
   std::string m_message;
 };

@@ -149,7 +149,15 @@ std::string SearchApplication::operator()(int argc, const char **argv) {
     array.push_back(value);
   }
 
-  // TODO(mk101): check if array sorted.
+  for (size_t i = 1; i < array.size(); i++) {
+    if (array.at(i) < array.at(i-1)) {
+      return std::string("[ERROR] Array is not sorted.")
+          +" Type `$ "
+          + argv[0]
+          + "` to see help";
+    }
+  }
+
   int result = BinarySearch::find(array, target);
 
   if (result == -1) {

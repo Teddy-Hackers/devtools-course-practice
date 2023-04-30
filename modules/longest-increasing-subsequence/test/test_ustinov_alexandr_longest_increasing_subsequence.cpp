@@ -16,6 +16,19 @@ TEST(Ustinov_LongestIncreasingSubsequenceTest, Empty) {
     EXPECT_EQ(expected_array, actual_array);
 }
 
+TEST(Ustinov_LongestIncreasingSubsequenceTest, OneElement) {
+    std::vector<int> source_array(1);
+    std::vector<int> expected_array(1);
+    std::vector<int> actual_array(1);
+    
+    for (int i = -500; i <= 500; ++i) {
+        source_array[0] = i;
+        expected_array[0] = i;
+        actual_array = longestIncreasingSubsequence(source_array);
+        EXPECT_EQ(expected_array, actual_array);
+    }
+}
+
 TEST(Ustinov_LongestIncreasingSubsequenceTest, Sorted1) {
     std::vector<int> source_array{1, 2, 3, 4, 5};
     std::vector<int> expected_array{1, 2, 3, 4, 5};
@@ -98,6 +111,36 @@ TEST(Ustinov_LongestIncreasingSubsequenceTest, RepeatingElements2) {
 TEST(Ustinov_LongestIncreasingSubsequenceTest, RepeatingElements3) {
     std::vector<int> source_array{7, 7, 7, 7, 7, 7};
     std::vector<int> expected_array{7};
+
+    std::vector<int> actual_array =
+        longestIncreasingSubsequence(source_array);
+
+    EXPECT_EQ(expected_array, actual_array);
+}
+
+TEST(Ustinov_LongestIncreasingSubsequenceTest, DifferentSigns1) {
+    std::vector<int> source_array{1, -1};
+    std::vector<int> expected_array{-1};
+
+    std::vector<int> actual_array =
+        longestIncreasingSubsequence(source_array);
+
+    EXPECT_EQ(expected_array, actual_array);
+}
+
+TEST(Ustinov_LongestIncreasingSubsequenceTest, DifferentSigns2) {
+    std::vector<int> source_array{-1, 1, -2, 2, -3, 3};
+    std::vector<int> expected_array{-1, 1, 2, 3};
+
+    std::vector<int> actual_array =
+        longestIncreasingSubsequence(source_array);
+
+    EXPECT_EQ(expected_array, actual_array);
+}
+
+TEST(Ustinov_LongestIncreasingSubsequenceTest, DifferentSigns3) {
+    std::vector<int> source_array{5, 1, -10, -1, 4, 1};
+    std::vector<int> expected_array{-10, -1, 1};
 
     std::vector<int> actual_array =
         longestIncreasingSubsequence(source_array);

@@ -22,30 +22,53 @@ std::vector<int> longestIncreasingSubsequence(const std::vector<int> &array) {
     std::vector<int> last_element(array.size() + 1);
     // index of smallest last element in increasing subsequence of length 'i'
     std::vector<size_t> last_element_idx(array.size() + 1);
+    // minimal value of type 'int'
+    int min_element = std::numeric_limits<int>::min();
+    int max_element = std::numeric_limits<int>::max();
 
     // initialize 'last_number[]':
-    last_element[0] = std::numeric_limits<int>::min();
+    last_element[0] = min_element;
     for (size_t i = 1; i <= array.size(); ++i)
-        last_element[i] = std::numeric_limits<int>::max();
+        last_element[i] = max_element;
 
     // dynamic programming to fill 'prev_element_idx[]', 'last_element[]'
     // and 'last_element_idx[]'
     for (size_t i = 0; i < array.size(); ++i) {
-        // find smallest index 'j' s.t. last_element[j] >= array[i]
-        size_t j = std::lower_bound(last_element.begin(), last_element.end(),
-                                    array[i]) - last_element.begin();
+        if (array[i] == min_element) {
+            // if MIN is minimal element then the only increasing sequence which
+            // ends with MIN is 1-element sequence containing only MIN
+            last_element[1] = min_element;
+            last_element_idx[1] = i;
+            // update maximal length if MIN is the 1st element of 'array[]'
+            if (longest_inc_subseq_len == 0)
+                longest_inc_subseq_len = 1;
+            // no need to set previous element because MIN is always the first
+        } else if (array[i] == max_element) {
+            // if MAX is maximal element then its only place is in the end of
+            // current longest subsequence
+            if (last_element[longest_inc_subseq_len] != max_element) {
+                ++longest_inc_subseq_len;
+                last_element[longest_inc_subseq_len] = max_element;
+                last_element_idx[longest_inc_subseq_len] = i;
+            }
+            prev_element_idx[i] = last_element_idx[longest_inc_subseq_len-1];
+        } else {
+            // find smallest index 'j' s.t. last_element[j] >= array[i]
+            size_t j = std::lower_bound(last_element.begin(),
+                        last_element.end(), array[i]) - last_element.begin();
 
-        // consider 'array[i]' is an element of increasing subsequence,
-        // then 'last_element[j-1]' is the previous element in the subsequence
-        prev_element_idx[i] = last_element_idx[j-1];
+            // consider 'array[i]' is an element of increasing subsequence,
+            // then 'last_element[j-1]' is the previous element in it
+            prev_element_idx[i] = last_element_idx[j-1];
 
-        // update smallest last element in subsequence of length 'j'
-        last_element[j] = array[i];
-        last_element_idx[j] = i;
+            // update smallest last element in subsequence of length 'j'
+            last_element[j] = array[i];
+            last_element_idx[j] = i;
 
-        // update maximal length of increasing subsequence
-        if (j > longest_inc_subseq_len)
-            longest_inc_subseq_len = j;
+            // update maximal length of increasing subsequence
+            if (j > longest_inc_subseq_len)
+                longest_inc_subseq_len = j;
+        }
     }
 
     // vector which contains longest increasing subsequence

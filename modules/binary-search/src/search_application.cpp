@@ -103,7 +103,7 @@ bool SearchApplication::validateArguments(int argc, const char **argv) {
     return false;
   }
 
-  if (size != argc - 3) {
+  if (size != static_cast<size_t>(argc - 3)) {
     m_message =
         std::string("[ERROR] Elements count doesn't match <array size>.")
         + " Type `$ "

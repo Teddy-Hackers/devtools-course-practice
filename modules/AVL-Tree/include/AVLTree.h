@@ -62,13 +62,13 @@ void AVLTree<TData, TKey>::Insert(TKey k, TData d) {
     if (this->Find(k) != nullptr) {
       throw "Re - inserting an element, cannot complete Insert AVLTree";
     }
-    Insert((BalanceNode<TData, TKey>*&)this->Root, k, d);
+    Insert((BalanceNode<TData, TKey>*)this->Root, k, d);
   } catch (const char* exception) {
     std::cerr << "Error: " << exception << '\n';
   }
 }
 template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::Insert(BalanceNode<TData, TKey>*& N1, TKey k,
+int AVLTree<TData, TKey>::Insert(BalanceNode<TData, TKey>* N1, TKey k,
                                  TData d) {
   if (N1 == nullptr) {
     N1 = new BalanceNode<TData, TKey>(k, d);
@@ -79,7 +79,7 @@ int AVLTree<TData, TKey>::Insert(BalanceNode<TData, TKey>*& N1, TKey k,
       N1->Left = new BalanceNode<TData, TKey>(k, d, N1);
       return LBalance(N1);
     }
-    if (Insert((BalanceNode<TData, TKey>*&)(N1->Left), k, d) == 1) {
+    if (Insert((BalanceNode<TData, TKey>*)(N1->Left), k, d) == 1) {
       return LBalance(N1);
     }
   }
@@ -88,7 +88,7 @@ int AVLTree<TData, TKey>::Insert(BalanceNode<TData, TKey>*& N1, TKey k,
       N1->Right = new BalanceNode<TData, TKey>(k, d, N1);
       return RBalance(N1);
     }
-    if (Insert((BalanceNode<TData, TKey>*&)(N1->Right), k, d) == 1) {
+    if (Insert((BalanceNode<TData, TKey>*)(N1->Right), k, d) == 1) {
       return RBalance(N1);
     }
   }
@@ -107,11 +107,11 @@ void AVLTree<TData, TKey>::Delete(TKey k) {
 template <typename TData, typename TKey>
 int AVLTree<TData, TKey>::Delete(BalanceNode<TData, TKey>* N1, TKey k) {
   if (k < N1->GetKey()) {
-    if (Delete((BalanceNode<TData, TKey>*&)N1->Left, k) == 0)
+    if (Delete((BalanceNode<TData, TKey>*)N1->Left, k) == 0)
       return RBalance(N1);
   }
   if (k > N1->GetKey()) {
-    if (Delete((BalanceNode<TData, TKey>*&)N1->Right, k) == 0)
+    if (Delete((BalanceNode<TData, TKey>*)N1->Right, k) == 0)
       return LBalance(N1);
   }
   if (k == N1->GetKey()) {

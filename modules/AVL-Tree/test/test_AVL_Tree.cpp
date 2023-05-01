@@ -4,9 +4,8 @@
 #include <string>
 #include "include/BinaryTree.h"
 #include "include/AVLTree.h"
-using namespace std;
-#define SS <int,int>
-#define FF <int,string>
+#define SS <int, int>
+#define FF <int, string>
 
 TEST(BinaryTree, can_create_tree1) { ASSERT_NO_THROW(BinaryTree SS T2); }
 TEST(BinaryTree, can_Insert_empty_tree1) {
@@ -29,7 +28,6 @@ TEST(BinaryTree, corect_Delete1) {
   EXPECT_EQ(8, (*T1.Find(8)).GetKey());
   EXPECT_EQ(28, (*T1.Find(28)).GetKey());
   EXPECT_EQ(41, (*T1.Find(41)).GetKey());
-  // EXPECT_EQ(nullptr, T1.Find(17));
 }
 TEST(BinaryTree, corect_Insert1) {
   BinaryTree SS T1;

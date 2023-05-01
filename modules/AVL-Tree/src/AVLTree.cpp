@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename TData, typename TKey>
-inline void AVLTree<TData, TKey>::printTree(BalanceNode<TData, TKey>* node, 
+inline void AVLTree<TData, TKey>::printTree(BalanceNode<TData, TKey>* node,
                                             Trunk* prev, bool isLeft) {
   if (node != nullptr) {
     std::string prev_str = "    ";

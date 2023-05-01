@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 
 #include "include/fraction_number.h"
+#include "include/fraction_calculator.h"
 
 TEST(Makarov_Danila_FractionNumberTest, TEST_SUM) {
   FractionNumber a(24, 10), b(12, 20), expected(3, 1);

@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Shokurov Daniil  
+﻿// Copyright 2023 Shokurov Daniil
 
 #include "include/euler_function.h"
 

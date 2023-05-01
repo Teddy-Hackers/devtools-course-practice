@@ -276,3 +276,4 @@ void AVLTree<TData>::singleRightShift(AVLNode* node) {
 
   node = nodeLeft;
 }
+

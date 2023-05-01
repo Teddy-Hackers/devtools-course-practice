@@ -110,10 +110,10 @@ std::string CipherApplication::operator()(int argc, const char **argv) {
     std::string op = argv[1];
     switch (op[0]) {
         case 'd':
-            c.decode(text);
+            result = c.decode(text);
             break;
         case 'e':
-            c.encode(text);
+            result = c.encode(text);
             break;
     }
 

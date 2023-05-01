@@ -7,17 +7,17 @@ CTEST_PROJECT_NAME                      : devtools-course-practice
 CTEST_TARGET_SYSTEM                     : Windows-AMD64
 CTEST_MODEL                             : Experimental
 
-CTEST_SITE                              : MSI
+CTEST_SITE                              : DESKTOP-3N605E6
 CTEST_BUILD_NAME                        : Windows-AMD64-Experimental
 
-CTEST_DASHBOARD_ROOT                    : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard
-CTEST_SOURCE_DIRECTORY                  : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice
-CTEST_BINARY_DIRECTORY                  : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard/build
-CTEST_NOTES_LOG_FILE                    : C:/Users/aleks/OneDrive/Рабочий стол/devtools-course-practice/dashboard/ctest_ext_notes_log.txt
+CTEST_DASHBOARD_ROOT                    : C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2/dashboard
+CTEST_SOURCE_DIRECTORY                  : C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2
+CTEST_BINARY_DIRECTORY                  : C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2/dashboard/build
+CTEST_NOTES_LOG_FILE                    : C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2/dashboard/ctest_ext_notes_log.txt
 
 CTEST_WITH_UPDATE                       : FALSE
-GIT_CURRENT_BRANCH                      : Elistratov-Vladimir-lab2
-GIT_CURRENT_REVISION                    : 3fc1fbad2c4f566db882f2060d9f4117e2990154
+GIT_CURRENT_BRANCH                      : Makarov-Danila-lab2
+GIT_CURRENT_REVISION                    : 0d5ed5a12c9f4fb3f00856fcf3d6f18b07e90a67
 
 CTEST_UPDATE_CMAKE_CACHE                : TRUE
 CTEST_EMPTY_BINARY_DIRECTORY            : TRUE

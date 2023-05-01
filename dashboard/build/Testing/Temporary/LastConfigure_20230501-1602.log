@@ -7,7 +7,6 @@ CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
 
 
 CMake Error at CMakeLists.txt:2 (project):
--- Configuring incomplete, errors occurred!
   Generator
 
     Visual Studio 16 2019
@@ -16,3 +15,5 @@ CMake Error at CMakeLists.txt:2 (project):
 
 
 
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2/dashboard/build/CMakeFiles/CMakeOutput.log".

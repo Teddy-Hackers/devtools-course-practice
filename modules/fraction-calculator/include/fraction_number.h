@@ -33,6 +33,10 @@ class FractionNumber {
 
   FractionNumber operator/(const FractionNumber& z) const;
 
+  bool operator==(const FractionNumber& z) const;
+
+  bool operator!=(const FractionNumber& z) const;
+
  private:
   int numerator, denominator;
 };

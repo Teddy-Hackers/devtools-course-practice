@@ -1,10 +1,10 @@
 // Copyright 2023 Makarov Danila
 
+#include "include/fraction_number.h"
+
 #include <stdbool.h>
 
 #include <string>
-
-#include "include/fraction_number.h"
 
 int FractionNumber::NOD(int a, int b) {
   if (a % b == 0) return b;
@@ -102,4 +102,22 @@ FractionNumber FractionNumber::operator/(const FractionNumber& z) const {
   div.setDenominator(div.getDenominator() / nod);
 
   return div;
+}
+
+bool FractionNumber::operator==(const FractionNumber& z) const {
+  int nok = FractionNumber::NOK(this->getDenominator(), z.getDenominator());
+
+  int num1 = this->getNumerator() * (nok / this->getDenominator()),
+      num2 = z.getNumerator() * (nok / z.getDenominator());
+
+  return num1 == num2;
+}
+
+bool FractionNumber::operator!=(const FractionNumber& z) const {
+  int nok = FractionNumber::NOK(this->getDenominator(), z.getDenominator());
+
+  int num1 = this->getNumerator() * (nok / this->getDenominator()),
+      num2 = z.getNumerator() * (nok / z.getDenominator());
+
+  return num1 != num2;
 }

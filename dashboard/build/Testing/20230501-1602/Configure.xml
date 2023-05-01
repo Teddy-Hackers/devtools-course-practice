@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Windows-AMD64-Experimental"
+	BuildStamp="20230501-1602-Experimental"
+	Name="DESKTOP-3N605E6"
+	Generator="ctest-3.25.1"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Windows"
+	Hostname="DESKTOP-3N605E6"
+	OSRelease=" Professional"
+	OSVersion=" (Build 19045)"
+	OSPlatform="AMD64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="14"
+	ProcessorCacheSize="-1"
+	NumberOfLogicalCPU="6"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="18767"
+	TotalPhysicalMemory="16335"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2808"
+	>
+	<Configure>
+		<StartDateTime>May 01 19:02 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</StartDateTime>
+		<StartConfigureTime>1682956960</StartConfigureTime>
+		<ConfigureCommand>"C:/Program Files/CMake/bin/cmake.exe" "-GVisual Studio 16 2019" "C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2"</ConfigureCommand>
+		<Log>CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake &lt; 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument &lt;min&gt; value or use a ...&lt;max&gt; suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Error at CMakeLists.txt:2 (project):
+  Generator
+
+    Visual Studio 16 2019
+
+  could not find any instance of Visual Studio.
+
+
+
+-- Configuring incomplete, errors occurred!
+See also "C:/Users/whati/Desktop/papka2/Makarov-Danila-lab2/dashboard/build/CMakeFiles/CMakeOutput.log".
+</Log>
+		<ConfigureStatus>1</ConfigureStatus>
+		<EndDateTime>May 01 19:02 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</EndDateTime>
+		<EndConfigureTime>1682956961</EndConfigureTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Configure>
+</Site>

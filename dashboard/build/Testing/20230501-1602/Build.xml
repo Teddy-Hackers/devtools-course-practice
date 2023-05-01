@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="Windows-AMD64-Experimental"
-	BuildStamp="20230501-1153-Experimental"
-	Name="MSI"
-	Generator="ctest-3.26.0-rc4"
+	BuildStamp="20230501-1602-Experimental"
+	Name="DESKTOP-3N605E6"
+	Generator="ctest-3.25.1"
 	CompilerName=""
 	CompilerVersion=""
 	OSName="Windows"
-	Hostname="MSI"
+	Hostname="DESKTOP-3N605E6"
 	OSRelease=" Professional"
-	OSVersion=" (Build 22621)"
+	OSVersion=" (Build 19045)"
 	OSPlatform="AMD64"
 	Is64Bits="1"
 	VendorString="GenuineIntel"
@@ -16,16 +16,16 @@
 	FamilyID="6"
 	ModelID="14"
 	ProcessorCacheSize="-1"
-	NumberOfLogicalCPU="8"
-	NumberOfPhysicalCPU="4"
-	TotalVirtualMemory="22731"
-	TotalPhysicalMemory="16228"
-	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2400"
+	NumberOfLogicalCPU="6"
+	NumberOfPhysicalCPU="6"
+	TotalVirtualMemory="18767"
+	TotalPhysicalMemory="16335"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="2808"
 	>
 	<Build>
-		<StartDateTime>May 01 14:53 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</StartDateTime>
-		<StartBuildTime>1682942033</StartBuildTime>
+		<StartDateTime>May 01 19:02 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</StartDateTime>
+		<StartBuildTime>1682956961</StartBuildTime>
 		<BuildCommand>"C:\Program Files\CMake\bin\cmake.exe" --build . --config "Debug"</BuildCommand>
 		<Error>
 			<BuildLogLine>1</BuildLogLine>
@@ -50,8 +50,8 @@
 			<RepeatCount>0</RepeatCount>
 		</Warning>
 		<Log Encoding="base64" Compression="bin/gzip"/>
-		<EndDateTime>May 01 14:53 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</EndDateTime>
-		<EndBuildTime>1682942033</EndBuildTime>
+		<EndDateTime>May 01 19:02 RTZ 2 ([NON-UTF-8-BYTE-0xE7][NON-UTF-8-BYTE-0xE8][NON-UTF-8-BYTE-0xEC][NON-UTF-8-BYTE-0xE0])</EndDateTime>
+		<EndBuildTime>1682956961</EndBuildTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Build>
 </Site>

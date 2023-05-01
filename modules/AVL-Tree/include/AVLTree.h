@@ -28,7 +28,7 @@ class AVLTree {
     AVLNode* right;
     TData value;
     explicit AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
-    AVLNode(TData value)
+    explicit AVLNode(TData value)
         : height(0), left(nullptr), right(nullptr), value(value) {}
   };
 

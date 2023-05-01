@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Shokurov Daniil
+﻿  // Copyright 2023 Shokurov Daniil
 
 #ifndef MODULES_EULER_FUNCTION_INCLUDE_EULER_FUNCTION_H_
 #define MODULES_EULER_FUNCTION_INCLUDE_EULER_FUNCTION_H_

@@ -48,13 +48,9 @@ bool AVLTree<TData>::containRecurse(AVLNode* node,
   if (node) {
     if (node->value == value) {
       return true;
-    }
-
-    else if (value < node->value) {
+    }else if (value < node->value) {
       return containRecurse(node->left, value);
-    }
-
-    else if (value > node->value) {
+    }else if (value > node->value) {
       return containRecurse(node->right, value);
     }
   }
@@ -72,13 +68,9 @@ void AVLTree<TData>::insertRecurse(const TData& value,
                                         AVLNode* currNode) {
   if (currNode == nullptr) {
     currNode = new AVLNode(value);
-  }
-
-  else if (value < currNode->value) {
+  }else if (value < currNode->value) {
     insertRecurse(value, currNode->left);
-  }
-
-  else if (value > currNode->value) {
+  }else if (value > currNode->value) {
     insertRecurse(value, currNode->right);
   }
 
@@ -101,16 +93,12 @@ void AVLTree<TData>::removeRecurse(const TData& value,
     if (current->left == nullptr && current->right == nullptr) {
       delete current;
       current = nullptr;
-    }
-
-    else if (current->left && current->right) {
+    }else if (current->left && current->right) {
       TData& minRight = recurse_find_min(current->right);
       current->value = minRight;
       removeRecurse(minRight, current->right);
 
-    }
-
-    else if (current->right || current->left) {
+    }else if (current->right || current->left) {
       AVLNode* temp = current;
       if (current->right) {
         current = current->right;
@@ -120,13 +108,9 @@ void AVLTree<TData>::removeRecurse(const TData& value,
         delete temp;
       }
     }
-  }
-
-  else if (value < current->value) {
+  }else if (value < current->value) {
     removeRecurse(value, current->left);
-  }
-
-  else {
+  }else {
     removeRecurse(value, current->right);
   }
 

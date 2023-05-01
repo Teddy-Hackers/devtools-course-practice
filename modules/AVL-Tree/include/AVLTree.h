@@ -1,7 +1,9 @@
 // Copyright 2023 Ermolaev Danila
 
+#pragma once
 #include <cstddef>
 #include <iostream>
+#include <algorithm>
 
 template <typename TData>
 class AVLTree {
@@ -25,7 +27,7 @@ class AVLTree {
     AVLNode* left;
     AVLNode* right;
     TData value;
-    AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
+    explicit AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
     AVLNode(TData value)
         : height(0), left(nullptr), right(nullptr), value(value) {}
   };
@@ -33,16 +35,17 @@ class AVLTree {
   AVLNode* root;
 
   void preorderInsert(AVLNode* current);
-  void insertRecurse(const TData& value, AVLNode*& currNode);
-  void singleLeftShift(AVLNode*& node);
+  void insertRecurse(const TData& value, AVLNode* currNode);
+  void singleLeftShift(AVLNode* node);
   int findHeight(AVLNode* node) const;
   int max(int a, int b);
-  void balance(AVLNode*& node);
-  void singleRightShift(AVLNode*& node);
-  void removeRecurse(const TData& value, AVLNode*& current);
+  void balance(AVLNode* node);
+  void singleRightShift(AVLNode* node);
+  void removeRecurse(const TData value, AVLNode* current);
   TData& recurse_find_min(AVLNode* node) const;
   TData& recurse_find_max(AVLNode* node) const;
   void printRecurse(AVLNode* node, int count, std::ostream& os) const;
-  void emptyRecurse(AVLNode*& node);
+  void emptyRecurse(AVLNode* node);
   bool containRecurse(AVLNode* node, const TData& value) const;
 };
+

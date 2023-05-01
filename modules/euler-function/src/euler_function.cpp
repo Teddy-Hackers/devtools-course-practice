@@ -1,22 +1,21 @@
-﻿// Copyright 2023 Shokurov Daniil
+﻿// Copyright 2023 Shokurov Daniil  
 
-#pragma once
 #include "../include/euler_function.h"
 #include <string>
 
-// euler_function(int value) is equal to the 
-// number of natural numbers from the segment[1, value − 1] 
+// euler_function(int value) is equal to the
+// number of natural numbers from the segment[1, value − 1]
 // coprime to value
 // Let fi(n) is euler_function(int value) then
 // fi has the following properties:
 // 1. fi(p) = p - 1, where p is prime number
 // 2. fi(p^n) = p^n - p^(n-1), where p is prime number
-// 3. fi(p1^n * k) = fi(p^n) * fi(k), 
+// 3. fi(p1^n * k) = fi(p^n) * fi(k),
 // where p is prime number, k is not divisible by number
-// to find the value of the function, 
+// to find the value of the function,
 // the decomposition of the number into prime factors is used
-// that is fi(a) = fi(p1^(n1)*p2^(n2)*...*pm^(nm)) = 
-// fi(p1^(n1))*fi(p2^(n2))*...*fi(pm^(nm)), where a is composed number, 
+// that is fi(a) = fi(p1^(n1)*p2^(n2)*...*pm^(nm)) =
+// fi(p1^(n1))*fi(p2^(n2))*...*fi(pm^(nm)), where a is composed number,
 // p[i] is prime number, n[j] is natural number
 int euler_function(int value) {
   // the euler function is defined for natural numbers
@@ -26,10 +25,10 @@ int euler_function(int value) {
   int numberOfCoprimeNumbers = 1;
 
   // Decomposition of a number into prime numbers.
-  // If value is composite number, then its divisor 
+  // If value is composite number, then its divisor
   // belongs to the segment [2,
   // floor(sqrt(value))]. If value is prime number,
-  // then the body of the loop will not be executed. 
+  // then the body of the loop will not be executed.
   // Enumerate all integers from 2 to sqrt(value).
   for (int number = 2; number * number <= value; ++number) {
     // if (value % number == 0) then number is prime number and value =

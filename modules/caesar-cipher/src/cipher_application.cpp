@@ -72,14 +72,6 @@ bool CipherApplication::validateArguments(int argc, const char **argv) {
         return false;
     }
 
-    if (size == 0) {
-        m_message =
-                std::string("[ERROR] Words must be not empty. Type `$ ") +
-                argv[0] +
-                "` to see help";
-        return false;
-    }
-
     if (size != static_cast<size_t>(argc - 3)) {
         m_message =
                 std::string("[ERROR] Elements count doesn't ")

@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Ermolaev Danila
+﻿  // Copyright 2023 Ermolaev Danila
 
 #include <gtest/gtest.h>
 

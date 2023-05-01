@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename TData, typename TKey>
-inline void AVLTree<TData, TKey>::printTree(BalanceNode<TData, TKey>* node,
+inline void AVLTree<TData, TKey>::printTree(BalanceNode<TData, TKey>* node, 
                                             Trunk* prev, bool isLeft) {
   if (node != nullptr) {
     std::string prev_str = "    ";
@@ -74,7 +74,7 @@ void AVLTree<TData, TKey>::Delete(TKey k) {
     if (this->Find(k) == nullptr) {
       throw "Deleting a non-existing element,cannot complete Delete AVLTree";
     }
-    Delete((BalanceNode<TData, TKey>*&)this->Root, k);
+    Delete((BalanceNode<TData, TKey>*)this->Root, k);
   } catch (const char* exception) {
     std::cerr << "Error: " << exception << '\n';
   }

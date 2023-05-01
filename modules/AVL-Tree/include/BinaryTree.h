@@ -3,6 +3,7 @@
 #pragma once
 #include <iostream>
 #include <stack>
+#include <string>
 #include "Table.h"
 
 struct Trunk {
@@ -273,7 +274,7 @@ void BinaryTree<TData, TKey>::Insert(TKey k, TData d) {
       throw "Re-inserting an element,cannot complete Insert BinaryTree";
     }
 
-    if (Root == nullptr){
+    if (Root == nullptr) {
       Root = new TreeNode<TData, TKey>(k, d);
       size += 1;
       return;
@@ -294,7 +295,6 @@ void BinaryTree<TData, TKey>::Insert(TKey k, TData d) {
       y->Right = new TreeNode<TData, TKey>(k, d, y);
       size += 1;
     }
-
   } catch (const char* exception) {
     std::cerr << "Error: " << exception;
   }

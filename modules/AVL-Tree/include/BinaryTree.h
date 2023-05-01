@@ -146,7 +146,7 @@ class BinaryTree {
     } else {
       n = S1.top();
       S1.pop();
-      os << "Key:" << std::left << n->GetKey() 
+      os << "Key:" << std::left << n->GetKey()
          << " | Data: " << *(n->GetData())
          << '\n';
       n = n->Right;

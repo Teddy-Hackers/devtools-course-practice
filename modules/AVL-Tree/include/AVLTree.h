@@ -3,7 +3,6 @@
 #pragma once
 #include "BinaryTree.h"
 #include <iostream>
-using namespace std;
 
 template <typename TData, typename TKey>
 class BalanceNode : public TreeNode<TData, TKey> {
@@ -14,7 +13,7 @@ class BalanceNode : public TreeNode<TData, TKey> {
               TreeNode<TData, TKey>* R = nullptr,
               TreeNode<TData, TKey>* L = nullptr, int bal = 0)
       : TreeNode<TData, TKey>(k, d, P, L, R), balance(bal){};
-};
+}
 
 template <typename TData, typename TKey>
 class AVLTree : public BinaryTree<TData, TKey> {
@@ -252,7 +251,5 @@ int AVLTree<TData, TKey>::RBalance(BalanceNode<TData, TKey>*& N1) {
       }
       N1->balance = 0;
   }
-  return abs(N1->balance);
-  ;
+  return abs(N1->balance);;
 }
-

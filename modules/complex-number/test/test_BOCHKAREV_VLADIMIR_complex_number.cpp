@@ -4,13 +4,14 @@
 
 #include "include/complex_number.h"
 
-TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Selfsubstruct) {
+TEST(Bochkarev_Vladimir_ComplexNumberTest, Test_Substruct) {
     // Arrange
-    ComplexNumber a(1, 1);
-    ComplexNumber ans(0.0, 0.0);
+    ComplexNumber a(30.5, 10.9);
+    ComplexNumber b(10.9, 30.5);
+    ComplexNumber ans(19.6, -19.6);
 
     // Act
-    ComplexNumber result = a - a;
+    ComplexNumber result = a - b;
 
     // Assert
     ASSERT_EQ(ans.getIm(), result.getIm());

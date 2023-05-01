@@ -17,7 +17,6 @@ TEST(Yashina_Anastasia_ComplexNumberTest, add) {
 TEST(Yashina_Anastasia_ComplexNumberTest, sum) {
     double re1 = 1.5;
     double im1 = 0.3;
-
     double re2 = 4.5;
     double im2 = 0.7;
 
@@ -32,7 +31,6 @@ TEST(Yashina_Anastasia_ComplexNumberTest, sum) {
 TEST(Yashina_Anastasia_ComplexNumberTest, substract) {
     double re1 = 4.0;
     double im1 = 4.0;
-
     double re2 = 5.0;
     double im2 = 2.0;
 
@@ -47,7 +45,6 @@ TEST(Yashina_Anastasia_ComplexNumberTest, substract) {
 TEST(Yashina_Anastasia_ComplexNumberTest, multiply) {
     double re1 = 2.0;
     double im1 = 1.0;
-
     double re2 = 3.0;
     double im2 = 2.0;
 
@@ -63,7 +60,6 @@ TEST(Yashina_Anastasia_ComplexNumberTest, division) {
     double re1 = 2.0;
     double im1 = 1.0;
     ComplexNumber c1(re1, im1);
-
     double re2 = 2.0;
     double im2 = 1.0;
     ComplexNumber c2(re2, im2);
@@ -77,7 +73,6 @@ TEST(Yashina_Anastasia_ComplexNumberTest, division) {
 TEST(Yashina_Anastasia_ComplexNumberTest, compare) {
     double re1 = 4.0;
     double im1 = 4.0;
-
     double re2 = 4.0;
     double im2 = 4.0;
 

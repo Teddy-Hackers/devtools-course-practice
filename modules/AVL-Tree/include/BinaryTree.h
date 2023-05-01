@@ -4,7 +4,6 @@
 #include <iostream>
 #include <stack>
 #include "Table.h"
-using namespace std;
 
 struct Trunk {
   Trunk* prev;
@@ -274,8 +273,7 @@ void BinaryTree<TData, TKey>::Insert(TKey k, TData d) {
       throw "Re-inserting an element,cannot complete Insert BinaryTree";
     }
 
-    if (Root == nullptr)  //вставка корня
-    {
+    if (Root == nullptr){
       Root = new TreeNode<TData, TKey>(k, d);
       size += 1;
       return;
@@ -298,7 +296,7 @@ void BinaryTree<TData, TKey>::Insert(TKey k, TData d) {
     }
 
   } catch (const char* exception) {
-    std::cerr << "Error: " << exception << '\n';
+    std::cerr << "Error: " << exception;
   }
 }
 
@@ -315,9 +313,9 @@ void BinaryTree<TData, TKey>::Delete(TKey k) {
         y->Parent->Left = x;
       else
         y->Parent->Right = x;
-    } else
+    } else {
       Root = x;
-
+    }
     if (y != z) {
       TreeNode<TData, TKey>* tmp = z;
       z->key = y->key;
@@ -327,7 +325,8 @@ void BinaryTree<TData, TKey>::Delete(TKey k) {
     }
     delete y;
     return;
-  } else
+  } else {
     return;
+  }
 }
 

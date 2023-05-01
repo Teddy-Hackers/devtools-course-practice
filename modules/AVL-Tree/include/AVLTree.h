@@ -3,6 +3,7 @@
 #pragma once
 #include "BinaryTree.h"
 #include <iostream>
+#include <string>
 
 template <typename TData, typename TKey>
 class BalanceNode : public TreeNode<TData, TKey> {
@@ -18,10 +19,10 @@ class BalanceNode : public TreeNode<TData, TKey> {
 template <typename TData, typename TKey>
 class AVLTree : public BinaryTree<TData, TKey> {
  protected:
-  int Insert(BalanceNode<TData, TKey>*& N1, TKey k, TData d);
-  int Delete(BalanceNode<TData, TKey>*& N1, TKey k);
-  int LBalance(BalanceNode<TData, TKey>*& N1);
-  int RBalance(BalanceNode<TData, TKey>*& N1);
+  int Insert(BalanceNode<TData, TKey>* N1, TKey k, TData d);
+  int Delete(BalanceNode<TData, TKey>* N1, TKey k);
+  int LBalance(BalanceNode<TData, TKey>* N1);
+  int RBalance(BalanceNode<TData, TKey>* N1);
 
  public:
   AVLTree() : BinaryTree<TData, TKey>() {}
@@ -104,7 +105,7 @@ void AVLTree<TData, TKey>::Delete(TKey k) {
   }
 }
 template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::Delete(BalanceNode<TData, TKey>*& N1, TKey k) {
+int AVLTree<TData, TKey>::Delete(BalanceNode<TData, TKey>* N1, TKey k) {
   if (k < N1->GetKey()) {
     if (Delete((BalanceNode<TData, TKey>*&)N1->Left, k) == 0)
       return RBalance(N1);
@@ -125,7 +126,7 @@ int AVLTree<TData, TKey>::Delete(BalanceNode<TData, TKey>*& N1, TKey k) {
   }
 }
 template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::LBalance(BalanceNode<TData, TKey>*& N1) {
+int AVLTree<TData, TKey>::LBalance(BalanceNode<TData, TKey>* N1) {
   switch (N1->balance) {
     case 1:
       N1->balance = 0;
@@ -190,7 +191,7 @@ int AVLTree<TData, TKey>::LBalance(BalanceNode<TData, TKey>*& N1) {
   return abs(N1->balance);
 }
 template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::RBalance(BalanceNode<TData, TKey>*& N1) {
+int AVLTree<TData, TKey>::RBalance(BalanceNode<TData, TKey>* N1) {
   switch (N1->balance) {
     case -1:
       N1->balance = 0;

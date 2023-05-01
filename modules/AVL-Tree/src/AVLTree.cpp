@@ -3,228 +3,299 @@
 #include "include/AVLTree.h"
 #include <iostream>
 
-template <typename TData, typename TKey>
-inline void AVLTree<TData, TKey>::printTree(BalanceNode<TData, TKey>* node,
-                                            Trunk* prev, bool isLeft) {
-  if (node != nullptr) {
-    std::string prev_str = "    ";
-    Trunk* trunk = new Trunk(prev, prev_str);
-    printTree((BalanceNode<TData, TKey>*)(node->Right), trunk, true);
-    if (!prev) {
-      trunk->str = "---";
-    } else if (isLeft) {
-      trunk->str = ".---";
-      prev_str = "   |";
-    } else {
-      trunk->str = "`---";
-      prev->str = prev_str;
-    }
-    ShowTrunks(trunk);
-    std::cout << node->GetKey() << "[" << *(node->GetData()) << "]"
-              << std::endl;
-    if (prev) {
-      prev->str = prev_str;
-    }
-    trunk->str = "   |";
-    printTree((BalanceNode<TData, TKey>*)(node->Left), trunk, false);
+template <typename TData>
+AVLTree<TData>::AVLTree()
+    : root(nullptr) {}
+
+template <typename TData>
+AVLTree<TData>::AVLTree(const AVLTree& other)
+    : root(nullptr) {
+  if (other.root != nullptr) {
+    this->preorderInsert(other.root);
   }
 }
 
-template <typename TData, typename TKey>
-void AVLTree<TData, TKey>::Insert(TKey k, TData d) {
-  try {
-    if (this->Find(k) != nullptr) {
-      throw "Re - inserting an element, cannot complete Insert AVLTree";
-    }
-    Insert((BalanceNode<TData, TKey>*)this->Root, k, d);
-  } catch (const char* exception) {
-    std::cerr << "Error: " << exception << '\n';
-  }
+template <typename TData>
+AVLTree<TData>::~AVLTree() {
+  make_empty();
 }
-template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::Insert(BalanceNode<TData, TKey>* N1, TKey k,
-                                 TData d) {
-  if (N1 == nullptr) {
-    N1 = new BalanceNode<TData, TKey>(k, d);
-    return 1;
-  }
-  if (k < N1->GetKey()) {
-    if (N1->Left == nullptr) {
-      N1->Left = new BalanceNode<TData, TKey>(k, d, N1);
-      return LBalance(N1);
-    }
-    if (Insert((BalanceNode<TData, TKey>*)(N1->Left), k, d) == 1) {
-      return LBalance(N1);
-    }
-  }
-  if (k > N1->GetKey()) {
-    if (N1->Right == nullptr) {
-      N1->Right = new BalanceNode<TData, TKey>(k, d, N1);
-      return RBalance(N1);
-    }
-    if (Insert((BalanceNode<TData, TKey>*)(N1->Right), k, d) == 1) {
-      return RBalance(N1);
-    }
-  }
-}
-template <typename TData, typename TKey>
-void AVLTree<TData, TKey>::Delete(TKey k) {
-  try {
-    if (this->Find(k) == nullptr) {
-      throw "Deleting a non-existing element,cannot complete Delete AVLTree";
-    }
-    Delete((BalanceNode<TData, TKey>*)this->Root, k);
-  } catch (const char* exception) {
-    std::cerr << "Error: " << exception << '\n';
-  }
-}
-template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::Delete(BalanceNode<TData, TKey>* N1, TKey k) {
-  if (k < N1->GetKey()) {
-    if (Delete((BalanceNode<TData, TKey>*)N1->Left, k) == 0)
-      return RBalance(N1);
-  }
-  if (k > N1->GetKey()) {
-    if (Delete((BalanceNode<TData, TKey>*)N1->Right, k) == 0)
-      return LBalance(N1);
-  }
-  if (k == N1->GetKey()) {
-    int h = 0;
-    BalanceNode<TData, TKey>* p1 =
-        (BalanceNode<TData, TKey>*)this->FindNext(N1);
-    if (N1->Right != nullptr && N1->Left != nullptr) {
-      h = LBalance(p1);
-    }
-    BinaryTree<TData, TKey>::Delete(N1->GetKey());
-    return h;
-  }
-}
-template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::LBalance(BalanceNode<TData, TKey>* N1) {
-  switch (N1->balance) {
-    case 1:
-      N1->balance = 0;
-      break;
-    case 0:
-      N1->balance = -1;
-      break;
-    case -1:
-      BalanceNode<TData, TKey>* p1;
-      BalanceNode<TData, TKey>* p2;
-      BalanceNode<TData, TKey>* p3;
-      p1 = (BalanceNode<TData, TKey>*)(N1->Left);
-      p3 = (BalanceNode<TData, TKey>*)(N1->Parent);
-      if (p1->balance == -1) {
-        if (p1->Right != nullptr) {
-          p1->Right->Parent = N1;
-        }
-        N1->Left = p1->Right;
 
-        if (N1 != nullptr) {
-          N1->Parent = p1;
-        }
-        p1->Right = N1;
-        N1->balance = 0;
-        (*p1).Parent = p3;
-        N1 = p1;
+template <typename TData>
+AVLTree<TData>& AVLTree<TData>::operator=(const AVLTree& other) {
+  if (this == &other) {
+    return *this;
+  }
+
+  this->make_empty();
+
+  if (other.root == nullptr) {
+    this->root = nullptr;
+    return *this;
+  }
+
+  this->preorderInsert(other.root);
+  return *this;
+}
+
+template <typename TData>
+bool AVLTree<TData>::contains(const TData& value) const {
+  return containRecurse(root, value);
+}
+
+template <typename TData>
+bool AVLTree<TData>::containRecurse(AVLNode* node,
+                                         const TData& value) const {
+  if (node) {
+    if (node->value == value) {
+      return true;
+    }
+
+    else if (value < node->value) {
+      return containRecurse(node->left, value);
+    }
+
+    else if (value > node->value) {
+      return containRecurse(node->right, value);
+    }
+  }
+
+  return false;
+}
+
+template <typename TData>
+void AVLTree<TData>::insert(const TData& value) {
+  insertRecurse(value, root);
+}
+
+template <typename TData>
+void AVLTree<TData>::insertRecurse(const TData& value,
+                                        AVLNode*& currNode) {
+  if (currNode == nullptr) {
+    currNode = new AVLNode(value);
+  }
+
+  else if (value < currNode->value) {
+    insertRecurse(value, currNode->left);
+  }
+
+  else if (value > currNode->value) {
+    insertRecurse(value, currNode->right);
+  }
+
+  balance(currNode);
+}
+
+template <typename TData>
+void AVLTree<TData>::remove(const TData& value) {
+  removeRecurse(value, this->root);
+}
+
+template <typename TData>
+void AVLTree<TData>::removeRecurse(const TData& value,
+                                        AVLNode*& current) {
+  if (!current) {
+    return;
+  }
+
+  if (value == current->value) {
+    if (current->left == nullptr && current->right == nullptr) {
+      delete current;
+      current = nullptr;
+    }
+
+    else if (current->left && current->right) {
+      TData& minRight = recurse_find_min(current->right);
+      current->value = minRight;
+      removeRecurse(minRight, current->right);
+
+    }
+
+    else if (current->right || current->left) {
+      AVLNode* temp = current;
+      if (current->right) {
+        current = current->right;
+        delete temp;
       } else {
-        p2 = (BalanceNode<TData, TKey>*)(p1->Right);
-
-        if (p2->Left != nullptr) {
-          p2->Left->Parent = p1;
-        }
-        p1->Right = p2->Left;
-
-        if (p1 != nullptr) {
-          (*p1).Parent = p2;
-        }
-        p2->Left = p1;
-
-        if (p2->Right != nullptr) {
-          p2->Right->Parent = N1;
-        }
-        N1->Left = p2->Right;
-
-        if (N1 != nullptr) {
-          (*N1).Parent = p2;
-        }
-        p2->Right = N1;
-        if (p2->balance == -1)
-          N1->balance = 1;
-        else
-          N1->balance = 0;
-        if (p2->balance == 1)
-          N1->balance = -1;
-        else
-          p1->balance = 0;
-        (*p2).Parent = p3;
-        N1 = p2;
+        current = current->left;
+        delete temp;
       }
-      N1->balance = 0;
+    }
   }
-  return abs(N1->balance);
+
+  else if (value < current->value) {
+    removeRecurse(value, current->left);
+  }
+
+  else {
+    removeRecurse(value, current->right);
+  }
+
+  balance(current);
 }
-template <typename TData, typename TKey>
-int AVLTree<TData, TKey>::RBalance(BalanceNode<TData, TKey>* N1) {
-  switch (N1->balance) {
-    case -1:
-      N1->balance = 0;
-      break;
-    case 0:
-      N1->balance = 1;
-      break;
-    case 1:
-      BalanceNode<TData, TKey>* p1;
-      BalanceNode<TData, TKey>* p2;
-      BalanceNode<TData, TKey>* p3 = (BalanceNode<TData, TKey>*)N1->Parent;
-      p1 = (BalanceNode<TData, TKey>*)(N1->Right);
-      if (p1->balance == 1) {
-        if (p1->Left != nullptr) {
-          p1->Left->Parent = N1;
-        }
-        N1->Right = p1->Left;
 
-        if (N1 != nullptr) {
-          (*N1).Parent = p1;
-        }
-        p1->Left = N1;
-        N1->balance = 0;
-        N1 = p1;
-        (*p1).Parent = p3;
-      } else {
-        p2 = (BalanceNode<TData, TKey>*)(p1->Left);
+template <typename TData>
+const TData& AVLTree<TData>::find_min() const {
+  return recurse_find_min(root);
+}
 
-        if (p2->Right != nullptr) {
-          p2->Right->Parent = p1;
-        }
-        p1->Left = p2->Right;
-
-        if (p1 != nullptr) {
-          p1->Parent = p2;
-        }
-        p2->Right = p1;
-
-        if (p2->Left != nullptr) {
-          p2->Left->Parent = N1;
-        }
-        N1->Right = p2->Left;
-
-        if (N1 != nullptr) {
-          (*N1).Parent = p2;
-        }
-        p2->Left = N1;
-        if (p2->balance == 1)
-          N1->balance = -1;
-        else
-          N1->balance = 0;
-        if (p2->balance == -1)
-          N1->balance = 1;
-        else
-          p1->balance = 0;
-        (*p2).Parent = p3;
-        N1 = p2;
-      }
-      N1->balance = 0;
+template <typename TData>
+TData& AVLTree<TData>::recurse_find_min(AVLNode* node) const {
+  if (!node) {
+    throw std::invalid_argument("Tree is empty, no minimum value.");
   }
-  return abs(N1->balance);;
+
+  if (node->left == nullptr) {
+    return node->value;
+  }
+  return recurse_find_min(node->left);
+}
+
+template <typename TData>
+const TData& AVLTree<TData>::find_max() const {
+  return recurse_find_max(this->root);
+}
+
+template <typename TData>
+TData& AVLTree<TData>::recurse_find_max(AVLNode* node) const {
+  if (!node) {
+    throw std::invalid_argument("Tree is empty, no maximum value.");
+  }
+
+  if (node->right == nullptr) {
+    return node->value;
+  }
+
+  return recurse_find_max(node->right);
+}
+
+template <typename TData>
+void AVLTree<TData>::print_tree(std::ostream& os) const {
+  if (this->root == nullptr) {
+    os << "<empty>" << std::endl;
+  }
+
+  int count = -1;
+  printRecurse(root, count, os);
+}
+
+template <typename TData>
+void AVLTree<TData>::printRecurse(AVLNode* node, int count,
+                                       std::ostream& os) const {
+  if (node) {
+    count++;
+
+    printRecurse(node->right, count, os);
+
+    if (node != root) {
+      for (int i = 0; i < count * 2; i++) {
+        os << " ";
+      }
+    }
+
+    os << node->value << std::endl;
+    printRecurse(node->left, count, os);
+  }
+}
+
+template <typename TData>
+bool AVLTree<TData>::is_empty() const {
+  return (root == nullptr);
+}
+
+template <typename TData>
+void AVLTree<TData>::make_empty() {
+  emptyRecurse(root);
+}
+
+template <typename TData>
+void AVLTree<TData>::emptyRecurse(AVLNode*& node) {
+  if (node) {
+    emptyRecurse(node->left);
+    emptyRecurse(node->right);
+    delete node;
+  }
+
+  node = nullptr;
+}
+
+template <typename TData>
+int AVLTree<TData>::findHeight(AVLNode* node) const {
+  return !node ? -1 : node->height;
+}
+
+template <typename TData>
+int AVLTree<TData>::max(int a, int b) {
+  return a > b ? a : b;
+}
+
+template <typename TData>
+void AVLTree<TData>::preorderInsert(AVLNode* current) {
+  if (current) {
+    this->insert(current->value);
+    this->preorderInsert(current->left);
+    this->preorderInsert(current->right);
+  }
+
+  return;
+}
+
+template <typename TData>
+void AVLTree<TData>::balance(AVLNode*& node) {
+  if (!node) {
+    return;
+  }
+
+  int factor = findHeight(node->left) - findHeight(node->right);
+
+  if (factor < -1) {
+    if (findHeight(node->right->right) >= findHeight(node->right->left)) {
+      singleLeftShift(node);
+    }
+
+    else {
+      singleRightShift(node->right);
+      singleLeftShift(node);
+    }
+  }
+
+  else if (factor > 1) {
+    if (findHeight(node->left->left) >= findHeight(node->left->right)) {
+      singleRightShift(node);
+    }
+
+    else {
+      singleLeftShift(node->left);
+      singleRightShift(node);
+    }
+  }
+
+  node->height = max(findHeight(node->left), findHeight(node->right)) + 1;
+}
+
+template <typename TData>
+void AVLTree<TData>::singleLeftShift(AVLNode*& node) {
+  AVLNode* nodeRight = node->right;
+
+  node->right = nodeRight->left;
+  nodeRight->left = node;
+
+  node->height = max(findHeight(node->left), findHeight(node->right)) + 1;
+  nodeRight->height =
+      max(findHeight(nodeRight->left), findHeight(nodeRight->right)) + 1;
+
+  node = nodeRight;
+}
+
+template <typename TData>
+void AVLTree<TData>::singleRightShift(AVLNode*& node) {
+  AVLNode* nodeLeft = node->left;
+
+  node->left = nodeLeft->right;
+  nodeLeft->right = node;
+
+  node->height = max(findHeight(node->left), findHeight(node->right)) + 1;
+  nodeLeft->height =
+      max(findHeight(nodeLeft->left), findHeight(nodeLeft->right)) + 1;
+
+  node = nodeLeft;
 }

@@ -137,7 +137,7 @@ class BinaryTree {
   }
   friend std::ostream& operator<<(std::ostream& os,
                                 const BinaryTree<TData, TKey>& T1) {
-  std::stack<TreeNode<TData, TKey>*&> S1;
+  std::stack<TreeNode<TData, TKey>*> S1;
   TreeNode<TData, TKey>* n = T1.Root;
   while (!(S1.size() == 0 && n == nullptr)) {
     if (n != nullptr) {

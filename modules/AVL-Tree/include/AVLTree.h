@@ -1,35 +1,48 @@
 // Copyright 2023 Ermolaev Danila
 
-#pragma once
-#include "BinaryTree.h"
+#include <cstddef>
 #include <iostream>
-#include <string>
 
-template <typename TData, typename TKey>
-class BalanceNode : public TreeNode<TData, TKey> {
+template <typename TData>
+class AVLTree {
  public:
-  int balance;
+  AVLTree();
+  AVLTree(const AVLTree& other);
+  ~AVLTree();
+  AVLTree& operator=(const AVLTree& other);
+  bool contains(const TData& value) const;
+  void insert(const TData& value);
+  void remove(const TData& value);
+  const TData& find_min() const;
+  const TData& find_max() const;
+  void print_tree(std::ostream& os = std::cout) const;
+  bool is_empty() const;
+  void make_empty();
 
-  BalanceNode(TKey k = {}, TData d = {}, TreeNode<TData, TKey>* P = nullptr,
-              TreeNode<TData, TKey>* R = nullptr,
-              TreeNode<TData, TKey>* L = nullptr, int bal = 0)
-      : TreeNode<TData, TKey>(k, d, P, L, R), balance(bal) {}
+ private:
+  struct AVLNode {
+    int height;
+    AVLNode* left;
+    AVLNode* right;
+    TData value;
+    AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
+    AVLNode(TData value)
+        : height(0), left(nullptr), right(nullptr), value(value) {}
+  };
+
+  AVLNode* root;
+
+  void preorderInsert(AVLNode* current);
+  void insertRecurse(const TData& value, AVLNode*& currNode);
+  void singleLeftShift(AVLNode*& node);
+  int findHeight(AVLNode* node) const;
+  int max(int a, int b);
+  void balance(AVLNode*& node);
+  void singleRightShift(AVLNode*& node);
+  void removeRecurse(const TData& value, AVLNode*& current);
+  TData& recurse_find_min(AVLNode* node) const;
+  TData& recurse_find_max(AVLNode* node) const;
+  void printRecurse(AVLNode* node, int count, std::ostream& os) const;
+  void emptyRecurse(AVLNode*& node);
+  bool containRecurse(AVLNode* node, const TData& value) const;
 };
-
-template <typename TData, typename TKey>
-class AVLTree : public BinaryTree<TData, TKey> {
- protected:
-  int Insert(BalanceNode<TData, TKey>* N1, TKey k, TData d);
-  int Delete(BalanceNode<TData, TKey>* N1, TKey k);
-  int LBalance(BalanceNode<TData, TKey>* N1);
-  int RBalance(BalanceNode<TData, TKey>* N1);
-
- public:
-  AVLTree() : BinaryTree<TData, TKey>() {}
-
-  void printTree(BalanceNode<TData, TKey>* node, Trunk* prev, bool isLeft);
-
-  void Insert(TKey k, TData d);
-  void Delete(TKey k);
-};
-

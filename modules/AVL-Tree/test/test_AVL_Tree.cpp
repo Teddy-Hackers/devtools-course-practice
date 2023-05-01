@@ -4,4 +4,4 @@
 #include <string>
 #include "include/AVLTree.h"
 
-TEST(AVLTree, can_create_avl_tree) { ASSERT_NO_THROW(AVLTree<int> T2); }
+TEST(AVLTree, can_create_avl_tree) { ASSERT_NO_THROW( AVLTree<int> testavl;); }

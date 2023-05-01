@@ -138,7 +138,7 @@ class BinaryTree {
 
   friend std::ostream& operator<<(std::ostream& os,
                                   const BinaryTree<TData, TKey>& T1) {
-    stack<TreeNode<TData, TKey>*> S1;
+    std::stack<TreeNode<TData, TKey>*& > S1;
     TreeNode<TData, TKey>* n = T1.Root;
     while (!(S1.size() == 0 && n == nullptr)) {
       if (n != nullptr) {
@@ -147,7 +147,7 @@ class BinaryTree {
       } else {
         n = S1.top();
         S1.pop();
-        os << "Key:" << left << n->GetKey() << " | Data: " << *(n->GetData())
+        os << "Key:" << std::left << n->GetKey() << " | Data: " << *(n->GetData())
            << '\n';
         n = n->Right;
       }

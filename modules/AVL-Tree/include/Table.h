@@ -36,7 +36,7 @@ class Table {
                                   const Table<TData, TKey>& Tab) {
     unsigned int i = 0;
     while (i < Tab.dataCount) {
-      os << "Key:" << left << Tab.records[i]->GetKey()
+      os << "Key:" << std::left << Tab.records[i]->GetKey()
          << " | Data: " << *(Tab.records[i]->GetData()) << '\n';
       i++;
     }

@@ -1,6 +1,5 @@
 // Copyright 2023 Ermolaev Danila
 
-#pragma once
 #include "include/AVLTree.h"
 #include <iostream>
 

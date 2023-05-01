@@ -1,6 +1,6 @@
 // Copyright 2023 Ermolaev Danila
 
-#include <gtest.h>
+#include <gtest/gtest.h>
 #include <string>
 #include "include/BinaryTree.h"
 #include "include/AVLTree.h"

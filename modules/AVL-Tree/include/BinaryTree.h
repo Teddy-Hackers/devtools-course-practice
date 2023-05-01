@@ -135,24 +135,24 @@ class BinaryTree {
       printTree((TreeNode<TData, TKey>*)(node->Left), trunk, false);
     }
   }
-
   friend std::ostream& operator<<(std::ostream& os,
-                                  const BinaryTree<TData, TKey>& T1) {
-    std::stack<TreeNode<TData, TKey>*& > S1;
-    TreeNode<TData, TKey>* n = T1.Root;
-    while (!(S1.size() == 0 && n == nullptr)) {
-      if (n != nullptr) {
-        S1.push(n);
-        n = n->Left;
-      } else {
-        n = S1.top();
-        S1.pop();
-        os << "Key:" << std::left << n->GetKey() << " | Data: " << *(n->GetData())
-           << '\n';
-        n = n->Right;
-      }
+                                const BinaryTree<TData, TKey>& T1) {
+  std::stack<TreeNode<TData, TKey>*&> S1;
+  TreeNode<TData, TKey>* n = T1.Root;
+  while (!(S1.size() == 0 && n == nullptr)) {
+    if (n != nullptr) {
+      S1.push(n);
+      n = n->Left;
+    } else {
+      n = S1.top();
+      S1.pop();
+      os << "Key:" << std::left << n->GetKey() 
+         << " | Data: " << *(n->GetData())
+         << '\n';
+      n = n->Right;
     }
-    return os;
+  }
+  return os;
   }
   BinaryTree<TData, TKey>& operator=(const BinaryTree<TData, TKey>& T1) {
     Root = nullptr;

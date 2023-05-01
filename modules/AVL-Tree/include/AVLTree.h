@@ -9,10 +9,7 @@ class BalanceNode : public TreeNode<TData, TKey> {
  public:
   int balance;
 
-  BalanceNode(TKey k = {}, TData d = {}, TreeNode<TData, TKey>* P = nullptr,
-              TreeNode<TData, TKey>* R = nullptr,
-              TreeNode<TData, TKey>* L = nullptr, int bal = 0)
-      : TreeNode<TData, TKey>(k, d, P, L, R), balance(bal){};
+  BalanceNode(TKey k = {}, TData d = {}, TreeNode<TData, TKey>* P = nullptr,TreeNode<TData, TKey>* R = nullptr,TreeNode<TData, TKey>* L = nullptr, int bal = 0):TreeNode<TData, TKey>(k, d, P, L, R), balance(bal){};
 }
 
 template <typename TData, typename TKey>

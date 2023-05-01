@@ -8,8 +8,8 @@
 template <typename TData>
 class AVLTree {
  public:
-  AVLTree();
-  AVLTree(const AVLTree& other);
+  explicit AVLTree();
+  explicit AVLTree(const AVLTree& other);
   ~AVLTree();
   AVLTree& operator=(const AVLTree& other);
   bool contains(const TData& value) const;
@@ -27,7 +27,8 @@ class AVLTree {
     AVLNode* left;
     AVLNode* right;
     TData value;
-    explicit AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
+    explicit AVLNode()
+        : height(0), left(nullptr), right(nullptr), value() {}
     explicit AVLNode(TData value)
         : height(0), left(nullptr), right(nullptr), value(value) {}
   };

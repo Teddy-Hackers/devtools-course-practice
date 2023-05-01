@@ -2,7 +2,6 @@
 
 #include "include/euler_function.h"
 
-// 
 // euler_function(int value) is equal to the
 // number of natural numbers from the segment[1, value − 1]
 // coprime to value

@@ -7,7 +7,7 @@ class TabRecord {
   TKey key;
   TData* data;
 
-  TabRecord(TKey k = {}, TData d = {}) {
+  explicit TabRecord(TKey k = {}, TData d = {}) {
     key = k;
     data = new TData(d);
   }

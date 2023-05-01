@@ -3,7 +3,6 @@
 #pragma once
 #include "TabRecord.h"
 #include <iostream>
-using namespace std;
 
 template <typename TData, typename TKey>
 class Table {
@@ -14,7 +13,6 @@ class Table {
   int currPos;
 
   Table(unsigned int n = 100);
-
   virtual ~Table() { delete[] records; }
 
   bool IsFull() const { return dataCount == tabSize; }

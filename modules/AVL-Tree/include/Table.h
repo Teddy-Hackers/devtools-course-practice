@@ -12,7 +12,7 @@ class Table {
   int dataCount;
   int currPos;
 
-  Table(unsigned int n = 100);
+  explicit Table(unsigned int n = 100);
   virtual ~Table() { delete[] records; }
 
   bool IsFull() const { return dataCount == tabSize; }

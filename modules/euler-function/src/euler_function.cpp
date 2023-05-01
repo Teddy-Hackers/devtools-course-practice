@@ -2,6 +2,7 @@
 
 #include "include/euler_function.h"
 
+// 
 // euler_function(int value) is equal to the
 // number of natural numbers from the segment[1, value − 1]
 // coprime to value
@@ -16,12 +17,12 @@
 // that is fi(a) = fi(p1^(n1)*p2^(n2)*...*pm^(nm)) =
 // fi(p1^(n1))*fi(p2^(n2))*...*fi(pm^(nm)), where a is composed number,
 // p[i] is prime number, n[j] is natural number
-int euler_function(int value) {
+int64_t euler_function(int64_t value) {
   // the euler function is defined for natural numbers
   if (value <= 0) throw std::string("value <= 0");
 
-  int n;
-  int numberOfCoprimeNumbers = 1;
+  int64_t n;
+  int64_t numberOfCoprimeNumbers = 1;
 
   // Decomposition of a number into prime numbers.
   // If value is composite number, then its divisor
@@ -29,7 +30,7 @@ int euler_function(int value) {
   // floor(sqrt(value))]. If value is prime number,
   // then the body of the loop will not be executed.
   // Enumerate all integers from 2 to sqrt(value).
-  for (int number = 2; number * number <= value; ++number) {
+  for (int64_t number = 2; number * number <= value; ++number) {
     // if (value % number == 0) then number is prime number and value =
     // (number)^n * k, where k is not divisible by number
     if (value % number == 0) {

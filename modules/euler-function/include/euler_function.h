@@ -7,6 +7,6 @@
 #include <string>
 // the number of natural numbers coprime with n from the segment [1, n−1]
 
-int euler_function(int n);
+int64_t euler_function(int64_t n);
 
 #endif  // MODULES_EULER_FUNCTION_INCLUDE_EULER_FUNCTION_H_

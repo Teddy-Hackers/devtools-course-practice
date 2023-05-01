@@ -8,7 +8,7 @@
 template <typename TData>
 class AVLTree {
  public:
-  explicit AVLTree();
+AVLTree();
   explicit AVLTree(const AVLTree& other);
   ~AVLTree();
   AVLTree& operator=(const AVLTree& other);
@@ -27,7 +27,7 @@ class AVLTree {
     AVLNode* left;
     AVLNode* right;
     TData value;
-    explicit AVLNode()
+    AVLNode()
         : height(0), left(nullptr), right(nullptr), value() {}
     explicit AVLNode(TData value)
         : height(0), left(nullptr), right(nullptr), value(value) {}

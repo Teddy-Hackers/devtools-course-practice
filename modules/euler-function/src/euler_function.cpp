@@ -1,7 +1,6 @@
 ﻿// Copyright 2023 Shokurov Daniil  
 
-#include "../include/euler_function.h"
-#include <string>
+#include "include/euler_function.h"
 
 // euler_function(int value) is equal to the
 // number of natural numbers from the segment[1, value − 1]

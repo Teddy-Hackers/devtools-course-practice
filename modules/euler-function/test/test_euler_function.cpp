@@ -1,8 +1,8 @@
 // Copyright 2023 Shokurov Daniil
 
-#include "../include/euler_function.h"
-#include "../../../3rdparty/gtest/gtest.h"
-#include <math.h>
+#include <gtest/gtest.h>
+
+#include "include/euler_function.h"
 
 TEST(Shokurov_Daniil_EulerFunctionTest, throw_if_not_positive_number) {
   // Assert

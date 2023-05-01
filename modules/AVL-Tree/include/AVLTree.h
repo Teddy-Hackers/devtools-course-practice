@@ -42,7 +42,7 @@ AVLTree();
   int max(int a, int b);
   void balance(AVLNode* node);
   void singleRightShift(AVLNode* node);
-  void removeRecurse(const TData value, AVLNode* current);
+  void removeRecurse(const TData& value, AVLNode* current);
   TData& recurse_find_min(AVLNode* node) const;
   TData& recurse_find_max(AVLNode* node) const;
   void printRecurse(AVLNode* node, int count, std::ostream& os) const;

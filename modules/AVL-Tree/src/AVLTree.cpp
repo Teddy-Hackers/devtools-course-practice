@@ -4,39 +4,6 @@
 #include <iostream>
 
 template <typename TData>
-AVLTree<TData>::AVLTree() = default;
-
-template <typename TData>
-AVLTree<TData>::AVLTree(const AVLTree& other)
-    : root(nullptr) {
-  if (other.root != nullptr) {
-    this->preorderInsert(other.root);
-  }
-}
-
-template <typename TData>
-AVLTree<TData>::~AVLTree() {
-  make_empty();
-}
-
-template <typename TData>
-AVLTree<TData>& AVLTree<TData>::operator=(const AVLTree& other) {
-  if (this == &other) {
-    return *this;
-  }
-
-  this->make_empty();
-
-  if (other.root == nullptr) {
-    this->root = nullptr;
-    return *this;
-  }
-
-  this->preorderInsert(other.root);
-  return *this;
-}
-
-template <typename TData>
 bool AVLTree<TData>::contains(const TData& value) const {
   return containRecurse(root, value);
 }

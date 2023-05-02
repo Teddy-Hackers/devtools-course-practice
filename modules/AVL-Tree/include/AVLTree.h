@@ -36,17 +36,17 @@ class AVLTree {
   AVLNode* root;
 
   void preorderInsert(AVLNode* current);
-  void insertRecurse(const TData& value, AVLNode**currNode);
-  void singleLeftShift(AVLNode**node);
+  void insertRecurse(const TData& value, AVLNode*currNode);
+  void singleLeftShift(AVLNode*node);
   int findHeight(AVLNode* node) const;
   int max(int a, int b);
-  void balance(AVLNode**node);
-  void singleRightShift(AVLNode**node);
-  void removeRecurse(const TData& value, AVLNode**current);
+  void balance(AVLNode*node);
+  void singleRightShift(AVLNode*node);
+  void removeRecurse(const TData& value, AVLNode*current);
   TData& recurse_find_min(AVLNode* node) const;
   TData& recurse_find_max(AVLNode* node) const;
   void printRecurse(AVLNode* node, int count, std::ostream& os) const;
-  void emptyRecurse(AVLNode**node);
+  void emptyRecurse(AVLNode*node);
   bool containRecurse(AVLNode* node, const TData& value) const;
 };
 
@@ -107,7 +107,7 @@ void AVLTree<TData>::insert(const TData& value) {
 
 template <typename TData>
 void AVLTree<TData>::insertRecurse(const TData& value,
-                                        AVLNode**currNode) {
+                                        AVLNode*currNode) {
   if (currNode == nullptr) {
     currNode = new AVLNode(value);
   } else if (value < currNode->value) {
@@ -126,7 +126,7 @@ void AVLTree<TData>::remove(const TData& value) {
 
 template <typename TData>
 void AVLTree<TData>::removeRecurse(const TData& value,
-                                        AVLNode**current) {
+                                        AVLNode*current) {
   if (!current) {
     return;
   }
@@ -233,7 +233,7 @@ void AVLTree<TData>::make_empty() {
 }
 
 template <typename TData>
-void AVLTree<TData>::emptyRecurse(AVLNode**node) {
+void AVLTree<TData>::emptyRecurse(AVLNode*node) {
   if (node) {
     emptyRecurse(node->left);
     emptyRecurse(node->right);
@@ -265,7 +265,7 @@ void AVLTree<TData>::preorderInsert(AVLNode* current) {
 }
 
 template <typename TData>
-void AVLTree<TData>::balance(AVLNode**node) {
+void AVLTree<TData>::balance(AVLNode*node) {
   if (!node) {
     return;
   }
@@ -292,7 +292,7 @@ void AVLTree<TData>::balance(AVLNode**node) {
 }
 
 template <typename TData>
-void AVLTree<TData>::singleLeftShift(AVLNode**node) {
+void AVLTree<TData>::singleLeftShift(AVLNode*node) {
   AVLNode* nodeRight = node->right;
 
   node->right = nodeRight->left;
@@ -306,7 +306,7 @@ void AVLTree<TData>::singleLeftShift(AVLNode**node) {
 }
 
 template <typename TData>
-void AVLTree<TData>::singleRightShift(AVLNode**node) {
+void AVLTree<TData>::singleRightShift(AVLNode*node) {
   AVLNode* nodeLeft = node->left;
 
   node->left = nodeLeft->right;

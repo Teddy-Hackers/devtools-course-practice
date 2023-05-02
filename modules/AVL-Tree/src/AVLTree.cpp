@@ -4,8 +4,7 @@
 #include <iostream>
 
 template <typename TData>
-AVLTree<TData>::AVLTree()
-    : root(nullptr) {}
+AVLTree<TData>::AVLTree() = default;
 
 template <typename TData>
 AVLTree<TData>::AVLTree(const AVLTree& other)

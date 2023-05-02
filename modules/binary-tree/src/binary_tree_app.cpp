@@ -64,8 +64,6 @@ std::string BTApplication::operator()(int argc, const char **argv) {
             case 'E':
               message_ = tree.IsEnd() ? "This is the end..." : "Not the end.";
               break;
-            default:
-              break;
           }
           break;
         case 1:
@@ -84,11 +82,7 @@ std::string BTApplication::operator()(int argc, const char **argv) {
               tree.Delete(value);
               message_ = "Element removed from tree.";
               break;
-            default:
-              break;
           }
-          break;
-        default:
           break;
       }
     }

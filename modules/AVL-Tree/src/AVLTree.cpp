@@ -4,7 +4,7 @@
 #include <iostream>
 
 template <typename TData>
-bool AVLTree<TData>::contains(const TData& value) const {
-  return containRecurse(root, value);
+AVLTree<TData>::test_func(){
+    std::cout<<"I'm test_func"<<endl;
 }
 

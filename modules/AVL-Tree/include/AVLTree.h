@@ -20,7 +20,7 @@ class AVLTree {
   void print_tree(std::ostream& os = std::cout) const;
   bool is_empty() const;
   void make_empty();
-
+  void test_func();
  private:
   struct AVLNode {
     int height;
@@ -318,4 +318,10 @@ void AVLTree<TData>::singleRightShift(AVLNode*node) {
 
   node = nodeLeft;
 }
+
+template <typename TData>
+bool AVLTree<TData>::contains(const TData& value) const {
+  return containRecurse(root, value);
+}
+
 

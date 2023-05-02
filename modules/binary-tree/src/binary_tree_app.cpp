@@ -46,7 +46,8 @@ std::string BTApplication::operator()(int argc, const char **argv) {
               state = 1;
               break;
             case 'e':
-              message_ = tree.IsEmpty() ? "Binary tree is empty." : "Binary tree isn't empty.";
+              message_ = tree.IsEmpty() ?
+                  "Binary tree is empty." : "Binary tree isn't empty.";
               break;
             case 'r':
               tree.Reset();
@@ -72,7 +73,8 @@ std::string BTApplication::operator()(int argc, const char **argv) {
           state = 0;
           switch (op) {
             case 'f':
-              message_ = tree.Find(value) ? "Element is in tree." : "Element isn't in tree.";
+              message_ = tree.Find(value) ?
+                  "Element is in tree." : "Element isn't in tree.";
               break;
             case 'i':
               tree.Insert(value);

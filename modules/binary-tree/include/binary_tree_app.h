@@ -18,4 +18,4 @@ class BTApplication {
   BinaryTree tree;
 };
 
-#endif // MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_APP_H_
+#endif  //  MODULES_BINARY_TREE_INCLUDE_BINARY_TREE_APP_H_

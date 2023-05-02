@@ -35,9 +35,12 @@
         let results = {};
         pulls.forEach(pull => {
             let task_id
+            let isPlagiarized = false;
             pull.labels.forEach(label => {
               if(label.name == "lab 1" || label.name == "lab 2" || label.name == "lab 3") {
                 task_id = label.name;
+              } else if (label.name == "plagiarized") {
+                isPlagiarized = true;
               }
             });
             if (!task_id)
@@ -58,6 +61,10 @@
             } else if (pull.state === 'open') {
                 results[username][task_id].status = 'progress';
                 results[username][task_id].html_url = pull.html_url;
+            }
+            if (isPlagiarized) {
+              results[username][task_id].status ='plagiarized';
+              results[username][task_id].html_url = pull.html_url;
             }
         });
 
@@ -82,6 +89,8 @@
             var html = "<a href=" + progress[i].html_url + "><img src='https://img.shields.io/badge/";
             if (progress[i].status === "success") {
               html += "-accepted-4BC51D";
+            } else if (progress[i].status === "plagiarized") {
+              html += "!-plagiarized-blueviolet";
             } else {
               html += "-in progress-red";
             }

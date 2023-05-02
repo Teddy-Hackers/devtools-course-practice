@@ -173,6 +173,14 @@ set_tests_properties (${prefix}_isnt_end_when_iterator_not_in_the_end PROPERTIES
     PASS_REGULAR_EXPRESSION "Not the end."
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_wrong_operator
+    COMMAND ${APPLICATION} clear
+)
+set_tests_properties (${prefix}_wrong_operator PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong operator."
+    LABELS "${MODULE}")
+
 
 
 

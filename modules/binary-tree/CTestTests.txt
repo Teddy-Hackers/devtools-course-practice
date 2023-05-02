@@ -178,7 +178,7 @@ add_test(
     COMMAND ${APPLICATION} clear
 )
 set_tests_properties (${prefix}_wrong_operator PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong operator."
+    PASS_REGULAR_EXPRESSION "ERROR: wrong operation."
     LABELS "${MODULE}")
 
 

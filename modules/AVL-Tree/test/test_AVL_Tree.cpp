@@ -51,4 +51,18 @@ TEST(AVLTree, can_find_min) {
 
   EXPECT_EQ(10, testavl.find_min());
 }
-
+TEST(AVLTree, can_check_empty) {
+  AVLTree<int> testavl;
+  EXPECT_TRUE(testavl.is_empty());
+}
+TEST(AVLTree, can_make_empty) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  testavl.insert(20);
+  testavl.insert(12);
+  testavl.insert(15);
+  testavl.insert(16);
+  testavl.insert(18);
+  testavl.make_empty();
+  EXPECT_TRUE(testavl.is_empty());
+}

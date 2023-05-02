@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-Application::Application() : message_(""){}
+Application::Application() : message_(""){ }
 
 void Application::help(const char* appname, const char* message) {
   message_ = std::string(message) +
@@ -48,7 +48,7 @@ std::string Application::operator()(int argc, const char** argv) {
   }
   try {
     for (int i = 1; i < argc; ++i) {
-      long value = parseInt(argv[i]);
+      int value = parseInt(argv[i]);
       values.push_back(value);
     }
   } catch (std::string& str) {

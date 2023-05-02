@@ -21,6 +21,7 @@ class AVLTree {
   bool is_empty() const;
   void make_empty();
   bool test_func();
+  
  private:
   struct AVLNode {
     int height;

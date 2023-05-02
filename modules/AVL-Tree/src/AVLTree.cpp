@@ -4,7 +4,7 @@
 #include <iostream>
 
 template <typename TData>
-bool AVLTree<TData>::test_func(){
+bool AVLTree<TData>::test_func() {
     return 1;
 }
 

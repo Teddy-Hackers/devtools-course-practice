@@ -4,7 +4,7 @@
 #include <iostream>
 
 template <typename TData>
-AVLTree<TData>::test_func(){
-    std::cout<<"I'm test_func"<<endl;
+bool AVLTree<TData>::test_func(){
+    return 1;
 }
 

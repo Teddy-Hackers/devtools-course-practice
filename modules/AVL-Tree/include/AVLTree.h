@@ -20,7 +20,7 @@ class AVLTree {
   void print_tree(std::ostream& os = std::cout) const;
   bool is_empty() const;
   void make_empty();
-  void test_func();
+  bool test_func();
  private:
   struct AVLNode {
     int height;

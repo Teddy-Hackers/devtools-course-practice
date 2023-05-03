@@ -87,12 +87,6 @@ TEST(AVLTree, can_remove_right) {
   testval.remove(10);
   EXPECT_TRUE(testavl.is_empty());
 }
-TEST(AVLTree, can_remove_right) {
-  AVLTree<int> testavl;
-  testavl.insert(10);
-  testval.remove(10);
-  EXPECT_TRUE(testavl.is_empty());
-}
 TEST(AVLTree, can_use_equal_sign_two_trees) {
   AVLTree<int> testavl;
   testavl.insert(10);

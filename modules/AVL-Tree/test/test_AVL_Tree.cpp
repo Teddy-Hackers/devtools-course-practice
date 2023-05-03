@@ -30,7 +30,7 @@ TEST(AVLTree, canont_insert_two_equal_number) {
   AVLTree<int> testavl;
   testavl.insert(10);
   testavl.insert(10);
-  testval.remove(10);
+  testavl.remove(10);
   EXPECT_TRUE(testavl.is_empty());
 }
 TEST(AVLTree, can_find_element) {
@@ -84,7 +84,7 @@ TEST(AVLTree, can_make_empty) {
 TEST(AVLTree, can_remove_right) {
   AVLTree<int> testavl;
   testavl.insert(10);
-  testval.remove(10);
+  testavl.remove(10);
   EXPECT_TRUE(testavl.is_empty());
 }
 TEST(AVLTree, can_use_equal_sign_two_trees) {

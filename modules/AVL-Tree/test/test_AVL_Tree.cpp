@@ -97,6 +97,6 @@ TEST(AVLTree, can_use_equal_sign_two_trees) {
   AVLTree<int> testavl;
   testavl.insert(10);
   AVLTree<int> testavl2;
-  testavl2=testavl;
+  testavl2 = testavl;
   EXPECT_TRUE(testavl2.contains(10));
 }

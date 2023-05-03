@@ -10,14 +10,29 @@ TEST(AVLTree, can_insert_elements) {
   AVLTree<int> testavl;
   ASSERT_NO_THROW(testavl.insert(10););
 }
-
 TEST(AVLTree, can_create_avl_tree_copy_constructor) {
   AVLTree<int> testavl;
   testavl.insert(10);
 
   ASSERT_NO_THROW(AVLTree<int> testavl2(testavl););
 }
-
+TEST(AVLTree, can_insert_positive) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  ASSERT_NO_THROW(testavl.contains(20));
+}
+TEST(AVLTree, can_insert_negative) {
+  AVLTree<int> testavl;
+  testavl.insert(-10);
+  ASSERT_NO_THROW(testavl.contains(-20));
+}
+TEST(AVLTree, canont_insert_two_equal_number) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  testavl.insert(10);
+  testval.remove(10);
+  EXPECT_TRUE(testavl.is_empty());
+}
 TEST(AVLTree, can_find_element) {
   AVLTree<int> testavl;
   testavl.insert(10);
@@ -65,4 +80,23 @@ TEST(AVLTree, can_make_empty) {
   testavl.insert(18);
   testavl.make_empty();
   EXPECT_TRUE(testavl.is_empty());
+}
+TEST(AVLTree, can_remove_right) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  testval.remove(10);
+  EXPECT_TRUE(testavl.is_empty());
+}
+TEST(AVLTree, can_remove_right) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  testval.remove(10);
+  EXPECT_TRUE(testavl.is_empty());
+}
+TEST(AVLTree, can_use_equal_sign_two_trees) {
+  AVLTree<int> testavl;
+  testavl.insert(10);
+  AVLTree<int> testavl2;
+  testavl2=testavl;
+  EXPECT_TRUE(testavl2.contains(10));
 }

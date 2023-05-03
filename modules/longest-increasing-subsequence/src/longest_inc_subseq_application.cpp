@@ -17,8 +17,8 @@ void Application::help(const char* appname, const char* message) {
              "This app is for finding the largest increasing sequence.\n\n" +
              "Please provide arguments in the following format:\n\n" +
 
-             "  $ " + appname + " <value_1> <value_2> ... " + "<value_n>. \n\n" +
-  "Where all values are integers.\n ";
+             "  $ " + appname + " <value_1> <value_2> ... " +
+             "<value_n>. \n\n" + "Where all values are integers.\n ";
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {

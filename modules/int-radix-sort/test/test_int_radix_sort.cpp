@@ -33,7 +33,7 @@ TEST(Bulgakov_Radix_Sort_Test, Vector_Sorting_Test) {
     std::vector<int> to_sort = {6, 12, 1};
     std::vector<int> expected = {1, 6, 12};
 
-    IntRadixSort::sort(to_sort);
+    IntRadixSort::make_sort(to_sort);
 
     AssertVectorEqual(to_sort, expected);
 }
@@ -47,7 +47,7 @@ TEST(Bulgakov_Radix_Sort_Test, Empty_Get_Vector_Sorting_Test) {
 TEST(Bulgakov_Radix_Sort_Test, Empty_Vector_Sorting_Test) {
     std::vector<int> to_sort = {};
 
-    ASSERT_NO_THROW(IntRadixSort::sort(to_sort));
+    ASSERT_NO_THROW(IntRadixSort::make_sort(to_sort));
 }
 
 TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Test) {
@@ -55,7 +55,7 @@ TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Test) {
     int* to_sort  = new int[array_size]{6, 12, 1};
     int* expected = new int[array_size]{1, 6, 12};
 
-    IntRadixSort::sort(to_sort, array_size);
+    IntRadixSort::make_sort(to_sort, array_size);
 
     AssertArrayEqual(to_sort, expected, array_size);
 }
@@ -64,5 +64,5 @@ TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Nullptr_Test) {
     const int array_size = 3;
     int* to_sort = nullptr;
 
-    ASSERT_THROW(IntRadixSort::sort(to_sort, array_size), std::invalid_argument);
+    ASSERT_THROW(IntRadixSort::make_sort(to_sort, array_size), std::invalid_argument);
 }

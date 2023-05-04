@@ -28,7 +28,9 @@ class IntRadixSort {
      * @param iter  rank number by which to sort
      * @param base  rank size
      */
-    static void count_sorter(int * array, const int size, const int iter, const int base);
+    static void count_sorter(int * array, const int size, 
+                                    const int iter, const int base);
+
  public:
     /**
      * @brief  Get sorted integer vector using Radix Sort Algorithm
@@ -42,12 +44,12 @@ class IntRadixSort {
      * 
      * @param vec input vector to sort
      */
-    static void sort(std::vector<int>& vec);
+    static void make_sort(std::vector<int>& vec);
     /**
      * @brief  Sorting integer array using Radix Sort Algorithm
      * 
      * @param  array input array which will be sorted
      * @param  size input array size
      */
-    static void sort(int * array, const int size);
+    static void make_sort(int * array, const int size);
 };

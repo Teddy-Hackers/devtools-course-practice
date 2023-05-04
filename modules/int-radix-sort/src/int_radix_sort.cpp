@@ -2,8 +2,8 @@
 
 #include "../include/int_radix_sort.h"
 
-void IntRadixSort::count_sorter(int * array, const int size, const int iter, const int base)
-{
+void IntRadixSort::count_sorter(int * array, const int size, 
+                                    const int iter, const int base) {
     int * local_arr = new int[size];
     int * cnt = new int[base]();
     int mask = base - 1;
@@ -31,8 +31,7 @@ void IntRadixSort::count_sorter(int * array, const int size, const int iter, con
     delete[] cnt;
 }
 
-std::vector<int> IntRadixSort::get_sorted(const std::vector<int> &vec)
-{
+std::vector<int> IntRadixSort::get_sorted(const std::vector<int> &vec) {
     if (vec.empty()) return std::vector<int>();
 
     std::vector<int> result(vec);
@@ -40,16 +39,14 @@ std::vector<int> IntRadixSort::get_sorted(const std::vector<int> &vec)
     return result;
 }
 
-void IntRadixSort::sort(std::vector<int> &vec)
-{
+void IntRadixSort::make_sort(std::vector<int> &vec) {
     if (vec.empty()) return;
 
     sort(vec.data(), vec.size());
 }
 
-void IntRadixSort::sort(int *array, const int size)
-{
-    if (array == nullptr) {  
+void IntRadixSort::make_sort(int *array, const int size) {
+    if (array == nullptr) {
         throw std::invalid_argument("Input array parameter is null");
     } else if (size == 0) {
         return;

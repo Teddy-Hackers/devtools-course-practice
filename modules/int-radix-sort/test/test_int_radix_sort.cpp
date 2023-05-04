@@ -52,3 +52,10 @@ TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Nullptr_Test) {
     ASSERT_THROW(IntRadixSort::make_sort(to_sort, array_size),
                         std::invalid_argument);
 }
+
+TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Zero_Size_Test) {
+    const int array_size = 0;
+    int* to_sort = new int[array_size];
+
+    ASSERT_NO_THROW(IntRadixSort::make_sort(to_sort, array_size));
+}

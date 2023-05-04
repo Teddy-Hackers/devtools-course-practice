@@ -49,5 +49,6 @@ TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Nullptr_Test) {
     const int array_size = 3;
     int* to_sort = nullptr;
 
-    ASSERT_THROW(IntRadixSort::make_sort(to_sort, array_size), std::invalid_argument);
+    ASSERT_THROW(IntRadixSort::make_sort(to_sort, array_size),
+                        std::invalid_argument);
 }

@@ -2,7 +2,7 @@
 
 #include "../include/int_radix_sort.h"
 
-void IntRadixSort::count_sorter(int * array, const int size, 
+void IntRadixSort::count_sorter(int * array, const int size,
                                     const int iter, const int base) {
     int * local_arr = new int[size];
     int * cnt = new int[base]();
@@ -35,14 +35,8 @@ std::vector<int> IntRadixSort::get_sorted(const std::vector<int> &vec) {
     if (vec.empty()) return std::vector<int>();
 
     std::vector<int> result(vec);
-    sort(result.data(), result.size());
+    make_sort(result.data(), result.size());
     return result;
-}
-
-void IntRadixSort::make_sort(std::vector<int> &vec) {
-    if (vec.empty()) return;
-
-    sort(vec.data(), vec.size());
 }
 
 void IntRadixSort::make_sort(int *array, const int size) {

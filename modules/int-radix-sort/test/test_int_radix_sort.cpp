@@ -29,25 +29,10 @@ TEST(Bulgakov_Radix_Sort_Test, Get_Vector_Sorted_Test) {
     AssertVectorEqual(sorted, expected);
 }
 
-TEST(Bulgakov_Radix_Sort_Test, Vector_Sorting_Test) {
-    std::vector<int> to_sort = {6, 12, 1};
-    std::vector<int> expected = {1, 6, 12};
-
-    IntRadixSort::make_sort(to_sort);
-
-    AssertVectorEqual(to_sort, expected);
-}
-
 TEST(Bulgakov_Radix_Sort_Test, Empty_Get_Vector_Sorting_Test) {
     std::vector<int> to_sort = {};
 
     ASSERT_NO_THROW(IntRadixSort::get_sorted(to_sort));
-}
-
-TEST(Bulgakov_Radix_Sort_Test, Empty_Vector_Sorting_Test) {
-    std::vector<int> to_sort = {};
-
-    ASSERT_NO_THROW(IntRadixSort::make_sort(to_sort));
 }
 
 TEST(Bulgakov_Radix_Sort_Test, Array_Sorting_Test) {

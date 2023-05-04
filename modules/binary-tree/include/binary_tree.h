@@ -22,6 +22,7 @@ class BinaryTree {
   Node *FindMin(Node *node) const;
   Node *FindMax(Node *node) const;
   Node *FindNext(Node *node) const;
+
  public:
   BinaryTree();
   explicit BinaryTree(const int v);

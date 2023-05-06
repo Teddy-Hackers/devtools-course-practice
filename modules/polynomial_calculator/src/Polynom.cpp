@@ -186,8 +186,9 @@ void Polynom::parser(const std::string& polynomStr) {
                 } else {
                     throw logic_error("Error in expression");
                 }
-            } else
+            } else {
                 X = 0, Y = 0, Z = 0;
+            }
 
             if (currentLex.type == LEX_NUMBER)  // if the number hit again: 2xy3z;
             {

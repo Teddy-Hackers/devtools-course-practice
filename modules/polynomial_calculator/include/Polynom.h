@@ -6,16 +6,16 @@
 #include "Monom.h"
 
 #include "List.h"
-
+#include <string>
 #include <ctype.h>
 
 // The "Polynomial" class
 class Polynom {
-private: int pos = 0;
+ private: int pos = 0;
        List < Monom > monoms;
 
-public: Polynom();
-      Polynom(const std::string& polynomStr);
+ public: Polynom();
+      explicit Polynom(const std::string& polynomStr);
       Lexema lexem(const std::string& polynomStr);
 
       void parser(const std::string& polynomStr);
@@ -32,4 +32,4 @@ public: Polynom();
       Polynom operator - (const double& _Num) const;
       Polynom operator * (const double& _Num) const;
 };
-#endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_
+#endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_

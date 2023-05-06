@@ -84,4 +84,4 @@ class Lexema {
         buf(buf),
         value(value) {}
 };
-#endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_MONOM_H_
+#endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_MONOM_H_

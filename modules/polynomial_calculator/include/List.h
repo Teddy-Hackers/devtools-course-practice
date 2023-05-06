@@ -211,4 +211,4 @@ template < typename T >
 Node < T >* List < T > ::GetHead() const {
     return head->next;
 }
-#endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_LIST_H_
+#endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_LIST_H_

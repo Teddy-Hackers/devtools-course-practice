@@ -179,7 +179,7 @@ void Polynom::parser(const std::string& polynomStr) {
                     }
                     currentLex = lexem(polynomStr);
                 } else {
-                    throw logic_error("Error in expression");
+                    throw "Error in expression";
                 }
             } else {
                 X = 0, Y = 0, Z = 0;

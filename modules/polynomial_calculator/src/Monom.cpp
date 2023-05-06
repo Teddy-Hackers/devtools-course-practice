@@ -4,7 +4,7 @@
 
 Monom::Monom(double coeff, int degX, int degY, int degZ) {
     if (degX < -1 || degY < -1 || degZ < -1) {
-        throw std::exception("incorrect!");
+        throw "incorrect!";
     } else {
         coefficient = coeff;
         degreeX = degX;

@@ -55,8 +55,6 @@ class List {
     void Clean();  // delete all links
     int GetSize() const;  // find out the number of links in the list
     Node < T >* GetHead() const;  // get a pointer to the first link of the list
-    friend ostream& operator << (ostream& os,
-        const List < T >& l);
 
     Node < T >* returnFictitiousNode() {
         return head
@@ -121,7 +119,7 @@ List < T > ::~List() {
 }
 
 template < typename T >
-void List < T > ::InsertToHead(const T& d)
+void List < T > ::InsertToHead(const T& d) {
 Node < T >* p = new Node < T >(d, head->next);
 head->next = p;
 }

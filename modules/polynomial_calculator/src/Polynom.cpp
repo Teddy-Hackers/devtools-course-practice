@@ -22,7 +22,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
     };
     Lexema lexem;
     char currentChar;
-    State currentState = START;
+    const int currentState = static_cast<int>(START);
     while (true) {
         currentChar = polynomStr[pos];
         const int Start = static_cast<int>(START);
@@ -121,7 +121,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
 void Polynom::parser(const std::string& polynomStr) {
     monoms.Clean();
     Lexema currentLex = lexem(polynomStr);
-    for (int i = 0; i < int()(polynomStr.length()); i++) {
+    for (int i = 0; i < static_cast<int>(polynomStr.length()); i++) {
         double coef = 1, degX = 0, degY = 0, degZ = 0, X = 0, Y = 0, Z = 0;
         if (currentLex.type == LEX_DELIM && currentLex.index == LEX_DEL_SUB) {
             coef = -1;

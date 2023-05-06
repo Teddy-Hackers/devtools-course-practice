@@ -22,11 +22,11 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
     };
     Lexema lexem;
     char currentChar;
-    const int currentState = static_cast<int>(START);
+    int currentState = static_cast<int>(START);
     while (true) {
         currentChar = polynomStr[pos];
-        const int Start = static_cast<int>(START);
-        const int Number = static_cast<int>(NUMBER);
+        int Start = static_cast<int>(START);
+        int Number = static_cast<int>(NUMBER);
         switch (currentState) {
         case Start:
             if (currentChar == ' ') {  // If there is a space;

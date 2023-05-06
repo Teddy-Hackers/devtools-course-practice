@@ -3,6 +3,7 @@
 #include "include/Polynom.h"
 
 #include <iostream>
+#include <string.h>
 
 Polynom::Polynom() {}
 
@@ -19,7 +20,6 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
       "^",
       "="
     };
-    pos;
     Lexema lexem;
     char currentChar;
     State currentState = START;

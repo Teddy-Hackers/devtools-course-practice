@@ -73,10 +73,8 @@ class Lexema {
  public:
     int type;  // lixem type (constant, separator, error);
     int index;  // the specific index of the lexem;
-    double value;  // lexem value (for numeric constants);
-
     std::string buf;  // storage of the lexem itself;
-
+    double value;  // lexem value (for numeric constants);
     Lexema(int type = LEX_NULL, int index = LEX_NULL,
         const std::string& buf = "",
         double value = 0) : type(type),

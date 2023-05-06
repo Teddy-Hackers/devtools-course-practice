@@ -11,43 +11,44 @@ struct AVLNode {
     AVLNode* left;
     AVLNode* right;
     TData value;
-    AVLNode() : height(0), left(nullptr), right(nullptr), value() {}
-    AVLNode(TData value) : height(0), left(nullptr), right(nullptr), value(value) {}
+    explicit AVLNode() : height(0), left(nullptr),
+    right(nullptr), value() {}
+    explicit AVLNode(TData value) : height(0),
+    left(nullptr), right(nullptr), value(value) {}
 };
 
 template <typename TData>
 class AVLTree {
-
 public:
 
-    AVLTree();
-    AVLTree(const AVLTree& other);
-    ~AVLTree();
-    AVLTree& operator=(const AVLTree& other);
-    bool contains(const TData& value) const;
-    void insert(const TData& value);
-    void remove(const TData& value);
-    const TData& find_min() const;
-    const TData& find_max() const;
-    void print_tree(std::ostream& os = std::cout) const;
-    bool is_empty() const;
-    void make_empty();
+  AVLTree();
+  AVLTree(const AVLTree& other);
+  ~AVLTree();
+  AVLTree& operator=(const AVLTree& other);
+  bool contains(const TData& value) const;
+  void insert(const TData& value);
+  void remove(const TData& value);
+  const TData& find_min() const;
+  const TData& find_max() const;
+  void print_tree(std::ostream& os = std::cout) const;
+  bool is_empty() const;
+  void make_empty();
 
 private:
-    AVLNode<TData>* root;
-    void preorderInsert(AVLNode<TData>* current);
-    void insertRecurse(const TData& value, AVLNode<TData>* (&currNode));
-    AVLNode<TData>* singleLeftShift(AVLNode<TData>* node);
-    int findHeight(AVLNode<TData>* node) const;
-    int max(int a, int b);
-    void balance(AVLNode<TData>* (&node));
-    AVLNode<TData>* singleRightShift(AVLNode<TData>* node);
-    void removeRecurse(const TData& value, AVLNode<TData>* (&current));
-    TData& recurse_find_min(AVLNode<TData>* node) const;
-    TData& recurse_find_max(AVLNode<TData>* node) const;
-    void printRecurse(AVLNode<TData>* node, int count, std::ostream& os) const;
-    void emptyRecurse(AVLNode<TData>* (&node));
-    bool containRecurse(AVLNode<TData>* node, const TData& value) const;
+  AVLNode<TData>* root;
+  void preorderInsert(AVLNode<TData>* current);
+  void insertRecurse(const TData& value, AVLNode<TData>* (&currNode));
+  AVLNode<TData>* singleLeftShift(AVLNode<TData>* node);
+  int findHeight(AVLNode<TData>* node) const;
+  int max(int a, int b);
+  void balance(AVLNode<TData>* (&node));
+  AVLNode<TData>* singleRightShift(AVLNode<TData>* node);
+  void removeRecurse(const TData& value, AVLNode<TData>* (&current));
+  TData& recurse_find_min(AVLNode<TData>* node) const;
+  TData& recurse_find_max(AVLNode<TData>* node) const;
+  void printRecurse(AVLNode<TData>* node, int count, std::ostream& os) const;
+  void emptyRecurse(AVLNode<TData>* (&node));
+  bool containRecurse(AVLNode<TData>* node, const TData& value) const;
 };
 
 template <typename TData>

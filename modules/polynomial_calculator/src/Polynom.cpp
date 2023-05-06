@@ -25,8 +25,10 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
     State currentState = START;
     while (true) {
         currentChar = polynomStr[pos];
+        int Start = START;
+        int Number = NUMBER;
         switch (currentState) {
-        case START:
+        case Start:
             if (currentChar == ' ') {  // If there is a space;
                 pos++;
                 currentState = START;
@@ -81,7 +83,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                         return lexem2;
                     }
                 } else {
-                    if (pos == polynomStr.length() + 1) {  // end of line;
+                    if (pos == (int)(polynomStr.length() + 1)) {  // end of line;
                         Lexema Lexem0(LEX_DELIM, LEX_DEL_EQUALS);
                         return Lexem0;
                     } else {
@@ -93,7 +95,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
             }
             break;
 
-        case NUMBER:  // Recognition of numeric constants;
+        case Number:  // Recognition of numeric constants;
             if (currentChar == ' ') {  // If there is a space;
                 pos++;
                 currentChar = polynomStr[pos];
@@ -117,9 +119,8 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
 
 void Polynom::parser(const std::string& polynomStr) {
     monoms.Clean();
-    int length = polynomStr.length();
     Lexema currentLex = lexem(polynomStr);
-    for (int i = 0; i < polynomStr.length(); i++) {
+    for (int i = 0; i < int()(polynomStr.length()); i++) {
         double coef = 1, degX = 0, degY = 0, degZ = 0, X = 0, Y = 0, Z = 0;
         if (currentLex.type == LEX_DELIM && currentLex.index == LEX_DEL_SUB) {
             coef = -1;

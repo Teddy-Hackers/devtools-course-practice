@@ -83,7 +83,8 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                         return lexem2;
                     }
                 } else {
-                    if (pos == (int)(polynomStr.length() + 1)) {  // end of line;
+                    if (pos == static_cast<int>
+                        (polynomStr.length() + 1)) {  // end of line;
                         Lexema Lexem0(LEX_DELIM, LEX_DEL_EQUALS);
                         return Lexem0;
                     } else {

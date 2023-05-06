@@ -6,7 +6,6 @@
 
 #include "include/Monom.h"
 
-// тесты мономов и полиномов
 
 TEST(Polynom, can_create_Polynom_no_value) {
     ASSERT_NO_THROW(Polynom p);
@@ -169,7 +168,6 @@ TEST(Polynom, minus_operation_correctly) {
 }
 
 TEST(Polynom, minus_operation_zero_1) {
-
     Polynom P("2xy^2");
     Polynom Q("2xy-2xy");
     Q.cancellation();
@@ -178,7 +176,6 @@ TEST(Polynom, minus_operation_zero_1) {
 }
 
 TEST(Polynom, minus_operation_if_one_polynom_is_zero) {
-
     Polynom P("2xy^2");
     Polynom Q("2xy-2xy");
     Q.cancellation();

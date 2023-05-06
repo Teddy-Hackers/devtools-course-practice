@@ -31,6 +31,7 @@ class AVLTree {
   void print_tree(std::ostream& os = std::cout) const;
   bool is_empty() const;
   void make_empty();
+  bool AVLTree<TData>::test_func()
 
  private:
   AVLNode<TData>* root;

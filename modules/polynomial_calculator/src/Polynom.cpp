@@ -13,7 +13,7 @@ Polynom::Polynom(const std::string& polynomStr) {
 
 // Breaks it into lexem;
 Lexema Polynom::lexem(const std::string& polynomStr) {
-    char* LEX_DELIMS[] = {
+    const char* LEX_DELIMS[] = {
       "+",
       "-",
       "^",

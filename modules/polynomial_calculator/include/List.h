@@ -57,7 +57,7 @@ class List {
     Node < T >* GetHead() const;  // get a pointer to the first link of the list
 
     Node < T >* returnFictitiousNode() {
-        return head
+        return head;
     }
 };
 
@@ -145,8 +145,8 @@ void List < T > ::InsertAfter(Node < T >* _node,
 
 template < typename T >
 void List < T > ::Delete(const T& d) {
-    Node < T >* del;
     Node < T >* tmp = head->next;
+    Node < T >* del = nullptr;
     if (tmp != nullptr) {
         if (tmp->data == d) {
             del = tmp->next;

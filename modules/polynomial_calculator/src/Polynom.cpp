@@ -1,9 +1,9 @@
 // Copyright 2023 Eremin Aleksandr
 
 #include "include/Polynom.h"
-
-#include <iostream>
 #include <string.h>
+#include <iostream>
+
 
 Polynom::Polynom() {}
 

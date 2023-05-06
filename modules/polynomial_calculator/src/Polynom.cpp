@@ -107,7 +107,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                 if (currentChar == ',') currentChar = '.';
                 lexem.buf += currentChar;
                 pos++;
-                currentState = static_cast<int>( NUMBER);
+                currentState = static_cast<int>(NUMBER);
             } else {
                 Lexema Lexem3(LEX_NUMBER, LEX_NULL, lexem.buf,
                     atof(lexem.buf.c_str()));

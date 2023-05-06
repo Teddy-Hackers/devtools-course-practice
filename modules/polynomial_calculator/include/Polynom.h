@@ -1,7 +1,7 @@
 // Copyright 2023 Eremin Aleksandr
 
-#ifndef MODULES_POLYNOM_INCLUDE_POLYNOM_H_
-#define MODULES_POLYNOM_INCLUDE_POLYNOM_H_
+#ifndef MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_
+#define MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_
 
 #include "Monom.h"
 
@@ -9,28 +9,28 @@
 
 #include <ctype.h>
 
-// Класс "Полином"
+// The "Polynomial" class
 class Polynom {
 private: int pos = 0;
-	   List < Monom > monoms;
+       List < Monom > monoms;
 
 public: Polynom();
-	  Polynom(const std::string& polynomStr);
-	  Lexema lexem(const std::string& polynomStr);
+      Polynom(const std::string& polynomStr);
+      Lexema lexem(const std::string& polynomStr);
 
-	  void parser(const std::string& polynomStr);
-	  void cancellation();
+      void parser(const std::string& polynomStr);
+      void cancellation();
 
-	  bool operator == (const Polynom& _Polynom) const;
-	  bool operator != (const Polynom& _Polynom) const;
+      bool operator == (const Polynom& _Polynom) const;
+      bool operator != (const Polynom& _Polynom) const;
 
-	  Polynom operator + (const Polynom& _Polynom) const;
-	  Polynom operator - (const Polynom& _polynom) const;
-	  Polynom operator * (const Polynom& _Polynom) const;
+      Polynom operator + (const Polynom& _Polynom) const;
+      Polynom operator - (const Polynom& _polynom) const;
+      Polynom operator * (const Polynom& _Polynom) const;
 
-	  Polynom operator + (const double& _Num) const;
-	  Polynom operator - (const double& _Num) const;
-	  Polynom operator * (const double& _Num) const;
+      Polynom operator + (const double& _Num) const;
+      Polynom operator - (const double& _Num) const;
+      Polynom operator * (const double& _Num) const;
 };
 
-#endif // MODULES_POLYNOM_INCLUDE_POLYNOM_H_
+#endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_

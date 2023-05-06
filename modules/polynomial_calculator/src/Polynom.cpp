@@ -30,13 +30,11 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
             if (currentChar == ' ') {  // If there is a space;
                 pos++;
                 currentState = START;
-            }
-            else if (isdigit(currentChar)) {  // If the number;
+            } else if (isdigit(currentChar)) {  // If the number;
                 lexem.buf += currentChar;  // added it to the lexem storage buffer;
                 pos++;
                 currentState = NUMBER;
-            }
-            else if (currentChar == 'x' || currentChar == 'y' ||
+            } else if (currentChar == 'x' || currentChar == 'y' ||
                 currentChar == 'z') {  // if the variable;
                 pos++;
                 Lexema lexem11;
@@ -53,8 +51,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                     lexem11 = lexem1;
                 }
                 return lexem11;
-            }
-            else {  // sign;
+            } else {  // sign;
                 lexem.buf += currentChar;
                 pos++;
                 const char* tmp = lexem.buf.c_str();
@@ -82,13 +79,11 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                         Lexema lexem2(LEX_DELIM, LEX_DEL_EQUALS);
                         return lexem2;
                     }
-                }
-                else {
+                } else {
                     if (pos == polynomStr.length() + 1) {  // end of line;
                         Lexema Lexem0(LEX_DELIM, LEX_DEL_EQUALS);
                         return Lexem0;
-                    }
-                    else {
+                    } else {
                         throw "error";
                         Lexema Lexem00(LEX_NULL, LEX_NULL);
                         return Lexem00;
@@ -109,8 +104,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                 lexem.buf += currentChar;
                 pos++;
                 currentState = NUMBER;
-            }
-            else {
+            } else {
                 Lexema Lexem3(LEX_NUMBER, LEX_NULL, lexem.buf,
                     atof(lexem.buf.c_str()));
                 return Lexem3;
@@ -183,12 +177,10 @@ void Polynom::parser(const std::string& polynomStr) {
                         Z = 0;
                     }
                     currentLex = lexem(polynomStr);
-                }
-                else {
+                } else {
                     throw logic_error("Error in expression");
                 }
-            }
-            else {
+            } else {
                 X = 0, Y = 0, Z = 0;
             }
 
@@ -204,8 +196,7 @@ void Polynom::parser(const std::string& polynomStr) {
             if (currentLex.index == LEX_DEL_ADD &&
                 pos == 1) {  // If you put +: +2x^2+5 at the very beginning...;
                 currentLex = lexem(polynomStr);
-            }
-            else {
+            } else {
                 Monom cur_monom(coef, degX, degY, degZ);
                 monoms.InsertToTail(cur_monom);
                 if (currentLex.index == LEX_DEL_EQUALS) i = polynomStr.length();
@@ -308,8 +299,7 @@ void Polynom::cancellation()  // similar terms;
                 tmpPol = this->monoms.GetHead();
                 tmpPoltwo = tmpPol;
                 tmpPoltwo = tmpPoltwo->next;
-            }
-            else {  // Go to the next one, if there is one;
+            } else {  // Go to the next one, if there is one;
                 if (this->monoms.GetSize() > 1)
                     tmpPoltwo = tmpPoltwo->next;
                 else
@@ -327,8 +317,7 @@ void Polynom::cancellation()  // similar terms;
             if (this->monoms.GetSize() >
                 0)  // You don't need to move anything if there are 0 elements left;
                 tmpPoltwo = tmpPoltwo->next;
-        }
-        else
+        } else
             index = 0;
     }
     tmpPol = this->monoms.GetHead();
@@ -379,8 +368,7 @@ Polynom Polynom::operator * (const double& _Num) const {
         pol = *this;
         pol.cancellation();
         return pol;
-    }
-    else
+    } else
         return pol;
 }
 

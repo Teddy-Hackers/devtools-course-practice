@@ -32,6 +32,12 @@ TEST(Bulgakov_Radix_Sort_Test, Get_Vector_Sorted_Test) {
 TEST(Bulgakov_Radix_Sort_Test, Empty_Get_Vector_Sorting_Test) {
     std::vector<int> to_sort = {};
 
+    ASSERT_EQ(to_sort.empty(), true);
+}
+
+TEST(Bulgakov_Radix_Sort_Test, Empty_Get_Vector_Not_Throw_Error_Sorting_Test) {
+    std::vector<int> to_sort = {};
+
     ASSERT_NO_THROW(IntRadixSort::get_sorted(to_sort));
 }
 

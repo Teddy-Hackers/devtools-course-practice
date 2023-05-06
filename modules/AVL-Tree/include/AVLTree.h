@@ -11,7 +11,7 @@ struct AVLNode {
     AVLNode* left;
     AVLNode* right;
     TData value;
-    explicit AVLNode() : height(0), left(nullptr),
+    AVLNode() : height(0), left(nullptr),
     right(nullptr), value() {}
     explicit AVLNode(TData value) : height(0),
     left(nullptr), right(nullptr), value(value) {}
@@ -19,8 +19,7 @@ struct AVLNode {
 
 template <typename TData>
 class AVLTree {
-public:
-
+public: 
   AVLTree();
   AVLTree(const AVLTree& other);
   ~AVLTree();
@@ -34,7 +33,7 @@ public:
   bool is_empty() const;
   void make_empty();
 
-private:
+private: 
   AVLNode<TData>* root;
   void preorderInsert(AVLNode<TData>* current);
   void insertRecurse(const TData& value, AVLNode<TData>* (&currNode));

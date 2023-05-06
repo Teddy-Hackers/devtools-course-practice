@@ -31,7 +31,8 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                 pos++;
                 currentState = START;
             } else if (isdigit(currentChar)) {  // If the number;
-                lexem.buf += currentChar;  // added it to the lexem storage buffer;
+                lexem.buf += currentChar;  // added it to 
+                                           //the lexem storage buffer;
                 pos++;
                 currentState = NUMBER;
             } else if (currentChar == 'x' || currentChar == 'y' ||
@@ -183,15 +184,16 @@ void Polynom::parser(const std::string& polynomStr) {
             } else {
                 X = 0, Y = 0, Z = 0;
             }
-
-            if (currentLex.type == LEX_NUMBER) {  // if the number hit again: 2xy3z;
+            // if the number hit again: 2xy3z;
+            if (currentLex.type == LEX_NUMBER) {
                 coef = coef * currentLex.value;
                 currentLex = lexem(polynomStr);
             }
         }
 
         if (currentLex.type == LEX_DELIM &&
-            (currentLex.index == LEX_DEL_ADD || currentLex.index == LEX_DEL_SUB ||
+            (currentLex.index == LEX_DEL_ADD ||
+                currentLex.index == LEX_DEL_SUB ||
                 currentLex.index == LEX_DEL_EQUALS)) {
             if (currentLex.index == LEX_DEL_ADD &&
                 pos == 1) {  // If you put +: +2x^2+5 at the very beginning...;
@@ -272,8 +274,7 @@ Polynom Polynom::operator * (const Polynom& _polynom) const {
     return Res;
 }
 
-void Polynom::cancellation()  // similar terms;
-{
+void Polynom::cancellation() {  // similar terms;
     if (this->monoms.GetSize() == 0) {
         return;
     }
@@ -286,7 +287,8 @@ void Polynom::cancellation()  // similar terms;
     tmpPoltwo = tmpPoltwo->next;
     while (tmpPol) {
         while (tmpPoltwo) {
-            if (tmpPol->data.degreeEq(tmpPoltwo->data)) {  // if it matches, add and
+            if (tmpPol->data.degreeEq(tmpPoltwo->data)) {  
+             // if it matches, add and
              // add to the end. Two
              // delete old ones. Return
              // indexes(tmpPol) per
@@ -307,18 +309,22 @@ void Polynom::cancellation()  // similar terms;
                 index = 0;
             }
         }
-        if (index == 0) {  // If the first element did not find a pair, write it in response;
+        // If the first element did not find a pair, write it in response;
+        if (index == 0) {
             if (tmpPol->data.coeff() != 0)  // removing zeros
                 Res.monoms.InsertToTail(tmpPol->data);
             this->monoms.Delete(tmpPol->data);
             tmpPol = this->monoms.GetHead();
             tmpPoltwo = tmpPol;
 
+            // You don't need to move anything if there are 0 elements left;
             if (this->monoms.GetSize() >
-                0)  // You don't need to move anything if there are 0 elements left;
+                0)
                 tmpPoltwo = tmpPoltwo->next;
-        } else
+        }
+        else {
             index = 0;
+        }
     }
     tmpPol = this->monoms.GetHead();
     if (this->monoms.GetSize() > 0)
@@ -368,8 +374,10 @@ Polynom Polynom::operator * (const double& _Num) const {
         pol = *this;
         pol.cancellation();
         return pol;
-    } else
+    }
+    else {
         return pol;
+    }
 }
 
 bool Polynom::operator == (const Polynom& _Polynom) const {
@@ -398,8 +406,9 @@ bool Polynom::operator == (const Polynom& _Polynom) const {
         else
             return 0;
     }
-    else
+    else {
         return 0;
+    }
 }
 
 bool Polynom::operator != (const Polynom& _Polynom) const {

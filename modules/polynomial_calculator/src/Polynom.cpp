@@ -27,18 +27,15 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
         currentChar = polynomStr[pos];
         switch (currentState) {
         case START:
-            if (currentChar == ' ')  // If there is a space;
-            {
+            if (currentChar == ' '){  // If there is a space;
                 pos++;
                 currentState = START;
-            } else if (isdigit(currentChar))  // If the number;
-            {
+            } else if (isdigit(currentChar)){  // If the number;
                 lexem.buf += currentChar;  // added it to the lexem storage buffer;
                 pos++;
                 currentState = NUMBER;
             } else if (currentChar == 'x' || currentChar == 'y' ||
-                currentChar == 'z')  // if the variable;
-            {
+                currentChar == 'z'){  // if the variable;
                 pos++;
                 Lexema lexem11;
                 if (currentChar == 'x') {
@@ -59,8 +56,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                 pos++;
                 const char* tmp = lexem.buf.c_str();
                 int index = -1;
-                for (int i = 0; i < 4; i++)  // looking in the table;
-                {
+                for (int i = 0; i < 4; i++){  // looking in the table;
                     if (strcmp(tmp, LEX_DELIMS[i]) == 0) {
                         index = i;
                         i = 5;
@@ -84,8 +80,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
                         return lexem2;
                     }
                 } else {
-                    if (pos == polynomStr.length() + 1)  // end of line;
-                    {
+                    if (pos == polynomStr.length() + 1){  // end of line;
                         Lexema Lexem0(LEX_DELIM, LEX_DEL_EQUALS);
                         return Lexem0;
                     } else {
@@ -98,15 +93,13 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
             break;
 
         case NUMBER:  // Recognition of numeric constants;
-            if (currentChar == ' ')  // If there is a space;
-            {
+            if (currentChar == ' '){  // If there is a space;
                 pos++;
                 currentChar = polynomStr[pos];
                 currentState = NUMBER;
             }
             if (isdigit(currentChar) || currentChar == '.' ||
-                currentChar == ',')  // if the digit;
-            {
+                currentChar == ','){  // if the digit;
                 if (currentChar == ',') currentChar = '.';
                 lexem.buf += currentChar;
                 pos++;
@@ -119,7 +112,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
             break;
         }
     }
-};
+}
 
 void Polynom::parser(const std::string& polynomStr) {
     monoms.Clean();
@@ -161,7 +154,8 @@ void Polynom::parser(const std::string& polynomStr) {
                 }
                 currentLex = lexem(polynomStr);
             }
-            if (currentLex.type == LEX_DELIM && currentLex.index == LEX_DEL_POW) {
+            if (currentLex.type == LEX_DELIM && 
+                currentLex.index == LEX_DEL_POW) {
                 currentLex = lexem(polynomStr);
                 if (currentLex.type == LEX_NUMBER) {
                     if (X == 1) {
@@ -190,8 +184,7 @@ void Polynom::parser(const std::string& polynomStr) {
                 X = 0, Y = 0, Z = 0;
             }
 
-            if (currentLex.type == LEX_NUMBER)  // if the number hit again: 2xy3z;
-            {
+            if (currentLex.type == LEX_NUMBER){  // if the number hit again: 2xy3z;
                 coef = coef * currentLex.value;
                 currentLex = lexem(polynomStr);
             }
@@ -201,8 +194,7 @@ void Polynom::parser(const std::string& polynomStr) {
             (currentLex.index == LEX_DEL_ADD || currentLex.index == LEX_DEL_SUB ||
                 currentLex.index == LEX_DEL_EQUALS)) {
             if (currentLex.index == LEX_DEL_ADD &&
-                pos == 1)  // If you put +: +2x^2+5 at the very beginning...;
-            {
+                pos == 1){  // If you put +: +2x^2+5 at the very beginning...;
                 currentLex = lexem(polynomStr);
             } else {
                 Monom cur_monom(coef, degX, degY, degZ);
@@ -233,7 +225,7 @@ void Polynom::parser(const std::string& polynomStr) {
             P = 0;
         }
     }
-};
+}
 
 Polynom Polynom::operator + (const Polynom& _polynom) const {
     Polynom Res = *this;
@@ -294,13 +286,12 @@ void Polynom::cancellation()  // similar terms;
     tmpPoltwo = tmpPoltwo->next;
     while (tmpPol) {
         while (tmpPoltwo) {
-            if (tmpPol->data.degreeEq(tmpPoltwo->data))  // if it matches, add and
+            if (tmpPol->data.degreeEq(tmpPoltwo->data)){  // if it matches, add and
              // add to the end. Two
              // delete old ones. Return
              // indexes(tmpPol) per
              // head.-> then everything
              // first;
-            {
                 index = 1;
                 this->monoms.InsertToTail(tmpPol->data + tmpPoltwo->data);
                 this->monoms.Delete(tmpPol->data);
@@ -316,8 +307,7 @@ void Polynom::cancellation()  // similar terms;
                 index = 0;
             }
         }
-        if (index == 0)  // If the first element did not find a pair, write it in response;
-        {
+        if (index == 0){  // If the first element did not find a pair, write it in response;
             if (tmpPol->data.coeff() != 0)  // removing zeros
                 Res.monoms.InsertToTail(tmpPol->data);
             this->monoms.Delete(tmpPol->data);

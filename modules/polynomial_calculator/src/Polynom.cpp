@@ -25,8 +25,8 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
     State currentState = START;
     while (true) {
         currentChar = polynomStr[pos];
-        int Start = static_cast<int>(START);
-        int Number = static_cast<int>(NUMBER);
+        const int Start = static_cast<int>(START);
+        const int Number = static_cast<int>(NUMBER);
         switch (currentState) {
         case Start:
             if (currentChar == ' ') {  // If there is a space;

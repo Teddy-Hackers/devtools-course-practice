@@ -31,12 +31,12 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
         case Start:
             if (currentChar == ' ') {  // If there is a space;
                 pos++;
-                currentState = START;
+                currentState = static_cast<int>(START);
             } else if (isdigit(currentChar)) {  // If the number;
                 lexem.buf += currentChar;  // added it to
                                            // the lexem storage buffer;
                 pos++;
-                currentState = NUMBER;
+                currentState = static_cast<int>((NUMBER);
             } else if (currentChar == 'x' || currentChar == 'y' ||
                 currentChar == 'z') {  // if the variable;
                 pos++;
@@ -100,14 +100,14 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
             if (currentChar == ' ') {  // If there is a space;
                 pos++;
                 currentChar = polynomStr[pos];
-                currentState = NUMBER;
+                currentState = static_cast<int>(NUMBER);
             }
             if (isdigit(currentChar) || currentChar == '.' ||
                 currentChar == ',') {  // if the digit;
                 if (currentChar == ',') currentChar = '.';
                 lexem.buf += currentChar;
                 pos++;
-                currentState = NUMBER;
+                currentState = static_cast<int>( NUMBER);
             } else {
                 Lexema Lexem3(LEX_NUMBER, LEX_NULL, lexem.buf,
                     atof(lexem.buf.c_str()));

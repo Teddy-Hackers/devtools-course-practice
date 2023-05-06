@@ -6,8 +6,8 @@
 #include "Monom.h"
 
 #include "List.h"
-#include <string>
 #include <ctype.h>
+#include <string>
 
 // The "Polynomial" class
 class Polynom {

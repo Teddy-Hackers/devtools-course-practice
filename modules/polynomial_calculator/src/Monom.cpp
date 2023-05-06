@@ -49,8 +49,7 @@ Monom Monom::operator + (const Monom& _monom) const {
         Monom tmp(1, _monom.degreeX, _monom.degreeY, _monom.degreeZ);
         tmp.coefficient = this->coefficient + _monom.coefficient;
         return tmp;
-    }
-    else {
+    } else {
         throw "Error";
     }
 }
@@ -61,8 +60,7 @@ Monom Monom::operator - (const Monom& _monom) const {
         Monom tmp(1, _monom.degreeX, _monom.degreeY, _monom.degreeZ);
         tmp.coefficient = this->coefficient - _monom.coefficient;
         return tmp;
-    }
-    else {
+    } else {
         throw "Error";
     }
 }
@@ -81,8 +79,7 @@ Monom Monom::operator + (const double& _Num) const {
     if (monom.degree() == 0) {
         monom.coefficient = monom.coefficient + _Num;
         return monom;
-    }
-    else {
+    } else {
         throw "error";
     }
 }
@@ -99,8 +96,7 @@ Monom Monom::operator - (const double& _Num) const {
     if (monom.degree() == 0) {
         monom.coefficient = monom.coefficient - _Num;
         return monom;
-    }
-    else {
+    } else {
         throw "error";
     }
 }

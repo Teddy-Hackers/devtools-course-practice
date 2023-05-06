@@ -32,5 +32,4 @@ public: Polynom();
       Polynom operator - (const double& _Num) const;
       Polynom operator * (const double& _Num) const;
 };
-
 #endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOM_H_

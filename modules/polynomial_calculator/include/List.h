@@ -5,10 +5,10 @@
 
 #include <iostream>
 
-//Node Class
+// Node Class
 template < typename T >
 struct Node {
-public:
+ public:
     T data;
     Node < T >* next;
 
@@ -28,12 +28,12 @@ public:
         return (data == node2.data) && (next == node2.next);
     }
 };
-//The "List" class for the polynomial;
+// The "List" class for the polynomial;
 template < typename T >
 class List {
     Node < T >* head;
 
-public:
+ public:
     List();
     List(const List& list2);
     List& operator = (const List& list2);
@@ -48,7 +48,7 @@ public:
     void InsertToHead(const T& d);  // insert element d first
     void InsertToTail(const T& d);  // insert element d last
     void InsertAfter(Node < T >* node,
-        const T& d); // insert the d element after the node link
+        const T& d);  // insert the d element after the node link
     void Delete(const T& d);  // delete a link with the value data = d
     Node < T >* Search(
         const T& d);  // find a pointer to a link with the value data = d
@@ -93,8 +93,7 @@ List < T >& List < T > ::operator = (const List& list2) {
         }
         if (list2.isEmpty()) {
             head->next = nullptr;
-        }
-        else {
+        } else {
             head->next = new Node < T >(list2.head->next->data);
             p = head->next;
             q = list2.head->next->next;
@@ -155,8 +154,7 @@ void List < T > ::Delete(const T& d) {
             del = tmp->next;
             delete head->next;
             head->next = del;
-        }
-        else {
+        } else {
             while (tmp->next) {
                 if (tmp->next->data == d) {
                     del = tmp->next;
@@ -198,10 +196,10 @@ void List < T > ::Clean() {
 }
 
 template < typename T >
-int List < T > ::GetSize() const
-{
+int List < T > ::GetSize() const {
     int k = 0;
     Node < T >* tmp = head->next;
+
     while (tmp != nullptr) {
         k++;
         tmp = tmp->next;
@@ -210,9 +208,7 @@ int List < T > ::GetSize() const
 }
 
 template < typename T >
-Node < T >* List < T > ::GetHead() const
-{
+Node < T >* List < T > ::GetHead() const {
     return head->next;
 }
-
 #endif // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_LIST_H_

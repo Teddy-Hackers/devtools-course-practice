@@ -26,12 +26,18 @@ class polynomial_calculator {
     bool operator == (const polynomial_calculator& _Polynom) const;
     bool operator != (const polynomial_calculator& _Polynom) const;
 
-    polynomial_calculator operator + (const polynomial_calculator& _Polynom) const;
-    polynomial_calculator operator - (const polynomial_calculator& _polynom) const;
-    polynomial_calculator operator * (const polynomial_calculator& _Polynom) const;
+    polynomial_calculator operator +
+        (const polynomial_calculator& _Polynom) const;
+    polynomial_calculator operator -
+        (const polynomial_calculator& _polynom) const;
+    polynomial_calculator operator *
+        (const polynomial_calculator& _Polynom) const;
 
-    polynomial_calculator operator + (const double& _Num) const;
-    polynomial_calculator operator - (const double& _Num) const;
-    polynomial_calculator operator * (const double& _Num) const;
+    polynomial_calculator operator +
+        (const double& _Num) const;
+    polynomial_calculator operator -
+        (const double& _Num) const;
+    polynomial_calculator operator *
+        (const double& _Num) const;
 };
 #endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOMIAL_CALCULATOR_H_

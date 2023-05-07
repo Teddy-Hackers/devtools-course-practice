@@ -40,8 +40,8 @@ TEST(polynomial_calculator, searches_for_invalid_characters) {
     ASSERT_ANY_THROW(P.parser("5x @ + # 1"));
 }
 
-TEST(polynomial_calculator, parser_and_lexem_no_throw_
-recognizes_repetitions_of_signs) {
+TEST(polynomial_calculator,
+    parser_and_lexem_no_throw_recognizes_repetitions_of_signs) {
     polynomial_calculator P;
     polynomial_calculator Q("-2xz^5y+5x^2");
     ASSERT_NO_THROW(P.parser("-2xz^5y++5x^2"));
@@ -69,57 +69,57 @@ TEST(polynomial_calculator, parser_and_lexem_no_throw_recording_test_3) {
     ASSERT_EQ(Q, P);
 }
 
-TEST(polynomial_calculator, parser_and_lexem_no_throw_
-    recording_test_on_big_polynomials) {
+TEST(polynomial_calculator,
+    parser_and_lexem_no_throw_recording_test_on_big_polynomials) {
     polynomial_calculator P;
     polynomial_calculator Q("2xy^5z+5x^2z-5x^6yz");
     ASSERT_NO_THROW(P.parser("-5xyz+2xy^5z+5x^2z+-5x^6yz+5xyz"));
     ASSERT_EQ(Q, P);
 }
 
-TEST(polynomial_calculator, parser_and_lexem_no_throw
-    _recognizes_multiplication) {
+TEST(polynomial_calculator,
+    parser_and_lexem_no_throw_recognizes_multiplication) {
     polynomial_calculator P;
     polynomial_calculator Q("2x^3y^2z+5");
     ASSERT_NO_THROW(P.parser("2xx^2yyz+5"));
     ASSERT_EQ(Q, P);
 }
 
-TEST(polynomial_calculator, parser_and_lexem_no_recording
-    _test_on_big_polynomials_2) {
+TEST(polynomial_calculator,
+    parser_and_lexem_no_recording_test_on_big_polynomials_2) {
     polynomial_calculator P;
     polynomial_calculator Q("2x^2zzy2yx+5xxy5yzz");
     ASSERT_NO_THROW(P.parser("4x^3y^2z^2+25x^2y^2z^2"));
     ASSERT_EQ(Q, P);
 }
 
-TEST(polynomial_calculator, polynomial_calculator_can
-    _Detect_Wrong_Operation_Format) {
+TEST(polynomial_calculator,
+    polynomial_calculator_can_Detect_Wrong_Operation_Format) {
     polynomial_calculator P;
     ASSERT_ANY_THROW(P.parser("2x^yz"));
 }
 
-TEST(polynomial_calculator, parser_and_lexem
-    _unidentified_characters) {
+TEST(polynomial_calculator,
+    parser_and_lexem_unidentified_characters) {
     polynomial_calculator P;
     ASSERT_ANY_THROW(P.parser("2x^2 &+5x"));
 }
 
-TEST(polynomial_calculator, polynomial_calculator_can
-    _Detect_Wrong_Number_Format) {
+TEST(polynomial_calculator,
+    polynomial_calculator_can_Detect_Wrong_Number_Format) {
     polynomial_calculator P;
     ASSERT_ANY_THROW(P.parser("2x^5+/3x^4 -2.6 x^3+x^2$$+x- 8.6"));
 }
 
-TEST(polynomial_calculator, equality_operator_test
-    _compares_the_same) {
+TEST(polynomial_calculator,
+    equality_operator_test_compares_the_same) {
     polynomial_calculator P("2x^2yz^3+5x^3z^5y");
     polynomial_calculator Q("5yz^5x^3+2x^2z^3y");
     ASSERT_EQ(Q, P);
 }
 
-TEST(polynomial_calculator, equality_operator_test
-    _compares_different) {
+TEST(polynomial_calculator,
+    equality_operator_test_compares_different) {
     polynomial_calculator P("2xy+5zx^2+10");
     polynomial_calculator Q("2xy+5zx^3");
     ASSERT_NE(Q, P);
@@ -155,8 +155,8 @@ TEST(polynomial_calculator, addition_operation_correctly) {
     ASSERT_EQ(Res, P + Q);
 }
 
-TEST(polynomial_calculator, addition_operation
-    _if_one_polynom_is_zero) {
+TEST(polynomial_calculator,
+    addition_operation_if_one_polynom_is_zero) {
     polynomial_calculator P("2xyz");
     polynomial_calculator Q("2x-2x");
     Q.cancellation();
@@ -185,8 +185,8 @@ TEST(polynomial_calculator, minus_operation_zero_1) {
     ASSERT_EQ(Res, P - Q);
 }
 
-TEST(polynomial_calculator, minus_operation_if_
-    one_polynom_is_zero) {
+TEST(polynomial_calculator,
+    minus_operation_if_one_polynom_is_zero) {
     polynomial_calculator P("2xy^2");
     polynomial_calculator Q("2xy-2xy");
     Q.cancellation();
@@ -194,8 +194,8 @@ TEST(polynomial_calculator, minus_operation_if_
     ASSERT_EQ(Res, Q - P);
 }
 
-TEST(polynomial_calculator, minus_operation_if_
-    one_polynom_is_zero_2) {
+TEST(polynomial_calculator,
+    minus_operation_if_one_polynom_is_zero_2) {
     polynomial_calculator P("2xy^2");
     polynomial_calculator Q("0");
     Q.cancellation();
@@ -216,8 +216,8 @@ TEST(polynomial_calculator, multi_operation_correctly) {
     ASSERT_EQ(Res, P * Q);
 }
 
-TEST(polynomial_calculator, multi_operation_if_
-    one_polynom_is_zero) {
+TEST(polynomial_calculator,
+    multi_operation_if_one_polynom_is_zero) {
     polynomial_calculator P("2xy^2");
     polynomial_calculator Q("0");
     Q.cancellation();
@@ -270,7 +270,8 @@ TEST(polynomial_calculator, multi_const_operation_correctly) {
     ASSERT_EQ(Res, P * 5);
 }
 
-TEST(polynomial_calculator, multi_negative_const_operation_correctly) {
+TEST(polynomial_calculator, 
+    multi_negative_const_operation_correctly) {
     polynomial_calculator P("3x^5y^2z^5-5x^4y^3z^3+7x^3y^5z");
     polynomial_calculator Res("-6x^5y^2z^5+10x^4y^3z^3-14x^3y^5z");
     ASSERT_EQ(Res, P * (-2));

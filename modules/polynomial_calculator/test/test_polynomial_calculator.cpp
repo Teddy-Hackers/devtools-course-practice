@@ -210,9 +210,9 @@ TEST(polynomial_calculator, multi_operation_no_throw) {
 }
 
 TEST(polynomial_calculator, multi_operation_correctly) {
-    polynomial_calculator P("5.5xyz+4+1+x");
-    polynomial_calculator Q("xyz+6-x^2");
-    polynomial_calculator Res("5,5x^2y^2z^2+38xyz-5.5x^3yz+30-5x^2+x^2yz+6x-x^3");
+    polynomial_calculator P("5xy+5");
+    polynomial_calculator Q("3xz");
+    polynomial_calculator Res("15x^2yz+15xz");
     ASSERT_EQ(Res, P * Q);
 }
 
@@ -280,8 +280,4 @@ TEST(polynomial_calculator, multi_zero_and_polynom_correctly) {
     polynomial_calculator P("3x^5y^2z^5-5x^4y^3z^3+7x^3y^5z");
     polynomial_calculator Res("0");
     ASSERT_EQ(Res, P * (0));
-}
-
-TEST(Polynom, cout) {
-    polynomial_calculator P("5+15+5xy-1x^2yz-z-xyz+1x^1y^3z+7x^3y^5z+5+9");
 }

@@ -270,7 +270,7 @@ TEST(polynomial_calculator, multi_const_operation_correctly) {
     ASSERT_EQ(Res, P * 5);
 }
 
-TEST(polynomial_calculator, 
+TEST(polynomial_calculator,
     multi_negative_const_operation_correctly) {
     polynomial_calculator P("3x^5y^2z^5-5x^4y^3z^3+7x^3y^5z");
     polynomial_calculator Res("-6x^5y^2z^5+10x^4y^3z^3-14x^3y^5z");

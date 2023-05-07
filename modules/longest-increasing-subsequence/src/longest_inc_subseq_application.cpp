@@ -53,12 +53,7 @@ std::string Application::operator()(int argc, const char** argv) {
   } catch (std::string& str) {
     return str;
   }
-  std::vector<int> answer;
-  try {
-    answer = longestIncreasingSubsequence(values);
-  } catch (std::string str) {
-    return str;
-  }
+  std::vector<int> answer = longestIncreasingSubsequence(values);
 
   std::ostringstream stream;
   for (size_t i = 0; i < answer.size(); ++i) {

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/Polynom.h"
+#include "include/polynomial_calculator.h"
 
 #include "include/Monom.h"
 

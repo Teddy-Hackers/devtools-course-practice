@@ -1,19 +1,19 @@
 // Copyright 2023 Eremin Aleksandr
 
-#include "include/Polynom.h"
+#include "include/polynomial_calculator.h"
 #include <string.h>
 #include <iostream>
 
 
-Polynom::Polynom() {}
+polynomial_calculator::polynomial_calculator() {}
 
-Polynom::Polynom(const std::string& polynomStr) {
+polynomial_calculator::polynomial_calculator(const std::string& polynomStr) {
     Monom fictitious(999, -1, -1, -1);
     parser(polynomStr);
 }
 
 // Breaks it into lexem;
-Lexema Polynom::lexem(const std::string& polynomStr) {
+Lexema polynomial_calculator::lexem(const std::string& polynomStr) {
     const char* LEX_DELIMS[] = {
       "+",
       "-",
@@ -118,7 +118,7 @@ Lexema Polynom::lexem(const std::string& polynomStr) {
     }
 }
 
-void Polynom::parser(const std::string& polynomStr) {
+void polynomial_calculator::parser(const std::string& polynomStr) {
     monoms.Clean();
     Lexema currentLex = lexem(polynomStr);
     for (int i = 0; i < static_cast<int>(polynomStr.length()); i++) {
@@ -231,8 +231,8 @@ void Polynom::parser(const std::string& polynomStr) {
     }
 }
 
-Polynom Polynom::operator + (const Polynom& _polynom) const {
-    Polynom Res = *this;
+polynomial_calculator polynomial_calculator::operator + (const polynomial_calculator& _polynom) const {
+    polynomial_calculator Res = *this;
     Node < Monom >* tmppoltwo;
     tmppoltwo = _polynom.monoms.GetHead();
 
@@ -244,8 +244,8 @@ Polynom Polynom::operator + (const Polynom& _polynom) const {
     return Res;
 }
 
-Polynom Polynom::operator - (const Polynom& _polynom) const {
-    Polynom Res = *this;
+polynomial_calculator polynomial_calculator::operator - (const polynomial_calculator& _polynom) const {
+    polynomial_calculator Res = *this;
     Node < Monom >* tmppoltwo;
     tmppoltwo = _polynom.monoms.GetHead();
 
@@ -257,8 +257,8 @@ Polynom Polynom::operator - (const Polynom& _polynom) const {
     return Res;
 }
 
-Polynom Polynom::operator * (const Polynom& _polynom) const {
-    Polynom Res;
+polynomial_calculator polynomial_calculator::operator * (const polynomial_calculator& _polynom) const {
+    polynomial_calculator Res;
     Node < Monom >* tmpPol;
     Node < Monom >* tmppoltwo;
     tmpPol = this->monoms.GetHead();
@@ -276,12 +276,12 @@ Polynom Polynom::operator * (const Polynom& _polynom) const {
     return Res;
 }
 
-void Polynom::cancellation() {  // similar terms;
+void polynomial_calculator::cancellation() {  // similar terms;
     if (this->monoms.GetSize() == 0) {
         return;
     }
     int index = 0;
-    Polynom Res;
+    polynomial_calculator Res;
     Res.monoms.Clean();
     Node < Monom >* tmpPol;
     tmpPol = this->monoms.GetHead();
@@ -333,8 +333,8 @@ void Polynom::cancellation() {  // similar terms;
     *this = Res;
 }
 
-Polynom Polynom::operator + (const double& _Num) const {
-    Polynom pol = *this;
+polynomial_calculator polynomial_calculator::operator + (const double& _Num) const {
+    polynomial_calculator pol = *this;
     Node < Monom >* tmpPol = this->monoms.GetHead();
     while (tmpPol) {
         if (tmpPol->data.degree() == 0) {
@@ -348,8 +348,8 @@ Polynom Polynom::operator + (const double& _Num) const {
     return pol;
 }
 
-Polynom Polynom::operator - (const double& _Num) const {
-    Polynom pol = *this;
+polynomial_calculator polynomial_calculator::operator - (const double& _Num) const {
+    polynomial_calculator pol = *this;
     Node < Monom >* tmpPol = this->monoms.GetHead();
     while (tmpPol) {
         if (tmpPol->data.degree() == 0) {
@@ -363,8 +363,8 @@ Polynom Polynom::operator - (const double& _Num) const {
     return pol;
 }
 
-Polynom Polynom::operator * (const double& _Num) const {
-    Polynom pol = *this;
+polynomial_calculator polynomial_calculator::operator * (const double& _Num) const {
+    polynomial_calculator pol = *this;
 
     Node < Monom >* tmpPol = this->monoms.GetHead();
     if (this->monoms.GetSize() != 0) {
@@ -380,9 +380,9 @@ Polynom Polynom::operator * (const double& _Num) const {
     }
 }
 
-bool Polynom::operator == (const Polynom& _Polynom) const {
-    Polynom PolCooyOne = *this;
-    Polynom PolCooyOTwo = _Polynom;
+bool polynomial_calculator::operator == (const polynomial_calculator& _Polynom) const {
+    polynomial_calculator PolCooyOne = *this;
+    polynomial_calculator PolCooyOTwo = _Polynom;
 
     PolCooyOne.cancellation();
     PolCooyOTwo.cancellation();
@@ -410,7 +410,7 @@ bool Polynom::operator == (const Polynom& _Polynom) const {
     }
 }
 
-bool Polynom::operator != (const Polynom& _Polynom) const {
+bool polynomial_calculator::operator != (const polynomial_calculator& _Polynom) const {
     if (*this == _Polynom)
         return 0;
     else

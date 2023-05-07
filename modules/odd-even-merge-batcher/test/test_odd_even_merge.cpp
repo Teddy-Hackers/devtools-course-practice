@@ -4,11 +4,11 @@
 #include "include/odd_even_merge.h"
 
 bool checkSortArray(const std::vector<int>& array) {
-	const int sizeArray = array.size();
-	for (int i = 0; i < sizeArray - 1; i++) {
-		if (array[i] > array[i + 1]) return false;
-	}
-	return true;
+    const int sizeArray = array.size();
+    for (int i = 0; i < sizeArray - 1; i++) {
+        if (array[i] > array[i + 1]) return false;
+    }
+    return true;
 }
 
 TEST(Nikolaev_OddEvenMerge, can_sort_array) {

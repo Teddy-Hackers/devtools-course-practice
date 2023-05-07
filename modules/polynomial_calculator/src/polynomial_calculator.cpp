@@ -231,7 +231,8 @@ void polynomial_calculator::parser(const std::string& polynomStr) {
     }
 }
 
-polynomial_calculator polynomial_calculator::operator + (const polynomial_calculator& _polynom) const {
+polynomial_calculator polynomial_calculator::operator +
+(const polynomial_calculator& _polynom) const {
     polynomial_calculator Res = *this;
     Node < Monom >* tmppoltwo;
     tmppoltwo = _polynom.monoms.GetHead();
@@ -244,7 +245,8 @@ polynomial_calculator polynomial_calculator::operator + (const polynomial_calcul
     return Res;
 }
 
-polynomial_calculator polynomial_calculator::operator - (const polynomial_calculator& _polynom) const {
+polynomial_calculator polynomial_calculator::operator -
+(const polynomial_calculator& _polynom) const {
     polynomial_calculator Res = *this;
     Node < Monom >* tmppoltwo;
     tmppoltwo = _polynom.monoms.GetHead();
@@ -257,7 +259,8 @@ polynomial_calculator polynomial_calculator::operator - (const polynomial_calcul
     return Res;
 }
 
-polynomial_calculator polynomial_calculator::operator * (const polynomial_calculator& _polynom) const {
+polynomial_calculator polynomial_calculator::operator *
+(const polynomial_calculator& _polynom) const {
     polynomial_calculator Res;
     Node < Monom >* tmpPol;
     Node < Monom >* tmppoltwo;
@@ -329,11 +332,13 @@ void polynomial_calculator::cancellation() {  // similar terms;
     }
     tmpPol = this->monoms.GetHead();
     if (this->monoms.GetSize() > 0)
-        if (tmpPol->data.coeff() != 0) Res.monoms.InsertToTail(tmpPol->data);
+        if (tmpPol->data.coeff() != 0)
+            Res.monoms.InsertToTail(tmpPol->data);
     *this = Res;
 }
 
-polynomial_calculator polynomial_calculator::operator + (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator +
+(const double& _Num) const {
     polynomial_calculator pol = *this;
     Node < Monom >* tmpPol = this->monoms.GetHead();
     while (tmpPol) {
@@ -348,7 +353,8 @@ polynomial_calculator polynomial_calculator::operator + (const double& _Num) con
     return pol;
 }
 
-polynomial_calculator polynomial_calculator::operator - (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator -
+(const double& _Num) const {
     polynomial_calculator pol = *this;
     Node < Monom >* tmpPol = this->monoms.GetHead();
     while (tmpPol) {
@@ -363,7 +369,8 @@ polynomial_calculator polynomial_calculator::operator - (const double& _Num) con
     return pol;
 }
 
-polynomial_calculator polynomial_calculator::operator * (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator *
+(const double& _Num) const {
     polynomial_calculator pol = *this;
 
     Node < Monom >* tmpPol = this->monoms.GetHead();
@@ -380,7 +387,8 @@ polynomial_calculator polynomial_calculator::operator * (const double& _Num) con
     }
 }
 
-bool polynomial_calculator::operator == (const polynomial_calculator& _Polynom) const {
+bool polynomial_calculator::operator ==
+(const polynomial_calculator& _Polynom) const {
     polynomial_calculator PolCooyOne = *this;
     polynomial_calculator PolCooyOTwo = _Polynom;
 
@@ -410,7 +418,8 @@ bool polynomial_calculator::operator == (const polynomial_calculator& _Polynom) 
     }
 }
 
-bool polynomial_calculator::operator != (const polynomial_calculator& _Polynom) const {
+bool polynomial_calculator::operator !=
+(const polynomial_calculator& _Polynom) const {
     if (*this == _Polynom)
         return 0;
     else

@@ -16,7 +16,7 @@ TEST(Nikolaev_OddEvenMerge, can_sort_array) {
     std::vector<int> array = {6, 5, 4, 3, 2, 1};
 
     // Act
-    OddEvenMergeBatcherSort(&array);
+    OddEvenMerge::OddEvenMergeBatcherSort(&array);
 
     // Assert
     ASSERT_TRUE(checkSortArray(array));
@@ -24,10 +24,10 @@ TEST(Nikolaev_OddEvenMerge, can_sort_array) {
 
 TEST(Nikolaev_OddEvenMerge, can_sort_random_array) {
     // Arrange
-    std::vector<int> array = getRandomArray(20);
+    std::vector<int> array = OddEvenMerge::getRandomArray(20);
 
     // Act
-    OddEvenMergeBatcherSort(&array);
+    OddEvenMerge::OddEvenMergeBatcherSort(&array);
 
     // Assert
     ASSERT_TRUE(checkSortArray(array));
@@ -38,7 +38,7 @@ TEST(Nikolaev_OddEvenMerge, can_sort_an_array_of_negative_numbers) {
     std::vector<int> array = {-1, -2, -3, -4, -5, -6};
 
     // Act
-    OddEvenMergeBatcherSort(&array);
+    OddEvenMerge::OddEvenMergeBatcherSort(&array);
 
     // Assert
     ASSERT_TRUE(checkSortArray(array));

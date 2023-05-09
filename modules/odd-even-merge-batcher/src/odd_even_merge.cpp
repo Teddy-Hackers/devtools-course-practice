@@ -2,7 +2,7 @@
 
 #include "include/odd_even_merge.h"
 
-void OddEvenMergeBatcherSort(std::vector<int>* array) {
+void OddEvenMerge::OddEvenMergeBatcherSort(std::vector<int>* array) {
     const int size = array->size();
     for (int p = 1; p < size; p += p) {
         for (int k = p; k > 0; k /= 2) {
@@ -19,7 +19,7 @@ void OddEvenMergeBatcherSort(std::vector<int>* array) {
     }
 }
 
-std::vector<int> getRandomArray(const int sizeArray) {
+std::vector<int> OddEvenMerge::getRandomArray(const int sizeArray) {
     std::vector<int> array(sizeArray);
     std::random_device dev;
     std::mt19937 gen(dev());

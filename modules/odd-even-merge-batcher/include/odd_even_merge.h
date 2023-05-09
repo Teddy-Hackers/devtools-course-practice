@@ -10,17 +10,20 @@
 //! @addtogroup odd-even-merge
 //! @{
 
-/**
-* @brief OddEvenMergeBatcherSort
-* @param[in] array is a vector of numbers
-*/
-void OddEvenMergeBatcherSort(std::vector<int>* array);
+namespace OddEvenMerge {
 
-/**
-* @brief getRandomArray
-* @param[in] sizeArray is a size of array
-*/
-std::vector<int> getRandomArray(const int sizeArray);
+    /**
+    * @brief OddEvenMergeBatcherSort
+    * @param[in] array is a vector of numbers
+    */
+    void OddEvenMergeBatcherSort(std::vector<int>* array);
+
+    /**
+    * @brief getRandomArray
+    * @param[in] sizeArray is a size of array
+    */
+    std::vector<int> getRandomArray(const int sizeArray);
+}  // namespace OddEvenMerge
 
 //! @}
 

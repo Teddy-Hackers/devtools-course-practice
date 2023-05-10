@@ -123,6 +123,21 @@ TEST(polynomial_calculator,
 }
 
 TEST(polynomial_calculator,
+    The_polynomials_are_defined_as_unequal_no_throw_2) {
+    std::vector<double> a;
+    a.push_back(5.1);
+    a.push_back(12.0);
+    a.push_back(1.3);
+    std::vector<double> b;
+    b.push_back(5.1);
+    b.push_back(2.0);
+    b.push_back(1.3);
+    polynomial_calculator P(a, 3);
+    polynomial_calculator Q(b, 3);
+    ASSERT_NO_THROW(P == Q);
+}
+
+TEST(polynomial_calculator,
     The_polynomials_are_defined_as_unequal_correct) {
     std::vector<double> a;
     a.push_back(5.1);
@@ -163,6 +178,20 @@ TEST(polynomial_calculator,
     b.push_back(1.0);
     b.push_back(1.3);
     polynomial_calculator P(a, 3);
+    polynomial_calculator Q(b, 3);
+    ASSERT_NO_THROW(P != Q);
+}
+
+TEST(polynomial_calculator,
+    The_polynomials_are_defined_as_no_unequal_no_throw_2) {
+    std::vector<double> a;
+    a.push_back(5.1);
+    a.push_back(12.0);
+    std::vector<double> b;
+    b.push_back(5.1);
+    b.push_back(1.0);
+    b.push_back(1.3);
+    polynomial_calculator P(a, 2);
     polynomial_calculator Q(b, 3);
     ASSERT_NO_THROW(P != Q);
 }

@@ -29,5 +29,8 @@ class polynomial_calculator {
         (const polynomial_calculator& P);
     polynomial_calculator operator *
         (const polynomial_calculator& P);
+    polynomial_calculator operator + (const double& _Num) const;
+    polynomial_calculator operator - (const double& _Num) const;
+    polynomial_calculator operator * (const double& _Num) const;
 };
 #endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOMIAL_CALCULATOR_H_

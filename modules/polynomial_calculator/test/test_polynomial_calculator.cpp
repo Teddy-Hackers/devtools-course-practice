@@ -386,3 +386,68 @@ TEST(polynomial_calculator,
     ASSERT_NO_THROW(Q * P);
     ASSERT_EQ(C, Q * P);
 }
+
+
+TEST(polynomial_calculator,
+    can_sum_empty_polynom_and_constant) {
+    polynomial_calculator P;
+    ASSERT_NO_THROW(P + 2);
+    std::vector<double> b;
+    b.push_back(2);
+    polynomial_calculator Q(b, 1);
+    ASSERT_EQ(P + 2, Q);
+}
+
+TEST(polynomial_calculator,
+    can_sum_not_empty_polynom_and_constant) {
+    std::vector<double> a;
+    a.push_back(2);
+    a.push_back(1);
+    a.push_back(5);
+    a.push_back(9);
+    polynomial_calculator P(a, 4);
+    ASSERT_NO_THROW(P + 5);
+    std::vector<double> b;
+    b.push_back(2);
+    b.push_back(1);
+    b.push_back(5);
+    b.push_back(14);
+    polynomial_calculator Q(b, 4);
+    ASSERT_EQ(P + 5, Q);
+}
+
+TEST(polynomial_calculator,
+    can_min_not_empty_polynom_and_constant) {
+    std::vector<double> a;
+    a.push_back(2);
+    a.push_back(1);
+    a.push_back(5);
+    a.push_back(9);
+    polynomial_calculator P(a, 4);
+    ASSERT_NO_THROW(P - 10);
+    std::vector<double> b;
+    b.push_back(2);
+    b.push_back(1);
+    b.push_back(5);
+    b.push_back(-1);
+    polynomial_calculator Q(b, 4);
+    ASSERT_EQ(P - 10, Q);
+}
+
+TEST(polynomial_calculator,
+    can_mult_not_empty_polynom_and_constant) {
+    std::vector<double> a;
+    a.push_back(2);
+    a.push_back(1);
+    a.push_back(5);
+    a.push_back(9);
+    polynomial_calculator P(a, 4);
+    ASSERT_NO_THROW(P * 5);
+    std::vector<double> b;
+    b.push_back(10);
+    b.push_back(5);
+    b.push_back(25);
+    b.push_back(45);
+    polynomial_calculator Q(b, 4);
+    ASSERT_EQ(P * 5, Q);
+}

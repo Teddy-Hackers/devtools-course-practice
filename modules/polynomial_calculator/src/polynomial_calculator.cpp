@@ -148,3 +148,36 @@ polynomial_calculator polynomial_calculator
     }
     return C;
 }
+
+polynomial_calculator polynomial_calculator
+::operator + (const double& _Num) const {
+    if (this->coeff_a.size() == 0) {
+        polynomial_calculator C;
+        C.coeff_a.push_back(_Num);
+        return C;
+    } else {
+        std::vector<double> a;
+        for (int i = this->coeff_a.size() - 1; i >= 0; i--)
+            a.push_back(this->coeff_a[i]);
+        a[a.size() - 1] += _Num;
+        polynomial_calculator C(a, a.size());
+        return C;
+    }
+}
+
+polynomial_calculator polynomial_calculator
+::operator - (const double& _Num) const {
+    double Num = _Num * (-1.0);
+    polynomial_calculator C;
+    C = *this + Num;
+    return C;
+}
+
+polynomial_calculator polynomial_calculator
+::operator * (const double& _Num) const {
+    std::vector<double> a;
+    for (int i = this->coeff_a.size() - 1; i >= 0; i--)
+        a.push_back(this->coeff_a[i]*_Num);
+    polynomial_calculator C(a, a.size());
+    return C;
+}

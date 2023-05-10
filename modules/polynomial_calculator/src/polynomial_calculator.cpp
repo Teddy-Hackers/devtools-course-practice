@@ -22,7 +22,8 @@ polynomial_calculator(double a0) {
 polynomial_calculator::
 polynomial_calculator(std::vector<double> coeff_a_, int len) {
     coeff_a.clear();
-    if (coeff_a_.size() != len)
+    int size = coeff_a_.size();
+    if (size != len)
         throw "error";
     for (int i = len - 1; i >= 0; i--)
         coeff_a.push_back(coeff_a_[i]);
@@ -118,7 +119,8 @@ polynomial_calculator polynomial_calculator
     int index = -1;
     if (this->GetSize() > P.GetSize())
         index = 0;
-    else index = 1;
+    else 
+        index = 1;
     for (int j = 0; j < n; j++) {
         for (int i = 0; i < m; i++) {
             if (index == 0) {

@@ -12,7 +12,7 @@ class polynomial_calculator {
     std::vector<double> coeff_a;
     polynomial_calculator();
     ~polynomial_calculator();
-    polynomial_calculator(double a0);
+    explicit polynomial_calculator(double a0);
     polynomial_calculator(std::vector<double> A, int len);
     polynomial_calculator(const polynomial_calculator& P);
 

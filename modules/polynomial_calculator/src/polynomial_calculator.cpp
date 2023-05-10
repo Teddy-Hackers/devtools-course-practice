@@ -119,7 +119,7 @@ polynomial_calculator polynomial_calculator
     int index = -1;
     if (this->GetSize() > P.GetSize())
         index = 0;
-    else 
+    else
         index = 1;
     for (int j = 0; j < n; j++) {
         for (int i = 0; i < m; i++) {

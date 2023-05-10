@@ -197,7 +197,7 @@ TEST(polynomial_calculator,
 }
 
 TEST(polynomial_calculator,
-    The_polynomials_are_defined_as_no_unequal_no_throw_2) {
+    The_polynomials_are_defined_as_no_unequal_no_throw_3) {
     std::vector<double> a;
     a.push_back(5.1);
     a.push_back(12.0);

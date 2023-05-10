@@ -1,0 +1,148 @@
+// Copyright 2023 Eremin Aleksandr
+
+#include "include/polynomial_calculator.h"
+#include <math.h>
+#include <string.h>
+
+#define EPS 1e-7
+polynomial_calculator::polynomial_calculator() {
+    coeff_a.clear();
+}
+
+polynomial_calculator::~polynomial_calculator() {
+    coeff_a.clear();
+}
+
+polynomial_calculator::
+polynomial_calculator(double a0) {
+    coeff_a.clear();
+    coeff_a.push_back(a0);
+}
+
+polynomial_calculator::
+polynomial_calculator(std::vector<double> coeff_a_, int len) {
+    coeff_a.clear();
+    if (coeff_a_.size() != len)
+        throw "error";
+    for (int i = len - 1; i >= 0; i--)
+        coeff_a.push_back(coeff_a_[i]);
+}
+
+int polynomial_calculator::GetSize() const {
+    return coeff_a.size();
+}
+
+polynomial_calculator::
+polynomial_calculator(const polynomial_calculator& P) {
+    coeff_a.clear();
+    for (int i = 0; i < P.GetSize(); i++) {
+        coeff_a.push_back(P.coeff_a[i]);
+    }
+}
+
+double polynomial_calculator::value(double x) {
+    double f = 0;
+    for (int i = GetSize() - 1; i >= 0; --i) {
+        f = f * x + coeff_a[i];
+    }
+    return f;
+}
+
+bool polynomial_calculator::operator ==
+(const polynomial_calculator& P) const {
+    if (this->GetSize() != P.GetSize())
+        return false;
+    for (int i = GetSize() - 1; i >= 0; --i)
+        if (abs(this->coeff_a[i] - P.coeff_a[i]) > EPS)
+            return false;
+    return true;
+}
+
+bool polynomial_calculator::operator !=
+(const polynomial_calculator& P) const {
+    if (this->GetSize() != P.GetSize())
+        return true;
+    for (int i = GetSize() - 1; i >= 0; --i)
+        if (abs(this->coeff_a[i] - P.coeff_a[i]) > EPS)
+            return true;
+    return false;
+}
+
+polynomial_calculator polynomial_calculator
+::operator + (const polynomial_calculator& P) {
+    polynomial_calculator C;
+    int n = std::min(this->GetSize(), P.GetSize());
+    for (int i = 0; i < n; ++i) {
+        C.coeff_a.push_back(coeff_a[i] + P.coeff_a[i]);
+    }
+    if (this->GetSize() > n) {
+        for (int i = n; i < this->GetSize(); ++i) {
+            C.coeff_a.push_back(coeff_a[i]);
+        }
+    } else {
+        for (int i = n; i < P.GetSize(); ++i) {
+            C.coeff_a.push_back(P.coeff_a[i]);
+        }
+    }
+    return C;
+}
+
+polynomial_calculator polynomial_calculator
+::operator - (const polynomial_calculator& P) {
+    polynomial_calculator C;
+    int n = std::min(this->GetSize(), P.GetSize());
+    for (int i = 0; i < n; ++i) {
+        double tmp = coeff_a[i] - P.coeff_a[i];
+        C.coeff_a.push_back(tmp);
+    }
+    if (this->GetSize() > n) {
+        for (int i = n; i < this->GetSize(); ++i) {
+            C.coeff_a.push_back(coeff_a[i]);
+        }
+    } else {
+        for (int i = n; i < P.GetSize(); ++i) {
+            C.coeff_a.push_back(-P.coeff_a[i]);
+        }
+    }
+    return C;
+}
+
+polynomial_calculator polynomial_calculator
+::operator * (const polynomial_calculator& P) {
+    polynomial_calculator C;
+    std::vector<double> A;
+    std::vector<double> S;
+    std::vector<double> res;
+    int n = std::min(this->GetSize(), P.GetSize());
+    int m = std::max(this->GetSize(), P.GetSize());
+    int index = -1;
+    if (this->GetSize() > P.GetSize())
+        index = 0;
+    else index = 1;
+    for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m; i++) {
+            if (index == 0) {
+                double tmp = coeff_a[i] * P.coeff_a[j];
+                A.push_back(tmp);
+                S.push_back(i + j);
+            } else {
+                double tmp = coeff_a[j] * P.coeff_a[i];
+                A.push_back(tmp);
+                S.push_back(i + j);
+            }
+        }
+    }
+    for (int i = 0; i < n * m; i++) {
+        if (S[i] == i) {
+            C.coeff_a.push_back(A[i]);
+        } else {
+            if (S[i] < C.coeff_a.size()) {
+                if (S[i] < i)
+                    C.coeff_a[S[i]] += A[i];
+            } else {
+                C.coeff_a.push_back(A[i]);
+            }
+        }
+    }
+    return C;
+}

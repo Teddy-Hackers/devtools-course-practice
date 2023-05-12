@@ -36,7 +36,7 @@ TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test_interval) {
     ASSERT_NO_THROW(primality_test_interval(0, 100));
 
     std::vector<unsigned int> result = primality_test_interval(5, 20);
-    for (int i = 0; i < prime.size(); i++) {
+    for (unsigned int i = 0; i < prime.size(); i++) {
         EXPECT_EQ(prime[i], result[i]);
     }
 }

@@ -106,18 +106,18 @@ bool Miller_Rabin_primality_test(unsigned int N) {
     }
 }
 
-std::vector<unsigned int> primality_test_interval(size_t a,
-    size_t b, size_t flag) {
+std::vector<unsigned int> primality_test_interval(unsigned int a,
+    unsigned int b, unsigned int flag) {
         std::vector<unsigned int> prime;
 
-        for (int i = a; i <= b; i++) {
+        for (unsigned int i = a; i <= b; i++) {
             if (Miller_Rabin_primality_test(i)) {
                 prime.push_back(i);
             }
         }
 
         if (flag) {
-            for (int j = 0; j < prime.size(); j++) {
+            for (unsigned int j = 0; j < prime.size(); j++) {
                 std::cout << prime[j] << ' ';
             }
             std::cout << '\n';

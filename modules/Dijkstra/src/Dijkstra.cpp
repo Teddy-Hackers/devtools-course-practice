@@ -46,7 +46,7 @@ int Dijkstra::setNewTask(const std::vector<std::vector<double>> &matrix,
             TaskComplite = false;
             Answer = std::vector<double>(matrix.size());
 
-            for(int i =0; i< Answer.size();i++)
+            for (int i =0; i< Answer.size(); i++)
                 Answer.at(i) = std::numeric_limits<double>().max();
 
             return 0;
@@ -56,7 +56,7 @@ int Dijkstra::setNewTask(const std::vector<std::vector<double>> &matrix,
 }
 
 void Dijkstra::Solve() {
-    if(Answer != std::vector<double>()) {
+    if (Answer != std::vector<double>()) {
         int vertex = Start;
         int len = 0;
 
@@ -72,7 +72,6 @@ void Dijkstra::Solve() {
         for (int i = 0; i < Matrix.size(); i++) {
             for (int j = 0; j < Matrix.size(); j++) {
                 if (j != vertex) {
-
                     if (Matrix.at(vertex).at(j) >= 0) {
                         len = Answer.at(vertex) + Matrix.at(vertex).at(j);
                         if (len < Answer.at(j))
@@ -106,12 +105,14 @@ void Dijkstra::Solve() {
 }
 
 std::vector<double> Dijkstra::getAnswer() const {
-    if(TaskComplite) return Answer;
-    else return std::vector<double>();
+    if (TaskComplite) return Answer;
+    else
+        return std::vector<double>();
 }
 
 double Dijkstra::getAnswer(int finish) const {
-    if (finish > -1 && finish < Answer.size() && TaskComplite) return Answer[finish];
+    if (finish > -1 &&
+        finish < Answer.size() && TaskComplite) return Answer[finish];
     return -2;
 }
 

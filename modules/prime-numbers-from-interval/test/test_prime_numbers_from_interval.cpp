@@ -8,19 +8,19 @@
 TEST(Ivlev_test_prime_numbers_from_interval, test_gcd) {
     ASSERT_NO_THROW(gcd(1, 6));
 
-    EXPECT_EQ(3, gcd(3, 9));
+    EXPECT_EQ(3, int(gcd(3, 9)));
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_ModMul) {
     ASSERT_NO_THROW(ModMul(2, 3, 5));
 
-    EXPECT_EQ(5, ModMul(4, 3, 7));
+    EXPECT_EQ(5, int(ModMul(4, 3, 7)));
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_ModExp) {
     ASSERT_NO_THROW(ModExp(2, 3, 5));
 
-    EXPECT_EQ(2, ModExp(4, 5, 7));
+    EXPECT_EQ(2, int(ModExp(4, 5, 7)));
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test) {

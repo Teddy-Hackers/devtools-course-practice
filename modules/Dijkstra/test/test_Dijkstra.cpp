@@ -101,6 +101,7 @@ TEST(Dijkstra, TEST_Copy) {
                                              {-1, 15, 11, 0,  6,  -1},
                                              {-1, -1, -1, 6,  0,  9},
                                              {14, -1, 2,  -1, 9,  0}};
+    d.setNewTask(path, 0);
     Dijkstra dClone = Dijkstra(d);
     ASSERT_EQ(dClone.getPathsMatrix(), d.getPathsMatrix());
     ASSERT_EQ(dClone.getAnswer(), d.getAnswer());

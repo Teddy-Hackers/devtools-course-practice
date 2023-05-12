@@ -13,4 +13,4 @@ unsigned int ModExp(unsigned int x, unsigned int n, unsigned int M);
 
 bool Miller_Rabin_primality_test(unsigned int N);
 std::vector<unsigned int> primality_test_interval(unsigned int a,
-    unsigned int b, unsigned int flag = 0);
+    unsigned int b);

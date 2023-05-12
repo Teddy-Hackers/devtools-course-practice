@@ -8,7 +8,7 @@
 TEST(Ivlev_test_prime_numbers_from_interval, test_gcd) {
     ASSERT_NO_THROW(gcd(1, 6));
 
-    EXPECT_EQ(3, static_cast<int>(gcd(3, 9)));
+    EXPECT_EQ(3, gcd(3, 9));
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_ModMul) {

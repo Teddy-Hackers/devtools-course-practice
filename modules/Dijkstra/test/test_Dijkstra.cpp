@@ -44,14 +44,12 @@ TEST(Dijkstra, TEST_GetEmptyAnswer1) {
     Dijkstra d = Dijkstra();
 
     ASSERT_EQ(d.getAnswer() , std::vector<double>());
-
 }
 
 TEST(Dijkstra, TEST_GetEmptyPath) {
     Dijkstra d = Dijkstra();
 
     ASSERT_EQ(d.getPathsMatrix() , std::vector<std::vector<double>>());
-
 }
 
 TEST(Dijkstra, TEST_GetEmptyAnswer2) {

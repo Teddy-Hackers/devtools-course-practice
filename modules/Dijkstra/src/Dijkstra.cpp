@@ -28,7 +28,7 @@ std::vector<std::vector<double>> Dijkstra::getPathsMatrix() const {
 int Dijkstra::setNewTask(const std::vector<std::vector<double>> &matrix,
                          int start) {
     if (!matrix.empty() && matrix.size() == matrix.at(0).size() &&
-        start > -1 && start < matrix.size()) {
+        start > -1 && (std::size_t)start < matrix.size()) {
         bool SizeOk = true;
         for (auto vec : matrix) {
             if (vec.size() != matrix.size()) {
@@ -46,7 +46,7 @@ int Dijkstra::setNewTask(const std::vector<std::vector<double>> &matrix,
             TaskComplite = false;
             Answer = std::vector<double>(matrix.size());
 
-            for (int i =0; i< Answer.size(); i++)
+            for (int i =0; (std::size_t)i< Answer.size(); i++)
                 Answer.at(i) = std::numeric_limits<double>().max();
 
             return 0;
@@ -64,13 +64,13 @@ void Dijkstra::Solve() {
         double minPath = std::numeric_limits<double>().max();
 
         std::vector<bool> end = std::vector<bool>(Matrix.size());
-        for (int i = 0; i < end.size(); i++) end.at(i) = false;
+        for (int i = 0; (std::size_t)i < end.size(); i++) end.at(i) = false;
 
 
         Answer.at(vertex) = 0;
 
-        for (int i = 0; i < Matrix.size(); i++) {
-            for (int j = 0; j < Matrix.size(); j++) {
+        for (int i = 0; (std::size_t)i < Matrix.size(); i++) {
+            for (int j = 0; (std::size_t)j < Matrix.size(); j++) {
                 if (j != vertex) {
                     if (Matrix.at(vertex).at(j) >= 0) {
                         len = Answer.at(vertex) + Matrix.at(vertex).at(j);
@@ -96,7 +96,7 @@ void Dijkstra::Solve() {
             minPath = std::numeric_limits<double>().max();
         }
 
-        for (int i = 0; i < Answer.size(); i++)
+        for (int i = 0; (std::size_t)i < Answer.size(); i++)
             if (Answer.at(i) == std::numeric_limits<double>().max())
                 Answer.at(i) = -1;
 
@@ -112,7 +112,8 @@ std::vector<double> Dijkstra::getAnswer() const {
 
 double Dijkstra::getAnswer(int finish) const {
     if (finish > -1 &&
-        finish < Answer.size() && TaskComplite) return Answer[finish];
+            (std::size_t)finish < Answer.size() &&
+            TaskComplite) return Answer[finish];
     return -2;
 }
 

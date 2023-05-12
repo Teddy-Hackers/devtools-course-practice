@@ -5,11 +5,11 @@
 #include "include/complex_number.h"
 
 TEST(Lebedinskiy_Ilya_ComplexNumberTest, Can_Sum) {
-	double re1 = 4.5;
-	double im1 = 0.7;
+	double re1 = 1.5;
+	double im1 = 0.3;
 
-	double re2 = 1.5;
-	double im2 = 0.3;
+	double re2 = 4.5;
+	double im2 = 0.7;
 
 	ComplexNumber z1(re1, im1);
 	ComplexNumber z2(re2, im2);

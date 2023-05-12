@@ -5,8 +5,8 @@
 #include "Point.h"
 
 namespace geom {
-    struct Segment {
-        Point p1;
-        Point p2;
-    };
+struct Segment {
+    Point p1;
+    Point p2;
+};
 }  // namespace geom

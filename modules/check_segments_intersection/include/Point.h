@@ -3,8 +3,8 @@
 #pragma once
 
 namespace geom {
-    struct Point {
-        double x;
-        double y;
-    };
+struct Point {
+    double x;
+    double y;
+};
 }  // namespace geom

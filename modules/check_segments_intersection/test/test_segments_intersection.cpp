@@ -4,7 +4,8 @@
 
 #include "include/check_segments_intersection.h"
 
-using namespace geom;
+using geom::Point;
+using geom::check_segments_intersection;
 
 TEST(check_segments_intersection, not_intersecting_points_not_intersect) {
     Point p1{};
@@ -17,14 +18,14 @@ TEST(check_segments_intersection, points_with_same_loc_intersect) {
     ASSERT_TRUE(check_segments_intersection({p1, p1}, {p1, p1}));
 }
 
-TEST(check_segments_intersection, intersecting_point_and_segment_intersects) {
+TEST(check_segments_intersection, intersecting_point_and_segment) {
     Point p1{1., 1.};
     Point s2p1{0., 0.};
     Point s2p2{3., 3.};
     ASSERT_TRUE(check_segments_intersection({p1, p1}, {s2p1, s2p2}));
 }
 
-TEST(check_segments_intersection, not_intersecting_point_and_segment_not_intersects) {
+TEST(check_segments_intersection, not_intersecting_point_and_segment) {
     Point p1{-1., -1.};
     Point s2p1{0., 0.};
     Point s2p2{3., 3.};
@@ -47,7 +48,7 @@ TEST(check_segments_intersection, overlapping_segments_intersect) {
     ASSERT_TRUE(check_segments_intersection({s1p1, s1p2}, {s2p1, s2p2}));
 }
 
-TEST(check_segments_intersection, intersecting_segments_on_single_line_intersect) {
+TEST(check_segments_intersection, intersecting_segments_on_single_line) {
     Point s1p1{0., 0.};
     Point s1p2{2., 2.};
     Point s2p1{2., 2.};
@@ -55,7 +56,7 @@ TEST(check_segments_intersection, intersecting_segments_on_single_line_intersect
     ASSERT_TRUE(check_segments_intersection({s1p1, s1p2}, {s2p1, s2p2}));
 }
 
-TEST(check_segments_intersection, not_intersecting_segments_on_single_line_not_intersect) {
+TEST(check_segments_intersection, not_intersecting_segments_on_single_line) {
     Point s1p1{0., 0.};
     Point s1p2{2., 2.};
     Point s2p1{3., 3.};

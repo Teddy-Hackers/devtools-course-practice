@@ -63,7 +63,8 @@ bool polynomial_calculator::operator !=
 (const polynomial_calculator& _Polynom) const {
     if (*this == _Polynom)
         return false;
-    else return true;
+    else 
+        return true;
 }
 
 polynomial_calculator polynomial_calculator

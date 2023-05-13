@@ -55,9 +55,9 @@ std::string subtract(std::string num1, int base1, std::string num2, int base2) {
         int digit;
         if (num1[i] >= '0' && num1[i] <= '9') {
             digit = num1[i] - '0';
-        } else if (num1[i] >= 'A' && num1[i] <= 'Z') {
+        } else if (num1[i] >= 'A' && num1[i] <= 'F') {
             digit = num1[i] - 'A' + 10;
-        } else if (num1[i] >= 'a' && num1[i] <= 'z') {
+        } else if (num1[i] >= 'a' && num1[i] <= 'f') {
             digit = num1[i] - 'a' + 10;
         }
         decimal1 += digit * pow(base1, num1.length() - 1 - i);
@@ -67,9 +67,9 @@ std::string subtract(std::string num1, int base1, std::string num2, int base2) {
         int digit;
         if (num2[i] >= '0' && num2[i] <= '9') {
             digit = num2[i] - '0';
-        } else if (num2[i] >= 'A' && num2[i] <= 'Z') {
+        } else if (num2[i] >= 'A' && num2[i] <= 'F') {
             digit = num2[i] - 'A' + 10;
-        } else if (num2[i] >= 'a' && num2[i] <= 'z') {
+        } else if (num2[i] >= 'a' && num2[i] <= 'f') {
             digit = num2[i] - 'a' + 10;
         }
         decimal2 += digit * pow(base2, num2.length() - 1 - i);

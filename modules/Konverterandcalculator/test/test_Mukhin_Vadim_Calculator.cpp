@@ -120,3 +120,28 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER5) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "75BCD15");
 }
+TEST(Mukhin_Vadim_Konverter_and_calculator, TestBaseToDecimal) {
+    std::string num1 = "1010";
+    int base1 = 2;
+    int decimal1 = 10;
+    int result1 = 0;
+
+    result1 = baseToDecimal(num1, base1);
+    EXPECT_EQ(result1, decimal1);
+
+    std::string num2 = "1A";
+    int base2 = 16;
+    int decimal2 = 26;
+    int result2 = 0;
+
+    result2 = baseToDecimal(num2, base2);
+    EXPECT_EQ(result2, decimal2);
+
+    std::string num3 = "11111";
+    int base3 = 3;
+    int decimal3 = 121;
+    int result3 = 0;
+
+    result3 = baseToDecimal(num3, base3);
+    EXPECT_EQ(result3, decimal3);
+}

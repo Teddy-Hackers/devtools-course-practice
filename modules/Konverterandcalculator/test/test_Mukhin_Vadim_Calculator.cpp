@@ -226,8 +226,8 @@ TEST(AddTest, TestAdd) {
 TEST(Mukhin_Vadim_Konverter_and_calculator, TES) {
     std::string result1 = add("123", 10, "456", 10);
     assert(result1 == "579");
-    std::string result2 = add("abcf", 16, "12d", 16);
-    assert(result2 == "ACFA");
+    std::string result2 = add("ab", 16, "12d", 16);
+    assert(result2 == "1D8");
     std::string result3 = add("123", 10, "0", 10);
     assert(result3 == "123");
     std::string result4 = add("0", 10, "456", 10);

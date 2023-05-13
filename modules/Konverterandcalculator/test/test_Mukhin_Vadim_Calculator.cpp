@@ -305,3 +305,40 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES4) {
     std::string result10 = divide("123", 10, "3", 8);
     assert(result10 == "41");
 }
+TEST(Mukhin_Vadim_Konverter_and_calculator, TES5)() {
+    // Test base 10 division
+    assert(divide("10", 10, "2", 10) == "5");
+    assert(divide("123", 10, "7", 10) == "17");
+    assert(divide("1000", 10, "3", 10) == "333");
+    assert(divide("123456", 10, "789", 10) == "156");
+
+    // Test hexadecimal division
+    assert(divide("FF", 16, "F", 16) == "10");
+    assert(divide("1A", 16, "2", 10) == "D");
+    assert(divide("ABC", 16, "5", 10) == "234");
+    assert(divide("BEEF", 16, "B", 16) == "1055");
+
+    // Test division by 1 (should return the same number)
+    assert(divide("123", 10, "1", 10) == "123");
+    assert(divide("ABC", 16, "1", 16) == "ABC");
+
+    // Test division of 0 (should return 0)
+    assert(divide("0", 10, "123", 10) == "0");
+    assert(divide("123", 10, "0", 10) == "0");
+
+    // Test division by a larger number (should return 0)
+    assert(divide("123", 10, "456", 10) == "0");
+
+    // Test division by a negative number
+    assert(divide("-100", 10, "10", 10) == "-10");
+    assert(divide("100", 10, "-10", 10) == "-10");
+    assert(divide("-100", 10, "-10", 10) == "10");
+
+    // Test division by a negative number in hex
+    assert(divide("-A", 16, "2", 10) == "-5");
+    assert(divide("A", 16, "-2", 10) == "-5");
+    assert(divide("-A", 16, "-2", 10) == "5");
+
+    // Test division by a decimal number in hex
+    assert(divide("FF", 16, "10", 10) == "F");
+}

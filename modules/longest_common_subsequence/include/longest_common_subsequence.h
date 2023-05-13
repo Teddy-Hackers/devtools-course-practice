@@ -6,5 +6,5 @@
 #include <vector>
 
 std::vector<int>
-get_longest_common_subsequence(std::vector<int> firstSequence,
-                               std::vector<int> secondSequence);
+get_longest_common_subsequence(const std::vector<int>& firstSequence,
+                               const std::vector<int>& secondSequence);

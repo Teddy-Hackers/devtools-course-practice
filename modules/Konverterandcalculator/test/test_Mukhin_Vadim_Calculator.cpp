@@ -309,9 +309,9 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
     std::string result10_1 = divide("10", 10, "2", 10);
     assert(result10_1 == "5");
     std::string result10_2 = divide("123", 10, "7", 10);
-    assert(result10_2 == "17");    
+    assert(result10_2 == "17");
     std::string result10_3 = divide("1000", 10, "3", 10);
-    assert(result10_3 == "333");    
+    assert(result10_3 == "333");
     std::string result10_4 = divide("123456", 10, "789", 10);
     assert(result10_4 == "156");
     std::string result16_1 = divide("FF", 16, "F", 16);

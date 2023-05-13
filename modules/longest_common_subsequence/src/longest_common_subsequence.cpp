@@ -4,8 +4,9 @@
 
 #include <vector>
 
-std::vector<int> get_longest_common_subsequence(
-        std::vector<int> firstSequence, std::vector<int> secondSequence) {
+std::vector<int>
+get_longest_common_subsequence(const std::vector<int> &firstSequence,
+                               const std::vector<int> &secondSequence) {
     int firstLength = static_cast<int>(firstSequence.size());
     int secondLength = static_cast<int>(secondSequence.size());
     std::vector<std::vector<int>> lcsTable(firstLength + 1,

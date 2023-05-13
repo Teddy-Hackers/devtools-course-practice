@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 
-#include "include/longest_common_subsequence.h"
+#include "../include/longest_common_subsequence.h"
 
 TEST(check_lcs, same_sequence) {
     std::vector<int> initialFirst{1, 2, 3, 6};

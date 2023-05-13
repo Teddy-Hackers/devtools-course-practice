@@ -7,8 +7,7 @@
 #include <vector>
 
 std::vector<int>
-get_longest_common_subsequence(int firstLength, std::vector<int> firstSequence,
-                               int secondLength,
+get_longest_common_subsequence(std::vector<int> firstSequence,
                                std::vector<int> secondSequence);
 
 #endif  // MODULES_LONGEST_COMMON_SUBSEQUENCE_INCLUDE_LONGEST_COMMON_SUBSEQUENCE_H_

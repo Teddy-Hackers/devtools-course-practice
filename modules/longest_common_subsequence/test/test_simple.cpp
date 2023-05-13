@@ -9,9 +9,8 @@ TEST(CheckLCS, SameSequence) {
     std::vector<int> initialSecond{1, 2, 3, 6};
     std::vector<int> expectedResult{1, 2, 3, 6};
 
-    std::vector<int> result = get_longest_common_subsequence(
-            initialFirst.size(), initialFirst, initialSecond.size(),
-            initialSecond);
+    std::vector<int> result = get_longest_common_subsequence(initialFirst,
+                                                             initialSecond);
 
     ASSERT_EQ(expectedResult, result);
 }
@@ -21,9 +20,8 @@ TEST(CheckLCS, DefaultSequence) {
     std::vector<int> initialSecond{9, 8, 7, 3};
     std::vector<int> expectedResult{9, 8, 7, 3};
 
-    std::vector<int> result = get_longest_common_subsequence(
-            initialFirst.size(), initialFirst, initialSecond.size(),
-            initialSecond);
+    std::vector<int> result = get_longest_common_subsequence(initialFirst,
+                                                             initialSecond);
 
     ASSERT_EQ(expectedResult, result);
 }
@@ -33,9 +31,8 @@ TEST(CheckLCS, NoCommonSubsequence) {
     std::vector<int> initialSecond{4, 5, 6};
     std::vector<int> expectedResult{};
 
-    std::vector<int> result = get_longest_common_subsequence(
-            initialFirst.size(), initialFirst, initialSecond.size(),
-            initialSecond);
+    std::vector<int> result = get_longest_common_subsequence(initialFirst,
+                                                             initialSecond);
 
     ASSERT_EQ(expectedResult, result);
 }

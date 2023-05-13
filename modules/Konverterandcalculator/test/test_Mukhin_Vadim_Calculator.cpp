@@ -120,34 +120,40 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER5) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "75BCD15");
 }
-TEST(HexDigitConversionTest, TestConversion) {
-    int digit1 = 10;
-    char expected1 = 'A';
-    char result1;
-if (digit1 >= 10 && digit1 <= 15) {
-    result1 = digit1 - 10 + 'A';
-}   else {
-    result1 = digit1 + '0';
-}
-EXPECT_EQ(result1, expected1);
+TEST(AddTest, TestAdd) {
+    // Проверяем сложение чисел в системе счисления 10
+    std::string num1 = "123";
+    std::string num2 = "456";
+    int base1 = 10;
+    int base2 = 10;
+    std::string expected = "579";
+    std::string result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
 
-    int digit2 = 15;
-    char expected2 = 'F';
-    char result2;
-if (digit2 >= 10 && digit2 <= 15) {
-    result2 = digit2 - 10 + 'A';
-} else {
-    result2 = digit2 + '0';
-}
-EXPECT_EQ(result2, expected2);
+    // Проверяем сложение чисел в системе счисления 2
+    num1 = "1010";
+    num2 = "1101";
+    base1 = 2;
+    base2 = 2;
+    expected = "10111";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
 
-    int digit3 = 7;
-    char expected3 = '7';
-    char result3;
-if (digit3 >= 10 && digit3 <= 15) {
-    result3 = digit3 - 10 + 'A';
-} else {
-    result3 = digit3 + '0';
-}
-EXPECT_EQ(result3, expected3);
+    // Проверяем сложение чисел в системе счисления 16 и 8
+    num1 = "FF";
+    num2 = "77";
+    base1 = 16;
+    base2 = 8;
+    expected = "377";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в системе счисления 2 и 16
+    num1 = "1011";
+    num2 = "1A";
+    base1 = 2;
+    base2 = 16;
+    expected = "25";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
 }

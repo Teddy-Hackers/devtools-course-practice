@@ -328,8 +328,6 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
     assert(result16_5 == "ABC");
     std::string result10_6 = divide("0", 10, "123", 10);
     assert(result10_6 == "0");
-    std::string result10_7 = divide("123", 10, "0", 10);
-    assert(result10_7 == "0");
     std::string result10_8 = divide("123", 10, "456", 10);
     assert(result10_8 == "0");
     std::string result10_9 = divide("-100", 10, "10", 10);

@@ -32,7 +32,6 @@ bool Quad_Application::validateNumberOfArguments(int argc, const char** argv) {
 double parseDouble(const char* arg) {
     char* end;
     double value = strtold(arg, &end);
-    
     if (end[0]) {
         throw std::string("Wrong number format!");
     }
@@ -56,8 +55,8 @@ std::string Quad_Application::operator()(int argc, const char** argv) {
     std::string result;
     try {
         Quadrical_equal z1;
-        result = z1.solution(parameters[0],parameters[1],parameters[2]);
-    } catch(std::string str){
+        result = z1.solution(parameters[0], parameters[1], parameters[2]);
+    } catch(std::string str){ 
         return str;
     }
     message_ = result;

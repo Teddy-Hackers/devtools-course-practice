@@ -104,39 +104,54 @@ std::string subtract(std::string num1, int base1, std::string num2, int base2) {
 }
 
 std::string multiply(std::string num1, int base1, std::string num2, int base2) {
-    std::vector<int> product(num1.length() + num2.length(), 0);
+    int decimal1 = 0, decimal2 = 0;
 
-    for (int i = num1.length() - 1; i >= 0; i--) {
-        int carry = 0;
-        int digit1 = (num1[i] >= '0' && num1[i] <= '9') ? num1[i] - '0' : num1[i] - 'A' + 10;
-
-        for (int j = num2.length() - 1; j >= 0; j--) {
-            int digit2 = (num2[j] >= '0' && num2[j] <= '9') ? num2[j] - '0' : num2[j] - 'A' + 10;
-            int productDigit = digit1 * digit2 + carry + product[i + j + 1];
-            carry = productDigit / base1;
-            product[i + j + 1] = productDigit % base1;
+    if (base1 == 10) {
+        decimal1 = stoi(num1);
+    } else {
+        for (int i = num1.length() - 1; i >= 0; i--) {
+            int digit;
+            if (num1[i] >= '0' && num1[i] <= '9')
+            digit = num1[i] - '0';
+            else if (num1[i] >= 'A' && num1[i] <= 'F')
+            digit = num1[i] - 'A' + 10;
+            else if (num1[i] >= 'a' && num1[i] <= 'f')
+            digit = num1[i] - 'a' + 10;
+            decimal1 += digit * pow(base1, num1.length() - 1 - i);
         }
-
-        product[i] += carry;
     }
 
-    int i = 0;
-    while (i < product.size() && product[i] == 0) {
-        i++;
+    if (base2 == 10) {
+        decimal2 = stoi(num2);
+    } else {
+        for (int i = num2.length() - 1; i >= 0; i--) {
+            int digit;
+            if (num2[i] >= '0' && num2[i] <= '9')
+            digit = num2[i] - '0';
+            else if (num2[i] >= 'A' && num2[i] <= 'F')
+            digit = num2[i] - 'A' + 10;
+            else if (num2[i] >= 'a' && num2[i] <= 'f')
+            digit = num2[i] - 'a' + 10;
+            decimal2 += digit * pow(base2, num2.length() - 1 - i);
+        }
     }
 
-    if (i == product.size()) {
-        return "0";
+    int productDecimal = decimal1 * decimal2;
+
+    std::string product = "";
+
+    while (productDecimal > 0) {
+        int digit = productDecimal % base1;
+        char c;
+        if (digit >= 0 && digit <= 9) c = digit + '0';
+        else
+        c = digit - 10 + 'A';
+
+        product = c + product;
+        productDecimal /= base1;
     }
 
-    std::string result = "";
-    while (i < product.size()) {
-        char c = (product[i] >= 0 && product[i] <= 9) ? product[i] + '0' : product[i] - 10 + 'A';
-        result += c;
-        i++;
-    }
-
-    return result;
+    return product;
 }
 
 std::string divide(std::string num1, int base1, std::string num2, int base2) {

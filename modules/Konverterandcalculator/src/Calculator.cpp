@@ -1,6 +1,6 @@
 // Copyright 2023 Mukhin Vadim
 #include <iostream>
-#include <String>
+#include <string>
 #include <cmath>
 
 std::String add(std::String num1, int base1, std::String num2, int base2) {

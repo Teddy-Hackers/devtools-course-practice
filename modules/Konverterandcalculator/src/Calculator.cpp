@@ -31,8 +31,6 @@ std::string add(std::string num1, int base1, std::string num2, int base2) {
 
     // Складываем числа в десятичной системе счисления
     int sumDecimal = decimal1 + decimal2;
-
-    
     int base = std::max(base1, base2);
     std::string sum = "";
     while (sumDecimal > 0) {

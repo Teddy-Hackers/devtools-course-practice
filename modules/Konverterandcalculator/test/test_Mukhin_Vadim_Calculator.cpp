@@ -343,5 +343,5 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
     std::string result16_8 = divide("-A", 16, "-2", 10);
     assert(result16_8 == "5");
     std::string result16_9 = divide("FF", 16, "10", 10);
-    assert(result16_9 == "F");
+    assert(result16_9 == "19");
 }

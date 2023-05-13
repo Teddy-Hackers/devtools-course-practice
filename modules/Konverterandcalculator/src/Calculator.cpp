@@ -104,25 +104,25 @@ std::string subtract(std::string num1, int base1, std::string num2, int base2) {
 }
 
 std::string multiply(std::string num1, int base1, std::string num2, int base2) {
-    std::vector<int> product(num1.length() + num2.length(), 0);
+    std::vector<long int> product(num1.length() + num2.length(), 0);
 
     for (int i = num1.length() - 1; i >= 0; i--) {
-        int carry = 0;
+        long int carry = 0;
         int digit1;
-if (num1[i] >= '0' && num1[i] <= '9') {
-    digit1 = num1[i] - '0';
-} else {
-    digit1 = num1[i] - 'A' + 10;
-}
+        if (num1[i] >= '0' && num1[i] <= '9') {
+            digit1 = num1[i] - '0';
+        } else {
+            digit1 = num1[i] - 'A' + 10;
+        }
 
         for (int j = num2.length() - 1; j >= 0; j--) {
             int digit2;
-if (num2[j] >= '0' && num2[j] <= '9') {
-    digit2 = num2[j] - '0';
-} else {
-    digit2 = num2[j] - 'A' + 10;
-}
-int productDigit = digit1 * digit2 + carry + product[i + j + 1];
+            if (num2[j] >= '0' && num2[j] <= '9') {
+                digit2 = num2[j] - '0';
+            } else {
+                digit2 = num2[j] - 'A' + 10;
+            }
+            long int productDigit = digit1 * digit2 + carry + product[i + j + 1];
             carry = productDigit / base1;
             product[i + j + 1] = productDigit % base1;
         }
@@ -142,11 +142,11 @@ int productDigit = digit1 * digit2 + carry + product[i + j + 1];
     std::string result = "";
     while (i < product.size()) {
         char c;
-if (product[i] >= 0 && product[i] <= 9) {
-    c = product[i] + '0';
-} else {
-    c = product[i] - 10 + 'A';
-}
+        if (product[i] >= 0 && product[i] <= 9) {
+            c = product[i] + '0';
+        } else {
+            c = product[i] - 10 + 'A';
+        }
         result += c;
         i++;
     }

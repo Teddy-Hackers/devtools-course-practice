@@ -233,9 +233,9 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES) {
     std::string result4 = add("0", 10, "456", 10);
     assert(result4 == "456");
     std::string result5 = add("ABC", 16, "1010", 2);
-    assert(result5 == "AFC");
+    assert(result5 == "AС6");
     std::string result6 = add("10", 2, "7", 8);
-    assert(result6 == "15");
+    assert(result6 == "11");
     std::string result7 = add("123", 10, "12345", 10);
     assert(result7 == "12468");
     std::string result8 = add("0", 10, "0", 10);

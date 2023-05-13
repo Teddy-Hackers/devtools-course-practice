@@ -15,7 +15,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
     EXPECT_EQ(sum, "109");
 }
 
-TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
+TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM9) {
     std::string num1 = "1f";
     int base1 = 16;
     std::string num2 = "FF";
@@ -23,6 +23,16 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
     // slovo
     std::string sum = add(num1, base1, num2, base2);
     EXPECT_EQ(sum, "11E");
+}
+
+TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM10) {
+    std::string num1 = "0";
+    int base1 = 16;
+    std::string num2 = "0";
+    int base2 = 16;
+    // slovo
+    std::string sum = add(num1, base1, num2, base2);
+    EXPECT_EQ(sum, "0");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM2) {

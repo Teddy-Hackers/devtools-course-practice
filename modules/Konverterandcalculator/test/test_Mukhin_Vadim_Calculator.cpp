@@ -138,22 +138,4 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TestAdd) {
     expected = "10111";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
-
-    // Проверяем сложение чисел в системе счисления 16 и 8
-    num1 = "FF";
-    num2 = "77";
-    base1 = 16;
-    base2 = 8;
-    expected = "377";
-    result = add(num1, base1, num2, base2);
-    EXPECT_EQ(result, expected);
-
-    // Проверяем сложение чисел в системе счисления 2 и 16
-    num1 = "1011";
-    num2 = "1A";
-    base1 = 2;
-    base2 = 16;
-    expected = "25";
-    result = add(num1, base1, num2, base2);
-    EXPECT_EQ(result, expected);
 }

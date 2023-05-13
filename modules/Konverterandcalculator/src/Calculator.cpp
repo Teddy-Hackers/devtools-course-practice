@@ -156,51 +156,64 @@ std::string multiply(std::string num1, int base1, std::string num2, int base2) {
 }
 
 std::string divide(std::string num1, int base1, std::string num2, int base2) {
-    int decimal1 = 0, decimal2 = 0;
-
-    if (base1 == 10) {
-        decimal1 = stoi(num1);
-    } else {
-        for (int i = num1.length() - 1; i >= 0; i--) {
-            int digit;
-            if (num1[i] >= '0' && num1[i] <= '9')
-            digit = num1[i] - '0';
-            else if (num1[i] >= 'A' && num1[i] <= 'F')
-            digit = num1[i] - 'A' + 10;
-            else if (num1[i] >= 'a' && num1[i] <= 'f')
-            digit = num1[i] - 'a' + 10;
-            decimal1 += digit * pow(base1, num1.length() - 1 - i);
-        }
+    int sign = 1;
+    if (num1[0] == '-') {
+        sign *= -1;
+        num1 = num1.substr(1);
+    }
+    if (num2[0] == '-') {
+        sign *= -1;
+        num2 = num2.substr(1);
     }
 
-    if (base2 == 10) {
-        decimal2 = stoi(num2);
-    } else {
-        for (int i = num2.length() - 1; i >= 0; i--) {
-            int digit;
-            if (num2[i] >= '0' && num2[i] <= '9')
-            digit = num2[i] - '0';
-            else if (num2[i] >= 'A' && num2[i] <= 'F')
-            digit = num2[i] - 'A' + 10;
-            else if (num2[i] >= 'a' && num2[i] <= 'f')
-            digit = num2[i] - 'a' + 10;
-            decimal2 += digit * pow(base2, num2.length() - 1 - i);
+    int decimal1 = 0, decimal2 = 0;
+
+    for (int i = 0; i < num1.length(); i++) {
+        int digit;
+        if (num1[i] >= '0' && num1[i] <= '9') {
+            digit = num1[i] - '0';
+        } else if (num1[i] >= 'A' && num1[i] <= 'F') {
+            digit = num1[i] - 'A' + 10;
+        } else if (num1[i] >= 'a' && num1[i] <= 'f') {
+            digit = num1[i] - 'a' + 10;
         }
+        decimal1 = decimal1 * base1 + digit;
+    }
+
+    for (int i = 0; i < num2.length(); i++) {
+        int digit;
+        if (num2[i] >= '0' && num2[i] <= '9') {
+            digit = num2[i] - '0';
+        } else if (num2[i] >= 'A' && num2[i] <= 'F') {
+            digit = num2[i] - 'A' + 10;
+        } else if (num2[i] >= 'a' && num2[i] <= 'f') {
+            digit = num2[i] - 'a' + 10;
+        }
+        decimal2 = decimal2 * base2 + digit;
     }
 
     int quotientDecimal = decimal1 / decimal2;
 
     std::string quotient = "";
-
-    while (quotientDecimal > 0) {
-        int digit = quotientDecimal % base1;
-        char c;
-        if (digit >= 0 && digit <= 9) c = digit + '0';
-        else
-        c = digit - 10 + 'A';
-
-        quotient = c + quotient;
-        quotientDecimal /= base1;
+    if (quotientDecimal == 0) {
+        quotient = "0";
+    } else {
+        while (quotientDecimal > 0) {
+            int digit = quotientDecimal % base1;
+            char c;
+            if (digit >= 0 && digit <= 9) {
+                c = digit + '0';
+            } else {
+                c = digit - 10 + 'A';
+            }
+            quotient = c + quotient;
+            quotientDecimal /= base1;
+        }
     }
+
+    if (sign == -1) {
+        quotient = "-" + quotient;
+    }
+
     return quotient;
 }

@@ -285,3 +285,23 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES3) {
     std::string result10 = multiply("123", 10, "3", 8);
     assert(result10 == "369");
 }
+TEST(Mukhin_Vadim_Konverter_and_calculator, TES4) {
+    std::string result1 = divide("10", 10, "2", 10);
+    assert(result1 == "5");
+    std::string result2 = divide("a", 16, "2", 16);
+    assert(result2 == "5");
+    std::string result3 = divide("0", 10, "12", 10);
+    assert(result3 == "0");
+    std::string result4 = divide("-6", 10, "2", 10);
+    assert(result4 == "-3");
+    std::string result5 = divide("2a", 16, "a", 16);
+    assert(result5 == "4");
+    std::string result6 = divide("2a", 16, "10", 2);
+    assert(result6 == "15");
+    std::string result7 = divide("123", 10, "1", 10);
+    assert(result7 == "123");
+    std::string result8 = divide("3", 16, "a", 16);
+    assert(result8 == "0");
+    std::string result10 = divide("123", 10, "3", 8);
+    assert(result10 == "41");
+}

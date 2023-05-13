@@ -314,14 +314,14 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
     assert(result10_3 == "333");
     std::string result10_4 = divide("123456", 10, "789", 10);
     assert(result10_4 == "156");
-    std::string result16_1 = divide("FF", 16, "F", 16);
-    assert(result16_1 == "10");
+    std::string result16_1 = divide("ff", 16, "f", 16);
+    assert(result16_1 == "11");
     std::string result16_2 = divide("1A", 16, "2", 10);
     assert(result16_2 == "D");
     std::string result16_3 = divide("ABC", 16, "5", 10);
     assert(result16_3 == "234");
-    std::string result16_4 = divide("BEEF", 16, "B", 16);
-    assert(result16_4 == "1055");
+    std::string result16_4 = divide("BE", 16, "B", 16);
+    assert(result16_4 == "11");
     std::string result10_5 = divide("123", 10, "1", 10);
     assert(result10_5 == "123");
     std::string result16_5 = divide("ABC", 16, "1", 16);

@@ -269,7 +269,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES3) {
     std::string result1 = multiply("123", 10, "456", 10);
     assert(result1 == "56088");
     std::string result2 = multiply("a", 16, "3", 16);
-    assert(result2 == "1E");
+    assert(result2 == "7E");
     std::string result3 = multiply("123", 10, "0", 10);
     assert(result3 == "0");
     std::string result4 = multiply("0", 10, "456", 10);
@@ -277,11 +277,11 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES3) {
     std::string result5 = multiply("1010", 2, "3", 8);
     assert(result5 == "11110");
     std::string result6 = multiply("a", 16, "10", 2);
-    assert(result6 == "14");
+    assert(result6 == "2A0");
     std::string result7 = multiply("123", 10, "1", 10);
     assert(result7 == "123");
     std::string result8 = multiply("3", 16, "a", 16);
-    assert(result8 == "1E");
+    assert(result8 == "7E");
     std::string result10 = multiply("123", 10, "3", 8);
     assert(result10 == "369");
 }

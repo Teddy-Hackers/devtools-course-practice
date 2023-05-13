@@ -9,7 +9,6 @@ add_library(${target} STATIC ${srcs} ${hdrs} longest_common_subsequence.cpp)
 set_target_properties(${target} PROPERTIES
     OUTPUT_NAME ${MODULE}
     LABELS "${MODULE};Library")
-set(CMAKE_CXX_STANDARD 17)
 
 if (UNIX)
   target_link_libraries(${target} ${CMAKE_THREAD_LIBS_INIT})

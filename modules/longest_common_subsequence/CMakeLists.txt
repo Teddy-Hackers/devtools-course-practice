@@ -3,7 +3,6 @@ get_filename_component(DIR_NAME ${CMAKE_CURRENT_LIST_DIR} NAME)
 set(MODULE      "${DIR_NAME}")
 set(LIBRARY     "lib_${MODULE}")
 set(TESTS       "test_${MODULE}")
-set(CMAKE_CXX_STANDARD 17)
 
 # Include directory with public headers
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})

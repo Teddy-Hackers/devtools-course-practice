@@ -10,7 +10,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
     int base1 = 10;
     std::string num2 = "1";
     int base2 = 10;
-
+    // slovo
     std::string sum = add(num1, base1, num2, base2);
     EXPECT_EQ(sum, "11");
 }

@@ -22,48 +22,45 @@ void Quad_Application::help(const char* appname, const char* message) {
 }
 
 bool Quad_Application::validateNumberOfArguments(int argc, const char** argv) {
-   if (argc != 3) {
-    help(argv[0]);
-    return false;
-   }
-   return true;
+    if (argc != 3) {
+        help(argv[0]);
+        return false;
+    }
+    return true;
 }
 
 double parseDouble(const char* arg) {
-   char* end;
-   double value = strtold(arg, &end);
+    char* end;
+    double value = strtold(arg, &end);
+    
+    if (end[0]) {
+        throw std::string("Wrong number format!");
+    }
 
-   if (end[0]) {
-    throw std::string("Wrong number format!");
-   }
-
-   return value;
+    return value;
 }
 
 std::string Quad_Application::operator()(int argc, const char** argv) {
-   std::vector<double> parameters;
-
-   if (!validateNumberOfArguments(argc, argv)) {
-     return message_;
-   }
-   try {
-
-     for (int i = 1; i < argc; ++i) {
-       double value = parseDouble(argv[i]);
-       parameters.push_back(value);
-     }
-   } catch (std::string& str) {
-     return str;
-   }
-   std::string result;
-   try {
-    Quadrical_equal z1;
-    result = z1.solution(parameters[0],parameters[1],parameters[2]);
-   } catch (std::string str){
-     return str;
-   }
-   
-   message_ = result;
-   return message_;
+    std::vector<double> parameters;
+    if (!validateNumberOfArguments(argc, argv)) {
+      return message_;
+    }
+    try {
+        for (int i = 1; i < argc; ++i) {
+            double value = parseDouble(argv[i]);
+            parameters.push_back(value);
+        }
+    } catch (std::string& str) {
+        return str;
+    }
+    std::string result;
+    try {
+        Quadrical_equal z1;
+        result = z1.solution(parameters[0],parameters[1],parameters[2]);
+    } catch(std::string str){
+        return str;
+    }
+    message_ = result;
+    return message_;
 }
 

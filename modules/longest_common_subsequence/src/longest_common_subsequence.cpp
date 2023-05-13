@@ -4,12 +4,12 @@
 
 #include <vector>
 
-std::vector<int>
-get_longest_common_subsequence(std::vector<int> firstSequence,
-                               std::vector<int> secondSequence) {
+std::vector<int> get_longest_common_subsequence(std::vector<int> firstSequence,
+                                                std::vector<int> secondSequence) {
     size_t firstLength = firstSequence.size();
     size_t secondLength = secondSequence.size();
-    int lcsTable[firstLength + 1][secondLength + 1];
+    std::vector<std::vector<int>> lcsTable(firstLength,
+                                           std::vector<int>(secondLength));
     for (size_t i = 0; i <= firstLength; i++) {
         for (size_t j = 0; j <= secondLength; j++) {
             if (i == 0 || j == 0)
@@ -22,7 +22,7 @@ get_longest_common_subsequence(std::vector<int> firstSequence,
         }
     }
 
-    size_t index = lcsTable[firstLength][secondLength];
+    int index = lcsTable[firstLength][secondLength];
     std::vector<int> lcs;
     lcs.reserve(index + 1);
     lcs[index] = -1;

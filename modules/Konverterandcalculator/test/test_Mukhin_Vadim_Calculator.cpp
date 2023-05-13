@@ -49,3 +49,11 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "41");
 }
+
+TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER2) {
+    std::string num = "10";
+    int base1 = 10;
+    int base2 = 8;
+    std::string result = convert(num, base1, base2);
+    EXPECT_EQ(result, "12");
+}

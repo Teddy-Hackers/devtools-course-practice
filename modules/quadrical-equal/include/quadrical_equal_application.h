@@ -1,4 +1,7 @@
-// Copyright 2023 Ermolaev Danila
+// Copyright 2023 Shokurov Daniil
+
+#ifndef MODULES_QUADRICAL_EQUAL_INCLUDE_QUADRICAL_EQUAL_APPLICATION_H_
+#define MODULES_QUADRICAL_EQUAL_INCLUDE_QUADRICAL_EQUAL_APPLICATION_H_
 
 #include <string>
 
@@ -13,3 +16,5 @@ class Quad_Application {
     std::string message_;
 };
 
+
+#endif  // MODULES_QUADRICAL_EQUAL_INCLUDE_QUADRICAL_EQUAL_APPLICATION_H_

@@ -61,6 +61,14 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Start_Vertex_Format PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Detect_Wrong_End_Vertex_Format
+    COMMAND ${APPLICATION} 1 a 2 1 1 1 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_End_Vertex_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Cant parse <end vert>"
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_can_Detect_Wrong_Value_Format_In_Matrix
     COMMAND ${APPLICATION} 0 0 6 0 -1 a b -1 -1 -1 0 10 15 -1 -1 -1
         10 0 11 -1 2 -1 15 11 0 6 s a d -1 6 0 9 -1 -1 2 -1 9 0

@@ -129,14 +129,7 @@ std::string DijkstraApplication::operator()(int argc, const char **argv) {
         return resp_message;
     }
 
-    try {
-        vert_num = parseUInt(argv[3]);
-    } catch (const std::invalid_argument& e) {
-        resp_message =
-                std::string("ERROR: Cant parse <matrix size>. ")
-                    .append(e.what());
-        return resp_message;
-    }
+    vert_num = parseUInt(argv[3]);
 
     for (size_t i = 0; i < vert_num; i++) {
         std::vector<double> row;

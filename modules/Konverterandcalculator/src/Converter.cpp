@@ -3,7 +3,7 @@
 #include <string>
 #include <cmath>
 
-std::String convert(std::String num, int base1, int base2) {
+std::string convert(std::string num, int base1, int base2) {
     int decimal = 0;
 
     if (base1 == 10) {
@@ -18,7 +18,7 @@ std::String convert(std::String num, int base1, int base2) {
         }
     }
 
-    std::String result = "";
+    std::string result = "";
 
     while (decimal > 0) {
         int digit = decimal % base2;

@@ -132,16 +132,16 @@ std::string multiply(std::string num1, int base1, std::string num2, int base2) {
     }
 
     int i = 0;
-    while (i < product.size() && product[i] == 0) {
+    while (i < static_cast<int>(product.size()) && product[i] == 0) {
         i++;
     }
 
-    if (i == product.size()) {
+    if (i == static_cast<int>(product.size())) {
         return "0";
     }
 
     std::string result = "";
-    while (i < product.size()) {
+    while (i < static_cast<int>(product.size())) {
         char c;
         if (product[i] >= 0 && product[i] <= 9) {
             c = product[i] + '0';

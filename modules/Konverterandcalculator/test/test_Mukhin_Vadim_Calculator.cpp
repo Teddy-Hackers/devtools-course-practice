@@ -12,7 +12,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
     int base2 = 16;
     // slovo
     std::string sum = add(num1, base1, num2, base2);
-    EXPECT_EQ(sum, "100001001");
+    EXPECT_EQ(sum, "109");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM2) {
@@ -42,7 +42,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM4) {
     int base2 = 10;
     // slovo
     std::string sum = add(num1, base1, num2, base2);
-    EXPECT_EQ(sum, "10101");
+    EXPECT_EQ(sum, "21");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM5) {
@@ -52,7 +52,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM5) {
     int base2 = 16;
     // slovo
     std::string sum = add(num1, base1, num2, base2);
-    EXPECT_EQ(sum, "110031");
+    EXPECT_EQ(sum, "1ADCF");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_DIFF) {
@@ -138,4 +138,69 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TestAdd) {
     expected = "10111";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
+}
+TEST(AddTest, TestAdd) {
+    // Проверяем сложение чисел в системе счисления 10
+    std::string num1 = "123";
+    std::string num2 = "456";
+    int base1 = 10;
+    int base2 = 10;
+    std::string expected = "579";
+    std::string result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в системе счисления 2
+    num1 = "1010";
+    num2 = "1101";
+    base1 = 2;
+    base2 = 2;
+    expected = "10111";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в системе счисления 16
+    num1 = "FF";
+    num2 = "1A";
+    base1 = 16;
+    base2 = 16;
+    expected = "119";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в системе счисления 8
+    num1 = "77";
+    num2 = "12";
+    base1 = 8;
+    base2 = 8;
+    expected = "131";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в разных системах счисления
+    num1 = "10";
+    num2 = "A";
+    base1 = 16;
+    base2 = 10;
+    expected = "20";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в разных системах счисления
+    num1 = "101";
+    num2 = "11";
+    base1 = 2;
+    base2 = 8;
+    expected = "34";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
+    // Проверяем сложение чисел в разных системах счисления
+    num1 = "1111";
+    num2 = "1111";
+    base1 = 2;
+    base2 = 16;
+    expected = "2E";
+    result = add(num1, base1, num2, base2);
+    EXPECT_EQ(result, expected);
+
 }

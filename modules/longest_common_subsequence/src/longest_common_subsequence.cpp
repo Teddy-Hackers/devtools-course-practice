@@ -33,10 +33,11 @@ get_longest_common_subsequence(int firstLength, std::vector<int> firstSequence,
             i--;
             j--;
             index--;
-        } else if (lcsTable[i - 1][j] > lcsTable[i][j - 1])
+        } else if (lcsTable[i - 1][j] > lcsTable[i][j - 1]) {
             i--;
-        else
+        } else {
             j--;
+        }
     }
 
     std::reverse(lcs.begin(), lcs.end());

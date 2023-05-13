@@ -265,3 +265,21 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES2) {
     std::string result11 = subtract("ab", 16, "a", 16);
     assert(result11 == "A1");
 }
+TEST(Mukhin_Vadim_Konverter_and_calculator, TES3) {
+    std::string result1 = multiply("123", 10, "456", 10);
+    assert(result1 == "56088");
+    std::string result2 = multiply("ab", 16, "6", 16);
+    assert(result2 == "GC2");
+    std::string result3 = multiply("123", 10, "0", 10);
+    assert(result3 == "0");
+    std::string result4 = multiply("0", 10, "456", 10);
+    assert(result4 == "0");
+    std::string result5 = multiply("1010", 2, "3", 8);
+    assert(result5 == "11110");
+    std::string result6 = multiply("ad", 16, "10", 2);
+    assert(result6 == "2CD0");
+    std::string result7 = multiply("123", 10, "1", 10);
+    assert(result7 == "123");
+    std::string result10 = multiply("123", 10, "3", 8);
+    assert(result10 == "369");
+}

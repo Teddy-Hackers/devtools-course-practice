@@ -202,5 +202,4 @@ TEST(AddTest, TestAdd) {
     expected = "2E";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
-
 }

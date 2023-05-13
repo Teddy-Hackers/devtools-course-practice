@@ -1,9 +1,9 @@
 // Copyright 2023 Mukhin Vadim
 #include <iostream>
-#include <string>
+#include <String>
 #include <cmath>
 
-string add(string num1, int base1, string num2, int base2) {
+std::String add(std::String num1, int base1, std::String num2, int base2) {
     int decimal1 = 0, decimal2 = 0;
 
     if (base1 == 10) {
@@ -38,7 +38,7 @@ string add(string num1, int base1, string num2, int base2) {
 
     int sumDecimal = decimal1 + decimal2;
 
-    string sum = "";
+    std::String sum = "";
 
     while (sumDecimal > 0) {
         int digit = sumDecimal % base1;
@@ -54,7 +54,7 @@ string add(string num1, int base1, string num2, int base2) {
     return sum;
 }
 
-string subtract(string num1, int base1, string num2, int base2) {
+std::String subtract(std::String num1, int base1, std::String num2, int base2) {
     int decimal1 = 0, decimal2 = 0;
 
     if (base1 == 10) {
@@ -89,7 +89,7 @@ string subtract(string num1, int base1, string num2, int base2) {
 
     int diffDecimal = decimal1 - decimal2;
 
-    string diff = "";
+    std::String diff = "";
 
     while (diffDecimal > 0) {
         int digit = diffDecimal % base1;
@@ -105,7 +105,7 @@ string subtract(string num1, int base1, string num2, int base2) {
     return diff;
 }
 
-string multiply(string num1, int base1, string num2, int base2) {
+std::String multiply(std::String num1, int base1, std::String num2, int base2) {
     int decimal1 = 0, decimal2 = 0;
 
     if (base1 == 10) {
@@ -140,7 +140,7 @@ string multiply(string num1, int base1, string num2, int base2) {
 
     int productDecimal = decimal1 * decimal2;
 
-    string product = "";
+    std::String product = "";
 
     while (productDecimal > 0) {
         int digit = productDecimal % base1;
@@ -156,7 +156,7 @@ string multiply(string num1, int base1, string num2, int base2) {
     return product;
 }
 
-string divide(string num1, int base1, string num2, int base2) {
+std::String divide(std::String num1, int base1, std::String num2, int base2) {
     int decimal1 = 0, decimal2 = 0;
 
     if (base1 == 10) {
@@ -191,7 +191,7 @@ string divide(string num1, int base1, string num2, int base2) {
 
     int quotientDecimal = decimal1 / decimal2;
 
-    string quotient = "";
+    std::String quotient = "";
 
     while (quotientDecimal > 0) {
         int digit = quotientDecimal % base1;

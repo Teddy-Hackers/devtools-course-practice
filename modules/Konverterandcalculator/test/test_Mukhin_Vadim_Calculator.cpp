@@ -241,3 +241,23 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES) {
     std::string result8 = add("0", 10, "0", 10);
     assert(result8 == "0");
 }
+TEST(Mukhin_Vadim_Konverter_and_calculator, TES2) {
+    std::string result1 = subtract("456", 10, "123", 10);
+    assert(result1 == "333");
+    std::string result2 = subtract("ABC", 16, "123", 16);
+    assert(result2 == "AA98");
+    std::string result3 = subtract("123", 10, "123", 10);
+    assert(result3 == "0");
+    std::string result4 = subtract("0", 10, "456", 10);
+    assert(result4 == "-456");
+    std::string result5 = subtract("0", 16, "ABC", 16);
+    assert(result5 == "-ABC");
+    std::string result6 = subtract("1010", 2, "7", 8);
+    assert(result6 == "11");
+    std::string result7 = subtract("123", 10, "456", 10);
+    assert(result7 == "-333");
+    std::string result8 = subtract("FFF", 16, "1", 16);
+    assert(result8 == "FFE");
+    std::string result9 = subtract("12345", 10, "12", 10);
+    assert(result9 == "12333");
+}

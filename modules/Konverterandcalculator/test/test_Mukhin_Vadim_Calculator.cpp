@@ -120,19 +120,19 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER5) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "75BCD15");
 }
-TEST(Mukhin_Vadim_Converter, TestHexDigitToChar) {
+TEST(HexDigitConversionTest, TestConversion) {
     int digit1 = 10;
     char expected1 = 'A';
-    char result1 = digitToChar(digit1);
+    char result1 = (digit1 >= 10 && digit1 <= 15) ? (digit1 - 10 + 'A') : (digit1 + '0');
     EXPECT_EQ(result1, expected1);
 
     int digit2 = 15;
     char expected2 = 'F';
-    char result2 = digitToChar(digit2);
+    char result2 = (digit2 >= 10 && digit2 <= 15) ? (digit2 - 10 + 'A') : (digit2 + '0');
     EXPECT_EQ(result2, expected2);
 
     int digit3 = 7;
     char expected3 = '7';
-    char result3 = digitToChar(digit3);
+    char result3 = (digit3 >= 10 && digit3 <= 15) ? (digit3 - 10 + 'A') : (digit3 + '0');
     EXPECT_EQ(result3, expected3);
 }

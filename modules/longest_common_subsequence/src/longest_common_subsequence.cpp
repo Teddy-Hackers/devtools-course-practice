@@ -1,6 +1,6 @@
 // Copyright 2023 Yurin Evgeny
 
-#include "include/longest_common_subsequence.h"
+#include "../include/longest_common_subsequence.h"
 
 #include <vector>
 

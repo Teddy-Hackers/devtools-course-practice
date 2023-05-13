@@ -319,7 +319,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
     std::string result16_2 = divide("1A", 16, "2", 10);
     assert(result16_2 == "D");
     std::string result16_3 = divide("ABC", 16, "5", 10);
-    assert(result16_3 == "234");
+    assert(result16_3 == "225");
     std::string result16_4 = divide("BE", 16, "B", 16);
     assert(result16_4 == "11");
     std::string result10_5 = divide("123", 10, "1", 10);

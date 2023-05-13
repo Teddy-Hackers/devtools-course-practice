@@ -73,7 +73,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER4) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "10");
 }
-TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER4) {
+TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER5) {
     std::string num = "123456789";
     int base1 = 10;
     int base2 = 16;

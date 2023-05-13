@@ -261,7 +261,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES2) {
     std::string result9 = subtract("12345", 10, "12", 10);
     assert(result9 == "12333");
     std::string result10 = subtract("ab", 16, "1010", 2);
-    assert(result5 == "A1");
+    assert(result10 == "A1");
     std::string result11 = subtract("ab", 16, "a", 16);
-    assert(result2 == "A1");
+    assert(result11 == "A1");
 }

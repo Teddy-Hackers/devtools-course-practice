@@ -18,10 +18,10 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_SUM) {
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_DIFF) {
     std::string num1 = "f";
     int base1 = 16;
-    std::string num2 = "7";
+    std::string num2 = "8";
     int base2 = 10;
     std::string diff = subtract(num1, base1, num2, base2);
-    EXPECT_EQ(diff, "8");
+    EXPECT_EQ(diff, "7");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_PRODUCT) {
@@ -34,12 +34,12 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_PRODUCT) {
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_DIV) {
-    std::string num1 = "f";
+    std::string num1 = "15";
     int base1 = 8;
-    std::string num2 = "10100";
+    std::string num2 = "10";
     int base2 = 2;
     std::string quotient = divide(num1, base1, num2, base2);
-    EXPECT_EQ(quotient, "3");
+    EXPECT_EQ(quotient, "6");
 }
 
 TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER) {

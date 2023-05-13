@@ -43,5 +43,4 @@ class DijkstraApplication {
      * @brief Response message string
      */
     std::string resp_message;
-
 };

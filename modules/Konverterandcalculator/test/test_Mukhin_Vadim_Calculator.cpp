@@ -120,7 +120,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TEST_CONVERTER5) {
     std::string result = convert(num, base1, base2);
     EXPECT_EQ(result, "75BCD15");
 }
-TEST(AddTest, TestAdd) {
+TEST(Mukhin_Vadim_Konverter_and_calculator, TestAdd) {
     // Проверяем сложение чисел в системе счисления 10
     std::string num1 = "123";
     std::string num2 = "456";

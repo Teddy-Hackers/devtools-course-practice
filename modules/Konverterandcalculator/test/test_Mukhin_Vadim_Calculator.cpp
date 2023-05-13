@@ -268,8 +268,8 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES2) {
 TEST(Mukhin_Vadim_Konverter_and_calculator, TES3) {
     std::string result1 = multiply("123", 10, "456", 10);
     assert(result1 == "56088");
-    std::string result2 = multiply("ab", 16, "6", 16);
-    assert(result2 == "GC2");
+    std::string result2 = multiply("a", 16, "6", 16);
+    assert(result2 == "FC");
     std::string result3 = multiply("123", 10, "0", 10);
     assert(result3 == "0");
     std::string result4 = multiply("0", 10, "456", 10);

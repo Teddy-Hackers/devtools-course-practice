@@ -6,7 +6,7 @@
 std::string add(std::string num1, int base1, std::string num2, int base2) {
     // Преобразуем числа из их систем счисления в десятичную систему
     int decimal1 = 0, decimal2 = 0;
-    for (int i = 0; i < num1.length(); i++) {
+    for (std::string::size_type i = 0; i < num1.length(); i++) {
         int digit = 0;
         if (num1[i] >= '0' && num1[i] <= '9') {
             digit = num1[i] - '0';
@@ -17,7 +17,7 @@ std::string add(std::string num1, int base1, std::string num2, int base2) {
         }
         decimal1 += digit * pow(base1, num1.length() - 1 - i);
     }
-    for (int i = 0; i < num2.length(); i++) {
+    for (std::string::size_type i = 0; i < num2.length(); i++) {
         int digit = 0;
         if (num2[i] >= '0' && num2[i] <= '9') {
             digit = num2[i] - '0';
@@ -31,6 +31,8 @@ std::string add(std::string num1, int base1, std::string num2, int base2) {
 
     // Складываем числа в десятичной системе счисления
     int sumDecimal = decimal1 + decimal2;
+
+    
     int base = std::max(base1, base2);
     std::string sum = "";
     while (sumDecimal > 0) {

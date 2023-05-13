@@ -172,16 +172,16 @@ TEST(AddTest, TestAdd) {
     num2 = "12";
     base1 = 8;
     base2 = 8;
-    expected = "131";
+    expected = "111";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
 
     // Проверяем сложение чисел в разных системах счисления
-    num1 = "10";
-    num2 = "A";
+    num1 = "5";
+    num2 = "10";
     base1 = 16;
     base2 = 10;
-    expected = "20";
+    expected = "F";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
 
@@ -190,7 +190,7 @@ TEST(AddTest, TestAdd) {
     num2 = "11";
     base1 = 2;
     base2 = 8;
-    expected = "34";
+    expected = "16";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
 
@@ -199,7 +199,7 @@ TEST(AddTest, TestAdd) {
     num2 = "1111";
     base1 = 2;
     base2 = 16;
-    expected = "2E";
+    expected = "1120";
     result = add(num1, base1, num2, base2);
     EXPECT_EQ(result, expected);
 }

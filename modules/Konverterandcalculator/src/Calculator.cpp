@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include <cstdint>
+#include <cstddef>
 std::string add(std::string num1, int base1, std::string num2, int base2) {
     // Преобразуем числа из их систем счисления в десятичную систему
     int decimal1 = 0, decimal2 = 0;
@@ -168,7 +169,7 @@ std::string divide(std::string num1, int base1, std::string num2, int base2) {
 
     int decimal1 = 0, decimal2 = 0;
 
-    for (int i = 0; i < num1.length(); i++) {
+    for (size_t i = 0; i < num1.length(); i++) {
         int digit;
         if (num1[i] >= '0' && num1[i] <= '9') {
             digit = num1[i] - '0';
@@ -180,7 +181,7 @@ std::string divide(std::string num1, int base1, std::string num2, int base2) {
         decimal1 = decimal1 * base1 + digit;
     }
 
-    for (int i = 0; i < num2.length(); i++) {
+    for (size_t i = 0; i < num2.length(); i++) {
         int digit;
         if (num2[i] >= '0' && num2[i] <= '9') {
             digit = num2[i] - '0';

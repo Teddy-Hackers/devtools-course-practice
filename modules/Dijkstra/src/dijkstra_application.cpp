@@ -1,11 +1,11 @@
 // Copyright 2023 Bulgakov Daniil
 
-#include "include/dijkstra_application.h"
-#include "include/Dijkstra.h"
-
 #include <string>
 #include <sstream>
 #include <vector>
+
+#include "include/dijkstra_application.h"
+#include "include/Dijkstra.h"
 
 int parseInt(const char* arg) {
     int value = 0;
@@ -165,7 +165,8 @@ std::string DijkstraApplication::operator()(int argc, const char **argv) {
     if (end >= 0) {
         std::string val;
         if (d.getAnswer(end) < 0) val = "NaN";
-        else val = std::to_string(d.getAnswer(end));
+        else
+            val = std::to_string(d.getAnswer(end));
         return std::string("The shortest distance from ")
             .append(std::to_string(start))
             .append(" to ")

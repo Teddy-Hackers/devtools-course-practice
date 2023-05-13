@@ -1,0 +1,10 @@
+// Copyright 2023 Mukhin Vadim
+#ifndef MODULES_KONVERTER_AND_CALCULATOR_INCLUDE_CALCULATOR_H_
+#define MODULES_KONVERTER_AND_CALCULATOR_INCLUDE_CALCULATOR_H_
+#include <iostream>
+#include <string>
+string add(string num1, int base1, string num2, int base2);
+string subtract(string num1, int base1, string num2, int base2);
+string multiply(string num1, int base1, string num2, int base2);
+string divide(string num1, int base1, string num2, int base2);
+#endif  // MODULES_KONVERTER_AND_CALCULATOR_INCLUDE_CALCULATOR_H_

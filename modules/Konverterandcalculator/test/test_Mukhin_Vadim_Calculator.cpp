@@ -244,7 +244,7 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES) {
 TEST(Mukhin_Vadim_Konverter_and_calculator, TES2) {
     std::string result1 = subtract("456", 10, "123", 10);
     assert(result1 == "333");
-    std::string result2 = subtract("ABC", 16, "123", 16);
+    std::string result2 = subtract("ab", 16, "3", 16);
     assert(result2 == "A8");
     std::string result3 = subtract("123", 10, "123", 10);
     assert(result3 == "0");

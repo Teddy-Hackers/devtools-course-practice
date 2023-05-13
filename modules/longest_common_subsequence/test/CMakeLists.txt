@@ -7,7 +7,6 @@ set_source_files_properties(${srcs} PROPERTIES
 add_executable(${target} ${srcs} ${hdrs})
 set_target_properties(${target} PROPERTIES
     LABELS "${MODULE};Test")
-set(CMAKE_CXX_STANDARD 17)
 
 if (UNIX)
   target_link_libraries(${target} gtest ${CMAKE_THREAD_LIBS_INIT} pthread)

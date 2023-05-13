@@ -305,40 +305,45 @@ TEST(Mukhin_Vadim_Konverter_and_calculator, TES4) {
     std::string result10 = divide("123", 10, "3", 8);
     assert(result10 == "41");
 }
-TEST(Mukhin_Vadim_Konverter_and_calculator, TES5)() {
-    // Test base 10 division
-    assert(divide("10", 10, "2", 10) == "5");
-    assert(divide("123", 10, "7", 10) == "17");
-    assert(divide("1000", 10, "3", 10) == "333");
-    assert(divide("123456", 10, "789", 10) == "156");
-
-    // Test hexadecimal division
-    assert(divide("FF", 16, "F", 16) == "10");
-    assert(divide("1A", 16, "2", 10) == "D");
-    assert(divide("ABC", 16, "5", 10) == "234");
-    assert(divide("BEEF", 16, "B", 16) == "1055");
-
-    // Test division by 1 (should return the same number)
-    assert(divide("123", 10, "1", 10) == "123");
-    assert(divide("ABC", 16, "1", 16) == "ABC");
-
-    // Test division of 0 (should return 0)
-    assert(divide("0", 10, "123", 10) == "0");
-    assert(divide("123", 10, "0", 10) == "0");
-
-    // Test division by a larger number (should return 0)
-    assert(divide("123", 10, "456", 10) == "0");
-
-    // Test division by a negative number
-    assert(divide("-100", 10, "10", 10) == "-10");
-    assert(divide("100", 10, "-10", 10) == "-10");
-    assert(divide("-100", 10, "-10", 10) == "10");
-
-    // Test division by a negative number in hex
-    assert(divide("-A", 16, "2", 10) == "-5");
-    assert(divide("A", 16, "-2", 10) == "-5");
-    assert(divide("-A", 16, "-2", 10) == "5");
-
-    // Test division by a decimal number in hex
-    assert(divide("FF", 16, "10", 10) == "F");
+TEST(Mukhin_Vadim_Konverter_and_calculator, TES5) {
+    std::string result10_1 = divide("10", 10, "2", 10);
+    assert(result10_1 == "5");
+    std::string result10_2 = divide("123", 10, "7", 10);
+    assert(result10_2 == "17");    
+    std::string result10_3 = divide("1000", 10, "3", 10);
+    assert(result10_3 == "333");    
+    std::string result10_4 = divide("123456", 10, "789", 10);
+    assert(result10_4 == "156");
+    std::string result16_1 = divide("FF", 16, "F", 16);
+    assert(result16_1 == "10");
+    std::string result16_2 = divide("1A", 16, "2", 10);
+    assert(result16_2 == "D");
+    std::string result16_3 = divide("ABC", 16, "5", 10);
+    assert(result16_3 == "234");
+    std::string result16_4 = divide("BEEF", 16, "B", 16);
+    assert(result16_4 == "1055");
+    std::string result10_5 = divide("123", 10, "1", 10);
+    assert(result10_5 == "123");
+    std::string result16_5 = divide("ABC", 16, "1", 16);
+    assert(result16_5 == "ABC");
+    std::string result10_6 = divide("0", 10, "123", 10);
+    assert(result10_6 == "0");
+    std::string result10_7 = divide("123", 10, "0", 10);
+    assert(result10_7 == "0");
+    std::string result10_8 = divide("123", 10, "456", 10);
+    assert(result10_8 == "0");
+    std::string result10_9 = divide("-100", 10, "10", 10);
+    assert(result10_9 == "-10");
+    std::string result10_10 = divide("100", 10, "-10", 10);
+    assert(result10_10 == "-10");
+    std::string result10_11 = divide("-100", 10, "-10", 10);
+    assert(result10_11 == "10");
+    std::string result16_6 = divide("-A", 16, "2", 10);
+    assert(result16_6 == "-5");
+    std::string result16_7 = divide("A", 16, "-2", 10);
+    assert(result16_7 == "-5");
+    std::string result16_8 = divide("-A", 16, "-2", 10);
+    assert(result16_8 == "5");
+    std::string result16_9 = divide("FF", 16, "10", 10);
+    assert(result16_9 == "F");
 }

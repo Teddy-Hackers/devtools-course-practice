@@ -4,7 +4,7 @@
 
 #include "../include/longest_common_subsequence.h"
 
-//TEST(check_lcs, same_sequence) {
+// TEST(check_lcs, same_sequence) {
 //    std::vector<int> initialFirst{1, 2, 3, 6};
 //    std::vector<int> initialSecond{1, 2, 3, 6};
 //    std::vector<int> expectedResult{1, 2, 3, 6};
@@ -13,7 +13,7 @@
 //                                                             initialSecond);
 //
 //    ASSERT_EQ(expectedResult, result);
-//}
+// }
 
 TEST(check_lcs, default_sequence) {
     std::vector<int> initialFirst{9, 8, 7, 6, 5, 4, 3};

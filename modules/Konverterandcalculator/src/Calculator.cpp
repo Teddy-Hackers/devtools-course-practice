@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include <vector>
+#include <cstdint>
 std::string add(std::string num1, int base1, std::string num2, int base2) {
     // Преобразуем числа из их систем счисления в десятичную систему
     int decimal1 = 0, decimal2 = 0;
@@ -104,11 +105,11 @@ std::string subtract(std::string num1, int base1, std::string num2, int base2) {
 }
 
 std::string multiply(std::string num1, int base1, std::string num2, int base2) {
-    std::vector<long int> product(num1.length() + num2.length(), 0);
+    std::vector<int64_t> product(num1.length() + num2.length(), 0);
 
     for (int i = num1.length() - 1; i >= 0; i--) {
-        long int carry = 0;
-        int digit1;
+        int64_t carry = 0;
+        int64_t digit1;
         if (num1[i] >= '0' && num1[i] <= '9') {
             digit1 = num1[i] - '0';
         } else {
@@ -116,13 +117,13 @@ std::string multiply(std::string num1, int base1, std::string num2, int base2) {
         }
 
         for (int j = num2.length() - 1; j >= 0; j--) {
-            int digit2;
+            int64_t digit2;
             if (num2[j] >= '0' && num2[j] <= '9') {
                 digit2 = num2[j] - '0';
             } else {
                 digit2 = num2[j] - 'A' + 10;
             }
-            long int productDigit = digit1 * digit2 + carry + product[i + j + 1];
+            int64_t productDigit = digit1 * digit2 + carry + product[i + j + 1];
             carry = productDigit / base1;
             product[i + j + 1] = productDigit % base1;
         }

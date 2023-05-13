@@ -5,7 +5,6 @@
 
 std::string add(std::string num1, int base1, std::string num2, int base2) {
     int decimal1 = 0, decimal2 = 0;
-
     if (base1 == 10) {
         decimal1 = stoi(num1);
     } else {

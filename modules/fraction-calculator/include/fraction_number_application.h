@@ -7,7 +7,9 @@
 class Application {
  public:
   Application::Application() : message_("");
-  private : void Application::help(const char* appname, const char* message);
+
+ private:
+  void Application::help(const char* appname, const char* message);
   bool Application::validateNumberOfArguments(int argc, const char** argv);
   FractionNumber parseFraction(const std::string& str);
   std::string Application::operator()(int argc, const char** argv);

@@ -25,7 +25,6 @@ bool Application::validateNumberOfArguments(int argc, const char** argv) {
     return false;
   }
   return true;
-  
 }
 
 FractionNumber parseFraction(const std::string& str) {

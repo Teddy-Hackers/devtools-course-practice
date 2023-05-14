@@ -1,20 +1,20 @@
 // Copyright 2023 Mukhin Vadim
 
-#include "../include/fraction_number.h"
-#include "../include/fraction_number_application.h"
-
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
+
+#include "../include/fraction_number.h"
+#include "../include/fraction_number_application.h"
 
 Application::Application() : message_("") {}
 
 void Application::help(const char* appname, const char* message) {
   message_ = std::string(message) +
              "This app performs basic operations with fractions.\n\n" +
-             "Please provide arguments in the following format:\n\n" +
-             "  $ " + appname + " <fraction_1> <operation> <fraction_2>\n\n" +
+             "Please provide arguments in the following format:\n\n" + "  $ " +
+             appname + " <fraction_1> <operation> <fraction_2>\n\n" +
              "Where <fraction_1> and <fraction_2> are in the format a/b,\n" +
              "and <operation> is one of the following: +, -, *, /, ==, !=.\n";
 }

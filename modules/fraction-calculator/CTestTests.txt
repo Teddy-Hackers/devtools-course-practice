@@ -2,20 +2,15 @@
 ##### Testing
 #############################################
 
-enable_testing()
+set(prefix "${MODULE}")
 
-# Добавление тестов для операций с дробями
-add_test(NAME AddFractions COMMAND FractionNumberApplication "1/2" + "3/4")
-add_test(NAME SubFractions COMMAND FractionNumberApplication "5/6" - "1/6")
-add_test(NAME MulFractions COMMAND FractionNumberApplication "2/3" "*" "4/5")
-add_test(NAME DivFractions COMMAND FractionNumberApplication "5/8" "/" "3/4")
-add_test(NAME EqFractions COMMAND FractionNumberApplication "3/4" "==" "3/4")
-add_test(NAME NeqFractions COMMAND FractionNumberApplication "1/2" "!=" "3/4")
-
-# Тестирование неправильного формата дроби
-add_test(NAME InvalidFractionFormat COMMAND FractionNumberApplication "1/2/" + "3/4")
-set_tests_properties(InvalidFractionFormat PROPERTIES WILL_FAIL ON)
-
-# Тестирование неверной операции
-add_test(NAME InvalidOperation COMMAND FractionNumberApplication "1/2" "^" "3/4")
-set_tests_properties(InvalidOperation PROPERTIES WILL_FAIL ON)
+add_test(NAME AddFractions_can_Run COMMAND FractionNumberApplication "1/2" + "3/4")
+add_test(NAME SubFractions_can_Run COMMAND FractionNumberApplication "5/6" - "1/6")
+add_test(NAME MulFractions_can_Run COMMAND FractionNumberApplication "2/3" "*" "4/5")
+add_test(NAME DivFractions_can_Run COMMAND FractionNumberApplication "5/8" "/" "3/4")
+add_test(NAME EqFractions_can_Run COMMAND FractionNumberApplication "3/4" "==" "3/4")
+add_test(NAME NeqFractions_can_Run COMMAND FractionNumberApplication "1/2" "!=" "3/4")
+add_test(NAME InvalidFractionFormat_can_Run COMMAND FractionNumberApplication "1/2/" + "3/4")
+set_tests_properties(InvalidFractionFormat_can_Run PROPERTIES WILL_FAIL ON)
+add_test(NAME InvalidOperation_can_Run COMMAND FractionNumberApplication "1/2" "^" "3/4")
+set_tests_properties(InvalidOperation_can_Run PROPERTIES WILL_FAIL ON)

@@ -45,7 +45,7 @@ FractionNumber parseFraction(const std::string& str) {
 
 std::string Application::operator()(int argc, const char** argv) {
   if (!validateNumberOfArguments(argc, argv)) {
-    help(argv[0], ""); // добавлен аргумент appname
+    help(argv[0], "");
     return message_;
   }
 

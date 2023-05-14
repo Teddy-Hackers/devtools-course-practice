@@ -76,9 +76,9 @@ set_tests_properties (${prefix}_can_D8 PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_D8
+    NAME ${prefix}_can_D9
     COMMAND ${APPLICATION} 1/2/3 + 3/4
 )
-set_tests_properties (${prefix}_can_D8 PROPERTIES
+set_tests_properties (${prefix}_can_D9 PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong fraction format!"
     LABELS "${MODULE}")

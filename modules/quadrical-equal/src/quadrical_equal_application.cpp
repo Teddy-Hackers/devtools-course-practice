@@ -56,7 +56,7 @@ std::string Quad_Application::operator()(int argc, const char** argv) {
     try {
         Quadrical_equal z1;
         result = z1.solution(parameters[0], parameters[1], parameters[2]);
-    } catch(std::string str){ 
+    } catch(std::string str) {
         return str;
     }
     message_ = result;

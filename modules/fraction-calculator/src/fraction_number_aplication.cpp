@@ -21,7 +21,7 @@ void Application::help(const char* appname, const char* message) {
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
   if (argc != 4) {
-    help(argv[0]);
+    help(argv[0], "");
     return false;
   }
   return true;

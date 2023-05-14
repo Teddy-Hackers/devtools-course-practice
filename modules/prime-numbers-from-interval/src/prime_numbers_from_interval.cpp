@@ -83,12 +83,12 @@ bool Ferma_primality_test(unsigned int N) {
     }
 }
 
-std::vector<unsigned int> Ferma_primality_test(unsigned int a,
+std::vector<unsigned int> primality_test_interval(unsigned int a,
     unsigned int b) {
         std::vector<unsigned int> prime;
 
         for (unsigned int i = a; i <= b; i++) {
-            if (Miller_Rabin_primality_test(i)) {
+            if (Ferma_primality_test(i)) {
                 prime.push_back(i);
             }
         }

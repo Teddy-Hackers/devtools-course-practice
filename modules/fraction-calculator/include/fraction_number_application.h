@@ -6,12 +6,11 @@
 #include <string>
 class Application {
  public:
-  Application::Application() : message_("");
-
+  Application();
+  void help(const char* appname, const char* message);
+  bool validateNumberOfArguments(int argc, const char** argv);
+  std::string operator()(int argc, const char** argv);
  private:
-  void Application::help(const char* appname, const char* message);
-  bool Application::validateNumberOfArguments(int argc, const char** argv);
-  FractionNumber parseFraction(const std::string& str);
-  std::string Application::operator()(int argc, const char** argv);
-}
+  std::string message_;
+};
 #endif  // MODULES_FRACTION_CALCULATOR_INCLUDE_FRACTION_NUMBER_APPLICATION_H_

@@ -36,7 +36,7 @@ unsigned int ModExp(unsigned int x,
         }
 }
 
-bool Miller_Rabin_primality_test(unsigned int N) {
+bool Ferma_primality_test(unsigned int N) {
     if (N < 2) {
         return false;
     }
@@ -60,43 +60,20 @@ bool Miller_Rabin_primality_test(unsigned int N) {
     std::mt19937 gen(N);
     std::uniform_int_distribution<unsigned int> uid(2, N - 1);
 
-    while (multiplier == 0) {
-        unsigned int X = 0;
+    unsigned int k = 0;
+    unsigned int X = 0;
+    while (multiplier == 0 || k < 10) {
         X = uid(gen);
         if (gcd(X, N) != 1) {
             multiplier = gcd(X, N);
             break;
         }
 
-        unsigned int u = N - 1;
-        unsigned int t = 0;
-
-        while (u % 2 == 0) {
-            u /= 2;
-            t++;
+        if (ModExp(X, N - 1, N) != 1) {
+            multiplier = N - 1;
         }
 
-        unsigned int temp = u;
-
-        for (unsigned int i = 0; i <= t; i++) {
-            if (ModExp(X, u, N) == 1) {
-                if (i == t) {
-                    multiplier = N;
-                    break;
-                }
-
-                if (i != 0) {
-                    if (u != N-1 && ModExp(temp, u, N) != N-1 && N%temp == 0) {
-                        multiplier = temp;
-                    }
-
-                    break;
-                }
-            }
-
-            temp = u;
-            u *= 2;
-        }
+        k += 1;
     }
 
     if (multiplier != N) {
@@ -106,7 +83,7 @@ bool Miller_Rabin_primality_test(unsigned int N) {
     }
 }
 
-std::vector<unsigned int> primality_test_interval(unsigned int a,
+std::vector<unsigned int> Ferma_primality_test(unsigned int a,
     unsigned int b) {
         std::vector<unsigned int> prime;
 

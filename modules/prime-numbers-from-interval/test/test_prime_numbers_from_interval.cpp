@@ -24,19 +24,20 @@ TEST(Ivlev_test_prime_numbers_from_interval, test_ModExp) {
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test) {
-    ASSERT_NO_THROW(Miller_Rabin_primality_test(1));
+    ASSERT_NO_THROW(Ferma_primality_test(1));
 
-    EXPECT_TRUE(Miller_Rabin_primality_test(5));
-    EXPECT_FALSE(Miller_Rabin_primality_test(6));
+    EXPECT_TRUE(Ferma_primality_test(5));
+    EXPECT_FALSE(Ferma_primality_test(6));
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test_interval) {
-    std::vector<unsigned int> prime{5, 7, 11, 13, 17, 19};
+    std::vector<unsigned int> test_prime{5, 7, 11, 13, 17, 19};
 
     ASSERT_NO_THROW(primality_test_interval(0, 100));
 
     std::vector<unsigned int> result = primality_test_interval(5, 20);
-    for (unsigned int i = 0; i < prime.size(); i++) {
-        EXPECT_EQ(prime[i], result[i]);
+    ASSERT_EQ(test_prime.size(), result.size());
+    for (unsigned int i = 0; i < test_prime.size(); i++) {
+        EXPECT_EQ(test_prime[i], result[i]);
     }
 }

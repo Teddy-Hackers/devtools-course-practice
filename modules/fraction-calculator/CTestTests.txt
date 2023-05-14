@@ -3,14 +3,32 @@
 #############################################
 
 set(prefix "${MODULE}")
+add_test(NAME FractionNumber_default_constructor_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_default_constructor)
 
-add_test(NAME AddFractions_can_Run COMMAND FractionNumberApplication "1/2" + "3/4")
-add_test(NAME SubFractions_can_Run COMMAND FractionNumberApplication "5/6" - "1/6")
-add_test(NAME MulFractions_can_Run COMMAND FractionNumberApplication "2/3" "*" "4/5")
-add_test(NAME DivFractions_can_Run COMMAND FractionNumberApplication "5/8" "/" "3/4")
-add_test(NAME EqFractions_can_Run COMMAND FractionNumberApplication "3/4" "==" "3/4")
-add_test(NAME NeqFractions_can_Run COMMAND FractionNumberApplication "1/2" "!=" "3/4")
-add_test(NAME InvalidFractionFormat_can_Run COMMAND FractionNumberApplication "1/2/" + "3/4")
-set_tests_properties(InvalidFractionFormat_can_Run PROPERTIES WILL_FAIL ON)
-add_test(NAME InvalidOperation_can_Run COMMAND FractionNumberApplication "1/2" "^" "3/4")
-set_tests_properties(InvalidOperation_can_Run PROPERTIES WILL_FAIL ON)
+add_test(NAME FractionNumber_parameterized_constructor_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_parameterized_constructor)
+
+add_test(NAME FractionNumber_copy_constructor_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_copy_constructor)
+
+add_test(NAME FractionNumber_assignment_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_assignment_operator)
+
+add_test(NAME FractionNumber_addition_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_addition_operator)
+
+add_test(NAME FractionNumber_subtraction_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_subtraction_operator)
+
+add_test(NAME FractionNumber_multiplication_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_multiplication_operator)
+
+add_test(NAME FractionNumber_division_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_division_operator)
+
+add_test(NAME FractionNumber_equality_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_equality_operator)
+
+add_test(NAME FractionNumber_inequality_operator_can_Run
+         COMMAND FractionNumberApplicationTest FractionNumber_inequality_operator)

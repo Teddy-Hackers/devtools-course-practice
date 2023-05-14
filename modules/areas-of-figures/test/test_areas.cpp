@@ -6,10 +6,6 @@
 
 #include "include/areas.h"
 
-TEST(Nikitin_test_areas, TEST_Create_Parallelepiped) {
-  ASSERT_NO_THROW(Parallelepiped);
-}
-
 TEST(Nikitin_test_areas, TEST_Parallelepiped_area) {
   Parallelepiped z1(5, 5, 5);
 

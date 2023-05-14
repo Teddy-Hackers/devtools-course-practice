@@ -18,7 +18,8 @@ void Quad_Application::help(const char* appname, const char* message) {
             "This app is for solving quadratic equations.\n\n" +
             "Please provide arguments in the following format:\n\n" +
             "  $ " + appname + " <value_1> <value_2> <value_3> \n\n"+
-            "Where all values are double.\n ";
+            "Where all values are double.\n "+
+            "Example:1 2 3 -> Result equations: 1*x^2 + 2*x + 3 = 0";
 }
 
 bool Quad_Application::validateNumberOfArguments(int argc, const char** argv) {

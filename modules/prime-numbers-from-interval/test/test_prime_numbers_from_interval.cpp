@@ -31,11 +31,11 @@ TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test) {
 }
 
 TEST(Ivlev_test_prime_numbers_from_interval, test_primality_test_interval) {
-    std::vector<unsigned int> prime{5, 7, 11, 13, 17, 19};
+    std::vector<unsigned int> prime{5, 7, 11, 13, 17, 19, 23, 29, 31};
 
     ASSERT_NO_THROW(primality_test_interval(0, 100));
 
-    std::vector<unsigned int> result = primality_test_interval(5, 20);
+    std::vector<unsigned int> result = primality_test_interval(5, 37);
     for (unsigned int i = 0; i < prime.size(); i++) {
         EXPECT_EQ(prime[i], result[i]);
     }

@@ -66,6 +66,10 @@ bool Miller_Rabin_primality_test(unsigned int N) {
             break;
         }
 
+        if (ModExp(X, N - 1, N) != 1) {
+            return false;
+        }
+
         unsigned int u = N - 1;
         unsigned int t = 0;
 
@@ -84,12 +88,12 @@ bool Miller_Rabin_primality_test(unsigned int N) {
                 }
 
                 if (i != 0) {
-                    if (u != N-1 && ModExp(temp, u, N) != N-1 && N%temp == 0) {
+                    if (ModExp(X, temp, N) != N-1) {
                         multiplier = temp;
                     }
-
-                    break;
                 }
+
+                break;
             }
 
             temp = u;

@@ -53,8 +53,6 @@ bool Miller_Rabin_primality_test(unsigned int N) {
 
     if (multiplier != 0 && multiplier != N) {
         return false;
-    } else {
-        return true;
     }
 
     std::mt19937 gen(N);

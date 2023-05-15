@@ -1,6 +1,7 @@
 // Copyright 2023 Yurin Evgeny
 
 #include <vector>
+#include <string.h>
 #include "include/Encoder.h"
 #include "include/encoder_application.h"
 
@@ -32,7 +33,7 @@ bool EncoderApplication::validateArguments(int argc, const char **argv) {
         return false;
     }
 
-    if (argv[1] != "encode" || argv[1] != "decode") {
+    if (!strcmp(argv[1], "encode") || !strcmp(argv[1], "decode")) {
         m_message =
                 std::string("Not correct argument. Should be decode/encode")
                 + argv[0]
@@ -47,21 +48,11 @@ std::string EncoderApplication::operator()(int argc, const char **argv) {
         return m_message;
     }
 
-    bool encode = false;
-    switch (argv[1]) {
-        case "encode":
-            encode = true;
-            break;
-        case "decode":
-            encode = false;
-            break;
-    }
-
     Base64Encoder encoder;
     std::string result;
     std::string input = argv[2];
 
-    if (encode) {
+    if (strcmp(argv[1], "encode") {
         result = encoder.strToBase64(input);
     } else {
         result = encoder.base64ToStr(input);

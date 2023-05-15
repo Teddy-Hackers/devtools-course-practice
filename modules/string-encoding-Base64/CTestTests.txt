@@ -40,7 +40,7 @@ add_test(
     NAME ${prefix}_encode_correct_works
     COMMAND ${APPLICATION} encode string
 )
-set_tests_properties (${prefix}_encode_correct_works
+set_tests_properties (${prefix}_encode_correct_works PROPERTIES
     PASS_REGULAR_EXPRESSION "c3RyaW5n"
     LABELS "${MODULE}")
 

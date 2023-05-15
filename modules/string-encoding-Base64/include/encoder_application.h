@@ -3,7 +3,6 @@
 #pragma once
 
 #include <string>
-#include <string.h>
 
 class EncoderApplication {
  public:

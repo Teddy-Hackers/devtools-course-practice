@@ -1,7 +1,6 @@
 // Copyright 2023 Yurin Evgeny
 
 #include <vector>
-#include <string.h>
 #include "include/Encoder.h"
 #include "include/encoder_application.h"
 

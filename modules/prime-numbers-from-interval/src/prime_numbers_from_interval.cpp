@@ -40,6 +40,9 @@ bool Ferma_primality_test(unsigned int N) {
     if (N < 2) {
         return false;
     }
+    if (N == 2) {
+        return true;
+    }
 
     unsigned int multiplier = 0;
 

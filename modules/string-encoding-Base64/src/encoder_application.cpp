@@ -34,7 +34,7 @@ bool EncoderApplication::validateArguments(int argc, const char **argv) {
 
     std::string typeArgument = argv[1];
 
-    if (typeArgument != "encode") || typeArgument != "decode") {
+    if (typeArgument != "encode" || typeArgument != "decode") {
         m_message =
                 std::string("Not correct argument. Should be decode/encode")
                 + argv[0]

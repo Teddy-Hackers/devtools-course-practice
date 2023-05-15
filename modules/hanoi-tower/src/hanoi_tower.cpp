@@ -25,10 +25,9 @@ void hanoi(int n, int from_rod, int to_rod, int aux_rod) {
     counter++;
     hanoi(n - 1, from_rod, aux_rod, to_rod);
     hanoi(n - 1, aux_rod, to_rod, from_rod);
-  }
-  throw std::string(
-      "'from rod'/'to rod'/'aux rod' - must be in the range from 1 to 3 "
-      "inclusive");
+  } else
+    throw std::string(
+        "'from rod'/'to rod'/'aux rod' - must be in the range from 1 to 3");
 }
 
 int tower_solve(int n, int from_rod, int to_rod, int aux_rod) {

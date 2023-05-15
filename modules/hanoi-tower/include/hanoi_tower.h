@@ -1,4 +1,4 @@
-// Copyright 2023 Binko Alexander
+// Copyright 2023 Binko Alexandr
 
 #ifndef MODULES_HANOI_TOWER_INCLUDE_HANOI_TOWER_H_
 #define MODULES_HANOI_TOWER_INCLUDE_HANOI_TOWER_H_

@@ -53,8 +53,6 @@ bool Ferma_primality_test(unsigned int N) {
 
     if (multiplier != 0 && multiplier != N) {
         return false;
-    } else {
-        return true;
     }
 
     std::mt19937 gen(N);
@@ -62,7 +60,7 @@ bool Ferma_primality_test(unsigned int N) {
 
     unsigned int k = 0;
     unsigned int X = 0;
-    while (multiplier == 0 || k < 10) {
+    while (multiplier == 0 && k < 10) {
         X = uid(gen);
         if (gcd(X, N) != 1) {
             multiplier = gcd(X, N);
@@ -76,7 +74,7 @@ bool Ferma_primality_test(unsigned int N) {
         k += 1;
     }
 
-    if (multiplier != N) {
+    if (multiplier != N  && multiplier != 0) {
         return false;
     } else {
         return true;

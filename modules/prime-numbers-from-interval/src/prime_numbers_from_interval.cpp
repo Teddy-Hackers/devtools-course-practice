@@ -69,12 +69,13 @@ bool Ferma_primality_test(unsigned int N) {
 
         if (ModExp(X, N - 1, N) != 1) {
             multiplier = N - 1;
+            break;
         }
 
         k += 1;
     }
 
-    if (multiplier != N  && multiplier != 0) {
+    if (multiplier != N && multiplier != 0) {
         return false;
     } else {
         return true;

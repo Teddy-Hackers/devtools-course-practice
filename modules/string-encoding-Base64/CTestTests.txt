@@ -1,0 +1,53 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_runnable
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_runnable PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_help works PROPERTIES
+    PASS_REGULAR_EXPRESSION "It is a string encoder/decoder into base64."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_check_arguments
+    COMMAND ${APPLICATION} 1
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Atleast 2 elements required"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_wrong_parameter
+    COMMAND ${APPLICATION} asdf
+)
+set_tests_properties (${prefix}_wrong_parameter PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not correct argument. Should be decode/encode"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_encode_correct_works
+    COMMAND ${APPLICATION} encode string
+)
+set_tests_properties (${prefix}_encode_correct_works
+    PASS_REGULAR_EXPRESSION "c3RyaW5n"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_decode_correct_works
+    COMMAND ${APPLICATION} decode c3RyaW5n
+)
+set_tests_properties (${prefix}_can_Decode_One_Word PROPERTIES
+    PASS_REGULAR_EXPRESSION "string"
+    LABELS "${MODULE}")

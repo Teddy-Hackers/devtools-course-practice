@@ -1,5 +1,5 @@
-set(MODULE      "${DIR_NAME}")
-set(LIBRARY     "lib_${MODULE}")
+set(MODULE "${DIR_NAME}")
+set(LIBRARY "lib_${MODULE}")
 set(TESTS "test_${MODULE}")
 set(APPLICATION "app_${MODULE}")
 

@@ -1,8 +1,8 @@
 // Copyright 2023 Yurin Evgeny
 
 #include <vector>
-#include "../include/encoder.h"
-#include "../include/encoder_application.h"
+#include "include/encoder.h"
+#include "include/encoder_application.h"
 
 void EncoderApplication::help(const char *appname) {
     std::string builder;

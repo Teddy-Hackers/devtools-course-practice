@@ -6,7 +6,7 @@
 
 class EncoderApplication {
  public:
-    EncoderApplication() =default;
+    EncoderApplication() = default;
 
     EncoderApplication(const EncoderApplication &ca) = delete;
 

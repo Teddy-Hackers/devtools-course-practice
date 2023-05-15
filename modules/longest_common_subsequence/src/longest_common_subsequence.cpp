@@ -25,7 +25,7 @@ get_longest_common_subsequence(const std::vector<int> &firstSequence,
 
     int index = lcsTable[firstLength][secondLength];
     std::vector<int> lcs;
-    lcs.reserve(index + 1);
+    lcs.resize(index + 1);
     lcs[index] = -1;
 
     int i = firstLength, j = secondLength;

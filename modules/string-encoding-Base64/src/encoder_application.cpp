@@ -1,7 +1,7 @@
 // Copyright 2023 Yurin Evgeny
 
 #include <vector>
-#include "include/encoder.h"
+#include "include/Encoder.h"
 #include "include/encoder_application.h"
 
 void EncoderApplication::help(const char *appname) {

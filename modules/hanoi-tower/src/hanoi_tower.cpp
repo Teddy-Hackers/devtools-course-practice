@@ -1,6 +1,5 @@
 // Copyright 2023 Binko Alexandr
 
-
 #include "include/hanoi_tower.h"
 
 #include <iostream>

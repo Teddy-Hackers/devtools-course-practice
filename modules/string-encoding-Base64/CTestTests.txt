@@ -12,11 +12,11 @@ set_tests_properties (${prefix}_runnable PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_Without_Arguments
+    NAME ${prefix}_help_works
     COMMAND ${APPLICATION}
 )
 
-set_tests_properties (${prefix}_help works PROPERTIES
+set_tests_properties (${prefix}_help_works PROPERTIES
     PASS_REGULAR_EXPRESSION "It is a string encoder/decoder into base64."
     LABELS "${MODULE}")
 
@@ -24,7 +24,7 @@ add_test(
     NAME ${prefix}_check_arguments
     COMMAND ${APPLICATION} 1
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties (${prefix}_check_arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "Atleast 2 elements required"
     LABELS "${MODULE}")
 
@@ -48,6 +48,6 @@ add_test(
     NAME ${prefix}_decode_correct_works
     COMMAND ${APPLICATION} decode c3RyaW5n
 )
-set_tests_properties (${prefix}_can_Decode_One_Word PROPERTIES
+set_tests_properties (${prefix}_decode_correct_works PROPERTIES
     PASS_REGULAR_EXPRESSION "string"
     LABELS "${MODULE}")

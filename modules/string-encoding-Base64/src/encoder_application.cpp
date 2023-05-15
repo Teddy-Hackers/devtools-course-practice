@@ -33,7 +33,9 @@ bool EncoderApplication::validateArguments(int argc, const char **argv) {
         return false;
     }
 
-    if (!strcmp(argv[1], "encode") || !strcmp(argv[1], "decode")) {
+    std::string typeArgument = argv[1];
+
+    if (typeArgument != "encode") || typeArgument != "decode") {
         m_message =
                 std::string("Not correct argument. Should be decode/encode")
                 + argv[0]
@@ -52,7 +54,9 @@ std::string EncoderApplication::operator()(int argc, const char **argv) {
     std::string result;
     std::string input = argv[2];
 
-    if (strcmp(argv[1], "encode") {
+    std::string typeArgument = argv[1];
+
+    if (typeArgument == "encode") {
         result = encoder.strToBase64(input);
     } else {
         result = encoder.base64ToStr(input);

@@ -48,10 +48,13 @@ std::string EncoderApplication::operator()(int argc, const char **argv) {
     }
 
     bool encode = false;
-    if (argv[1] == "encode") {
-        encode = true;
-    } else if (argv[1] == "decode") {
-        encode = false;
+    switch (argv[1]) {
+        case "encode":
+            encode = true;
+            break;
+        case "decode":
+            encode = false;
+            break;
     }
 
     Base64Encoder encoder;

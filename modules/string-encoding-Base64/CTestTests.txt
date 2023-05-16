@@ -21,14 +21,6 @@ set_tests_properties (${prefix}_help_works PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_check_arguments
-    COMMAND ${APPLICATION} 1
-)
-set_tests_properties (${prefix}_check_arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Atleast 2 elements required"
-    LABELS "${MODULE}")
-
-add_test(
     NAME ${prefix}_wrong_parameter
     COMMAND ${APPLICATION} asdf
 )

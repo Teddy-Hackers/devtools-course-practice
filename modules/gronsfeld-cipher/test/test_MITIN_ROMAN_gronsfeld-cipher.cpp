@@ -75,7 +75,7 @@ TEST(gronsfeld_cipher, shift_allalphabet_code) {
 }
 
 TEST(gronsfeld_cipher, decode_code_all_alphabet) {
-    // Arrange   
+    // Arrange
     gronsfeld_cipher_t cipher({1, 5, 2, 0, 10});
     std::string s;
     s.resize(26);

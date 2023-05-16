@@ -12,9 +12,6 @@ double parseInt(const char* arg) {
     if (std::string(arg).find_first_not_of("0123456789-+")
         == std::string::npos) {
         value = std::atoi(arg);
-        if (value == 0 && std::string(arg) != "0") {
-            throw std::string("Wrong number format!");
-        }
     } else {
         throw std::string("Wrong number format!");
     }

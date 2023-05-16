@@ -8,14 +8,12 @@
 
 #include "include/gronsfeld_cipher.hpp"
 
-TEST(gronsfeld_cipher, constructable_with_initlist)
-{
+TEST(gronsfeld_cipher, constructable_with_initlist) {
     // Act and Assert
     EXPECT_NO_THROW(gronsfeld_cipher_t cipher({1, 2, 3}));
 }
 
-TEST(gronsfeld_cipher, vector_constructable)
-{
+TEST(gronsfeld_cipher, vector_constructable) {
     // Arrange
     std::vector<uint8_t> vec{3, 2, 1};
 
@@ -23,8 +21,7 @@ TEST(gronsfeld_cipher, vector_constructable)
     EXPECT_NO_THROW(gronsfeld_cipher_t cipher(vec));
 }
 
-TEST(gronsfeld_cipher, to_big_val_in_vector_throw_in_ctor)
-{
+TEST(gronsfeld_cipher, to_big_val_in_vector_throw_in_ctor) {
     // Arrange
     std::vector<uint8_t> vec{0, 50, 20};
 
@@ -32,22 +29,20 @@ TEST(gronsfeld_cipher, to_big_val_in_vector_throw_in_ctor)
     EXPECT_ANY_THROW(gronsfeld_cipher_t cipher(vec));
 }
 
-TEST(gronsfeld_cipher, one_letter_code)
-{
-    // Arrange   
+TEST(gronsfeld_cipher, one_letter_code) {
+    // Arrange
     uint8_t shift = 10;
     gronsfeld_cipher_t cipher({shift});
     char letter = 'a';
 
-    // Act 
+    // Act
     std::string code = cipher.code({letter});
 
-    //Assert
+    // Assert
     EXPECT_EQ(code[0], 'a' + shift);
 }
 
-TEST(gronsfeld_cipher, shift_manyletters_code)
-{
+TEST(gronsfeld_cipher, shift_manyletters_code) {
     // Arrange   
     gronsfeld_cipher_t cipher({1});
     std::string s;
@@ -62,8 +57,7 @@ TEST(gronsfeld_cipher, shift_manyletters_code)
     EXPECT_EQ(code, s);
 }
 
-TEST(gronsfeld_cipher, shift_allalphabet_code)
-{
+TEST(gronsfeld_cipher, shift_allalphabet_code) {
     // Arrange   
     uint8_t shift = 1;
     gronsfeld_cipher_t cipher({shift});
@@ -76,12 +70,11 @@ TEST(gronsfeld_cipher, shift_allalphabet_code)
     std::iota(s.begin(), prev(s.end(), shift), 'b');
     std::iota(prev(s.end(), shift), s.end(), 'a');
 
-    //Assert
+    // Assert
     EXPECT_EQ(code, s);
 }
 
-TEST(gronsfeld_cipher, decode_code_all_alphabet)
-{
+TEST(gronsfeld_cipher, decode_code_all_alphabet) {
     // Arrange   
     gronsfeld_cipher_t cipher({1, 5, 2, 0, 10});
     std::string s;
@@ -92,6 +85,6 @@ TEST(gronsfeld_cipher, decode_code_all_alphabet)
     std::string code = cipher.code(s);
     std::string decode = cipher.decode(code);
 
-    //Assert
+    // Assert
     EXPECT_EQ(decode, s);
 }

@@ -11,7 +11,7 @@ gronsfeld_cipher_t::gronsfeld_cipher_t(const std::vector<uint8_t> &new_key)
             throw std::exception{};
 }
 
-std::string gronsfeld_cipher_t::code_impl(const std::string to_code, bool is_code)
+std::string gronsfeld_cipher_t::code_impl(const std::string& to_code, bool is_code)
 {
     size_t ksize = key.size();
     std::string res;
@@ -30,12 +30,12 @@ std::string gronsfeld_cipher_t::code_impl(const std::string to_code, bool is_cod
     return res;
 }
 
-std::string gronsfeld_cipher_t::code(const std::string to_code)
+std::string gronsfeld_cipher_t::code(const std::string& to_code)
 {
     return code_impl(to_code, true);
 }
 
-std::string gronsfeld_cipher_t::decode(const std::string to_decode)
+std::string gronsfeld_cipher_t::decode(const std::string& to_decode)
 {
     return code_impl(to_decode, false);
 }

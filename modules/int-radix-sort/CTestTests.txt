@@ -29,6 +29,14 @@
         LABELS "${MODULE}")
 
     add_test(
+                NAME ${prefix}_can_Detect_Wrong_Number_Format_2
+                COMMAND ${APPLICATION} 3 1 ps 3
+            )
+    set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_2 PROPERTIES
+        PASS_REGULAR_EXPRESSION "Wrong number format!"
+        LABELS "${MODULE}")
+
+    add_test(
                 NAME ${prefix}_can_Sort
                 COMMAND ${APPLICATION} 3 4 1 3
             )

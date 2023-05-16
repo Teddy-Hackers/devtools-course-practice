@@ -14,10 +14,10 @@ class gronsfeld_cipher_t {
     std::string code_impl(const std::string& to_code, bool is_code);
 
 public:
-    explicit gronsfeld_cipher_t(const std::vector<uint8_t>& new_key);
-    
+
+    explicit gronsfeld_cipher_t(const std::vector<uint8_t>& new_key);    
     std::string code(const std::string& to_code);
     std::string decode(const std::string& to_decode);
 };
 
-#endif // MODULES_GRONSFELD_CIPHER_INCLUDE_GRONSFELD_CIPHER_HPP_
+#endif  //  MODULES_GRONSFELD_CIPHER_INCLUDE_GRONSFELD_CIPHER_HPP_

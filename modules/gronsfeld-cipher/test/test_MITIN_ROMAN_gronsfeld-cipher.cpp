@@ -43,29 +43,29 @@ TEST(gronsfeld_cipher, one_letter_code) {
 }
 
 TEST(gronsfeld_cipher, shift_manyletters_code) {
-    // Arrange   
+    // Arrange
     gronsfeld_cipher_t cipher({1});
     std::string s;
     s.resize(26);
     std::fill(s.begin(), s.end(), 'a');
 
-    // Act 
+    // Act
     std::string code = cipher.code(s);
     std::fill(s.begin(), s.end(), 'b');
 
-    //Assert
+    // Assert
     EXPECT_EQ(code, s);
 }
 
 TEST(gronsfeld_cipher, shift_allalphabet_code) {
-    // Arrange   
+    // Arrange
     uint8_t shift = 1;
     gronsfeld_cipher_t cipher({shift});
     std::string s;
     s.resize(26);
     std::iota(s.begin(), s.end(), 'a');
 
-    // Act 
+    // Act
     std::string code = cipher.code(s);
     std::iota(s.begin(), prev(s.end(), shift), 'b');
     std::iota(prev(s.end(), shift), s.end(), 'a');
@@ -81,7 +81,7 @@ TEST(gronsfeld_cipher, decode_code_all_alphabet) {
     s.resize(26);
     std::iota(s.begin(), s.end(), 'a');
 
-    // Act 
+    // Act
     std::string code = cipher.code(s);
     std::string decode = cipher.decode(code);
 

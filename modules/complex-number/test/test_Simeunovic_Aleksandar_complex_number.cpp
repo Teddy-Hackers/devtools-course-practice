@@ -44,3 +44,14 @@ TEST(Simeunovic_Aleksandar_ComplexNumberTest, NotEqual_Test) {
     ComplexNumber z2(re2, im2);
     EXPECT_TRUE(z1 != z2);
 }
+TEST(Simeunovic_Aleksandar_ComplexNumberTest, Add_Test) {
+    double re1 = 8.8;
+    double im1 = 2.2;
+    double re2 = -4.5;
+    double im2 = -1.1;
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber z3 = z1 + z2;
+    EXPECT_EQ(z1.getRe() + z2.getRe(), z3.getRe());
+    EXPECT_EQ(z1.getIm() + z2.getIm(), z3.getIm());
+}

@@ -27,3 +27,11 @@ TEST(Simeunovic_Aleksandar_ComplexNumberTest, Multiplication_Test) {
     EXPECT_EQ(re1 * re2 - im1 * im2, z3.getRe());
     EXPECT_EQ(re1 * im2 + re2 * im1, z3.getIm());
 }
+TEST(Simeunovic_Aleksandar_ComplexNumberTest, CopyConstructor_Test) {
+    double re = 3.4;
+    double im = 5.0;
+    ComplexNumber z1(re, im);
+    ComplexNumber z2 = z1;
+    EXPECT_EQ(z1.getRe(), z2.getRe());
+    EXPECT_EQ(z1.getIm(), z2.getIm());
+}

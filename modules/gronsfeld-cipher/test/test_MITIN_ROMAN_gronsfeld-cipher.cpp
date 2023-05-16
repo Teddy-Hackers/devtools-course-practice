@@ -52,12 +52,11 @@ TEST(gronsfeld_cipher, shift_allalpha_bet_code)
     gronsfeld_cipher_t cipher({1});
     std::string s;
     s.resize(26);
-    std::iota(s.begin(), s.end(), 'a');
+    std::fill(s.begin(), s.end(), 'a');
 
     // Act 
     std::string code = cipher.code(s);
-    std::iota(s.begin(), s.end(), 'b');
-    s.back() = 'a';
+    std::fill(s.begin(), s.end(), 'b');
 
     //Assert
     EXPECT_EQ(code, s);

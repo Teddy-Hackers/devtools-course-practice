@@ -35,3 +35,12 @@ TEST(Simeunovic_Aleksandar_ComplexNumberTest, CopyConstructor_Test) {
     EXPECT_EQ(z1.getRe(), z2.getRe());
     EXPECT_EQ(z1.getIm(), z2.getIm());
 }
+TEST(Simeunovic_Aleksandar_ComplexNumberTest, NotEqual_Test) {
+    double re1 = 2.5;
+    double im1 = 5.6;
+    double re2 = 2.5;
+    double im2 = 6.1;
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    EXPECT_TRUE(z1 != z2);
+}

@@ -24,14 +24,6 @@ bool EncoderApplication::validateArguments(int argc, const char **argv) {
         return false;
     }
 
-    if (argc < 3) {
-        m_message =
-                std::string("Atleast 2 elements required")
-                + argv[0]
-                + "` to see help";
-        return false;
-    }
-
     std::string typeArgument = argv[1];
 
     if (typeArgument != "encode" && typeArgument != "decode") {

@@ -1,0 +1,29 @@
+// Copyright 2023 Simeunovic Aleksandar
+
+#include <gtest/gtest.h>
+
+#include "include/complex_number.h"
+
+TEST(Simeunovic_Aleksandar_ComplexNumberTest, Can_Create_Complex_Test) {
+    // Arrange
+    double re = 3.0;
+    double im = 4.5;
+
+    // Act
+    ComplexNumber z(re, im);
+
+    // Assert
+    EXPECT_EQ(re, z.getRe());
+    EXPECT_EQ(im, z.getIm());
+}
+TEST(Simeunovic_Aleksandar_ComplexNumberTest, Multiplication_Test) {
+    double re1 = 3.5;
+    double im1 = -1.2;
+    double re2 = 2.33;
+    double im2 = 1.0;
+    ComplexNumber z1(re1, im1);
+    ComplexNumber z2(re2, im2);
+    ComplexNumber z3 = z1 * z2;
+    EXPECT_EQ(re1 * re2 - im1 * im2, z3.getRe());
+    EXPECT_EQ(re1 * im2 + re2 * im1, z3.getIm());
+}

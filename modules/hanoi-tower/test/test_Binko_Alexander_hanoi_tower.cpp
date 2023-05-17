@@ -27,3 +27,13 @@ TEST(Binko_Alexander_HanoiTowerTest, TEST_STEP2) {
   int expected = 63;
   ASSERT_EQ(expected, res);
 }
+
+TEST(Binko_Alexander_HanoiTowerTest, TEST_ROD) {
+  int n(4), from_rod(2), to_rod(1), aux_rod(1);
+  ASSERT_THROW(tower_solve(n, from_rod, to_rod, aux_rod), std::string);
+}
+
+TEST(Binko_Alexander_HanoiTowerTest, TEST_ROD) {
+  int n(4), from_rod(2), to_rod(3), aux_rod(2);
+  ASSERT_THROW(tower_solve(n, from_rod, to_rod, aux_rod), std::string);
+}

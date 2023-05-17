@@ -37,5 +37,7 @@ int tower_solve(int n, int from_rod, int to_rod, int aux_rod) {
   } catch (std::string str) {
     throw std::string(str);
   }
-  return counter;
+  int result = counter;
+  counter = 1;
+  return result;
 }

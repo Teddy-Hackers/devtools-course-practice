@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-static int counter = 0;
+static int counter = 1;
 
 void hanoi(int n, int from_rod, int to_rod, int aux_rod) {
   if (from_rod < 4 && from_rod > 0 && to_rod < 4 && to_rod > 0 && aux_rod < 4 &&
@@ -23,6 +23,7 @@ void hanoi(int n, int from_rod, int to_rod, int aux_rod) {
     }
     counter++;
     hanoi(n - 1, from_rod, aux_rod, to_rod);
+    counter++;
     hanoi(n - 1, aux_rod, to_rod, from_rod);
   } else {
     throw std::string(

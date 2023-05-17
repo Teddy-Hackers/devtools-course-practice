@@ -6,27 +6,26 @@
 #include <string>
 #include <algorithm>
 
-class Code_vijener
-{
-public:
-	Code_vijener();
-	Code_vijener(const std::string _code_str, const std::string _key);
-	Code_vijener(Code_vijener& buf);
+class Code_vijener {
+ public:
+  Code_vijener();
+  Code_vijener(const std::string _code_str, const std::string _key);
+  Code_vijener(const Code_vijener& buf);
 
-	std::string GetKey();
-	std::string GetCodeStr();
+  std::string GetKey();
+  std::string GetCodeStr();
 
-	void SetKey(const std::string _key);
-	void SetCodeStr(const std::string _code_str);
-	int KeyCode(char s);
+  void SetKey(const std::string _key);
+  void SetCodeStr(const std::string _code_str);
+  int KeyCode(char s);
 
-	//~Code_vijener();
-	std::string Encoder();
-	std::string Decoder();
+  // ~Code_vijener();
+  std::string Encoder();
+  std::string Decoder();
 
-private:
-	std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	std::string code_str, key;
+ private:
+  std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  std::string code_str, key;
 };
 
 

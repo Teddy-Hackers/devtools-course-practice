@@ -2,7 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include "include/Calculator.h"
 #include "include/Converter.h"
 TEST(RomanNumeralConverterTest, CanConvertArabicToRoman) {
   EXPECT_EQ("I", toRoman(1));

@@ -12,6 +12,13 @@ TEST(kosterin_a_CodeVijenerTest, True_key_and_code_str_String) {
     EXPECT_EQ(code.GetCodeStr(), "STR");
     EXPECT_EQ(code.GetKey(), "KEY");
 }
+TEST(kosterin_a_CodeVijenerTest, Test_SetKey_and_SetCode_str_String) {
+    Code_vijener code("w", "q");
+    code.SetCodeStr("str");
+    code.SetKey("key");
+    EXPECT_EQ(code.GetCodeStr(), "STR");
+    EXPECT_EQ(code.GetKey(), "KEY");
+}
 
 TEST(kosterin_a_CodeVijenerTest, Test_Default_Constructor) {
     ASSERT_NO_THROW(Code_vijener code);

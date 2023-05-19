@@ -26,11 +26,11 @@ Code_vijener::Code_vijener(const std::string _code_str,
 
 
 
-std::string Code_vijener::GetCodeStr() {
+const std::string& Code_vijener::GetCodeStr() {
     return code_str;
 }
 
-std::string Code_vijener::GetKey() {
+const std::string& Code_vijener::GetKey() {
     return key;
 }
 

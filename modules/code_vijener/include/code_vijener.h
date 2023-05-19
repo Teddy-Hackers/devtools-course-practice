@@ -12,8 +12,8 @@ class Code_vijener {
   Code_vijener(const std::string _code_str, const std::string _key);
   Code_vijener(const Code_vijener& buf);
 
-  std::string GetKey();
-  std::string GetCodeStr();
+  const std::string& GetKey();
+  const std::string& GetCodeStr();
 
   void SetKey(const std::string _key);
   void SetCodeStr(const std::string _code_str);

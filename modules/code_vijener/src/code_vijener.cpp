@@ -40,7 +40,7 @@ Code_vijener::Code_vijener(const Code_vijener& buf) {
 }
 
 int Code_vijener::KeyCode(char s) {
-    for (int i = 0; i < alphabet.length(); i++) {
+    for (size_t i = 0; i < alphabet.length(); i++) {
         if (s == alphabet[i]) {
             return i;
         }
@@ -50,7 +50,7 @@ int Code_vijener::KeyCode(char s) {
 
 std::string Code_vijener::Encoder() {
     std::string result;
-    for (int i = 0; i < code_str.length(); i++) {
+    for (size_t i = 0; i < code_str.length(); i++) {
         result += alphabet[(KeyCode(code_str[i]) +
             KeyCode(key[i % key.length()])) % alphabet.length()];
     }
@@ -59,7 +59,7 @@ std::string Code_vijener::Encoder() {
 
 std::string Code_vijener::Decoder() {
     std::string result;
-    for (int i = 0; i < code_str.length(); i++) {
+    for (size_t i = 0; i < code_str.length(); i++) {
         result += alphabet[(KeyCode(code_str[i]) -
             KeyCode(key[i % key.length()])
             + alphabet.length()) % alphabet.length()];

@@ -18,7 +18,7 @@ static void print_help() {
     std::cout<< "If no number is specified, this message will be print\n";
 }
 
-static std::vector<int64_t> parse(int argc,const char* const* argv) {
+static std::vector<int64_t> parse(int argc, const char* const* argv) {
     assert(argc > 1);
     std::vector<int64_t> result(argc - 1);
     int64_t tmp_res;
@@ -56,7 +56,7 @@ static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
     return 0;
 }
 
-int application_t::run(int argc,const char* const* argv) {
+int application_t::run(int argc, const char* const* argv) {
     if (argc < 2) {
         print_help();
         return 0;

@@ -1,3 +1,4 @@
+// Copyright 2023 Mitin Roman
 #include <iostream>
 #include "include/euler_function_app.hpp"
 

@@ -1,3 +1,4 @@
+// Copyright 2023 Mitin Roman
 #pragma once
 
 class application_t

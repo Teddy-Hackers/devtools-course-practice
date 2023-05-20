@@ -6,6 +6,7 @@
 #include <string>
 #include <cinttypes>
 #include <cstdlib>
+#include <sstream>
 #include <cassert>
 
 static void print_help() {
@@ -17,7 +18,7 @@ static void print_help() {
     std::cout<< "If no number is specified, this message will be print\n";
 }
 
-static std::vector<int64_t> parse(int argc, char* argv[]) {
+static std::vector<int64_t> parse(int argc,const char* const* argv) {
     assert(argc > 1);
     std::vector<int64_t> result(argc - 1);
     int64_t tmp_res;
@@ -25,8 +26,9 @@ static std::vector<int64_t> parse(int argc, char* argv[]) {
     for (int i = 1; i < argc; i++) {
         tmp_res = std::atoi(argv[i]);
         if (tmp_res == 0 && argv[i] != std::string("0")) {
-            std::cerr << "Not a number in " << i << " argument";
-            std::exit(1);
+            std::stringstream err_message;
+            err_message << "Not a number in " << i << " argument\n";
+            throw std::runtime_error(err_message.str());
         }
 
         result[i - 1] = tmp_res;
@@ -54,13 +56,21 @@ static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
     return 0;
 }
 
-int application_t::run(int argc, char* argv[]) {
+int application_t::run(int argc,const char* const* argv) {
     if (argc < 2) {
         print_help();
         return 0;
     }
 
-    std::vector<int64_t> num_to_calc = parse(argc, argv);
+    std::vector<int64_t> num_to_calc;
+
+    try {
+        num_to_calc = parse(argc, argv);
+    }
+    catch(const std::exception& e) {
+        std::cerr << e.what() << '\n';
+        return 1;
+    }
 
     return calc_and_print_result(num_to_calc);
 }

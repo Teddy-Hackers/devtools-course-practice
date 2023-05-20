@@ -5,7 +5,7 @@ class application_t {
  public:
     application_t() = default;
 
-    int run(int argc, char* argv[]);
+    int run(int argc,const char* const * argv);
 
     ~application_t() = default;
 };

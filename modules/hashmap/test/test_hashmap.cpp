@@ -135,7 +135,7 @@ TEST(Hashmap, Insert_Into_Completed_Hashmap) {
 }
 
 TEST(Hashmap, Insert_Hashmap_Of_Existing_Entry) {
-    hashmap THash(2);
+    hashmap THash(3);
     THash.InsRecord("5", 20);
     THash.InsRecord("6", 21);
     ASSERT_ANY_THROW(THash.InsRecord("6", 21));

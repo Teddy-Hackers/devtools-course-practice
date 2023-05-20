@@ -9,7 +9,7 @@
 #include <sstream>
 #include <cassert>
 
-static void print_help() {
+void application_t::print_help() {
     std::cout << "-------------- Euler function application ---------------\n";
     std::cout << "This application is used for calculate euler function " <<
     "from number that passed through command line\n";
@@ -18,7 +18,7 @@ static void print_help() {
     std::cout<< "If no number is specified, this message will be print\n";
 }
 
-static std::vector<int64_t> parse(int argc, const char* const* argv) {
+std::vector<int64_t> application_t::parse(int argc, const char* const* argv) {
     assert(argc > 1);
     std::vector<int64_t> result(argc - 1);
     int64_t tmp_res;
@@ -37,7 +37,9 @@ static std::vector<int64_t> parse(int argc, const char* const* argv) {
     return result;
 }
 
-static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
+static bool have_err = false;
+
+int application_t::calc_and_print_result(std::vector<int64_t> num_to_calc) {
     std::cout << "Let euler function(num) = phi(num)\n";
     std::cout << "Printing result: \n";
     int64_t tmp_res = 0;
@@ -50,6 +52,7 @@ static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
+        have_err = true;
         return 1;
     }
 
@@ -69,8 +72,10 @@ int application_t::run(int argc, const char* const* argv) {
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
-        return 1;
     }
+
+    if(have_err)
+        return 1;
 
     return calc_and_print_result(num_to_calc);
 }

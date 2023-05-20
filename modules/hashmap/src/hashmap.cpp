@@ -30,8 +30,7 @@ hashmap::hashmap(const hashmap& Table_) {
     for (int i = 0; i < TabSize; i++) {
         if (Table_.pRecs[i] == nullptr || Table_.pRecs[i] == Table_.pMark) {
             pRecs[i] = nullptr;
-        }
-        else {
+        } else {
             pRecs[i] = new TabRecord(*(Table_.pRecs[i]));
         }
     }
@@ -41,7 +40,7 @@ int hashmap::HashFunc(const std::string key_) {
     int hashval = 0;
     int Len = key_.size();
     for (int i = 0; i < Len; i++) {
-        hashval = (hashval << 3) + int(key_[i]);
+        hashval = (hashval << 3) + static_cast(key_[i]);
     }
     return hashval;
 }
@@ -54,12 +53,10 @@ double* hashmap::FindRecord(const std::string key_) {
     for (int i = 0; i < TabSize; i++) {
         if (pRecs[CurrPos] == nullptr) {
             break;
-        }
-        else {
+        } else {
             if (pRecs[CurrPos] == pMark) {
                 if (FreePos == -1) FreePos = CurrPos;
-            }
-            else {
+            } else {
                 if (pRecs[CurrPos]->GetKey() == key_) {
                     pValue = pRecs[CurrPos]->GetData();
                     break;
@@ -80,8 +77,7 @@ void hashmap::InsRecord(const std::string key_, const double data_) {
         if (FreePos != -1) CurrPos = FreePos;
         pRecs[CurrPos] = new TabRecord(key_, data_);
         DataCount++;
-    }
-    else {
+    } else {
         throw "error";
     }
 }
@@ -93,8 +89,7 @@ void hashmap::DelRecord(const std::string key_) {
     double* tmp = FindRecord(key_);
     if (tmp == nullptr) {
         throw "error";
-    }
-    else {
+    } else {
         delete pRecs[CurrPos];
         pRecs[CurrPos] = pMark;
         DataCount--;

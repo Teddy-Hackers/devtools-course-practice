@@ -7,16 +7,16 @@
 #include <iostream>
 
 class TabRecord {
-protected:
+protected: 
     std::string Key;
     double* Data;
 
-public:
+public: 
     TabRecord(std::string key_, double data_) {
         Key = key_;
         Data = new double(data_);
     }
-    TabRecord(std::string key_) {
+    explicit TabRecord(std::string key_) {
         Key = key_;
         Data = nullptr;
     }
@@ -40,7 +40,7 @@ public:
 };
 
 class hashmap {
-public:
+public: 
     int DataCount;
     TabRecord** pRecs;
     int TabSize;
@@ -50,12 +50,12 @@ public:
     int FreePos;
 
     hashmap();
-    hashmap(int Size_ = 40, int Step_ = 7);
+    explicit hashmap(int Size_ = 40, int Step_ = 7);
     hashmap(const hashmap& Table_);
-    ~hashmap() {};
+    ~hashmap() {}
 
     int HashFunc(const std::string key_);
-    int GetNextPos(int pos) { return (pos + HashStep) % TabSize; };
+    int GetNextPos(int pos) { return (pos + HashStep) % TabSize; }
 
     std::string GetKey() const { return GetKey(1); }
     double* GetData() const { return GetData(1); }
@@ -64,7 +64,7 @@ public:
 
     int GetDataCount() const { return DataCount; }
     int IsEmpty() const { return DataCount == 0; }
-    virtual int IsTabEnded() const { return CurrPos >= TabSize; };
+    virtual int IsTabEnded() const { return CurrPos >= TabSize; }
 
     double* FindRecord(const std::string key_);
     void InsRecord(const std::string key_, const double data_);

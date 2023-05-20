@@ -6,11 +6,11 @@
 #include <string>
 #include <cinttypes>
 #include <cstdlib>
-#include <cassert> 
+#include <cassert>
 
 static void print_help() {
-    std::cout << "---------------- Euler function application -----------------\n";
-    std::cout << "This application is used for calculate euler function " << 
+    std::cout << "-------------- Euler function application ---------------\n";
+    std::cout << "This application is used for calculate euler function " <<
     "from number that passed through command line\n";
     std::cout << "Input argument must be in the following form:\n";
     std::cout<< "app [number_1] [number_2] [number_3] ... \n";
@@ -22,12 +22,11 @@ static std::vector<int64_t> parse(int argc, char* argv[]) {
     std::vector<int64_t> result(argc - 1);
     int64_t tmp_res;
 
-    for(int i = 1; i < argc; i++) {
+    for (int i = 1; i < argc; i++) {
         tmp_res = std::atoi(argv[i]);
-        if(tmp_res == 0 && argv[i] != std::string("0"))
-        {
+        if (tmp_res == 0 && argv[i] != std::string("0")) {
             std::cerr << "Not a number in " << i << " argument";
-            std::exit(1); 
+            std::exit(1);
         }
 
         result[i - 1] = tmp_res;
@@ -37,7 +36,6 @@ static std::vector<int64_t> parse(int argc, char* argv[]) {
 }
 
 static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
-
     std::cout << "Let euler function(num) = phi(num)\n";
     std::cout << "Printing result: \n";
     int64_t tmp_res = 0;
@@ -48,8 +46,7 @@ static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
             std::cout << "phi(" << num_to_calc[i] << ") = " << tmp_res << '\n';
         }
     }
-    catch(const std::exception& e)
-    {
+    catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
         return 1;
     }
@@ -58,7 +55,7 @@ static int calc_and_print_result(std::vector<int64_t> num_to_calc) {
 }
 
 int application_t::run(int argc, char* argv[]) {
-    if(argc < 2) {
+    if (argc < 2) {
         print_help();
         return 0;
     }

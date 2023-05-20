@@ -74,6 +74,13 @@ TEST(Hashmap, Reset_Throw) {
     ASSERT_NO_THROW(THash.Reset());
 }
 
+TEST(Hashmap, HashFunc_Throw) {
+    hashmap THash(3);
+    THash.InsRecord("5", 10);
+    THash.InsRecord("2", 11);
+    ASSERT_NO_THROW(THash.HashFunc("5"));
+}
+
 TEST(Hashmap, InsRecord_NoThrow) {
     hashmap TH(2);
     ASSERT_NO_THROW(TH.InsRecord("4", 12));

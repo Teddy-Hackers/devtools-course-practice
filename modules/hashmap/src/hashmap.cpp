@@ -37,6 +37,15 @@ hashmap::hashmap(const hashmap& Table_) {
     }
 }
 
+int hashmap::HashFunc(const std::string key_) {
+    int hashval = 0;
+    int Len = key_.size();
+    for (int i = 0; i < Len; i++) {
+        hashval = (hashval << 3) + static_cast <int>(key_[i]);
+    }
+    return hashval;
+}
+
 double* hashmap::FindRecord(const std::string key_) {
     Reset();
     FreePos = -1;

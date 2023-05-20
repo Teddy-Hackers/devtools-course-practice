@@ -1,5 +1,7 @@
 // Copyright 2023 Mitin Roman
 #pragma once
+#include <vector>
+#include <cinttypes>
 
 class application_t {
     static void print_help();

@@ -4,7 +4,7 @@
 
 hashmap::hashmap(int size_, int step_) {
     if (size_ <= 0)
-        throw "error";
+        throw "Hashmap is empty";
 
     pRecs = new TabRecord * [size_];
     TabSize = size_;
@@ -71,7 +71,7 @@ double* hashmap::FindRecord(const std::string key_) {
 
 void hashmap::InsRecord(const std::string key_, const double data_) {
     if (IsFull()) {
-        throw "error";
+        throw "Hashmap is full";
     }
 
     if ((FindRecord(key_) == nullptr)) {
@@ -79,17 +79,17 @@ void hashmap::InsRecord(const std::string key_, const double data_) {
         pRecs[CurrPos] = new TabRecord(key_, data_);
         DataCount++;
     } else {
-        throw "error";
+        throw "This entry already exists";
     }
 }
 
 void hashmap::DelRecord(const std::string key_) {
-    if (IsEmpty()) throw "error";
+    if (IsEmpty()) throw "Hashmap is empty";
 
     Reset();
     double* tmp = FindRecord(key_);
     if (tmp == nullptr) {
-        throw "error";
+        throw "No such entry exists";
     } else {
         delete pRecs[CurrPos];
         pRecs[CurrPos] = pMark;
@@ -108,7 +108,7 @@ void hashmap::Reset() {
 }
 
 void hashmap::GoNext() {
-    if (IsTabEnded()) throw "Error";
+    if (IsTabEnded()) throw "Going abroad";
     while (++CurrPos < TabSize)
         if ((pRecs[CurrPos] != nullptr) && (pRecs[CurrPos] != pMark)) break;
 }
@@ -116,7 +116,7 @@ void hashmap::GoNext() {
 std::string hashmap::GetKey(int mode) const {
     int pos = -1;
     if (IsEmpty()) {
-        throw "Error";
+        throw "Hashmap is empty";
     }
     switch (mode) {
     case 0:
@@ -135,7 +135,7 @@ std::string hashmap::GetKey(int mode) const {
 double* hashmap::GetData(int mode) const {
     int pos = -1;
     if (IsEmpty()) {
-        throw "Error";
+        throw "Hashmap is empty";
     }
     switch (mode) {
     case 0:

@@ -11,7 +11,7 @@ class TabRecord {
     std::string Key;
     double* Data;
 
- public: 
+ public:
     TabRecord(std::string key_, double data_) {
         Key = key_;
         Data = new double(data_);
@@ -40,7 +40,7 @@ class TabRecord {
 };
 
 class hashmap {
- public: 
+ public:
     int DataCount;
     TabRecord** pRecs;
     int TabSize;

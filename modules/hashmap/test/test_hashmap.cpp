@@ -81,7 +81,7 @@ TEST(Hashmap, GetData_Last_Pos) {
     THash.InsRecord("5", 10);
     THash.InsRecord("2", 11);
     THash.InsRecord("1", 12);
-    ASSERT_NO_THROW(*THash.GetData(2));
+    ASSERT_NO_THROW(THash.GetData(2));
 }
 
 TEST(Hashmap, GetData_First_Pos) {
@@ -89,7 +89,7 @@ TEST(Hashmap, GetData_First_Pos) {
     THash.InsRecord("5", 10);
     THash.InsRecord("2", 11);
     THash.InsRecord("1", 12);
-    ASSERT_NO_THROW(*THash.GetData(0));
+    ASSERT_NO_THROW(THash.GetData(0));
 }
 
 TEST(Hashmap, GoNext_In_Hashmap) {

@@ -74,7 +74,7 @@ int application_t::run(int argc, const char* const* argv) {
         std::cerr << e.what() << '\n';
     }
 
-    if(have_err)
+    if (have_err)
         return 1;
 
     return calc_and_print_result(num_to_calc);

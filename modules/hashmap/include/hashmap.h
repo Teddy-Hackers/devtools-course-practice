@@ -54,7 +54,6 @@ class hashmap {
     hashmap(const hashmap& Table_);
     ~hashmap() {}
 
-    int HashFunc(const std::string key_);
     int GetNextPos(int pos) { return (pos + HashStep) % TabSize; }
 
     std::string GetKey() const { return GetKey(1); }

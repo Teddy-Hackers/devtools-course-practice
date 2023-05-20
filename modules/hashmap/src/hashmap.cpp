@@ -3,7 +3,8 @@
 #include "include/hashmap.h"
 
 hashmap::hashmap(int size_, int step_) {
-    if (size_ <= 0) throw "error";
+    if (size_ <= 0)
+        throw "error";
 
     pRecs = new TabRecord * [size_];
     TabSize = size_;

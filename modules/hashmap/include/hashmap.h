@@ -7,11 +7,11 @@
 #include <iostream>
 
 class TabRecord {
-protected: 
+ protected:
     std::string Key;
     double* Data;
 
-public: 
+ public: 
     TabRecord(std::string key_, double data_) {
         Key = key_;
         Data = new double(data_);
@@ -40,7 +40,7 @@ public:
 };
 
 class hashmap {
-public: 
+ public: 
     int DataCount;
     TabRecord** pRecs;
     int TabSize;

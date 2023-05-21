@@ -16,7 +16,7 @@ const std::function<double(double)>& fun) {
     double result = 0;
     const double width = (b - a) / n;
 
-    for (size_t i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         double x1 = a + i * width;
         double x2 = a + (i + 1) * width;
         result += 0.5 * (x2 - x1) * (fun(x1) + fun(x2));
@@ -40,8 +40,8 @@ int n, const std::function<double(double, double)>& fun) {
     const double widthX = (b - a) / n;
     const double widthY = (d - c) / n;
 
-    for (size_t i = 0; i < n; i++)
-        for (size_t j = 0; j < n; j++) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++) {
             double x1 = a + i * widthX;
             double x2 = a + (i + 1) * widthX;
 
@@ -71,9 +71,9 @@ const std::function<double(double, double, double)>& fun) {
     const double widthY = (d - c) / n;
     const double widthZ = (f - e) / n;
 
-    for (size_t i = 0; i < n; i++)
-        for (size_t j = 0; j < n; j++)
-            for (size_t k = 0; k < n; k++) {
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++)
+            for (int k = 0; k < n; k++) {
                 double x1 = a + i * widthX;
                 double x2 = a + (i + 1) * widthX;
 

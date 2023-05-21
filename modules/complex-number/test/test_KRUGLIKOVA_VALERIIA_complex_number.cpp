@@ -8,33 +8,26 @@ TEST(Kruglikova_Valeriia_ComplexNumberTest, zero_multipication) {
     // Arrange
     double re = 0.0;
     double im = 0.0;
-
     // Act
     ComplexNumber z1(re, im);
     ComplexNumber z2(5., 3.);
-
     // Assert
     EXPECT_EQ(z1, z1*z2);
 }
-
 TEST(Kruglikova_Valeriia_ComplexNumberTest, one_multipication) {
     // Arrange
     double re = 1.0;
     double im = 0.0;
-
     // Act
     ComplexNumber z1(re, im);
     ComplexNumber z2(5., 3.);
-
     // Assert
     EXPECT_EQ(z2, z1 * z2);
 }
-
 TEST(Kruglikova_Valeriia_ComplexNumberTest, power_square) {
     // Arrange
     double re = 1.0;
     double im = 2.0;
-    
     // Act
     ComplexNumber z1(re, im);
     ComplexNumber z2(re, 0);
@@ -50,12 +43,10 @@ TEST(Kruglikova_Valeriia_ComplexNumberTest, power_square) {
     EXPECT_EQ(z3res, z3 * z3);
     EXPECT_EQ(z4res, z4 * z4);
 }
-
 TEST(Kruglikova_Valeriia_ComplexNumberTest, getter_setter) {
     // Arrange
     double re = 1.0;
     double im = 0.0;
-
     // Act
     ComplexNumber z1;
     z1.setIm(im);
@@ -63,5 +54,4 @@ TEST(Kruglikova_Valeriia_ComplexNumberTest, getter_setter) {
     // Assert
     EXPECT_EQ(z1.getRe(), re);
     EXPECT_EQ(z1.getIm(), im);
-
 }

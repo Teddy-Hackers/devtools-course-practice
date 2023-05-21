@@ -30,7 +30,7 @@ TEST(Bochkarev_Num_Integral_Test, Test_Incorrect_Argument_N_1D) {
     fun = f1D;
     double a = 1, b = 4;
     int n = -1;
-    
+
     ASSERT_THROW(NumIntegral::integral1D(a, b, n, fun), std::invalid_argument);
 }
 
@@ -61,7 +61,8 @@ TEST(Bochkarev_Num_Integral_Test, Test_Incorrect_Argument_N_2D) {
     double c = 1, d = 4;
     int n = -10;
 
-    ASSERT_THROW(NumIntegral::integral2D(a, b, c, d, n, fun), std::invalid_argument);
+    ASSERT_THROW(NumIntegral::integral2D(a, b, c, d, n, fun),
+    std::invalid_argument);
 }
 
 TEST(Bochkarev_Num_Integral_Test, Test_Invalid_Function_Pointer_2D) {
@@ -71,7 +72,8 @@ TEST(Bochkarev_Num_Integral_Test, Test_Invalid_Function_Pointer_2D) {
     double c = 1, d = 4;
     int n = 150;
 
-    ASSERT_THROW(NumIntegral::integral2D(a, b, c, d, n, fun), std::invalid_argument);
+    ASSERT_THROW(NumIntegral::integral2D(a, b, c, d, n, fun),
+    std::invalid_argument);
 }
 
 TEST(Bochkarev_Num_Integral_Test, Test_Answer_For_3D_Function) {
@@ -83,7 +85,8 @@ TEST(Bochkarev_Num_Integral_Test, Test_Answer_For_3D_Function) {
     int n = 150;
     double expected = 28;
 
-    ASSERT_NEAR(expected, NumIntegral::integral3D(a, b, c, d, e, f, n, fun), 0.0014);
+    ASSERT_NEAR(expected, NumIntegral::integral3D(a, b, c, d, e, f, n, fun),
+    0.0014);
 }
 
 TEST(Bochkarev_Num_Integral_Test, Test_Incorrect_Argument_N_3D) {
@@ -94,7 +97,8 @@ TEST(Bochkarev_Num_Integral_Test, Test_Incorrect_Argument_N_3D) {
     double e = 0, f = 1;
     int n = 0;
 
-    ASSERT_THROW(NumIntegral::integral3D(a, b, c, d, e, f, n, fun), std::invalid_argument);
+    ASSERT_THROW(NumIntegral::integral3D(a, b, c, d, e, f, n, fun),
+    std::invalid_argument);
 }
 
 TEST(Bochkarev_Num_Integral_Test, Test_Invalid_Function_Pointer_3D) {
@@ -105,5 +109,6 @@ TEST(Bochkarev_Num_Integral_Test, Test_Invalid_Function_Pointer_3D) {
     double e = 0, f = 1;
     int n = 150;
 
-    ASSERT_THROW(NumIntegral::integral3D(a, b, c, d, e, f, n, fun), std::invalid_argument);
+    ASSERT_THROW(NumIntegral::integral3D(a, b, c, d, e, f, n, fun),
+    std::invalid_argument);
 }

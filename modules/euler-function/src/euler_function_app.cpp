@@ -62,9 +62,7 @@ int application_t::run(int argc, const char* const* argv) {
         return 0;
     }
 
-    std::vector<int64_t> num_to_calc;
-
-    num_to_calc = parse(argc, argv);
+    std::vector<int64_t> num_to_calc = parse(argc, argv);
 
 
     return calc_and_print_result(num_to_calc);

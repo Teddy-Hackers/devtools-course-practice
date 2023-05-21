@@ -24,7 +24,7 @@ std::vector<int64_t> application_t::parse(int argc, const char* const* argv) {
     int64_t tmp_res;
 
     for (int i = 1; i < argc; i++) {
-        tmp_res = std::atoi(argv[i]);
+        tmp_res = std::atol(argv[i]);
         if (tmp_res == 0 && argv[i] != std::string("0")) {
             std::stringstream err_message;
             err_message << "Not a number in " << i << " argument\n";

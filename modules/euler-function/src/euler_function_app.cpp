@@ -37,8 +37,6 @@ std::vector<int64_t> application_t::parse(int argc, const char* const* argv) {
     return result;
 }
 
-static bool have_err = false;
-
 int application_t::calc_and_print_result(std::vector<int64_t> num_to_calc) {
     std::cout << "Let euler function(num) = phi(num)\n";
     std::cout << "Printing result: \n";
@@ -52,7 +50,6 @@ int application_t::calc_and_print_result(std::vector<int64_t> num_to_calc) {
     }
     catch(const std::exception& e) {
         std::cerr << e.what() << '\n';
-        have_err = true;
         return 1;
     }
 
@@ -67,15 +64,8 @@ int application_t::run(int argc, const char* const* argv) {
 
     std::vector<int64_t> num_to_calc;
 
-    try {
-        num_to_calc = parse(argc, argv);
-    }
-    catch(const std::exception& e) {
-        std::cerr << e.what() << '\n';
-    }
+    num_to_calc = parse(argc, argv);
 
-    if (have_err)
-        return 1;
 
     return calc_and_print_result(num_to_calc);
 }

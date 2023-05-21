@@ -16,7 +16,7 @@ class NumIntegral {
      static double integral2D(double a, double b, double c, double d,
      int n, const std::function<double(double, double)>& fun);
      static double integral3D(double a, double b, double c, double d,
-	 double e, double f, int n,
+     double e, double f, int n,
      const std::function<double(double, double, double)>& fun);
 };
 

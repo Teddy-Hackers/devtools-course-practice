@@ -86,15 +86,12 @@ std::string gronsfeld_cipher_app::operator()(int argc, const char** argv) {
     }
 
     std::string result;
-    try {
-        gronsfeld_cipher_t g_c(key);
-        if (flag) {
-            result = g_c.decode(to_code);
-        } else {
-            result = g_c.code(to_code);
-        }
-    } catch(std::string str) {
-        return str;
+
+    gronsfeld_cipher_t g_c(key);
+    if (flag) {
+        result = g_c.decode(to_code);
+    } else {
+        result = g_c.code(to_code);
     }
 
     message_ = result;

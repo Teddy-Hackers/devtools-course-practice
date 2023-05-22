@@ -1,7 +1,7 @@
 // Copyright 2023 Prokofev Denis
 
-#ifndef  MODULES_PROKOFEV_REV_POL_NOT_INCLUDE_STACK_H_
-#define  MODULES_PROKOFEV_REV_POL_NOT_INCLUDE_STACK_H_
+#ifndef  MODULES_REV_POL_NOT_INCLUDE_STACK_H_
+#define  MODULES_REV_POL_NOT_INCLUDE_STACK_H_
 
 #include<string>
 #include "include/lex.h"
@@ -134,4 +134,4 @@ TQueue<T>::TQueue(int _N) :N(_N) {
     last = N - 1;
 }
 
-#endif  //  MODULES_PROKOFEV_REV_POL_NOT_INCLUDE_STACK_H_
+#endif  //  MODULES_REV_POL_NOT_INCLUDE_STACK_H_

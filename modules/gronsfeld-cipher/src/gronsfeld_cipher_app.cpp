@@ -50,7 +50,7 @@ std::vector<uint8_t> gronsfeld_cipher_app::parse_key(const char* arg) {
                 num = std::stoi(temp_str);
             }
             catch (std::invalid_argument const& ex) {
-                throw std::string("Wrong number!_") + std::string(ex.what());
+                throw std::string("Not a number! ") + std::string(ex.what());
             }
 
             if (num > 'z' - 'a' + 1 || num < 0) {

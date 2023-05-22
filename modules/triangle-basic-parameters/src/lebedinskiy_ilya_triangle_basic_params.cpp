@@ -1,6 +1,6 @@
 // Copyright 2023 Lebedinskiy Ilya
 
-#include "include/lebedinskiy_ilya_triangle_basic_params.h"
+#include "lebedinskiy_ilya_triangle_basic_params.h"
 #include <utility>
 #include <math.h>
 

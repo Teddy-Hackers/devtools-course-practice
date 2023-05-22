@@ -1,8 +1,8 @@
 // Copyright 2023 Lebedinskiy Ilya
 
-#include "include/lebedinskiy_ilya_triangle_basic_params.h"
 #include <gtest/gtest.h>
 #include <utility>
+#include "../include/lebedinskiy_ilya_triangle_basic_params.h"
 
 #define EPSILON 0.0001
 

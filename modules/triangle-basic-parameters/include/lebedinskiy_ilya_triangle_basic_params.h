@@ -11,7 +11,7 @@ class Triangle {
     std::pair<float, float> b;
     std::pair<float, float> c;
 
-public: 
+ public:
     Triangle();
     Triangle(std::pair<float, float> _a, std::pair<float, float>
         _b, std::pair<float, float> _c);

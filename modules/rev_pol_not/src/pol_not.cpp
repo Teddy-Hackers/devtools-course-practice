@@ -19,8 +19,6 @@ bool PolNot::IfN(char c) {
 
 
 int PolNot::prior(Lex tmp) {
-
-    
     if (tmp.getS() == " ")
         return -1;
     if (tmp.getS() == "(" || tmp.getS() == ")")

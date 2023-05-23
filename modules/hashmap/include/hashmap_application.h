@@ -7,11 +7,11 @@
 #include "include/hashmap.h"
 
 class hashmap_Application {
-public:
+ public:
     hashmap_Application();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validatArgumentsStart(int argc, const char** argv);
     std::string parseKey(const char* arg);

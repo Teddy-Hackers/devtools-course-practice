@@ -9,7 +9,7 @@
 
 
 
-bool PolNot::IfN(char symv) {
+bool PolNot::number(char symv) {
     if ((symv >= '0') && (symv <= '9'))
         return true;
     return false;
@@ -37,14 +37,14 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
         symv = _s[i];
         if (st == q0) {
             str = symv;
-            if (IfN(symv))
+            if (number(symv))
                 st = q1;
 
-            if (!IfN(symv))
+            if (!number(symv))
                 q->push(new Lex(str, operation, -1));
         } else {
             if (st == q1) {
-                if (IfN(symv)) {
+                if (number(symv)) {
                     str += symv;
                 } else {
                     int val_ = atoi(str.c_str());
@@ -56,7 +56,7 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
             }
         }
     }
-    if (IfN(symv)) {
+    if (number(symv)) {
         str = symv;
         int val_ = atoi(str.c_str());
         q->push(new Lex(str, val, val_));

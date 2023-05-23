@@ -10,7 +10,7 @@
 
 class PolNot {
  public:
-    bool IfN(char c);
+    bool number(char c);
     int prior(Lex tmp);
     TQueue<Lex*>* sEOL(std::string _s);
     std::string revPolNot(TQueue<Lex*>* q);

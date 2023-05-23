@@ -38,8 +38,7 @@ std::string hashmap_Application::parseKey(const char* arg) {
     try {
         key = std::stoi(Keystring);
         return Keystring;
-    }
-    catch (...) {
+    } catch (...) {
         ProgError = "ERROR: Wrong key format!";
         throw std::string("wrong key format.");
     }
@@ -60,27 +59,31 @@ int hashmap_Application::parseOperator(const char* arg) {
     try {
         if (strcmp(arg, "insert") == 0) {
             return 1;
-        }
-        else if (strcmp(arg, "delete") == 0) {
-            return 2;
-        }
-        else if (strcmp(arg, "find") == 0) {
-            return 3;
-        }
-        else if (strcmp(arg, "count") == 0) {
-            return 4;
-        }
-        else if (strcmp(arg, "print") == 0) {
-            return 5;
-        }
-        else {
-            throw std::string("wrong operator.");
+        } else {
+            if (strcmp(arg, "delete") == 0) {
+                return 2;
+            } else {
+                if (strcmp(arg, "find") == 0) {
+                    return 3;
+                } else {
+                    if (strcmp(arg, "count") == 0) {
+                        return 4;
+                    } else {
+                        if (strcmp(arg, "print") == 0) {
+                            return 5;
+                        } else {
+                            throw std::string("wrong operator.");
+                        }
+                    }
+                }
+            }
         }
     }
-    catch (...) {
-        ProgError = "ERROR: Wrong operator!";
-        throw std::string("wrong operator.");
-    }
+}
+catch (...) {
+    ProgError = "ERROR: Wrong operator!";
+    throw std::string("wrong operator.");
+}
 }
 
 std::string hashmap_Application::operator()(int argc, const char** argv) {
@@ -94,8 +97,7 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
         args.key = parseKey(argv[1]);
         args.value = parseData(argv[2]);
         args.operation = parseOperator(argv[3]);
-    }
-    catch (...) {
+    } catch (...) {
         return ProgError;
     }
     int count = 0;
@@ -105,8 +107,7 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
             HashMap.InsRecord(args.key, args.value);
             message_ = "The element is inserted by the specified key";
             break;
-        }
-        catch (...) {
+        } catch (...) {
             return "There is already such an element";
         }
     case 2:
@@ -114,16 +115,14 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
             HashMap.DelRecord(args.key);
             message_ = "The item has been deleted";
             break;
-        }
-        catch (...) {
+        } catch (...) {
             return "Record not found";
         }
     case 3:
         if (HashMap.FindRecord(args.key) != nullptr) {
             message_ = "Record found";
             break;
-        }
-        else {
+        } else {
             message_ = "Record not found";
             break;
         }
@@ -136,8 +135,7 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
         HashMap.InsRecord(args.key, args.value);
         if (HashMap.IsEmpty()) {
             message_ = "the table is empty";
-        }
-        else {
+        } else {
             std::cout << HashMap;
         }
         break;

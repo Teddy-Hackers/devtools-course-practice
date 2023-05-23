@@ -5,6 +5,7 @@
 #include "include/pol_not.h"
 #include "include/lex.h"
 #include "include/stack.h"
+#include <stdexcept>
 
 
 
@@ -13,7 +14,7 @@ bool PolNot::IfN(char c) {
         return true;
     if ((c != '+') && (c != '-') && (c != '(')
         && (c != ')') && (c != ' ') && (c != '*') && (c != '/'))
-        throw std::string("divide zero");
+        throw std::runtime_error("divide zero");
     return false;
 }
 

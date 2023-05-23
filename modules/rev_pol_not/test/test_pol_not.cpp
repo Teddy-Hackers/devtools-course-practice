@@ -5,42 +5,42 @@
 #include "include/pol_not.h"
 #include "include/stack.h"
 
-TEST(qq, push_pop) {
+TEST(que, push_pop) {
     TQueue<int> a(10);
     ASSERT_NO_THROW(a.push(3));
     EXPECT_EQ(a.pop(), 3);
 }
 
-TEST(qq, create) {
+TEST(que, create) {
     TQueue<int>* a = new TQueue<int>;
     ASSERT_NO_THROW(TQueue<int> a(5));
     EXPECT_EQ(a->isEmpty(), true);
 }
 
-TEST(qq, create_empty) {
+TEST(que, create_empty) {
     TQueue<int>* a = new TQueue<int>;
     ASSERT_NO_THROW(TQueue<int> a());
 }
 
-TEST(qq, copy_queue) {
+TEST(que, copy_queue) {
     TQueue<int>* a = new TQueue<int>;
 
     ASSERT_NO_THROW(TQueue<int>*s1(a));
 }
 
 
-TEST(qq, test_q1) {
+TEST(que, test_q1) {
     TQueue<int> a(1);
     EXPECT_EQ(a.isEmpty(), true);
 }
 
-TEST(qq, test_q2) {
+TEST(que, test_q2) {
     PolNot a1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     EXPECT_EQ(lex->isFull(), false);
 }
 
-TEST(qq, nearly) {
+TEST(que, nearly) {
     TQueue<int> a(2);
     EXPECT_EQ(a.next(0), 1);
 }

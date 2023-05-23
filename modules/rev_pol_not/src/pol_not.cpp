@@ -9,8 +9,8 @@
 
 
 
-bool PolNot::IfN(char c) {
-    if ((c >= '0') && (c <= '9'))
+bool PolNot::IfN(char symv) {
+    if ((symv >= '0') && (symv <= '9'))
         return true;
     return false;
 }
@@ -30,34 +30,34 @@ int PolNot::prior(Lex tmp) {
 
 TQueue<Lex*>* PolNot::sEOL(std::string _s) {
     std::string str;
-    char c;
+    char symv;
     TQueue<Lex*>* q = new TQueue<Lex*>;
     State st = q0;
     for (size_t i = 0; i < _s.length(); i++) {
-        c = _s[i];
+        symv = _s[i];
         if (st == q0) {
-            str = c;
-            if (IfN(c))
+            str = symv;
+            if (IfN(symv))
                 st = q1;
 
-            if (!IfN(c))
+            if (!IfN(symv))
                 q->push(new Lex(str, operation, -1));
         } else {
             if (st == q1) {
-                if (IfN(c)) {
-                    str += c;
+                if (IfN(symv)) {
+                    str += symv;
                 } else {
                     int val_ = atoi(str.c_str());
                     q->push(new Lex(str, val, val_));
                     st = q0;
-                    str = c;
+                    str = symv;
                     q->push(new Lex(str, operation, -1));
                 }
             }
         }
     }
-    if (IfN(c)) {
-        str = c;
+    if (IfN(symv)) {
+        str = symv;
         int val_ = atoi(str.c_str());
         q->push(new Lex(str, val, val_));
     }

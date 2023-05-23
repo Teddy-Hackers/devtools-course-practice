@@ -157,7 +157,7 @@ TEST(PolNot, polnot_num) {
     PolNot l1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string res;
-    std::string str = "(1)";
+    std::string str = "(12)";
     lex = l1.sEOL(str);
     res = l1.revPolNot(lex);
     EXPECT_EQ(res, "12");

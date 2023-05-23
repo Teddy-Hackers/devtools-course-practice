@@ -1,4 +1,4 @@
-// Copyright 2022 Shurygina A
+// Copyright 2023 Prokofev Denis
 
 #include <gtest/gtest.h>
 

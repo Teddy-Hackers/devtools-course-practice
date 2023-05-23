@@ -22,6 +22,7 @@ class Lex {
         s = _s;
         t = _t;
         val = _val;
+        if(_t==operation && _val!=-1) throw "Error";
     }
     Type getType() { return t; }
     int getVal() { return val; }

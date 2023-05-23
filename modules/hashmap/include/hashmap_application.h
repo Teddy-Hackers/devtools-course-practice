@@ -4,6 +4,7 @@
 #define MODULES_HASHMAP_INCLUDE_HASHMAP_APPLICATION_H_
 
 #include <string>
+#include "include/hashmap.h"
 
 class hashmap_Application {
 public:

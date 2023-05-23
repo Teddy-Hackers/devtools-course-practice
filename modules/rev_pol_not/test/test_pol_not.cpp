@@ -54,7 +54,7 @@ TEST(Lex, create_lex2) {
     ASSERT_NO_THROW(new Lex("/", operation, -1));
 }
 TEST(Lex, create_lex3) {
-    ASSERT_NO_THROW(new Lex("1", val, 1));
+    ASSERT_ANY_THROW(new Lex("1", val, -1));
 }
 TEST(Lex, create_lex4) {
     ASSERT_NO_THROW(new Lex("", operation, -1));

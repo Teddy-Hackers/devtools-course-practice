@@ -60,7 +60,7 @@ TEST(Lex, create_lex4) {
     ASSERT_NO_THROW(new Lex("", operation, -1));
 }
 TEST(Lex, create_lex5) {
-    ASSERT_ANY_THROW(new Lex("/", val, "-2"));
+    EXPECT_ANY_THROW(new Lex("/", val, "-2"));
 }
 TEST(Lex, getVal) {
     Lex z("/", operation, -1);

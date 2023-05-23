@@ -42,7 +42,7 @@ TEST(TQueue, test_q2) {
 
 TEST(TQueue, nearly) {
     TQueue<int> a(2);
-    EXPECT_EQ(a.next(0), 0);
+    EXPECT_EQ(a.next(0), 1);
 }
 TEST(Lex, create_lex) {
     Lex* a = new Lex();

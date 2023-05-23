@@ -46,7 +46,7 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
             if (st == q1) {
                 if (IfN(c))
                     str += c;
-                if (!IfN(c)) {
+                else {
                     int val_ = atoi(str.c_str());
                     q->push(new Lex(str, val, val_));
                     st = q0;

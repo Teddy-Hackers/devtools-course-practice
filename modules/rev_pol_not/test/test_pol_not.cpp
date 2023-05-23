@@ -52,6 +52,11 @@ TEST(Lex, create_lex) {
 }
 TEST(Lex, create_lex2) {
     ASSERT_NO_THROW(new Lex("/", operation, -1));
+
+}
+TEST(Lex, create_lex3) {
+    ASSERT_NO_THROW(new Lex("1", val, 1));
+
 }
 
 TEST(Lex, getVal) {
@@ -154,10 +159,10 @@ TEST(PolNot, polnot_num) {
     PolNot l1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string res;
-    std::string str = "1";
+    std::string str = "(1)";
     lex = l1.sEOL(str);
     res = l1.revPolNot(lex);
-    EXPECT_EQ(res, "1");
+    EXPECT_EQ(res, "12");
 }
 
 

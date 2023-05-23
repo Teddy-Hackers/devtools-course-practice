@@ -1,6 +1,5 @@
 // Copyright 2023 Prokofev Denis
 
-#include <string>
 #include "include/lex.h"
 
 class Lex {

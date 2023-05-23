@@ -3,6 +3,8 @@
 #ifndef  MODULES_REV_POL_NOT_INCLUDE_LEX_H_
 #define  MODULES_REV_POL_NOT_INCLUDE_LEX_H_
 
+#include <string>
+
 enum Type {
     operation, vall
 };

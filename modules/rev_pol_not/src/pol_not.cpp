@@ -12,7 +12,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 bool PolNot::number(char symv) {
+=======
+bool PolNot::IfN(char symv) {
+>>>>>>> parent of 59a2b0f (1)
 =======
 bool PolNot::IfN(char symv) {
 >>>>>>> parent of 59a2b0f (1)
@@ -85,7 +89,11 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if (number(symv)) {
+=======
+    if (IfN(symv)) {
+>>>>>>> parent of 59a2b0f (1)
 =======
     if (IfN(symv)) {
 >>>>>>> parent of 59a2b0f (1)

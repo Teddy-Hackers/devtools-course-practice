@@ -153,7 +153,8 @@ TEST(PolNot, polnot_zero_divide) {
     PolNot l1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string str = "2/0";
-    ASSERT_THROW(l1.sEOL(str), "divide zero");
+    std::string thr = "divide zero";
+    ASSERT_THROW(l1.sEOL(str), const thr);
 }
 
 

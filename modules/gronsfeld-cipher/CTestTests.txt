@@ -52,3 +52,19 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Number PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong number!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Flag
+    COMMAND ${APPLICATION} Wrong 10_0 aaa
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Flag PROPERTIES
+    PASS_REGULAR_EXPRESSION "Flag not a number!"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Str
+    COMMAND ${APPLICATION} 1 10_5 aa31!4%a
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Str PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong string!"
+    LABELS "${MODULE}")

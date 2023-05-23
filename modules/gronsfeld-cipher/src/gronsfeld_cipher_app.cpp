@@ -34,6 +34,17 @@ bool gronsfeld_cipher_app::checkNumberArguments(int argc, const char** argv) {
     return true;
 }
 
+bool gronsfeld_cipher_app::parse_flag(const char* arg) {
+    bool flag = false;
+    try {
+        flag = static_cast<bool>(std::stoi(arg));
+    }
+    catch (std::invalid_argument const& ex) {
+        throw std::string("Flag not a number! ") + std::string(ex.what());
+    }
+    return flag;
+}
+
 std::vector<uint8_t> gronsfeld_cipher_app::parse_key(const char* arg) {
     std::vector<uint8_t> key;
     std::string str_arg(arg);
@@ -68,6 +79,17 @@ std::vector<uint8_t> gronsfeld_cipher_app::parse_key(const char* arg) {
     return key;
 }
 
+std::string gronsfeld_cipher_app::parse_str(const char* arg) {
+    std::string to_code = arg;
+    for (size_t i = 0; i < to_code.size(); i++) {
+        char letter = to_code[i] - 'a';
+        if (letter < 0 || letter > 'z' - 'a' + 1) {
+            throw std::string("Wrong string!");
+        }
+    }
+    return to_code;
+}
+
 std::string gronsfeld_cipher_app::operator()(int argc, const char** argv) {
     bool flag;
     std::vector<uint8_t> key;
@@ -77,9 +99,9 @@ std::string gronsfeld_cipher_app::operator()(int argc, const char** argv) {
         return message_;
     }
     try {
-        flag = static_cast<bool>(std::stoi(argv[1]));
+        flag = parse_flag(argv[1]);
         key = parse_key(argv[2]);
-        to_code = argv[3];
+        to_code = parse_str(argv[3]);
     }
     catch(std::string& str) {
         return str;

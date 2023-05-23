@@ -77,7 +77,8 @@ class hashmap {
 
     friend std::ostream& operator<<(std::ostream& os, hashmap& tab) {
         for (tab.Reset(); !tab.IsTabEnded(); tab.GoNext()) {
-            os << "|" << *tab.GetData() << "|" << tab.GetKey() << "|" << std::endl;
+            os << "|" << *tab.GetData() <<
+                "|" << tab.GetKey() << "|" << std::endl;
         }
         return os;
     }

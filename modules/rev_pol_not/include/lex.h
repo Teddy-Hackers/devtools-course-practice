@@ -13,8 +13,11 @@ enum State {
 };
 
 class Lex {
+    std::string s;
+    Type t;
+    int val;
  public:
-    Lex() {}
+    Lex();
     Lex(std::string _s, Type _t, int _val);
     Type getType();
     int getVal();

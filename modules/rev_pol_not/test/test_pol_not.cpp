@@ -52,11 +52,9 @@ TEST(Lex, create_lex) {
 }
 TEST(Lex, create_lex2) {
     ASSERT_NO_THROW(new Lex("/", operation, -1));
-
 }
 TEST(Lex, create_lex3) {
     ASSERT_NO_THROW(new Lex("1", val, 1));
-
 }
 
 TEST(Lex, getVal) {

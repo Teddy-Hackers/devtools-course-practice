@@ -35,8 +35,10 @@ bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {
 std::string hashmap_Application::parseKey(const char* arg) {
     std::string Keystring(arg);
     try {
-        int key = std::stoi(Keystring);
-        return Keystring;
+        if (std::stoi(Keystring))
+            return Keystring;
+        else
+            return Keystring;
     } catch (...) {
         ProgError = "ERROR: Wrong key format!";
         throw std::string("wrong key format.");

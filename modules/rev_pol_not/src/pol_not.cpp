@@ -48,7 +48,7 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
                     str += symv;
                 } else {
                     int val_ = atoi(str.c_str());
-                    q->push(new Lex(str, val, val_));
+                    q->push(new Lex(str, vall, val_));
                     st = q0;
                     str = symv;
                     q->push(new Lex(str, operation, -1));
@@ -59,7 +59,7 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
     if (number(symv)) {
         str = symv;
         int val_ = atoi(str.c_str());
-        q->push(new Lex(str, val, val_));
+        q->push(new Lex(str, vall, val_));
     }
 
     return q;
@@ -79,9 +79,9 @@ std::string PolNot::revPolNot(TQueue<Lex*>* l) {
                 stack->push(tmp);
             } else if (tmp->getS() == ")") {
                     st = q1;
-                } else if (tmp->getType() == val) {
+                } else if (tmp->getType() == vall) {
                     int val_ = atoi(tmp->getS().c_str());
-                    q->push(new Lex(tmp->getS(), val, val_));
+                    q->push(new Lex(tmp->getS(), vall, val_));
                 } else if (prior(*tmp) >= 1) {
                     if (stack->isEmpty()) {
                         stack->push(tmp);

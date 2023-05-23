@@ -6,7 +6,7 @@
 #include <string>
 
 enum Type {
-    operation, val
+    operation, vall
 };
 enum State {
     q0, q1
@@ -23,10 +23,10 @@ class Lex {
         t = _t;
         val = _val;
         if (_t == operation && _val != -1) throw "Error";
-        if (_t == val && _val == -1) throw "Error";
+        if (_t == vall && _val == -1) throw "Error";
     }
     Type getType() { return t; }
-    int getVal() { return val; }
+    int getVal() { return vall; }
     std::string getS() { return s; }
 };
 

@@ -48,13 +48,13 @@ TEST(Lex, create_lex) {
     Lex* a = new Lex();
     Lex a1("/", operation, -1);
     ASSERT_NO_THROW(new Lex("/", operation, -1));
-    ASSERT_NO_THROW(new Lex("5", val, 5));
+    ASSERT_NO_THROW(new Lex("5", vall, 5));
 }
 TEST(Lex, create_lex2) {
     ASSERT_NO_THROW(new Lex("/", operation, -1));
 }
 TEST(Lex, create_lex3) {
-    ASSERT_ANY_THROW(new Lex("1", val, -1));
+    ASSERT_ANY_THROW(new Lex("1", vall, -1));
 }
 TEST(Lex, create_lex4) {
     ASSERT_NO_THROW(new Lex("", operation, -1));

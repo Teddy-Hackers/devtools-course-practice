@@ -5,42 +5,42 @@
 #include "include/pol_not.h"
 #include "include/stack.h"
 
-TEST(que, push_pop) {
+TEST(qq, push_pop) {
     TQueue<int> a(10);
     ASSERT_NO_THROW(a.push(3));
     EXPECT_EQ(a.pop(), 3);
 }
 
-TEST(que, create) {
+TEST(qq, create) {
     TQueue<int>* a = new TQueue<int>;
     ASSERT_NO_THROW(TQueue<int> a(5));
     EXPECT_EQ(a->isEmpty(), true);
 }
 
-TEST(que, create_empty) {
+TEST(qq, create_empty) {
     TQueue<int>* a = new TQueue<int>;
     ASSERT_NO_THROW(TQueue<int> a());
 }
 
-TEST(que, copy_queue) {
+TEST(qq, copy_queue) {
     TQueue<int>* a = new TQueue<int>;
 
     ASSERT_NO_THROW(TQueue<int>*s1(a));
 }
 
 
-TEST(que, test_q1) {
+TEST(qq, test_q1) {
     TQueue<int> a(1);
     EXPECT_EQ(a.isEmpty(), true);
 }
 
-TEST(que, test_q2) {
+TEST(qq, test_q2) {
     PolNot a1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     EXPECT_EQ(lex->isFull(), false);
 }
 
-TEST(que, nearly) {
+TEST(qq, nearly) {
     TQueue<int> a(2);
     EXPECT_EQ(a.next(0), 1);
 }
@@ -60,7 +60,7 @@ TEST(Lex, create_lex4) {
     ASSERT_NO_THROW(new Lex("", operation, -1));
 }
 TEST(Lex, create_lex5) {
-    ASSERT_NO_THROW(new Lex("/", val, -1));
+    ASSERT_ANY_THROW(new Lex("/", val, "d"));
 }
 TEST(Lex, getVal) {
     Lex z("/", operation, -1);

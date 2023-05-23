@@ -50,6 +50,9 @@ TEST(Lex, create_lex) {
     ASSERT_NO_THROW(new Lex("/", operation, -1));
     ASSERT_NO_THROW(new Lex("5", val, 5));
 }
+TEST(Lex, create_lex2) {
+    ASSERT_NO_THROW(new Lex("/", operation, -1));
+}
 
 TEST(Lex, getVal) {
     Lex z("/", operation, -1);
@@ -133,6 +136,35 @@ TEST(PolNot, polnot2) {
     lex = l1.sEOL(str);
     res = l1.revPolNot(lex);
     EXPECT_EQ(res, "52+1-");
+}
+
+
+TEST(PolNot, polnot_empty) {
+    PolNot l1;
+    TQueue<Lex*>* lex = new TQueue<Lex*>;
+    std::string res;
+    std::string str = " ";
+    lex = l1.sEOL(str);
+    res = l1.revPolNot(lex);
+    EXPECT_EQ(res, "");
+}
+
+TEST(PolNot, polnot_zero_divide) {
+    PolNot l1;
+    TQueue<Lex*>* lex = new TQueue<Lex*>;
+    std::string str = "2/0";
+    ASSERT_THROW(l1.sEOL(str));
+}
+
+
+TEST(PolNot, polnot_num) {
+    PolNot l1;
+    TQueue<Lex*>* lex = new TQueue<Lex*>;
+    std::string res;
+    std::string str = "1";
+    lex = l1.sEOL(str);
+    res = l1.revPolNot(lex);
+    EXPECT_EQ(res, "1");
 }
 
 

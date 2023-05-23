@@ -2,10 +2,10 @@
 
 #include <string>
 #include <stack>
+#include <stdexcept>
 #include "include/pol_not.h"
 #include "include/lex.h"
 #include "include/stack.h"
-#include <stdexcept>
 
 
 

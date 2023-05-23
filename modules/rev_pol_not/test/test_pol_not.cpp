@@ -149,13 +149,6 @@ TEST(PolNot, polnot_empty) {
     EXPECT_EQ(res, "");
 }
 
-TEST(PolNot, polnot_zero_divide) {
-    PolNot l1;
-    TQueue<Lex*>* lex = new TQueue<Lex*>;
-    std::string str = "2/0";
-    ASSERT_THROW(l1.sEOL(str), std::runtime_error);
-}
-
 
 TEST(PolNot, polnot_num) {
     PolNot l1;

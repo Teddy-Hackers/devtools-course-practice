@@ -12,9 +12,6 @@
 bool PolNot::IfN(char c) {
     if ((c >= '0') && (c <= '9'))
         return true;
-    if ((c != '+') && (c != '-') && (c != '(')
-        && (c != ')') && (c != ' ') && (c != '*') && (c != '/'))
-        throw std::runtime_error("divide zero");
     return false;
 }
 

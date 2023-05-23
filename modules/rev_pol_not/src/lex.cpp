@@ -2,7 +2,7 @@
 
 #include "include/lex.h"
 
-Lex::Lex(){}
+Lex::Lex() {}
 Lex::Lex(std::string _s, Type _t, int _val) {
     s = _s;
     t = _t;

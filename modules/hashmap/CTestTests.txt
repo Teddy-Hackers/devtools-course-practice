@@ -52,20 +52,44 @@ set_tests_properties (${prefix}_can_insert PROPERTIES
     LABELS "${MODULE}")     
 
 add_test(
-    NAME ${prefix}_can_delete_element
+    NAME ${prefix}_can_not_insert
+    COMMAND ${APPLICATION} 2 3 insert 2 3 insert
+)
+set_tests_properties (${prefix}_can_not_insert PROPERTIES
+    PASS_REGULAR_EXPRESSION "There is already such an element"
+    LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_delete_element_not_found
     COMMAND ${APPLICATION} 5 6 delete
 )
-set_tests_properties (${prefix}_can_delete_element PROPERTIES
+set_tests_properties (${prefix}_can_delete_element_not_found PROPERTIES
     PASS_REGULAR_EXPRESSION "Record not found"
     LABELS "${MODULE}")
-    
- add_test(
-    NAME ${prefix}_can_find_element
+
+add_test(
+    NAME ${prefix}_can_delete_element
+    COMMAND ${APPLICATION} 2 3 insert 2 3 delete
+)
+set_tests_properties (${prefix}_can_delete_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "The item has been deleted"
+    LABELS "${MODULE}")
+        
+add_test(
+    NAME ${prefix}_can_not_find_element
     COMMAND ${APPLICATION} 5 6 find
 )
-set_tests_properties (${prefix}_can_find_element PROPERTIES
+set_tests_properties (${prefix}_can_not_find_element PROPERTIES
     PASS_REGULAR_EXPRESSION "Record not found"
     LABELS "${MODULE}")     
+
+add_test(
+    NAME ${prefix}_can_find_element
+    COMMAND ${APPLICATION} 2 3 insert 2 3 find
+)
+set_tests_properties (${prefix}_can_find_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "Record found"
+    LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_find_out_size
@@ -73,14 +97,6 @@ add_test(
 )
 set_tests_properties (${prefix}_can_find_out_size PROPERTIES
     PASS_REGULAR_EXPRESSION "1 records found"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_print_table
-    COMMAND ${APPLICATION} 2 5 print
-)
-set_tests_properties (${prefix}_can_print_table PROPERTIES
-    PASS_REGULAR_EXPRESSION "|5|2|"
     LABELS "${MODULE}")
 
 add_test(

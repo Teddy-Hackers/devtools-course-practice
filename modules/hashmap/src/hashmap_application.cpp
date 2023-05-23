@@ -21,11 +21,11 @@ void hashmap_Application::help(const char* appname, const char* message) {
         "  $ " + appname + " <key> <value> <operator>\n\n" +
         "For the operator, you can use:" + "\n\t insert - add record;" +
         "\n\t delete - delete record;" + "\n\t find - find record;" +
-        "\n\t count - number of records" + "\n\t print - print the table";
+        "\n\t count - number of records";
 }
 
 bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {
-    if (argc != 4) {
+    if ((argc - 1) % 3 != 0 || argc < 4) {
         help(argv[0], "ERROR: Should be 3 arguments.\n\n");
         return false;
     }
@@ -35,10 +35,8 @@ bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {
 std::string hashmap_Application::parseKey(const char* arg) {
     std::string Keystring(arg);
     try {
-        if (std::stoi(Keystring))
-            return Keystring;
-        else
-            return Keystring;
+        std::stoi(Keystring);
+        return Keystring;
     } catch (...) {
         ProgError = "ERROR: Wrong key format!";
         throw std::string("wrong key format.");
@@ -70,19 +68,14 @@ int hashmap_Application::parseOperator(const char* arg) {
                     if (strcmp(arg, "count") == 0) {
                         return 4;
                     } else {
-                        if (strcmp(arg, "print") == 0) {
-                            return 5;
-                        } else {
-                            throw std::string("wrong operator.");
-                        }
+                        throw std::string("wrong operator.");
                     }
                 }
             }
         }
-    }
-    catch (...) {
-    ProgError = "ERROR: Wrong operator!";
-    throw std::string("wrong operator.");
+    } catch (...) {
+        ProgError = "ERROR: Wrong operator!";
+        throw std::string("wrong operator.");
     }
 }
 
@@ -91,53 +84,48 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
     if (!validatArgumentsStart(argc, argv)) {
         return message_;
     }
-
-    try {
-        args.key = parseKey(argv[1]);
-        args.value = parseData(argv[2]);
-        args.operation = parseOperator(argv[3]);
-    } catch (...) {
-        return ProgError;
-    }
-    int count = 0;
-    switch (args.operation) {
-    case 1:
+    int i = 1;
+    while (i < argc - 2) {
         try {
+            args.key = parseKey(argv[i]);
+            args.value = parseData(argv[i + 1]);
+            args.operation = parseOperator(argv[i + 2]);
+        } catch (...) {
+            return ProgError;
+        }
+        int count = 0;
+        switch (args.operation) {
+        case 1:
+            try {
+                HashMap.InsRecord(args.key, args.value);
+                message_ = "The element is inserted by the specified key";
+                break;
+            } catch (...) {
+                return "There is already such an element";
+            }
+        case 2:
+            try {
+                HashMap.DelRecord(args.key);
+                message_ = "The item has been deleted";
+                break;
+            } catch (...) {
+                return "Record not found";
+            }
+        case 3:
+            if (HashMap.FindRecord(args.key) != nullptr) {
+                message_ = "Record found";
+                break;
+            } else {
+                message_ = "Record not found";
+                break;
+            }
+        case 4:
             HashMap.InsRecord(args.key, args.value);
-            message_ = "The element is inserted by the specified key";
-            break;
-        } catch (...) {
-            return "There is already such an element";
-        }
-    case 2:
-        try {
-            HashMap.DelRecord(args.key);
-            message_ = "The item has been deleted";
-            break;
-        } catch (...) {
-            return "Record not found";
-        }
-    case 3:
-        if (HashMap.FindRecord(args.key) != nullptr) {
-            message_ = "Record found";
-            break;
-        } else {
-            message_ = "Record not found";
+            count = HashMap.GetDataCount();
+            message_ = std::to_string(count) + " records found";
             break;
         }
-    case 4:
-        HashMap.InsRecord(args.key, args.value);
-        count = HashMap.GetDataCount();
-        message_ = std::to_string(count) + " records found";
-        break;
-    case 5:
-        HashMap.InsRecord(args.key, args.value);
-        if (HashMap.IsEmpty()) {
-            message_ = "the table is empty";
-        } else {
-            std::cout << HashMap;
-        }
-        break;
+        i += 3;
     }
     return message_;
 }

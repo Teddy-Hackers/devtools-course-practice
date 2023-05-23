@@ -34,9 +34,8 @@ bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {
 
 std::string hashmap_Application::parseKey(const char* arg) {
     std::string Keystring(arg);
-    int key = -1;
     try {
-        key = std::stoi(Keystring);
+        int key = std::stoi(Keystring);
         return Keystring;
     } catch (...) {
         ProgError = "ERROR: Wrong key format!";
@@ -79,11 +78,10 @@ int hashmap_Application::parseOperator(const char* arg) {
             }
         }
     }
-}
-catch (...) {
+    catch (...) {
     ProgError = "ERROR: Wrong operator!";
     throw std::string("wrong operator.");
-}
+    }
 }
 
 std::string hashmap_Application::operator()(int argc, const char** argv) {
@@ -91,7 +89,6 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
     if (!validatArgumentsStart(argc, argv)) {
         return message_;
     }
-    int i = 1;
 
     try {
         args.key = parseKey(argv[1]);

@@ -9,8 +9,13 @@
 
 
 
+<<<<<<< HEAD
 bool PolNot::number(char symv) {
     if ((symv >= '0') && (symv <= '9'))
+=======
+bool PolNot::IfN(char c) {
+    if ((c >= '0') && (c <= '9'))
+>>>>>>> parent of f7b89e6 (fix)
         return true;
     return false;
 }
@@ -30,12 +35,13 @@ int PolNot::prior(Lex tmp) {
 
 TQueue<Lex*>* PolNot::sEOL(std::string _s) {
     std::string str;
-    char symv;
+    char c;
     TQueue<Lex*>* q = new TQueue<Lex*>;
     State st = q0;
     for (size_t i = 0; i < _s.length(); i++) {
-        symv = _s[i];
+        c = _s[i];
         if (st == q0) {
+<<<<<<< HEAD
             str = symv;
             if (number(symv))
                 st = q1;
@@ -46,18 +52,35 @@ TQueue<Lex*>* PolNot::sEOL(std::string _s) {
             if (st == q1) {
                 if (number(symv)) {
                     str += symv;
+=======
+            str = c;
+            if (IfN(c))
+                st = q1;
+
+            if (!IfN(c))
+                q->push(new Lex(str, operation, -1));
+        } else {
+            if (st == q1) {
+                if (IfN(c)) {
+                    str += c;
+>>>>>>> parent of f7b89e6 (fix)
                 } else {
                     int val_ = atoi(str.c_str());
                     q->push(new Lex(str, val, val_));
                     st = q0;
-                    str = symv;
+                    str = c;
                     q->push(new Lex(str, operation, -1));
                 }
             }
         }
     }
+<<<<<<< HEAD
     if (number(symv)) {
         str = symv;
+=======
+    if (IfN(c)) {
+        str = c;
+>>>>>>> parent of f7b89e6 (fix)
         int val_ = atoi(str.c_str());
         q->push(new Lex(str, val, val_));
     }

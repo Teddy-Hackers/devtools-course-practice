@@ -79,39 +79,39 @@ TEST(TStack, empty_check) {
 TEST(PolNot, prior_check1) {
     PolNot z;
     Lex lex(")", operation, -1);
-    EXPECT_EQ(z.priority(lex), 0);
+    EXPECT_EQ(z.prior(lex), 0);
 }
 
 TEST(PolNot, Check_Prioriry2) {
     PolNot z;
     Lex lex("*", operation, -1);
-    EXPECT_EQ(z.priority(lex), 1);
+    EXPECT_EQ(z.prior(lex), 1);
 }
 
 TEST(PolNot, Check_Prioriry3) {
     PolNot z;
     Lex lex("+", operation, -1);
-    EXPECT_EQ(z.priority(lex), 2);
+    EXPECT_EQ(z.prior(lex), 2);
 }
 
 TEST(PolNot, Check_Prioriry4) {
     PolNot z;
     Lex lex("/", operation, -1);
-    ASSERT_NO_THROW(z.priority(lex));
+    ASSERT_NO_THROW(z.prior(lex));
 }
 
 TEST(PolNot, sep_test1) {
     PolNot l1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string pr = "1+4/(2-1)*3";
-    ASSERT_NO_THROW(l1.separatExpressionOnLexems(pr));
+    ASSERT_NO_THROW(l1.sEOL(pr));
 }
 
 TEST(PolNot, sep_tes2) {
     PolNot l1;
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string pr = "2-1";
-    ASSERT_NO_THROW(l1.separatExpressionOnLexems(pr));
+    ASSERT_NO_THROW(l1.sEOL(pr));
 }
 
 TEST(PolNot, polnot1) {
@@ -119,7 +119,7 @@ TEST(PolNot, polnot1) {
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string res;
     std::string str = "1+4/(2-1)*3";
-    lex = l1.separatExpressionOnLexems(str);
+    lex = l1.sEOL(str);
     res = l1.revPolNot(lex);
     EXPECT_EQ(res, "1421-/3*+");
 }
@@ -130,7 +130,7 @@ TEST(PolNot, polnot2) {
     TQueue<Lex*>* lex = new TQueue<Lex*>;
     std::string res;
     std::string str = "5+2-1";
-    lex = l1.separatExpressionOnLexems(str);
+    lex = l1.sEOL(str);
     res = l1.revPolNot(lex);
     EXPECT_EQ(res, "52+1-");
 }

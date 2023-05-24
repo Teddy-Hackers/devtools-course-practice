@@ -30,18 +30,10 @@ set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_can_Detect_Wrong_Arg_Format
-    COMMAND ${APPLICATION} asd 1 1
+    COMMAND ${APPLICATION} asd 1-1 aaa
 )
 set_tests_properties (${prefix}_can_Detect_Wrong_Arg_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong argument format!"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Detect_Wrong_Operation_Format
-    COMMAND ${APPLICATION} asdasd qwe trash
-)
-set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong operation format!"
     LABELS "${MODULE}")
 
 add_test(

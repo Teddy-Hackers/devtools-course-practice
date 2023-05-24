@@ -15,7 +15,7 @@ CodeApp::CodeApp() : message_("") {}
 void CodeApp::help(const char* appname, const char* message) {
     message_ =
         std::string(message) +
-          "This is a complex number calculator application.\n\n" +
+          "This is a code vijener app.\n\n" +
           "Please provide arguments in the following format:\n\n"+
 
           "  $ " + appname + " <key> <str> " +
@@ -76,7 +76,7 @@ std::string CodeApp::operator()(int argc, const char** argv) {
          stream << "after encoder = " << z1.Encoder();
         break;
      case 2:
-         stream << "after encoder = " << z1.Decoder();
+         stream << "after Decoder = " << z1.Decoder();
         break;
      
      

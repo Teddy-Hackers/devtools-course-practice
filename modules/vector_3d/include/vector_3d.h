@@ -1,7 +1,7 @@
 // Copyright 2023 Goncharova Anna
 
-#ifndef MODULES_GONCHAROVA_VECTOR_3D_INCLUDE_VECTOR_3D_H_
-#define MODULES_GONCHAROVA_VECTOR_3D_INCLUDE_VECTOR_3D_H_
+#ifndef MODULES_VECTOR_3D_INCLUDE_VECTOR_3D_H_
+#define MODULES_VECTOR_3D_INCLUDE_VECTOR_3D_H_
 
 #include <vector>
 #include <stdexcept>
@@ -21,4 +21,4 @@ class Vector3d {
     std::vector<double> data;
 };
 
-#endif  // MODULES_GONCHAROVA_VECTOR_3D_INCLUDE_VECTOR_3D_H_
+#endif  // MODULES_VECTOR_3D_INCLUDE_VECTOR_3D_H_

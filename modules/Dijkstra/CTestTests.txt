@@ -1,0 +1,96 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION ""
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 3 4
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Input parameters amount mismatch."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Matrix_Size_Format
+    COMMAND ${APPLICATION} 3 4 a
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Matrix_Size_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Cant parse <matrix size>"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Empty_Matrix
+    COMMAND ${APPLICATION} 3 4 12
+)
+set_tests_properties (${prefix}_can_Detect_Empty_Matrix PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Adjacency matrix is empty"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Not_Filled_Matrix
+    COMMAND ${APPLICATION} 3 4 12 1
+)
+set_tests_properties (${prefix}_can_Detect_Not_Filled_Matrix PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Adjacency matrix is not completely filled"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Start_Vertex_Format
+    COMMAND ${APPLICATION} -1 4 2 1 1 1 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Start_Vertex_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Cant parse <start vert>"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_End_Vertex_Format
+    COMMAND ${APPLICATION} 1 a 2 1 1 1 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_End_Vertex_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Cant parse <end vert>"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Value_Format_In_Matrix
+    COMMAND ${APPLICATION} 0 0 6 0 -1 a b -1 -1 -1 0 10 15 -1 -1 -1
+        10 0 11 -1 2 -1 15 11 0 6 s a d -1 6 0 9 -1 -1 2 -1 9 0
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Value_Format_In_Matrix PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Cant parse matrix at index"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Get_Value_Of_Distance
+    COMMAND ${APPLICATION} 0 0 6 0 -1 -1 -1 -1 -1 -1 0 10 15 -1 -1 -1
+        10 0 11 -1 2 -1 15 11 0 6 -1 -1 -1 -1 6 0 9 -1 -1 2 -1 9 0
+)
+set_tests_properties (${prefix}_can_Get_Value_Of_Distance PROPERTIES
+    PASS_REGULAR_EXPRESSION "0.000000"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Get_Vector_Of_Distances
+    COMMAND ${APPLICATION} 0 -1 6 0 -1 -1 -1 -1 -1 -1 0 10 15 -1 -1 -1
+        10 0 11 -1 2 -1 15 11 0 6 -1 -1 -1 -1 6 0 9 -1 -1 2 -1 9 0
+)
+set_tests_properties (${prefix}_can_Get_Vector_Of_Distances PROPERTIES
+    PASS_REGULAR_EXPRESSION "0.000000 NaN NaN NaN NaN NaN"
+    LABELS "${MODULE}")

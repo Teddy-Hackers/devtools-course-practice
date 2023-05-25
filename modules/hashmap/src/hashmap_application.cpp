@@ -21,7 +21,7 @@ void hashmap_Application::help(const char* appname, const char* message) {
         "  $ " + appname + " <key> <value> <operator>\n\n" +
         "For the operator, you can use:" + "\n\t insert - add record;" +
         "\n\t delete - delete record;" + "\n\t find - find record;" +
-        "\n\t count - number of records" + "\n\t print - print the table";
+        "\n\t count - number of records" + "\n\t print - print the table;";
 }
 
 bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {

@@ -90,6 +90,20 @@ TEST(Ustinov_test_prime_numbers_from_interval_app, incorrect_arguments_3) {
     EXPECT_EQ(first_line, "Wrong number format!");
 }
 
+TEST(Ustinov_test_prime_numbers_from_interval_app, incorrect_arguments_4) {
+    Application app;
+    // simulation of command prompt arguments
+    int argc = 3;
+    const char *argv[3] = {"", "1.0", "3.0"};
+
+    std::string app_output = app(argc, argv);
+    // first line of application output string
+    std::string first_line = app_output.substr(0,
+        app_output.find_first_of('\n'));
+
+    EXPECT_EQ(first_line, "Wrong number format!");
+}
+
 TEST(Ustinov_test_prime_numbers_from_interval_app, negative_borders_1) {
     Application app;
     // simulation of command prompt arguments
@@ -143,7 +157,7 @@ TEST(Ustinov_test_prime_numbers_from_interval_app, right_less_than_left) {
     std::string first_line = app_output.substr(0,
         app_output.find_first_of('\n'));
 
-    EXPECT_EQ(first_line, "Left border must be less than right border!");
+    EXPECT_EQ(first_line, "Left border is greater than right border!");
 }
 
 TEST(Ustinov_test_prime_numbers_from_interval_app, border_uint_overflow) {

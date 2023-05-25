@@ -10,14 +10,14 @@ Polygon::Polygon() { point_count = 0; }
 void Polygon::addPoint(std::pair <double, double> new_point) {
     for (int i = 0; i < point_count; i++)
         if (points[i] == new_point)
-            throw std::string("This point already exists");
+            throw ("This point already exists");
     points.push_back(new_point);
     point_count++;
 }
 
 double Polygon::countArea() {
     if (point_count < 3)
-        throw std::string("Add more points");
+        throw ("Add more points");
     double final_s = 0, sum1 = 0, sum2 = 0;
     points.push_back(points[0]);
     for (int i = 0; i < point_count; i++) {
@@ -39,7 +39,7 @@ void Polygon::deletePoint(std::pair <double, double> deleting_point) {
             break;
         }
     if (f == 0)
-        throw std::string("This point doesn't exist");
+        throw ("This point doesn't exist");
 }
 
 

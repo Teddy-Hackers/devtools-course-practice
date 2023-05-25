@@ -38,7 +38,7 @@ bool CodeApp::validateNumberOfArguments(int argc, const char** argv) {
 
 double parseInt(const char* arg) {
     char* end;
-    double value = strtol(arg, &end,10);
+    double value = strtol(arg, &end, 10);
 
     if (end[0]) {
         throw std::string("Wrong argument format!");
@@ -62,24 +62,19 @@ std::string CodeApp::operator()(int argc, const char** argv) {
         return str;
     }
 
-    Code_vijener z1;
+    Code_vijener cV;
 
-    z1.SetKey(args.key);
-    z1.SetCodeStr(args.str);
-
-
+    cV.SetKey(args.key);
+    cV.SetCodeStr(args.str);
 
     std::ostringstream stream;
     switch (args.operation) {
      case 1:
-        
-         stream << "after encoder = " << z1.Encoder();
+        stream << "after encoder = " << cV.Encoder();
         break;
      case 2:
-         stream << "after Decoder = " << z1.Decoder();
+         stream << "after Decoder = " << cV.Decoder();
         break;
-     
-     
     }
 
     message_ = stream.str();

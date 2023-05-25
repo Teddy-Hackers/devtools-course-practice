@@ -17,7 +17,14 @@ void Application::help(const char* appname, const char* message) {
 
           "  $ " + appname + " <left_border> <right_border>\n\n" +
 
-          "Where borders are unsinged integers.";
+          "<left_border> and <right_border> are non-negative integers,\n" +
+          "no floating points are allowed,\n" +
+          "<left_border> must be less or equal to <right_border>.\n\n" +
+          "Example:\n\n" +
+          "  $ app_name 2 11\n\n" +
+          "The output should be:\n\n" +
+          "Primes from the interval [2, 11]: 2 3 5 7 11 ";
+           
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {
@@ -71,7 +78,7 @@ std::string Application::operator()(int argc, const char** argv) {
         right_border = parseUnsignedInt(argv[2]);
 
         if (left_border > right_border)
-            throw std::string("Left border must be less than right border!");
+            throw std::string("Left border is greater than right border!");
     }
     catch(std::string& str) {
         return str;

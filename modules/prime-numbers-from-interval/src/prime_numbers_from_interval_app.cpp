@@ -24,7 +24,6 @@ void Application::help(const char* appname, const char* message) {
           "  $ app_name 2 11\n\n" +
           "The output should be:\n\n" +
           "Primes from the interval [2, 11]: 2 3 5 7 11 ";
-           
 }
 
 bool Application::validateNumberOfArguments(int argc, const char** argv) {

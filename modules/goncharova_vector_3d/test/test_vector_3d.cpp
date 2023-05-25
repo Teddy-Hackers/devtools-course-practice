@@ -1,4 +1,5 @@
 // Copyright 2023 Goncharova Anna
+
 #include <gtest/gtest.h>
 #include "include/vector_3d.h"
 

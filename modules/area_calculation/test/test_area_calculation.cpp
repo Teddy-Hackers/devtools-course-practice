@@ -59,3 +59,19 @@ TEST(PolygonArea, correct_count_3_points_area) {
     area = test.countArea();
     EXPECT_DOUBLE_EQ((x2 - x1) * (y2 - y1)/2, area);
 }
+TEST(PolygonArea, cant_delete_not_existing_point) {
+    Polygon test;
+    double x1 = 1.5, x2 = 1.4, y = 2.5;
+    std::pair <double, double> point(x1, y);
+    test.addPoint(point);
+    point = std::make_pair(x2, y);
+    ASSERT_ANY_THROW(test.deletePoint(point));
+}
+
+TEST(PolygonArea, cant_count_area_less_then_3_points) {
+    Polygon test;
+    double x = 1.5, y = 2.5;
+    std::pair <double, double> point(x, y);
+    test.addPoint(point);
+    ASSERT_ANY_THROW(test.countArea());
+}

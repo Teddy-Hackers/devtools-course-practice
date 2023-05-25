@@ -109,8 +109,8 @@ set_tests_properties (${prefix}_can_put_negative_values PROPERTIES
 
 add_test(
     NAME ${prefix}_can_print_table
-    COMMAND ${APPLICATION} 5 6 print
+    COMMAND ${APPLICATION} 2 5 print
 )
 set_tests_properties (${prefix}_can_print_table PROPERTIES
-    PASS_REGULAR_EXPRESSION "|6|5|"
+    PASS_REGULAR_EXPRESSION "|5|2|"
     LABELS "${MODULE}")

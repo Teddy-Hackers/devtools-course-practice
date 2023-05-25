@@ -81,18 +81,18 @@ TEST(Vector3d, cannot_get_normalization_of_null_vector_3d) {
 }
 
 TEST(Vector3d, can_count_scalar_mult) {
-    Vector3d vec1(1.0, 5.0, 3.0);
-    Vector3d vec2(0.0, -4.0, 6.0);
+    Vector3d vec1(1.5, 5.3, 3.0);
+    Vector3d vec2(0.1, -4.0, 6.0);
 
     double ans_of_scalar_mult = vec1.scalar_mult(vec1, vec2);
 
-    EXPECT_DOUBLE_EQ(ans_of_scalar_mult, -2.0);
+    EXPECT_DOUBLE_EQ(ans_of_scalar_mult, -3.05);
 }
 
 TEST(Vector3d, can_count_vector_mult) {
-    Vector3d vec1(1.0, 5.0, 3.0);
-    Vector3d vec2(0.0, -4.0, 6.0);
-    Vector3d expect_ans(42.0, -6.0, -4.0);
+    Vector3d vec1(1.0, 5.5, 3.0);
+    Vector3d vec2(0.4, -4.0, 6.0);
+    Vector3d expect_ans(45.0, -4.8, -6.2);
 
     Vector3d ans = vec1.vector_mult(vec1, vec2);
     EXPECT_TRUE(ans[0] == expect_ans[0] &&

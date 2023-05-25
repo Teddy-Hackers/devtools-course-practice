@@ -1,4 +1,4 @@
-// Copyright 2023 Ivlev Alexander
+// Copyright 2023 Ustinov Alexandr
 
 #include <gtest/gtest.h>
 

@@ -11,7 +11,7 @@ TEST(Vector3d, vector_3d_without_parameters_is_null) {
     Vector3d vec;
 
     EXPECT_TRUE(vec[0] == 0.0 &&
-        vec[1] == 0.0 && vec[2] == 0.0);
+    vec[1] == 0.0 && vec[2] == 0.0);
 }
 
 TEST(Vector3d, can_create_vector_3d_with_parameters) {
@@ -71,7 +71,7 @@ TEST(Vector3d, can_get_normalization_of_not_null_vector_3d) {
     Vector3d ans = vec.get_normalization();
 
     EXPECT_TRUE(ans[0] == expect_ans[0] &&
-        ans[1] == expect_ans[1] && ans[2] == expect_ans[2]);
+    ans[1] == expect_ans[1] && ans[2] == expect_ans[2]);
 }
 
 TEST(Vector3d, cannot_get_normalization_of_null_vector_3d) {
@@ -95,5 +95,6 @@ TEST(Vector3d, can_count_vector_mult) {
     Vector3d expect_ans(42.0, -6.0, -4.0);
 
     Vector3d ans = vec1.vector_mult(vec1, vec2);
-    EXPECT_DOUBLE_EQ(ans, expect_ans);
+    EXPECT_TRUE(ans[0] == expect_ans[0] &&
+    ans[1] == expect_ans[1] && ans[2] == expect_ans[2]);
 }

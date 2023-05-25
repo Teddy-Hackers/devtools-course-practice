@@ -21,12 +21,12 @@ void hashmap_Application::help(const char* appname, const char* message) {
         "  $ " + appname + " <key> <value> <operator>\n\n" +
         "For the operator, you can use:" + "\n\t insert - add record;" +
         "\n\t delete - delete record;" + "\n\t find - find record;" +
-        "\n\t count - number of records";
+        "\n\t count - number of records" + "\n\t print - print the table";
 }
 
 bool hashmap_Application::validatArgumentsStart(int argc, const char** argv) {
     if ((argc - 1) % 3 != 0 || argc < 4) {
-        help(argv[0], "ERROR: Should be 3 arguments.\n\n");
+        help(argv[0], "ERROR: invalid number of arguments.\n\n");
         return false;
     }
     return true;
@@ -68,7 +68,11 @@ int hashmap_Application::parseOperator(const char* arg) {
                     if (strcmp(arg, "count") == 0) {
                         return 4;
                     } else {
-                        throw std::string("wrong operator.");
+                        if (strcmp(arg, "print") == 0) {
+                            return 5;
+                        } else {
+                            throw std::string("wrong operator.");
+                        }
                     }
                 }
             }
@@ -123,6 +127,10 @@ std::string hashmap_Application::operator()(int argc, const char** argv) {
             HashMap.InsRecord(args.key, args.value);
             count = HashMap.GetDataCount();
             message_ = std::to_string(count) + " records found";
+            break;
+        case 5:
+            HashMap.InsRecord(args.key, args.value);
+            std::cout << HashMap;
             break;
         }
         i += 3;

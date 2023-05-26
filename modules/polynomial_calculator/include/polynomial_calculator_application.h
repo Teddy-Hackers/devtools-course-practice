@@ -7,11 +7,11 @@
 #include "include/polynomial_calculator.h"
 
 class polynomial_calculator_Application {
-public:
+ public:
      polynomial_calculator_Application();
     std::string operator()(int argc, const char** argv);
 
-private:
+ private:
     void help(const char* appname, const char* message = "");
     bool validatArgumentsStart(int argc, const char** argv);
     double parsePolynomial(const char* arg);

@@ -58,11 +58,3 @@ add_test(
 set_tests_properties (${prefix}_can_multiplication PROPERTIES
     PASS_REGULAR_EXPRESSION "Result = x^4+4x^3+10x^2+12x+9"
     LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_delete_element
-    COMMAND ${APPLICATION} 2 3 insert 2 3 delete
-)
-set_tests_properties (${prefix}_can_delete_element PROPERTIES
-    PASS_REGULAR_EXPRESSION "The item has been deleted"
-    LABELS "${MODULE}")

@@ -8,8 +8,7 @@ BigInt BigInt::operator+(const BigInt& other) {
   if (is_negative != other.is_negative) {
       if (is_negative) {
           return other - (-*this);
-      }
-      else {
+      } else { 
           return *this - (-other);
       }
   }
@@ -21,15 +20,12 @@ BigInt BigInt::operator+(const BigInt& other) {
 BigInt BigInt::operator-(const BigInt& other) {
   if (is_negative != other.is_negative) {
       return *this + (-other);
-  }
-  else if (*this == other) {
+  } else if (*this == other) { 
       return BigInt();
-  }
-  else if (compare_abs(digits, other.digits)) {
+  } else if (compare_abs(digits, other.digits)) { 
       std::string result = subtract_abs(other.digits, digits);
       return BigInt(!is_negative, result);
-  }
-  else {
+  } else { 
       std::string result = subtract_abs(digits, other.digits);
       return BigInt(is_negative, result);
   }
@@ -77,11 +73,9 @@ BigInt BigInt::operator%(const BigInt& other) {
 bool BigInt::operator>(const BigInt& other) {
   if (is_negative != other.is_negative) {
       return is_negative < other.is_negative;
-  }
-  else if (is_negative) {
+  } else if (is_negative) { 
       return compare_abs(other.digits, digits);
-  }
-  else {
+  } else {
       return compare_abs(digits, other.digits);
   }
 }

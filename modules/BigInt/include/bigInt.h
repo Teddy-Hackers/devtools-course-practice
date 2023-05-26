@@ -5,15 +5,17 @@
 
 #include <string>
 #include <cstdint>
+#include <iostream>
+#include <utility>
 #include "include/bigInt.h"
 
-#include <string>
 
-class BigInt {
-public:
-  BigInt();
-  BigInt(const std::string& s);
-  BigInt(int n);
+class BigInt { 
+public: 
+
+  explicit BigInt();
+  explicit BigInt(const std::string& s); 
+  explicit BigInt(int n); !!
   BigInt(const BigInt& other);
 
   BigInt& operator=(const BigInt& other);
@@ -33,7 +35,8 @@ public:
 
   friend std::ostream& operator<<(std::ostream& out, const BigInt& n);
 
-private:
+private: 
+
   bool is_negative;
   std::string digits;
 
@@ -43,7 +46,8 @@ private:
   static std::string multiply_int(const std::string& a, int b);
   static std::pair<std::string, int> divide_int(const std::string& a, int b);
   static std::string multiply(const std::string& a, const std::string& b);
-  static std::pair<std::string, std::string> divide(const std::string& a, const std::string& b);
+  static std::pair<std::string, std::string> divide(const std::string& a,
+      const std::string& b);
 };
 
 #endif  // MODULES_BIGINT_INCLUDE_BIGINT_H_

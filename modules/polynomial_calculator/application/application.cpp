@@ -7,6 +7,6 @@
 int main(int argc, const char** argv) {
     polynomial_calculator_Application app;
     std::string output = app(argc, argv);
-    printf("%s\n", output.c_str());
+    printf("%s", output.c_str());
     return 0;
 }

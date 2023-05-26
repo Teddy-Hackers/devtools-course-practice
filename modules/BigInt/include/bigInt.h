@@ -10,12 +10,12 @@
 #include "include/bigInt.h"
 
 
-class BigInt { 
-public: 
+class BigInt {
 
-  explicit BigInt();
-  explicit BigInt(const std::string& s); 
-  explicit BigInt(int n); !!
+ public:
+  BigInt();
+  explicit BigInt(const std::string& s);
+  explicit BigInt(int n); 
   BigInt(const BigInt& other);
 
   BigInt& operator=(const BigInt& other);
@@ -35,8 +35,7 @@ public:
 
   friend std::ostream& operator<<(std::ostream& out, const BigInt& n);
 
-private: 
-
+ private:
   bool is_negative;
   std::string digits;
 

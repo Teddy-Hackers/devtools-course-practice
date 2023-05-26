@@ -8,8 +8,8 @@
 #include <iostream>
 
 class polynomial_calculator {
-public:
-     std::vector<double> coeff_a;
+ public:
+    std::vector<double> coeff_a;
     polynomial_calculator();
     ~polynomial_calculator();
     explicit polynomial_calculator(double a0);

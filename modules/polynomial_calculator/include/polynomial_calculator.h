@@ -7,11 +7,9 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 class polynomial_calculator {
 public:
-    std::vector<double> coeff_a;
+     std::vector<double> coeff_a;
     polynomial_calculator();
     ~polynomial_calculator();
     explicit polynomial_calculator(double a0);
@@ -29,7 +27,7 @@ public:
     polynomial_calculator operator+(const double& _Num) const;
     polynomial_calculator operator-(const double& _Num) const;
     polynomial_calculator operator*(const double& _Num) const;
-    friend ostream& operator<<(ostream& out,
+    friend std::ostream& operator<<(std::ostream& out,
         const polynomial_calculator& _polinom);
 };
 #endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOMIAL_CALCULATOR_H_

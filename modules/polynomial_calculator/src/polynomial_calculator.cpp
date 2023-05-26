@@ -175,7 +175,7 @@ polynomial_calculator polynomial_calculator::operator*(
     return C;
 }
 
-ostream& operator<<(ostream& out, const polynomial_calculator& Pol) {
+std::ostream& operator<<(std::ostream& out, const polynomial_calculator& Pol) {
     int flag = 0;
     for (int i = Pol.coeff_a.size() - 1; i >= 0; --i) {
         if (fabs(Pol.coeff_a[i]) < EPS) continue;

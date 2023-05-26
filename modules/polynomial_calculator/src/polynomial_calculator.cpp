@@ -5,36 +5,28 @@
 #include <string.h>
 
 #define EPS 1e-7
-polynomial_calculator::polynomial_calculator() {
-    coeff_a.clear();
-}
+polynomial_calculator::polynomial_calculator() { coeff_a.clear(); }
 
-polynomial_calculator::~polynomial_calculator() {
-    coeff_a.clear();
-}
+polynomial_calculator::~polynomial_calculator() { coeff_a.clear(); }
 
-polynomial_calculator::
-polynomial_calculator(double a0) {
+polynomial_calculator::polynomial_calculator(double a0) {
     coeff_a.clear();
     coeff_a.push_back(a0);
 }
 
-polynomial_calculator::
-polynomial_calculator(std::vector<double> coeff_a_, int len) {
+polynomial_calculator::polynomial_calculator(std::vector<double> coeff_a_,
+    int len) {
     coeff_a.clear();
     int size = coeff_a_.size();
     if (size != len)
         throw "The number of coefficients does not correspond to the length!";
-    for (int i = len - 1; i >= 0; i--)
-        coeff_a.push_back(coeff_a_[i]);
+    for (int i = len - 1; i >= 0; i--) coeff_a.push_back(coeff_a_[i]);
 }
 
-int polynomial_calculator::GetSize() const {
-    return coeff_a.size();
-}
+int polynomial_calculator::GetSize() const { return coeff_a.size(); }
 
-polynomial_calculator::
-polynomial_calculator(const polynomial_calculator& _Polynom) {
+polynomial_calculator::polynomial_calculator(
+    const polynomial_calculator& _Polynom) {
     coeff_a.clear();
     for (int i = 0; i < _Polynom.GetSize(); i++) {
         coeff_a.push_back(_Polynom.coeff_a[i]);
@@ -49,26 +41,24 @@ double polynomial_calculator::value(double x) {
     return f;
 }
 
-bool polynomial_calculator::operator ==
-(const polynomial_calculator& _Polynom) const {
-    if (this->GetSize() != _Polynom.GetSize())
-        return false;
+bool polynomial_calculator::operator==(
+    const polynomial_calculator& _Polynom) const {
+    if (this->GetSize() != _Polynom.GetSize()) return false;
     for (int i = GetSize() - 1; i >= 0; --i)
-        if (abs(this->coeff_a[i] - _Polynom.coeff_a[i]) > EPS)
-            return false;
+        if (abs(this->coeff_a[i] - _Polynom.coeff_a[i]) > EPS) return false;
     return true;
 }
 
-bool polynomial_calculator::operator !=
-(const polynomial_calculator& _Polynom) const {
+bool polynomial_calculator::operator!=(
+    const polynomial_calculator& _Polynom) const {
     if (*this == _Polynom)
         return false;
     else
         return true;
 }
 
-polynomial_calculator polynomial_calculator
-::operator + (const polynomial_calculator& _Polynom) {
+polynomial_calculator polynomial_calculator::operator+(
+    const polynomial_calculator& _Polynom) {
     polynomial_calculator C;
     int n = std::min(this->GetSize(), _Polynom.GetSize());
     for (int i = 0; i < n; ++i) {
@@ -78,7 +68,8 @@ polynomial_calculator polynomial_calculator
         for (int i = n; i < this->GetSize(); ++i) {
             C.coeff_a.push_back(coeff_a[i]);
         }
-    } else {
+    }
+    else {
         for (int i = n; i < _Polynom.GetSize(); ++i) {
             C.coeff_a.push_back(_Polynom.coeff_a[i]);
         }
@@ -86,8 +77,8 @@ polynomial_calculator polynomial_calculator
     return C;
 }
 
-polynomial_calculator polynomial_calculator
-::operator - (const polynomial_calculator& _Polynom) {
+polynomial_calculator polynomial_calculator::operator-(
+    const polynomial_calculator& _Polynom) {
     polynomial_calculator C;
     int n = std::min(this->GetSize(), _Polynom.GetSize());
     for (int i = 0; i < n; ++i) {
@@ -98,7 +89,8 @@ polynomial_calculator polynomial_calculator
         for (int i = n; i < this->GetSize(); ++i) {
             C.coeff_a.push_back(coeff_a[i]);
         }
-    } else {
+    }
+    else {
         for (int i = n; i < _Polynom.GetSize(); ++i) {
             C.coeff_a.push_back(-_Polynom.coeff_a[i]);
         }
@@ -106,8 +98,8 @@ polynomial_calculator polynomial_calculator
     return C;
 }
 
-polynomial_calculator polynomial_calculator
-::operator * (const polynomial_calculator& _Polynom) {
+polynomial_calculator polynomial_calculator::operator*(
+    const polynomial_calculator& _Polynom) {
     polynomial_calculator C;
     std::vector<double> A;
     std::vector<double> S;
@@ -125,7 +117,8 @@ polynomial_calculator polynomial_calculator
                 double tmp = coeff_a[i] * _Polynom.coeff_a[j];
                 A.push_back(tmp);
                 S.push_back(i + j);
-            } else {
+            }
+            else {
                 double tmp = coeff_a[j] * _Polynom.coeff_a[i];
                 A.push_back(tmp);
                 S.push_back(i + j);
@@ -135,11 +128,12 @@ polynomial_calculator polynomial_calculator
     for (int i = 0; i < n * m; i++) {
         if (S[i] == i) {
             C.coeff_a.push_back(A[i]);
-        } else {
+        }
+        else {
             if (S[i] < C.coeff_a.size()) {
-                if (S[i] < i)
-                    C.coeff_a[S[i]] += A[i];
-            } else {
+                if (S[i] < i) C.coeff_a[S[i]] += A[i];
+            }
+            else {
                 C.coeff_a.push_back(A[i]);
             }
         }
@@ -147,13 +141,14 @@ polynomial_calculator polynomial_calculator
     return C;
 }
 
-polynomial_calculator polynomial_calculator
-::operator + (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator+(
+    const double& _Num) const {
     if (this->coeff_a.size() == 0) {
         polynomial_calculator C;
         C.coeff_a.push_back(_Num);
         return C;
-    } else {
+    }
+    else {
         std::vector<double> a;
         for (int i = this->coeff_a.size() - 1; i >= 0; i--)
             a.push_back(this->coeff_a[i]);
@@ -163,19 +158,38 @@ polynomial_calculator polynomial_calculator
     }
 }
 
-polynomial_calculator polynomial_calculator
-::operator - (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator-(
+    const double& _Num) const {
     double Num = _Num * (-1.0);
     polynomial_calculator C;
     C = *this + Num;
     return C;
 }
 
-polynomial_calculator polynomial_calculator
-::operator * (const double& _Num) const {
+polynomial_calculator polynomial_calculator::operator*(
+    const double& _Num) const {
     std::vector<double> a;
     for (int i = this->coeff_a.size() - 1; i >= 0; i--)
-        a.push_back(this->coeff_a[i]*_Num);
+        a.push_back(this->coeff_a[i] * _Num);
     polynomial_calculator C(a, a.size());
     return C;
+}
+
+ostream& operator<<(ostream& out, const polynomial_calculator& Pol) {
+    int flag = 0;
+    for (int i = Pol.coeff_a.size() - 1; i >= 0; --i) {
+        if (fabs(Pol.coeff_a[i]) < EPS) continue;
+        if (Pol.coeff_a[i] > 0 && flag) out << '+';
+        if (Pol.coeff_a[i] < 0) out << '-';
+        if (!i ||
+            (fabs(Pol.coeff_a[i] - 1) > EPS) && fabs(Pol.coeff_a[i] + 1) > EPS)
+            out << fabs(Pol.coeff_a[i]);
+        if (i) {
+            out << 'x';
+            if (i != 1) out << '^' << i;
+        }
+        flag = 1;
+    }
+    if (!flag) out << '0';
+    return out;
 }

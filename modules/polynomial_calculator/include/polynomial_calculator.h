@@ -7,8 +7,10 @@
 #include <vector>
 #include <iostream>
 
+using namespace std;
+
 class polynomial_calculator {
- public:
+public:
     std::vector<double> coeff_a;
     polynomial_calculator();
     ~polynomial_calculator();
@@ -19,18 +21,15 @@ class polynomial_calculator {
     int GetSize() const;
     double value(double x);
 
-    bool operator ==
-        (const polynomial_calculator& P) const;
-    bool operator !=
-        (const polynomial_calculator& P) const;
-    polynomial_calculator operator +
-        (const polynomial_calculator& P);
-    polynomial_calculator operator -
-        (const polynomial_calculator& P);
-    polynomial_calculator operator *
-        (const polynomial_calculator& P);
-    polynomial_calculator operator + (const double& _Num) const;
-    polynomial_calculator operator - (const double& _Num) const;
-    polynomial_calculator operator * (const double& _Num) const;
+    bool operator==(const polynomial_calculator& P) const;
+    bool operator!=(const polynomial_calculator& P) const;
+    polynomial_calculator operator+(const polynomial_calculator& P);
+    polynomial_calculator operator-(const polynomial_calculator& P);
+    polynomial_calculator operator*(const polynomial_calculator& P);
+    polynomial_calculator operator+(const double& _Num) const;
+    polynomial_calculator operator-(const double& _Num) const;
+    polynomial_calculator operator*(const double& _Num) const;
+    friend ostream& operator<<(ostream& out,
+        const polynomial_calculator& _polinom);
 };
 #endif  // MODULES_POLYNOMIAL_CALCULATOR_INCLUDE_POLYNOMIAL_CALCULATOR_H_

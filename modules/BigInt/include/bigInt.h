@@ -11,11 +11,10 @@
 
 
 class BigInt {
-
  public:
   BigInt();
   explicit BigInt(const std::string& s);
-  explicit BigInt(int n); 
+  explicit BigInt(int n);
   BigInt(const BigInt& other);
 
   BigInt& operator=(const BigInt& other);

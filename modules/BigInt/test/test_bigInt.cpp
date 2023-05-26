@@ -57,7 +57,7 @@ TEST(BigIntOperatorTest, division) {
 TEST(BigIntOperatorTest, modulo) {
   BigInt n1("1234567890");
   BigInt n2("987654321");
-  BigInt result("246913619"); 
+  BigInt result("246913619");
   EXPECT_EQ(n1 % n2, result);
 }
 

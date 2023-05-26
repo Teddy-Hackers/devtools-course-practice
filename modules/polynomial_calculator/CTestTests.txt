@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2 3 1 2 3 +
 )
 set_tests_properties (${prefix}_can_addition PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result=2x\\^2+4x+6"
+    PASS_REGULAR_EXPRESSION "Result=2x\^2+4x+6"
     LABELS "${MODULE}")     
 
 add_test(
@@ -56,5 +56,5 @@ add_test(
     COMMAND ${APPLICATION} 1 2 3 1 2 3 *
 )
 set_tests_properties (${prefix}_can_multiplication PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result=x\\^4+4x\\^3+10x\\^2+12x+9"
+    PASS_REGULAR_EXPRESSION "Result=x\^4+4x\^3+10x\^2+12x+9"
     LABELS "${MODULE}")

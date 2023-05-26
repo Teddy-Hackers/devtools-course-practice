@@ -176,7 +176,8 @@ std::ostream& operator<<(std::ostream& out, const polynomial_calculator& Pol) {
         if (Pol.coeff_a[i] > 0 && flag) out << '+';
         if (Pol.coeff_a[i] < 0) out << '-';
         if (!i ||
-            ((fabs(Pol.coeff_a[i] - 1) > EPS) && fabs(Pol.coeff_a[i] + 1) > EPS))
+            ((fabs(Pol.coeff_a[i] - 1) > EPS) 
+                && fabs(Pol.coeff_a[i] + 1) > EPS))
             out << fabs(Pol.coeff_a[i]);
         if (i) {
             out << 'x';

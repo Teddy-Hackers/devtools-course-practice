@@ -68,8 +68,7 @@ polynomial_calculator polynomial_calculator::operator+(
         for (int i = n; i < this->GetSize(); ++i) {
             C.coeff_a.push_back(coeff_a[i]);
         }
-    }
-    else {
+    } else {
         for (int i = n; i < _Polynom.GetSize(); ++i) {
             C.coeff_a.push_back(_Polynom.coeff_a[i]);
         }
@@ -89,8 +88,7 @@ polynomial_calculator polynomial_calculator::operator-(
         for (int i = n; i < this->GetSize(); ++i) {
             C.coeff_a.push_back(coeff_a[i]);
         }
-    }
-    else {
+    } else {
         for (int i = n; i < _Polynom.GetSize(); ++i) {
             C.coeff_a.push_back(-_Polynom.coeff_a[i]);
         }
@@ -117,8 +115,7 @@ polynomial_calculator polynomial_calculator::operator*(
                 double tmp = coeff_a[i] * _Polynom.coeff_a[j];
                 A.push_back(tmp);
                 S.push_back(i + j);
-            }
-            else {
+            } else {
                 double tmp = coeff_a[j] * _Polynom.coeff_a[i];
                 A.push_back(tmp);
                 S.push_back(i + j);
@@ -128,12 +125,10 @@ polynomial_calculator polynomial_calculator::operator*(
     for (int i = 0; i < n * m; i++) {
         if (S[i] == i) {
             C.coeff_a.push_back(A[i]);
-        }
-        else {
+        } else {
             if (S[i] < C.coeff_a.size()) {
                 if (S[i] < i) C.coeff_a[S[i]] += A[i];
-            }
-            else {
+            } else {
                 C.coeff_a.push_back(A[i]);
             }
         }
@@ -147,8 +142,7 @@ polynomial_calculator polynomial_calculator::operator+(
         polynomial_calculator C;
         C.coeff_a.push_back(_Num);
         return C;
-    }
-    else {
+    } else {
         std::vector<double> a;
         for (int i = this->coeff_a.size() - 1; i >= 0; i--)
             a.push_back(this->coeff_a[i]);

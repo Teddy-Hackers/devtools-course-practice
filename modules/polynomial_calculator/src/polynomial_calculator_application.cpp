@@ -50,14 +50,11 @@ int polynomial_calculator_Application::parseOperator(const char* arg) {
     char op;
     if (strcmp(arg, "+") == 0) {
         op = '+';
-    }
-    else if (strcmp(arg, "-") == 0) {
+    } else if (strcmp(arg, "-") == 0) {
         op = '-';
-    }
-    else if (strcmp(arg, "*") == 0) {
+    } else if (strcmp(arg, "*") == 0) {
         op = '*';
-    }
-    else {
+    } else {
         throw std::string("ERROR: Wrong operation format!");
     }
     return op;

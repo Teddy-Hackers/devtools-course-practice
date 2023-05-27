@@ -1,13 +1,10 @@
 // Copyright 2023 Elistratov Vladimir
 
-#include "include/complex_calculator.h"
-#include "include/division_by_zero_exception.h"
-
-#include <stdbool.h>
-#include <string>
 #include <limits>
 #include <cmath>
 
+#include "include/complex_calculator.h"
+#include "include/division_by_zero_exception.h"
 
 const double eps = std::numeric_limits<double>::epsilon();
 

@@ -20,8 +20,8 @@ void polynomial_calculator_Application::help(const char* appname,
         "This is a polynomial calculator application.\n\n" +
         "Please provide arguments in the following format:\n\n" +
 
-        "  $ " + appname + " <x1> <x2> <x3> " +
-        "<z1> <z2> <z2> <operation>\n\n" +
+        "  $ " + appname + " <coeff_x^2> <coeff_x> <coeff_> " +
+        "<coeff_x^2> <coeff_x> <coeff_> <operation>\n\n" +
 
         "Where all arguments are double-precision numbers, " +
         "and <operation> is one of '+', '-', '*'.\n";
@@ -29,7 +29,7 @@ void polynomial_calculator_Application::help(const char* appname,
 
 bool polynomial_calculator_Application::validatArgumentsStart(
     int argc, const char** argv) {
-    if (argc > 8 || argc < 8) {
+    if (argc != 8) {
         help(argv[0], "ERROR: invalid number of arguments.\n\n");
         return false;
     }

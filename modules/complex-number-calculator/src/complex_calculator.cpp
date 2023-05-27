@@ -1,6 +1,7 @@
 // Copyright 2023 Elistratov Vladimir
 
 #include "include/complex_calculator.h"
+#include "include/division_by_zero_exception.h"
 
 #include <stdbool.h>
 #include <string>
@@ -69,7 +70,7 @@ ComplexNumber ComplexNumber::operator/(const ComplexNumber& z) const {
   ComplexNumber division;
 
   if (equalsZero(z)) {
-    throw std::string("Can't divide by zero");
+    throw division_by_zero_exception("Can't divide by zero");
   } else {
     double denominator = 1.0 / (z.getRe() * z.getRe() + z.getIm() * z.getIm());
 

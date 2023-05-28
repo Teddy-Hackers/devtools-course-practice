@@ -7,8 +7,8 @@
 
 #include "include/Point.h"
 #include "include/Segment.h"
-#include "include/check_segments_intersection.h"
 #include "include/check_segments_app.h"
+#include "include/check_segments_intersection.h"
 
 std::string CheckApplication::operator()(int argc, const char **argv) {
   if (argc <= 1 || std::string(argv[1]).empty())
@@ -28,19 +28,6 @@ std::string CheckApplication::operator()(int argc, const char **argv) {
   }
 
   return Message;
-}
-
-bool CheckApplication::argumentsIsValid(int argc, const char **argv) {
-  if (argc == 1) {
-    Message = printHelp(argv[0]);
-    return false;
-  }
-
-  if (argc > 8) {
-    Message = std::string("Failed!");
-    return false;
-  }
-  return true;
 }
 
 std::string CheckApplication::printHelp(const std::string &programName) {

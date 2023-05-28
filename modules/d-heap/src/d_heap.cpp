@@ -1,7 +1,7 @@
 // Copyright 2023 Bykova Aleksandra
 
 #include <algorithm>
-#include "include/d-heap.h"
+#include "include/d_heap.h"
 
 d_heap::d_heap() : d(2), size(3), count(0),
     keys(reinterpret_cast<size_t*>(operator new(sizeof(size_t) * 3))) {

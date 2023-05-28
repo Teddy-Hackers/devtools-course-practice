@@ -140,4 +140,4 @@ void d_heap::del(const size_t iter) {
 void d_heap::key_decrease(const size_t iter, const size_t down_key) {
     keys[iter] -= down_key;
     ascent(iter);
-} 
+}

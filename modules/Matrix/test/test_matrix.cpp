@@ -185,6 +185,10 @@ TEST(matrix, equal_operator) {
     a[1][0] = 2;
     a[1][1] = 5;
     matrix A(a, 2, 2);
-    matrix B = A;
-    EXPECT_EQ(A, B);
+    matrix B;
+    B.operator=(A);
+    EXPECT_EQ(A.getMatrix()[0][0], B.getMatrix()[0][0]);
+    EXPECT_EQ(A.getMatrix()[0][1], B.getMatrix()[0][1]);
+    EXPECT_EQ(A.getMatrix()[1][0], B.getMatrix()[1][0]);
+    EXPECT_EQ(A.getMatrix()[1][1], B.getMatrix()[1][1]);
 }

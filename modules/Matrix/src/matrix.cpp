@@ -83,9 +83,9 @@ matrix& matrix::operator=(const matrix& Matrix) {
 double det(double** Matrix, int size) {
     if (size == 1)
         return Matrix[0][0];
-    else if (size == 2)
+    else if (size == 2) {
         return Matrix[0][0] * Matrix[1][1] - Matrix[0][1] * Matrix[1][0];
-    else {
+    } else {
         double result = 0;
         for (int k = 0; k < size; k++) {
             double** matrix = new double* [size - 1];
@@ -128,9 +128,9 @@ bool matrix::operator==(const matrix& Matrix) {
                 if (Matrix.Matrix[i][j] != this->Matrix[i][j])
                     return false;
         return true;
-    }
-    else
+    } else {
         return false;
+    }
 }
 bool matrix::operator!=(const matrix& Matrix) {
     return !(*this == Matrix);
@@ -156,7 +156,7 @@ double* iter(matrix Matrix, double* y) {
             for (int j = 0; j < Matrix.rows; j++) {
                 if (i == j)
                     continue;
-                else 
+                else
                     Xn[i] -= Matrix.Matrix[i][j] / Matrix.Matrix[i][i] * res[j];
             }
         }
@@ -174,11 +174,11 @@ double* iter(matrix Matrix, double* y) {
     return res;
 }
 matrix InvMatr(matrix Matrix) {
-    matrix result(Matrix.rows,Matrix.columns);
+    matrix result(Matrix.rows, Matrix.columns);
     double* y = new double[Matrix.rows];
     double* itr;
-    for (int i = 0; i < Matrix.rows; i++){
-        for (int j = 0; j < Matrix.rows; j++){
+    for (int i = 0; i < Matrix.rows; i++) {
+        for (int j = 0; j < Matrix.rows; j++) {
             if (i == j)
                 y[j] = 1;
             else

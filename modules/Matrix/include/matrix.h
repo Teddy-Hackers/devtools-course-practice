@@ -8,7 +8,7 @@ class matrix {
     double** Matrix;
     int rows;
     int columns;
-public:
+ public:
     matrix();
     matrix(int rows, int columns);
     matrix(double** Matrix, int rows, int columns);
@@ -31,5 +31,4 @@ public:
     friend matrix InvMatr(matrix Matrix);
     friend double* iter(matrix Matrix, double* y);
 };
-
 #endif  //  MODULES_MATRIX_INCLUDE_MATRIX_H_

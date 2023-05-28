@@ -44,17 +44,17 @@ set_tests_properties (${prefix}_to_many_arguments PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_conv_arab
-    COMMAND ${APPLICATION} V
+    NAME ${prefix}_convert_arab
+    COMMAND ${APPLICATION} C
 )
-set_tests_properties (${prefix}_conv_arab PROPERTIES
-    PASS_REGULAR_EXPRESSION "Resultat of conv in Arabic is:"
+set_tests_properties (${prefix}_convert_arab PROPERTIES
+    PASS_REGULAR_EXPRESSION "Resultat of convert in Arabic is:"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_conv_rom
+    NAME ${prefix}_convert_rom
     COMMAND ${APPLICATION} 32
 )
-set_tests_properties (${prefix}_conv_rom PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result of conv in Roman is:"
+set_tests_properties (${prefix}_convert_rom PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result of convert in Roman is:"
     LABELS "${MODULE}")

@@ -52,11 +52,12 @@ std::string KonverterApplication::operator()(int argc, const char** argv) {
   std::string values = std::string(argv[1]);
 
   if (containsOnly(values, allowedAlphabet)) {
-    result = std::string("Resultat of conv in Arabic is:" + toArabic(values));
+    result =
+        std::string("Resultat of convert in Arabic is: " + toArabic(values));
   }
   if (containsOnly(values, allowedNumbers)) {
-    result =
-        std::string("Result of conv in Roman is:" + toRoman(std::stoi(values)));
+    result = std::string("Result of convert in Roman is: " +
+                         toRoman(std::stoi(values)));
   }
 
   return result;

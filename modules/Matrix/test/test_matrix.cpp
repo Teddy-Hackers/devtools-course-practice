@@ -116,10 +116,11 @@ TEST(matrix, trans) {
     B.getMatrix()[0][1] = 2;
     B.getMatrix()[1][0] = 2;
     B.getMatrix()[1][1] = 5;
-    EXPECT_EQ(A.getMatrix()[0][0], B.getMatrix()[0][0]);
-    EXPECT_EQ(A.getMatrix()[0][1], B.getMatrix()[0][1]);
-    EXPECT_EQ(A.getMatrix()[1][0], B.getMatrix()[1][0]);
-    EXPECT_EQ(A.getMatrix()[1][1], B.getMatrix()[1][1]);
+    C = A.trans();
+    EXPECT_EQ(C.getMatrix()[0][0], B.getMatrix()[0][0]);
+    EXPECT_EQ(C.getMatrix()[0][1], B.getMatrix()[0][1]);
+    EXPECT_EQ(C.getMatrix()[1][0], B.getMatrix()[1][0]);
+    EXPECT_EQ(C.getMatrix()[1][1], B.getMatrix()[1][1]);
 }
 TEST(matrix, reverse_matrix) {
     double** a = new double* [2];
@@ -136,10 +137,11 @@ TEST(matrix, reverse_matrix) {
     B.getMatrix()[0][1] = -0.4;
     B.getMatrix()[1][0] = -0.4;
     B.getMatrix()[1][1] = 0.36;
-    EXPECT_EQ(A.getMatrix()[0][0], B.getMatrix()[0][0]);
-    EXPECT_EQ(A.getMatrix()[0][1], B.getMatrix()[0][1]);
-    EXPECT_EQ(A.getMatrix()[1][0], B.getMatrix()[1][0]);
-    EXPECT_EQ(A.getMatrix()[1][1], B.getMatrix()[1][1]);
+    C = A.reverse();
+    EXPECT_EQ(C.getMatrix()[0][0], B.getMatrix()[0][0]);
+    EXPECT_EQ(C.getMatrix()[0][1], B.getMatrix()[0][1]);
+    EXPECT_EQ(C.getMatrix()[1][0], B.getMatrix()[1][0]);
+    EXPECT_EQ(C.getMatrix()[1][1], B.getMatrix()[1][1]);
 }
 TEST(matrix, determinant) {
     double** a = new double* [2];

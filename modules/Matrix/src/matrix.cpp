@@ -115,7 +115,7 @@ double matrix::determinant() {
 matrix matrix::transpose() {
     matrix result(columns, rows);
     for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < columns; i++) {
+        for (int j = 0; j < columns; j++) {
             result.Matrix[j][i] = Matrix[i][j];
         }
     }

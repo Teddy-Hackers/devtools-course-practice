@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Kruglikova Valeriia
+﻿//  Copyright 2023 Kruglikova Valeriia
 
 
 #include <gtest/gtest.h>

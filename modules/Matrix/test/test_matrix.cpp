@@ -1,4 +1,4 @@
-// Copyright 2023 Kruglikova Valeriia
+//  Copyright 2023 Kruglikova Valeriia
 
 
 #include <gtest/gtest.h>
@@ -7,7 +7,7 @@
 
 TEST(matrix, constructor) {
     matrix A;
-    EXPECT_EQ(A.getMatrix(),nullptr);
+    EXPECT_EQ(A.getMatrix(), nullptr);
 }
 TEST(matrix, constructor_rows_columns) {
     matrix A(2, 2);

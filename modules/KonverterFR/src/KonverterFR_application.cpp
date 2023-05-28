@@ -34,6 +34,7 @@ bool KonverterApplication::IsValid(int argc, const char** argv) {
     validatorMessage = std::string("MAKSIMUM 2(TWO) ARGUMENTS,BRO!!!");
     return false;
   }
+  std::string str = std::string(argv[1]);
   bool flag = (containsOnly(str, allowedAlphabet) ||
                containsOnly(str, allowedNumbers)) &&
               !(containsOnly(str, allowedAlphabet) &&

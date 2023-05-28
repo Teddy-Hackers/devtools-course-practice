@@ -175,3 +175,16 @@ TEST(matrix, determinant) {
     EXPECT_EQ(1, B.determinant());
     EXPECT_EQ(0, C.determinant());
 }
+TEST(matrix, equal_operator) {
+    double** a = new double* [2];
+    for (int i = 0; i < 2; i++) {
+        a[i] = new double[2];
+    }
+    a[0][0] = 1;
+    a[0][1] = 2;
+    a[1][0] = 2;
+    a[1][1] = 5;
+    matrix A(a, 2, 2);
+    matrix B = A;
+    EXPECT_EQ(A, B);
+}

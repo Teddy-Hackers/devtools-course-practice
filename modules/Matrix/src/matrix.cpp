@@ -81,9 +81,9 @@ matrix& matrix::operator=(const matrix& Matrix) {
     return *this;
 }
 double det(double** Matrix, int size) {
-    if (size == 1)
+    if (size == 1) {
         return Matrix[0][0];
-    else if (size == 2) {
+    } else if (size == 2) {
         return Matrix[0][0] * Matrix[1][1] - Matrix[0][1] * Matrix[1][0];
     } else {
         double result = 0;

@@ -9,7 +9,7 @@ std::pair<int, std::vector<double>> isIntersection(std::vector<double> plane,
     double A = plane[0]*dot[0]+plane[1]*dot[1]+plane[2]*dot[2]+plane[3];
     double B = plane[0]*direction[0]+plane[1]*direction[1]
         +plane[2]*direction[2];
-    if (B >= std::numeric_limits<double>::epsilon()) {
+    if (abs(B) >= std::numeric_limits<double>::epsilon()) {
         // a straight line intersects a plane
         double t = -A / B;
         double x = dot[0] + t * direction[0];
@@ -18,7 +18,7 @@ std::pair<int, std::vector<double>> isIntersection(std::vector<double> plane,
         std::vector<double> result = { x, y, z };
         return std::pair<int, std::vector<double>>(0, result);
     } else {
-        if (A < std::numeric_limits<double>::epsilon()) {
+        if (abs(A) < std::numeric_limits<double>::epsilon()) {
             // a straight line belongs a plane
             return std::pair<int,
                 std::vector<double>>(1, std::vector<double>(0));

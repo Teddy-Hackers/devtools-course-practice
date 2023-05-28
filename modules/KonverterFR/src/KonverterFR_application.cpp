@@ -31,7 +31,7 @@ bool KonverterApplication::IsValid(int argc, const char** argv) {
   }
 
   if (argc > 2) {
-    validatorMessage = std::string("MAKSIMUM 2(TWO) ARGUMENTS,BRO!!!");
+    validatorMessage = std::string("Maksimalno 2 arguments");
     return false;
   }
   std::string str = std::string(argv[1]);

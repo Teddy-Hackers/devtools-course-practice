@@ -55,7 +55,8 @@ std::string KonverterApplication::operator()(int argc, const char** argv) {
     result = std::string("Result of conv in Arabic is:" + toArabic(values));
   }
   if (containsOnly(values, allowedNumbers)) {
-    result = std::string("Result of conv in Roman is:" + toRoman(values));
+    result =
+        std::string("Result of conv in Roman is:" + toRoman(std::stoi(values)));
   }
 
   return result;

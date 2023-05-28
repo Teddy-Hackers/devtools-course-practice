@@ -124,20 +124,6 @@ matrix matrix::transpose() {
 matrix matrix::reverse() {
     return InvMatr(*this);
 }
-bool matrix::operator==(const matrix& Matrix) {
-    if (Matrix.rows == this->rows && Matrix.columns == this->columns) {
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < columns; j++)
-                if (Matrix.Matrix[i][j] != this->Matrix[i][j])
-                    return false;
-        return true;
-    } else {
-        return false;
-    }
-}
-bool matrix::operator!=(const matrix& Matrix) {
-    return !(*this == Matrix);
-}
 int matrix::getRows() {
     return rows;
 }

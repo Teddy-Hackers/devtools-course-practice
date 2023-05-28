@@ -1,7 +1,8 @@
 // Copyright 2023 Kruglikova Valeriia
 
-#include <math.h>
+
 #include "include/matrix.h"
+#include <math.h>
 #include <iostream>
 
 

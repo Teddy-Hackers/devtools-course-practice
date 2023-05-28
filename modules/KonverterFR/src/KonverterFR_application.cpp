@@ -7,7 +7,7 @@
 #include <memory>
 #include <sstream>
 
-#include "../include/KonverterFR.h"
+#include "../include/Converter.h"
 
 std::string KonverterApplication::help() {
   return std::string(

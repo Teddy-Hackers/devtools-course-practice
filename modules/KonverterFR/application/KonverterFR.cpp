@@ -1,6 +1,6 @@
 // Copyright 2023 Binko Alexandr
 
-#include "../include/KonverterFR.h"
+#include "../include/KonverterFR_application.h"
 
 int main(int argc, const char **argv) {
   KonverterApplication app;

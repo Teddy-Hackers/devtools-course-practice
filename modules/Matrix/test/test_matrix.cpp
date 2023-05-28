@@ -170,6 +170,7 @@ TEST(matrix, determinant) {
     c[2][2] = 5;
     matrix A(a, 2, 2);
     matrix B(b, 1, 1);
+    matrix C(c, 3, 3);
     EXPECT_EQ(1, A.determinant());
     EXPECT_EQ(1, B.determinant());
     EXPECT_EQ(0, C.determinant());

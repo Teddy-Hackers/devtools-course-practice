@@ -1,6 +1,6 @@
 // Copyright 2023 Frantcuzov Maksim
 
-#include "include/check_segments_intersection_app.h"
+#include "include/check_segments_app.h"
 
 int main(int argc, const char **argv) {
   CheckApplication app;

@@ -30,3 +30,18 @@ TEST(Lapin_Dmitriy_ComplexNumberTest, division_correct) {
     // Assert
     EXPECT_EQ(z3, z1 / z2);
 }
+
+TEST(Lapin_Dmitriy_ComplexNumberTest, substraction_correct) {
+    // Act
+    ComplexNumber z1(6.0, 8.0);
+    ComplexNumber z2(3.0, 4.0);
+    ComplexNumber z3(3.0, 4.0);
+    // Assert
+    EXPECT_EQ(z3, z1 - z2);
+}
+
+TEST(Lapin_Dmitriy_ComplexNumberTest, can_create_purely_imaginary_number) {
+    // Assert
+    ASSERT_NO_THROW(ComplexNumber(0.0, 4.0));
+    ASSERT_NO_THROW(ComplexNumber(2.0, 0.0));
+}

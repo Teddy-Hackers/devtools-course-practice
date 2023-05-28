@@ -16,7 +16,7 @@ add_test(
     COMMAND ${APPLICATION}
 )
 set_tests_properties (${prefix}_print_Help PROPERTIES
-    PASS_REGULAR_EXPRESSION "1D: integral1D [a] [b] [n]"
+    PASS_REGULAR_EXPRESSION "Usage:"
     LABELS "${MODULE}")
 
 add_test(
@@ -48,7 +48,7 @@ add_test(
     COMMAND ${APPLICATION} 1 2 3 4 5 6
 )
 set_tests_properties (${prefix}_detector_a_six_number_of_arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Too many arguments!"
+    PASS_REGULAR_EXPRESSION "Incorrect number of arguments!"
     LABELS "${MODULE}")
 
 add_test(

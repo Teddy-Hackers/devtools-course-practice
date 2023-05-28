@@ -2,6 +2,7 @@
 
 #include "include/matrix.h"
 #include <iostream>
+#include <math.h>
 
 matrix::matrix() {
     columns = 0;

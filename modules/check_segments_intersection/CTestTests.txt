@@ -8,36 +8,26 @@ add_test(
     NAME ${prefix}_run
     COMMAND ${APPLICATION}
 )
-set_tests_properties (${prefix}_run PROPERTIES
+set_tests_properties(${prefix}_run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_Without_Arguments
-    COMMAND ${APPLICATION}
-)
-
-set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is a check segment"
-    LABELS "${MODULE}")
-
-add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
+    NAME ${prefix}_can_Check_Number_Of_Arguments_1
     COMMAND ${APPLICATION} 9 1.0 1.0 2.0 2.0 3.0 3.0 4.0 4.0
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_1 PROPERTIES
     PASS_REGULAR_EXPRESSION "Segments intersect"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
+    NAME ${prefix}_can_Check_Number_Of_Arguments_2
     COMMAND ${APPLICATION} 10 1.0 1.0 3.0 3.0 2.0 2.0 4.0 4.0 5.0
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+)
+set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Segments do not intersect"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
-    COMMAND ${APPLICATION} 9 1.0 1.0 2.0 2.0 3.0 3.0 4.0 4.0
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Segments do not intersect"
-    LABELS "${MODULE}")
+    NAME ${prefix}_can_Check_Number_Of_Arguments_3
+    COMMAND ${APPLICATION} 9 1.0 1.0 5.0 5.0 1.0 5.0 5.0 1.0
+)

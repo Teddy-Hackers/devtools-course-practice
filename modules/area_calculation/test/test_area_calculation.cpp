@@ -75,3 +75,15 @@ TEST(PolygonArea, cant_count_area_less_then_3_points) {
     test.addPoint(point);
     ASSERT_ANY_THROW(test.countArea());
 }
+
+TEST(PolygonArea, point_count_is_changing) {
+    Polygon test;
+    double x = 1.5, y1 = 2.5, y2 = 3.5;
+    std::pair <double, double> point1(x, y1);
+    std::pair <double, double> point2(x, y2);
+    test.addPoint(point1);
+    test.addPoint(point2);
+    test.deletePoint(point1);
+    EXPECT_EQ(1, test.point_count);
+}
+

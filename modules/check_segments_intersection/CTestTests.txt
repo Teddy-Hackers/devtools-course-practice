@@ -8,7 +8,7 @@ add_test(
     NAME ${prefix}_run
     COMMAND ${APPLICATION}
 )
-set_tests_properties (${prefix}_can_Run PROPERTIES
+set_tests_properties (${prefix}_run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(

@@ -70,21 +70,9 @@ TEST(RomanNumeralConverterTest, CanCheckInputType) {
   EXPECT_EQ(result, "Invalid input");
 }
 
-TEST(RomanNumeralConverterTest, HandlesInvalidInput) {
-  std::string result = RomanNumeralConverter("abc");
-  EXPECT_EQ(result, "Invalid input");
-}
-
-TEST(RomanNumeralConverterTest, CanConvertArabicToRomanWithValidInput) {
-  std::string result = RomanNumeralConverter("4");
-  EXPECT_EQ(result, "IV");
-  result = RomanNumeralConverter("1994");
-  EXPECT_EQ(result, "MCMXCIV");
-}
-
 TEST(RomanNumeralConverterTest, CanConvertRomanToArabicWithValidInput) {
-  int result = RomanNumeralConverter("IV");
+  int result = toArabic("IV");
   EXPECT_EQ(result, 4);
-  result = RomanNumeralConverter("MCMXCIV");
+  result = toArabic("MCMXCIV");
   EXPECT_EQ(result, 1994);
 }

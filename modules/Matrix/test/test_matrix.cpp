@@ -175,7 +175,7 @@ TEST(matrix, determinant) {
     EXPECT_EQ(1, B.determinant());
     EXPECT_EQ(0, C.determinant());
 }
-TEST(matrix, determinant) {
+TEST(matrix, trace) {
     double** c = new double* [3];
     for (int i = 0; i < 3; i++) {
         c[i] = new double[3];

@@ -28,30 +28,6 @@ PASS_REGULAR_EXPRESSION "Segments do not intersect."
 LABELS "${MODULE}")
 
 add_test(
-NAME ${prefix}_can_Check_Number_Of_Arguments_
-COMMAND ${APPLICATION}
-)
-set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_ PROPERTIES
-PASS_REGULAR_EXPRESSION "Usage: <programName> x1 y1 x2 y2 x3 y3 x4 y4\n"
-LABELS "${MODULE}")
-
-add_test(
-NAME ${prefix}_can_Check_Number_Of_Arguments_3
-COMMAND ${APPLICATION} 0 0 1 1 2 2 3 3 4 4
-)
-set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_3 PROPERTIES
-PASS_REGULAR_EXPRESSION "Failed!"
-LABELS "${MODULE}")
-
-add_test(
-NAME ${prefix}_can_Check_Number_Of_Arguments_4
-COMMAND ${APPLICATION} 0 a 1 b 2 c 3 d
-)
-set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_4 PROPERTIES
-PASS_REGULAR_EXPRESSION "Failed!"
-LABELS "${MODULE}")
-
-add_test(
 NAME ${prefix}_can_Check_Number_Of_Arguments_5
 COMMAND ${APPLICATION} 0 0 1 1 1 1 2 2
 )

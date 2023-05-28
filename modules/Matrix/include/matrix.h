@@ -23,6 +23,7 @@ class matrix {
     matrix reverse();
     matrix& operator=(const matrix& MaStrix);
     double determinant();
+    double trace();
     int getRows();
     int getColumns();
     double** getMatrix();

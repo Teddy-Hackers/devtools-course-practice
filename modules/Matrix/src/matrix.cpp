@@ -179,3 +179,9 @@ matrix InvMatr(matrix Matrix) {
     }
     return result;
 }
+double matrix::trace() {
+    double result = 0;
+    for (int i = 0; i < this->rows; i++)
+        result += this->Matrix[i][i];
+    return result;
+}

@@ -138,10 +138,10 @@ TEST(matrix, reverse_matrix) {
     B.getMatrix()[1][0] = -0.4;
     B.getMatrix()[1][1] = 0.36;
     matrix C = A.reverse();
-    EXPECT_EQ(abs(C.getMatrix()[0][0] - B.getMatrix()[0][0])<0.001, true);
-    EXPECT_EQ(abs(C.getMatrix()[0][1] - B.getMatrix()[0][1])<0.001, true);
-    EXPECT_EQ(abs(C.getMatrix()[1][0] - B.getMatrix()[1][0])<0.001, true);
-    EXPECT_EQ(abs(C.getMatrix()[1][1] - B.getMatrix()[1][1])<0.001, true);
+    EXPECT_EQ(abs(C.getMatrix()[0][0] - B.getMatrix()[0][0]) < 0.001, true);
+    EXPECT_EQ(abs(C.getMatrix()[0][1] - B.getMatrix()[0][1]) < 0.001, true);
+    EXPECT_EQ(abs(C.getMatrix()[1][0] - B.getMatrix()[1][0]) < 0.001, true);
+    EXPECT_EQ(abs(C.getMatrix()[1][1] - B.getMatrix()[1][1]) < 0.001, true);
 }
 TEST(matrix, determinant) {
     double** a = new double* [2];

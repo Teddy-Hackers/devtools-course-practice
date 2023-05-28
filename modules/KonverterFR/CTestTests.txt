@@ -45,10 +45,10 @@ set_tests_properties (${prefix}_to_many_arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_convert_arab
-    COMMAND ${APPLICATION} C
+    COMMAND ${APPLICATION} I
 )
 set_tests_properties (${prefix}_convert_arab PROPERTIES
-    PASS_REGULAR_EXPRESSION "Resultat of convert in Arabic is:"
+    PASS_REGULAR_EXPRESSION "esultat of convert in Arabic is:"
     LABELS "${MODULE}")
 
 add_test(

@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <algorithm>
-#include "include/d-heap.h"
+#include "include/d_heap.h"
 
 TEST(Dheap, can_create_default_d_heap) {
     // Arrange Assert

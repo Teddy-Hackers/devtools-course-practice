@@ -69,8 +69,8 @@ LABELS "${MODULE}")
 
 add_test(
 NAME ${prefix}_can_Check_Number_Of_Arguments_10
-COMMAND ${APPLICATION} 0 0 1 1 1 1 2 1
+COMMAND ${APPLICATION} 0 0 1 0 0 0 1 0
 )
 set_tests_properties(${prefix}_can_Check_Number_Of_Arguments_10 PROPERTIES
-PASS_REGULAR_EXPRESSION "Segments do not intersect."
+PASS_REGULAR_EXPRESSION "Segments intersect."
 LABELS "${MODULE}")

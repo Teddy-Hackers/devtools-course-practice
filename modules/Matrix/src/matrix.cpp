@@ -1,5 +1,6 @@
-#include "matrix.h"
+#include "include/matrix.h"
 #include <iostream>
+
 matrix::matrix()
 {
     columns = 0;

@@ -1,8 +1,9 @@
-//Copyright 2023 Kruglikova Valeriia
+// Copyright 2023 Kruglikova Valeriia
 
 #ifndef  MODULES_MATRIX_INCLUDE_MATRIX_H_
 #define  MODULES_MATRIX_INCLUDE_MATRIX_H_
 #include <iostream>
+
 class matrix
 {
     double** Matrix;
@@ -31,4 +32,5 @@ public:
     friend matrix InvMatr(matrix Matrix);
     friend double* iter(matrix Matrix, double* y);
 };
+
 #endif  //  MODULES_MATRIX_INCLUDE_MATRIX_H_

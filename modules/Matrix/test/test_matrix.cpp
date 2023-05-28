@@ -2,7 +2,7 @@
 
 #include <gtest/gtest.h>
 #include <string>
-#include "matrix.h"
+#include "include/matrix.h"
 
 TEST(matrix, constructor) {
     matrix A;

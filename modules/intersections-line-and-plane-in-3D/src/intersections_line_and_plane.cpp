@@ -6,7 +6,8 @@
 std::pair<__int8, std::vector<double>> isIntersection(std::vector<double> plane,
     std::vector<double> dot, std::vector<double> direction) {
     double A = plane[0]*dot[0]+plane[1]*dot[1]+plane[2]*dot[2]+plane[3];
-    double B = plane[0]*direction[0]+plane[1]*direction[1]+plane[2]*direction[2];
+    double B = plane[0]*direction[0]+plane[1]*direction[1]
+        +plane[2]*direction[2];
     if (B != 0) {
         // a straight line intersects a plane
         double t = -A / B;

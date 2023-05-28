@@ -72,8 +72,7 @@ matrix matrix::operator*(double d) {
             Matrix.Matrix[i][j] = this->Matrix[i][j] * d;
     return (Matrix);
 }
-matrix& matrix::operator=(const matrix& Matrix) {
-    this->~matrix();
+matrix matrix::operator=(const matrix& Matrix) {
     this->columns = Matrix.columns;
     this->rows = Matrix.rows;
     for (int i = 0; i < rows; i++)

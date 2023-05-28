@@ -21,9 +21,9 @@ class matrix {
     matrix operator*(double d);
     matrix transpose();
     matrix reverse();
-    matrix& operator=(const matrix& Matrix);
-    bool operator==(matrix& Matrix);
-    bool operator!=(matrix& Matrix);
+    matrix& operator=(const matrix& MaStrix);
+    bool operator==(const matrix& Matrix);
+    bool operator!=(const matrix& Matrix);
     double determinant();
     int getRows();
     int getColumns();

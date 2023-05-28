@@ -21,7 +21,7 @@ class matrix {
     matrix operator*(double d);
     matrix transpose();
     matrix reverse();
-    matrix operator=(const matrix& MaStrix);
+    matrix& operator=(const matrix& MaStrix);
     double determinant();
     int getRows();
     int getColumns();

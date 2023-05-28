@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Francuzov Maksim
+﻿  // Copyright 2023 Francuzov Maksim
 #include <iostream>
 #include <map>
 #include <string>

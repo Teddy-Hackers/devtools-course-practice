@@ -25,7 +25,7 @@ int toArabic(std::string roman) {
                                      {'L', 50},   {'X', 10},  {'V', 5},
                                      {'I', 1}};
   int result = 0;
-  for (int i = 0; i < roman.length(); i++) {
+  for (std::string::size_type i = 0; i < roman.length(); i++) {
     if (i > 0 && romanValues[roman[i]] > romanValues[roman[i - 1]]) {
       result += romanValues[roman[i]] - 2 * romanValues[roman[i - 1]];
     } else {

@@ -1,8 +1,10 @@
-// Copyright 2023 Frank Maksim
+﻿  // Copyright 2023 Francuzov Maksim
 #include <cmath>
 #include <iostream>
 #include <map>
 #include <string>
+
+#include "Converter.h"
 
 std::string toRoman(int number) {
   const int arabicValues[] = {1000, 900, 500, 400, 100, 90, 50,
@@ -35,7 +37,7 @@ int toArabic(std::string roman) {
 }
 
 std::string checkInputType(std::string input) {
-  for (char& c : input) {
+  for (char &c : input) {
     if (!isdigit(c) && c != 'I' && c != 'V' && c != 'X' && c != 'L' &&
         c != 'C' && c != 'D' && c != 'M') {
       return "Invalid input";

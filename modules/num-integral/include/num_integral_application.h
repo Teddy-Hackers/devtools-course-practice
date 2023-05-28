@@ -11,7 +11,7 @@ class IntegralApplication {
   std::string help(const char* programName);
   double ParseToDouble(const char* arg);
   bool validateNumberOfArguments(int argc, const char** argv);
-  std::string IntegralApplication::operator()(int argc, const char** argv);
+  std::string operator()(int argc, const char** argv);
   std::string invalid_argument;
 };
 

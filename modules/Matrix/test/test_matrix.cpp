@@ -116,7 +116,7 @@ TEST(matrix, trans) {
     B.getMatrix()[0][1] = 2;
     B.getMatrix()[1][0] = 2;
     B.getMatrix()[1][1] = 5;
-    matrix C = A.trans();
+    matrix C = A.transpose();
     EXPECT_EQ(C.getMatrix()[0][0], B.getMatrix()[0][0]);
     EXPECT_EQ(C.getMatrix()[0][1], B.getMatrix()[0][1]);
     EXPECT_EQ(C.getMatrix()[1][0], B.getMatrix()[1][0]);

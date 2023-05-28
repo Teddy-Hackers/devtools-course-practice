@@ -52,7 +52,7 @@ std::string KonverterApplication::operator()(int argc, const char** argv) {
   std::string values = std::string(argv[1]);
 
   if (containsOnly(values, allowedAlphabet)) {
-    result = std::string("Result of conv in Arabic is:" + toArabic(values));
+    result = std::string("Resultat of conv in Arabic is:" + toArabic(values));
   }
   if (containsOnly(values, allowedNumbers)) {
     result =

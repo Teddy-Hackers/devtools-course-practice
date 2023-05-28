@@ -29,7 +29,7 @@ set_tests_properties (${prefix}_bad_arguments PROPERTIES
 
 add_test(
     NAME ${prefix}_bad_arguments2
-    COMMAND ${APPLICATION} X#*!
+    COMMAND ${APPLICATION} asdf
 )
 set_tests_properties (${prefix}_bad_arguments2 PROPERTIES
     PASS_REGULAR_EXPRESSION "Invalid expression"
@@ -40,7 +40,7 @@ add_test(
     COMMAND ${APPLICATION} 2 4 5
 )
 set_tests_properties (${prefix}_to_many_arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Input must contain no more than three arguments!"
+    PASS_REGULAR_EXPRESSION "MAKSIMUM 2(TWO) ARGUMENTS,BRO!!!"
     LABELS "${MODULE}")
 
 add_test(
@@ -48,7 +48,7 @@ add_test(
     COMMAND ${APPLICATION} XV
 )
 set_tests_properties (${prefix}_conv_arab PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result of conv in Arabic is:"
+    PASS_REGULAR_EXPRESSION "Resultat of conv in Arabic is:"
     LABELS "${MODULE}")
 
 add_test(

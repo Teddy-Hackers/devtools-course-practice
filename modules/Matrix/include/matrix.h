@@ -4,8 +4,7 @@
 #define  MODULES_MATRIX_INCLUDE_MATRIX_H_
 #include <iostream>
 
-class matrix
-{
+class matrix{
     double** Matrix;
     int rows;
     int columns;

@@ -1,22 +1,21 @@
+// Copyright 2023 Kruglikova Valeriia
+
 #include "include/matrix.h"
 #include <iostream>
 
-matrix::matrix()
-{
+matrix::matrix(){
     columns = 0;
     rows = 0;
     Matrix = nullptr;
 }
-matrix::matrix(int rows, int columns)
-{
+matrix::matrix(int rows, int columns){
     this->columns = columns;
     this->rows = rows;
     this->Matrix = new double* [rows];
     for (int i = 0; i < rows; i++)
         this->Matrix[i] = new double[columns] {};
 }
-matrix::matrix(double** Matrix, int rows, int columns)
-{
+matrix::matrix(double** Matrix, int rows, int columns){
     this->columns = columns;
     this->rows = rows;
     this->Matrix = new double* [rows];
@@ -26,8 +25,7 @@ matrix::matrix(double** Matrix, int rows, int columns)
         for (int j = 0; j < columns; j++)
             this->Matrix[i][j] = Matrix[i][j];
 }
-matrix::matrix(const matrix& Matrix)
-{
+matrix::matrix(const matrix& Matrix){
     this->columns = Matrix.columns;
     this->rows = Matrix.rows;
     this->Matrix = new double* [rows];
@@ -37,30 +35,26 @@ matrix::matrix(const matrix& Matrix)
         for (int j = 0; j < columns; j++)
             this->Matrix[i][j] = Matrix.Matrix[i][j];
 }
-matrix::~matrix()
-{
+matrix::~matrix(){
     for (int i = 0; i < rows; i++)
        delete[] Matrix[i];
     delete[] Matrix;
 }
-matrix matrix::operator+(const matrix& Matrix)
-{
+matrix matrix::operator+(const matrix& Matrix){
     matrix result(rows, columns);
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < columns; j++)
             result.Matrix[i][j] = this->Matrix[i][j] + Matrix.Matrix[i][j];
     return (result);
 }
-matrix matrix::operator-(const matrix& Matrix)
-{
+matrix matrix::operator-(const matrix& Matrix){
     matrix result(rows, columns);
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < columns; j++)
             result.Matrix[i][j] = this->Matrix[i][j] - Matrix.Matrix[i][j];
     return result;
 }
-matrix matrix::operator*(const matrix& Matrix)
-{
+matrix matrix::operator*(const matrix& Matrix){
     matrix result(rows, columns);
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < Matrix.columns; j++)
@@ -68,16 +62,14 @@ matrix matrix::operator*(const matrix& Matrix)
                 result.Matrix[i][j] += this->Matrix[i][k] * Matrix.Matrix[k][j];
     return result;
 }
-matrix matrix::operator*(double d)
-{
+matrix matrix::operator*(double d){
     matrix Matrix(rows, columns);
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < columns; j++)
             Matrix.Matrix[i][j] = this->Matrix[i][j] * d;
     return (Matrix);
 }
-matrix& matrix::operator=(const matrix& Matrix)
-{
+matrix& matrix::operator=(const matrix& Matrix){
     this->~matrix();
     this->columns = Matrix.columns;
     this->rows = Matrix.rows;
@@ -88,8 +80,7 @@ matrix& matrix::operator=(const matrix& Matrix)
             this->Matrix[i][j] = Matrix.Matrix[i][j];
     return *this;
 }
-double det(double** Matrix, int size)
-{
+double det(double** Matrix, int size){
     if (size == 1)
         return Matrix[0][0];
     else if (size == 2)
@@ -115,30 +106,23 @@ double det(double** Matrix, int size)
         return result;
     }
 }
-double matrix::determinant()
-{
+double matrix::determinant(){
     return det(Matrix, columns);
 }
-matrix matrix::transpose()
-{
+matrix matrix::transpose(){
     matrix result(columns, rows);
-    for (int i = 0; i < rows; i++)
-    {
-        for (int j = 0; j < columns; i++)
-        {
+    for (int i = 0; i < rows; i++){
+        for (int j = 0; j < columns; i++){
             result.Matrix[j][i] = Matrix[i][j];
         }
     }
     return result;
 }
-matrix matrix::reverse()
-{
+matrix matrix::reverse(){
     return InvMatr(*this);
 }
-bool matrix::operator==(const matrix& Matrix)
-{
-    if (Matrix.rows == this->rows && Matrix.columns == this->columns)
-    {
+bool matrix::operator==(const matrix& Matrix){
+    if (Matrix.rows == this->rows && Matrix.columns == this->columns){
         for (int i = 0; i < rows; i++)
             for (int j = 0; j < columns; j++)
                 if (Matrix.Matrix[i][j] != this->Matrix[i][j])
@@ -148,32 +132,26 @@ bool matrix::operator==(const matrix& Matrix)
     else
         return false;
 }
-bool matrix::operator!=(const matrix& Matrix)
-{
+bool matrix::operator!=(const matrix& Matrix){
     return !(*this == Matrix);
 }
-int matrix::getRows()
-{
+int matrix::getRows(){
     return rows;
 }
-int matrix::getColumns()
-{
+int matrix::getColumns(){
     return columns;
 }
-double** matrix::getMatrix()
-{
+double** matrix::getMatrix(){
     return Matrix;
 }
-double* iter(matrix Matrix, double* y)
-{
+double* iter(matrix Matrix, double* y){
     double* res = new double[Matrix.rows];
     for (int i = 0; i < Matrix.rows; i++)
         res[i] = y[i] / Matrix.Matrix[i][i];
     double eps = 0.0001;
     double* Xn = new double[Matrix.rows];
     do {
-        for (int i = 0; i < Matrix.rows; i++)
-        {
+        for (int i = 0; i < Matrix.rows; i++){
             Xn[i] = y[i] / Matrix.Matrix[i][i];
             for (int j = 0; j < Matrix.rows; j++) {
                 if (i == j)
@@ -195,15 +173,12 @@ double* iter(matrix Matrix, double* y)
     } while (true);
     return res;
 }
-matrix InvMatr(matrix Matrix)
-{
+matrix InvMatr(matrix Matrix){
     matrix result(Matrix.rows,Matrix.columns);
     double* y = new double[Matrix.rows];
     double* itr;
-    for (int i = 0; i < Matrix.rows; i++)
-    {
-        for (int j = 0; j < Matrix.rows; j++)
-        {
+    for (int i = 0; i < Matrix.rows; i++){
+        for (int j = 0; j < Matrix.rows; j++){
             if (i == j)
                 y[j] = 1;
             else

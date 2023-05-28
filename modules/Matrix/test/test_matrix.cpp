@@ -15,7 +15,7 @@ TEST(matrix, constructor_rows_columns) {
 }
 TEST(matrix, constructor_rows_columns_matrix) {
     double **a = new double*[2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;
@@ -27,7 +27,7 @@ TEST(matrix, constructor_rows_columns_matrix) {
 }
 TEST(matrix, copy_matrix) {
     double** a = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;
@@ -42,7 +42,7 @@ TEST(matrix, arithmetic) {
     double** a, ** b;
     a = new double* [2];
     b = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
         b[i] = new double[2];
     }
@@ -84,7 +84,7 @@ TEST(matrix, arithmetic) {
 }
 TEST(matrix, trans) {
     double** a = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;
@@ -101,7 +101,7 @@ TEST(matrix, trans) {
 }
 TEST(matrix, reverse_matrix) {
     double** a = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;
@@ -118,7 +118,7 @@ TEST(matrix, reverse_matrix) {
 }
 TEST(matrix, bool_operations) {
     double** a = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;
@@ -132,7 +132,7 @@ TEST(matrix, bool_operations) {
 }
 TEST(matrix, determinant) {
     double** a = new double* [2];
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 2; i++) {
         a[i] = new double[2];
     }
     a[0][0] = 1;

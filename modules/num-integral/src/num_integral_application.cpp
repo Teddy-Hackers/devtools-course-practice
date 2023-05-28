@@ -25,8 +25,8 @@ std::string IntegralApplication::help(const char* programName) {
 
 double IntegralApplication::ParseToDouble(const char* arg) {
   double result = 0.0;
-  
-   result = std::stod(arg);
+
+  result = std::stod(arg);
 
   return result;
 }

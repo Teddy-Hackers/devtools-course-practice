@@ -116,7 +116,7 @@ TEST(matrix, trans) {
     B.getMatrix()[0][1] = 2;
     B.getMatrix()[1][0] = 2;
     B.getMatrix()[1][1] = 5;
-    C = A.trans();
+    matrix C = A.trans();
     EXPECT_EQ(C.getMatrix()[0][0], B.getMatrix()[0][0]);
     EXPECT_EQ(C.getMatrix()[0][1], B.getMatrix()[0][1]);
     EXPECT_EQ(C.getMatrix()[1][0], B.getMatrix()[1][0]);
@@ -137,7 +137,7 @@ TEST(matrix, reverse_matrix) {
     B.getMatrix()[0][1] = -0.4;
     B.getMatrix()[1][0] = -0.4;
     B.getMatrix()[1][1] = 0.36;
-    C = A.reverse();
+    matrix C = A.reverse();
     EXPECT_EQ(C.getMatrix()[0][0], B.getMatrix()[0][0]);
     EXPECT_EQ(C.getMatrix()[0][1], B.getMatrix()[0][1]);
     EXPECT_EQ(C.getMatrix()[1][0], B.getMatrix()[1][0]);

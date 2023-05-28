@@ -3,6 +3,7 @@
 #include<utility>
 #include<iostream>
 #include<vector>
+#include <limits>
 std::pair<int, std::vector<double>> isIntersection(std::vector<double> plane,
     std::vector<double> dot, std::vector<double> direction) {
     double A = plane[0]*dot[0]+plane[1]*dot[1]+plane[2]*dot[2]+plane[3];

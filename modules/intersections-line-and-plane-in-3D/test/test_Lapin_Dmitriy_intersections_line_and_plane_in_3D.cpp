@@ -9,7 +9,7 @@ TEST(Lapin_Dmitriy_IntersectionTest, Intersection_test) {
 	std::vector<double>plane = { 3, 2, 3, 4 };
     std::vector<double>dot = { 1, 2, 1 };
     std::vector<double>direction = { 1, 2, 3 };
-    std::pair<short, std::vector<double>> result = isIntersection(plane, dot, direction);
+    std::pair<__int8, std::vector<double>> result = isIntersection(plane, dot, direction);
 
     EXPECT_EQ(result.first, 0);
     EXPECT_EQ(result.second[0], 0.125);
@@ -22,7 +22,7 @@ TEST(Lapin_Dmitriy_IntersectionTest, Overlap_test) {
     std::vector<double>plane = { 1, 0, -1, 0 };
     std::vector<double>dot = { 0, 1, 0 };
     std::vector<double>direction = { 1, 1, 1 };
-    std::pair<short, std::vector<double>> result = isIntersection(plane, dot, direction);
+    std::pair<__int8, std::vector<double>> result = isIntersection(plane, dot, direction);
 
     EXPECT_EQ(result.first, 1);
 }
@@ -32,7 +32,7 @@ TEST(Lapin_Dmitriy_IntersectionTest, Parallel_test) {
     std::vector<double>plane = { 1, 0, -1, 0 };
     std::vector<double>dot = { 0, 0, -1 };
     std::vector<double>direction = { 1, 1, 1 };
-    std::pair<short, std::vector<double>> result = isIntersection(plane, dot, direction);
+    std::pair<__int8, std::vector<double>> result = isIntersection(plane, dot, direction);
 
     EXPECT_EQ(result.first, 2);
 }

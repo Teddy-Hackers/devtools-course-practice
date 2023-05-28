@@ -8,7 +8,7 @@ class matrix {
     double** Matrix;
     int rows;
     int columns;
- public:
+    public:
     matrix();
     matrix(int rows, int columns);
     matrix(double** Matrix, int rows, int columns);

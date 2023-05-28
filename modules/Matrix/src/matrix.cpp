@@ -1,8 +1,9 @@
 // Copyright 2023 Kruglikova Valeriia
 
+#include <math.h>
 #include "include/matrix.h"
 #include <iostream>
-#include <math.h>
+
 
 matrix::matrix() {
     columns = 0;

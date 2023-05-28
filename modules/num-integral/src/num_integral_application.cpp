@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Nikitin Aleksandr
+﻿  // Copyright 2023 Nikitin Aleksandr
 
 #include "../include/num_integral_application.h"
 

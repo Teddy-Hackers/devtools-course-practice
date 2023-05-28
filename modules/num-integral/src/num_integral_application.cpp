@@ -25,11 +25,9 @@ std::string IntegralApplication::help(const char* programName) {
 
 double IntegralApplication::ParseToDouble(const char* arg) {
   double result = 0.0;
-  try {
-    result = std::stod(arg);
-  } catch (...) {
-    throw std::string("Wrong number format!");
-  }
+  
+   result = std::stod(arg);
+
   return result;
 }
 

@@ -121,9 +121,15 @@ TEST(BigIntTest, NotEqualityOperatorTest) {
 }
 
 TEST(BigIntTest, AddAbsTest) {
-    // Test 1: adding two single-digit numbers
-    std::string a = "3";
-    std::string b = "7";
-    std::string expected = "10";
+    std::string a = "1000000000000000000000000000000";
+    std::string b = "1234567891234567891234";
+    std::string expected = "1000000001234567891234567891234";
     EXPECT_EQ(BigInt::add_abs(a, b), expected);
+}
+
+TEST(BigIntTest, SubtractAbsTest) {
+    std::string a = "1000000000000000000000000000000";
+    std::string b = "1234567891234567891234";
+    std::string expected = "999999998765432108765432108766";
+    EXPECT_EQ(BigInt::subtract_abs(a, b), expected);
 }

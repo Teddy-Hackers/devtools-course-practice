@@ -23,9 +23,23 @@ TEST(BigIntTest, AdditionTest) {
     EXPECT_EQ(a + b, c);
 }
 
-TEST(BigIntTest, SubtractionTest) {
-    BigInt a("100000000000000000000");
-    BigInt b("1");
-    BigInt c("99999999999999999999");
-    EXPECT_EQ(a - b, c);
+TEST(BigIntTest, MultiplicationTest) {
+    BigInt a("99999999999999999999");
+    BigInt b("2");
+    BigInt c("199999999999999999998");
+    EXPECT_EQ(a * b, c);
+}
+
+TEST(BigIntTest, DivisionTest) {
+    BigInt a("99999999999999999999");
+    BigInt b("2");
+    BigInt c("50000000000000000000");
+    EXPECT_EQ(a / b, c);
+}
+
+TEST(BigIntTest, ModulusTest) {
+    BigInt a("99999999999999999999");
+    BigInt b("2");
+    BigInt c("1");
+    EXPECT_EQ(a % b, c);
 }

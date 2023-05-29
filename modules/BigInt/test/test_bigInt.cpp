@@ -10,7 +10,6 @@ TEST(BigIntTest, DefaultConstructorTest) {
     EXPECT_EQ(x.digits, "0");
 }
 
-
 TEST(BigIntConstructor, LargePositiveNumber) {
     BigInt a("123456789012345678901234567890");
     EXPECT_EQ(a.is_negative, false);
@@ -38,7 +37,6 @@ TEST(BigIntTest, MultiplicationTest) {
 }
 
 TEST(BigIntTest, GreaterThanOperatorTest) {
-    BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321");
     BigInt c("-123456789012345678901234567890");
 
@@ -47,7 +45,6 @@ TEST(BigIntTest, GreaterThanOperatorTest) {
 
 TEST(BigIntTest, GreaterThanOperatorTest) {
     BigInt a("123456789012345678901234567890");
-    BigInt b("98765432109876543210987654321");
     BigInt c("-123456789012345678901234567890");
 
     EXPECT_TRUE(a > c);
@@ -56,13 +53,11 @@ TEST(BigIntTest, GreaterThanOperatorTest) {
 TEST(BigIntTest, GreaterThanOperatorTest) {
     BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321");
-    BigInt c("-123456789012345678901234567890");
 
     EXPECT_TRUE(b > a);
 }
 
 TEST(BigIntTest, GreaterThanOperatorTest) {
-    BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321");
     BigInt c("-123456789012345678901234567890");
 
@@ -79,6 +74,34 @@ TEST(BigIntTest, GreaterThanOrEqualToOperatorTest) {
     EXPECT_TRUE(a >= c);
     EXPECT_FALSE(c >= a);
     EXPECT_TRUE(b >= b);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt b("98765432109876543210987654321");
+    BigInt c("-123456789012345678901234567890");
+
+    EXPECT_FALSE(c > b);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt c("-123456789012345678901234567890");
+
+    EXPECT_TRUE(a > c);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("98765432109876543210987654321");
+
+    EXPECT_TRUE(b > a);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt b("98765432109876543210987654321");
+    BigInt c("-123456789012345678901234567890");
+
+    EXPECT_TRUE(b > c);
 }
 
 TEST(BigIntTest, LessThanOperatorTest) {

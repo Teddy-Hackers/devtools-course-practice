@@ -37,8 +37,8 @@ set_tests_properties (${prefix}_can_check_arguments_type PROPERTIES
 
 add_test(
     NAME ${prefix}_can_calculate_polygon_area
-    COMMAND ${APPLICATION} 1.0 0.0 4.0 0.0 3.0 0.2 0.0 2.0
+    COMMAND ${APPLICATION} 0.0 0.0 1.0 0.0 3.0 2.0 0.0 2.0
 )
 set_tests_properties (${prefix}_can_calculate_polygon_area PROPERTIES
-    PASS_REGULAR_EXPRESSION "3"
+    PASS_REGULAR_EXPRESSION "6"
     LABELS "${MODULE}")

@@ -50,9 +50,10 @@ TEST(HuffCodeTest, Encode_Empty_Text) {
 
 TEST(HuffCodeTest, Encode_Text_Correct) {
     HuffmanCode huffmanCode;
-    std::string text = "Hello!";
-    std::string correct_encoded_text = "10010111110001";
-    EXPECT_EQ(correct_encoded_text, huffmanCode.encode(text));
+    std::string text = "123145267";
+    std::string correct_encoded_text = "1111001011100111010011000";
+    std::string result = huffmanCode.encode(text);
+    EXPECT_EQ(correct_encoded_text, result);
 }
 
 TEST(HuffCodeTest, Decode_With_Empty_Text) {
@@ -71,12 +72,13 @@ TEST(HuffCodeTest, Decode_With_Empty_Root) {
 
 TEST(HuffCodeTest, Decode_Text_Correct) {
     HuffmanCode huffmanCode;
-    std::string text = "Hello!";
+    std::string text = "123145267";
     text = huffmanCode.encode(text);
     std::string text_to_decode = "100001111";
-    std::string result = "Holl";
-    EXPECT_EQ(result, huffmanCode.decode(text_to_decode,
-        huffmanCode.getRoot()));
+    std::string true_result = "271";
+    std::string result = huffmanCode.decode(text_to_decode,
+        huffmanCode.getRoot());
+    EXPECT_EQ(true_result, result);
 }
 
 TEST(HuffCodeTest, Get_Empty_Root) {

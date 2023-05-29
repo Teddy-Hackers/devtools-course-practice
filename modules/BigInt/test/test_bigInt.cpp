@@ -23,6 +23,13 @@ TEST(BigIntTest, AdditionTest) {
     EXPECT_EQ(a + b, c);
 }
 
+TEST(BigIntTest, SubtractionTest) {
+    BigInt a("100000000000000000000");
+    BigInt b("1");
+    BigInt c("99999999999999999999");
+    EXPECT_EQ(a - b, c);
+}
+
 TEST(BigIntTest, MultiplicationTest) {
     BigInt a("99999999999999999999");
     BigInt b("2");

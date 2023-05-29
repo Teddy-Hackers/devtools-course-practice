@@ -141,7 +141,7 @@ BigInt operator/(const BigInt& a, const BigInt& b) {
 }
 
 BigInt operator%(const BigInt& a, const BigInt& b) {
-  std::pair<std::string, std::string> result = 
+  std::pair<std::string, std::string> result =
       BigInt::divide(a.digits, b.digits);
   return BigInt(result.second);
 }
@@ -157,7 +157,7 @@ bool operator>=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return false;
   if (!a.is_negative && b.is_negative) return true;
   bool abs_compare = BigInt::compare_abs(a.digits, b.digits);
-  return (a.is_negative) ? !abs_compare || a.digits == 
+  return (a.is_negative) ? !abs_compare || a.digits ==
       b.digits : abs_compare || a.digits == b.digits;
 }
 
@@ -282,8 +282,8 @@ std::string BigInt::multiply(const std::string& a, const std::string& b) {
   for (int i = a.length() - 1; i >= 0; i--) {
     int carry = 0;
     for (int j = b.length() - 1; j >= 0; j--) {
-        int tmp=(result[i+j+1]-'0')+
-            (a[i]-'0')*(b[j]-'0') + carry;
+        int tmp = (result[i + j + 1] - '0') +
+            (a[i] - '0') * (b[j] - '0') + carry;
         result[i + j + 1] = tmp % 10 + '0';
         carry = tmp / 10;
     }

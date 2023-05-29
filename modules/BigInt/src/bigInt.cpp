@@ -52,7 +52,7 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
     return b + a;
   }
 
-  for (int i = 0; i < b.digits.length(); i++) {
+  for (auto i = 0; i < b.digits.length(); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     db = b.digits[b.digits.length() - i - 1] - '0';
     s = da + db + carry;
@@ -63,7 +63,7 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
     result.insert(0, std::to_string(s));
   }
 
-  for (int i = b.digits.length(); i < a.digits.length(); i++) {
+  for (auto i = b.digits.length(); i < a.digits.length(); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     s = da + carry;
 
@@ -82,7 +82,6 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
 
 BigInt operator-(const BigInt& a, const BigInt& b) {
   std::string result;
-  bool subtract_one = false;
 
   if (a < b) {
     return BigInt("-") + (b - a);
@@ -91,7 +90,7 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
   int carry = 0;
   int da, db, d;
 
-  int i = 0;
+  auto i = 0;
   for (; i < b.digits.length(); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     db = b.digits[b.digits.length() - i - 1] - '0';
@@ -304,7 +303,7 @@ std::pair<std::string, std::string> BigInt::divide(const std::string& a,
   std::string quotient;
   std::string remainder = a.substr(0, b.length() - 1);
 
-  int i = b.length() - 1;
+  auto i = b.length() - 1;
   while (i < a.length()) {
     remainder += a[i];
     i++;

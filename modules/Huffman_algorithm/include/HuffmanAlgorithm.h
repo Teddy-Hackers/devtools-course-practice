@@ -1,11 +1,12 @@
 //  Copyright 2023 Gosteeva Ekaterina
 
-#ifndef MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMAN_ALGORITHM_H_
-#define MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMAN_ALGORITHM_H_
+#ifndef MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMANALGORITHM_H_
+#define MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMANALGORITHM_H_
 
 #include <iostream>
 #include <queue>
 #include <unordered_map>
+#include <string>
 
 struct HuffmanNode {
     char letter;
@@ -21,7 +22,7 @@ struct Compare {
 };
 
 class HuffmanCode {
-private:
+ private:
     HuffmanNode* root;
     std::unordered_map<char, std::string> huffmanCodes;
 
@@ -29,7 +30,7 @@ private:
     void buildHuffmanCodes(HuffmanNode* node, std::string code);
     void freeMemory(HuffmanNode* node);
     bool isLeaf(HuffmanNode* root);
-public:
+ public:
     HuffmanCode();
     std::string encode(std::string text);
     std::string decode(std::string encodedText, HuffmanNode* root_code);
@@ -38,4 +39,4 @@ public:
     ~HuffmanCode();
 };
 
-#endif  //  MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMAN_ALGORITHM_H_
+#endif  //  MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMANALGORITHM_H_

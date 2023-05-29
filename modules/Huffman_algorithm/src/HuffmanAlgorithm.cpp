@@ -80,7 +80,8 @@ std::string HuffmanCode::encode(std::string text) {
     return encodedText;
 }
 
-std::string HuffmanCode::decode(std::string encodedText, HuffmanNode* root_code) {
+std::string HuffmanCode::decode(std::string encodedText, 
+    HuffmanNode* root_code) {
     if (encodedText == "") {
         throw std::string("The text can't be empty");
     }
@@ -95,12 +96,12 @@ std::string HuffmanCode::decode(std::string encodedText, HuffmanNode* root_code)
         if (bit == '0') {
             if (current->left)
                 current = current->left;
+        } else {
+            if (bit == '1') {
+                if (current->right)
+                    current = current->right;
+            }
         }
-        else if (bit == '1') {
-            if (current->right)
-                current = current->right;
-        }
-
         if (!current->left && !current->right) {
             decodedText += current->letter;
             current = root_code;

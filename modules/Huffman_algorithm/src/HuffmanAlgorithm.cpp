@@ -80,10 +80,10 @@ std::string HuffmanCode::encode(std::string text) {
     return encodedText;
 }
 
-std::string HuffmanCode::decode(std::string encodedText, 
-    HuffmanNode* root_code) {
+std::string HuffmanCode::decode(std::string encodedText,
+HuffmanNode* root_code) {
     if (encodedText == "") {
-        throw std::string("The text can't be empty");
+         throw std::string("The text can't be empty");
     }
     if (root_code == nullptr) {
         throw std::string("Root node can't be empty");

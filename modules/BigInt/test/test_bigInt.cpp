@@ -84,6 +84,13 @@ TEST(BigIntTest, LessThanOperatorTest) {
     EXPECT_FALSE(a < b);
 }
 
+TEST(BigIntTest, LessThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("-12345678901234567890123456781");
+
+    EXPECT_FALSE(a < b);
+}
+
 TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
     BigInt a("-123456789012345678901234567890");
     BigInt b("123456789012345678901234567890");

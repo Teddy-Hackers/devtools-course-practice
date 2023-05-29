@@ -39,6 +39,6 @@ add_test(
     NAME ${prefix}_cannot_calculate_polygon_area_without_arguments
     COMMAND ${APPLICATION} 0.0 0.0
 )
-set_tests_properties (${prefix}_can_calculate_polygon_area PROPERTIES
+set_tests_properties (${prefix}_cannot_calculate_polygon_area_without_arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "Add more points"
     LABELS "${MODULE}")

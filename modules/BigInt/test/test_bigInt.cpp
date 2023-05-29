@@ -30,7 +30,7 @@ TEST(BigIntTest, MultiplicationTest) {
     EXPECT_EQ(a * b, c);
 }
 
-TEST(BigIntTest, DivisionTest) { 
+TEST(BigIntTest, DivisionTest) {
     BigInt a("12345678901234567890");
     BigInt b("99999");
     BigInt c("123456789012345");
@@ -50,7 +50,7 @@ TEST(BigIntTest, GreaterThanOperatorTest) {
     EXPECT_FALSE(b < c);
 }
 
-TEST(BigIntTest, GreaterThanOrEqualToOperatorTest) { 
+TEST(BigIntTest, GreaterThanOrEqualToOperatorTest) {
     BigInt a("1364763897649287634876836487");
     BigInt b("1364763897649287634876836487");
     BigInt c("-1364763897649287634876836487");
@@ -73,7 +73,7 @@ TEST(BigIntTest, LessThanOperatorTest) {
     EXPECT_FALSE(a < c);
 }
 
-TEST(BigIntTest, LessThanOrEqualToOperatorTest) { 
+TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
     BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321");
     BigInt c("-123456789012345678901234567890");
@@ -104,5 +104,4 @@ TEST(BigIntTest, NotEqualityOperatorTest) {
     EXPECT_FALSE(a != c);
     EXPECT_TRUE(a != b);
     EXPECT_TRUE(b != c);
-}
 }

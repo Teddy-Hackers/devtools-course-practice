@@ -75,7 +75,8 @@ TEST(HuffCodeTest, Decode_Text_Correct) {
     text = huffmanCode.encode(text);
     std::string text_to_decode = "100001111";
     std::string result = "Holl";
-    EXPECT_EQ(result, huffmanCode.decode(text_to_decode, huffmanCode.getRoot()));
+    EXPECT_EQ(result, huffmanCode.decode(text_to_decode,
+        huffmanCode.getRoot()));
 }
 
 TEST(HuffCodeTest, Get_Empty_Root) {

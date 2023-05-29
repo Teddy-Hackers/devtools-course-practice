@@ -8,7 +8,6 @@ BigInt::BigInt() : is_negative(false), digits("0") {}
 
 
 BigInt::BigInt(const std::string& s) {
-  // Определяем знак числа
   if (s[0] == '-') {
     is_negative = true;
     digits = s.substr(1);
@@ -49,7 +48,6 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
   int carry = 0;
   int da, db, s;
 
-  // Для удобства предполагаем, что a - это число с большей длиной
   if (a.digits.length() < b.digits.length()) {
     return b + a;
   }
@@ -86,7 +84,6 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
   std::string result;
   bool subtract_one = false;
 
-  // Для удобства предполагаем, что a - это число с большей длиной
   if (a < b) {
     return BigInt("-") + (b - a);
   }
@@ -124,7 +121,6 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
     result.insert(0, std::to_string(d));
   }
 
-    // Удаляем лидирующие нули
   while (result.length() > 1 && result.front() == '0') {
     result.erase(0, 1);
   }
@@ -138,12 +134,15 @@ BigInt operator*(const BigInt& a, const BigInt& b) {
 }
 
 BigInt operator/(const BigInt& a, const BigInt& b) {
-  std::pair<std::string, std::string> result = BigInt::divide(a.digits, b.digits);
-  return BigInt((a.is_negative != b.is_negative) ? "-" + result.first : result.first);
+  std::pair<std::string, std::string> result =
+      BigInt::divide(a.digits, b.digits);
+  return BigInt((a.is_negative != b.is_negative) ?
+      "-" + result.first : result.first);
 }
 
 BigInt operator%(const BigInt& a, const BigInt& b) {
-  std::pair<std::string, std::string> result = BigInt::divide(a.digits, b.digits);
+  std::pair<std::string, std::string> result = 
+      BigInt::divide(a.digits, b.digits);
   return BigInt(result.second);
 }
 
@@ -158,7 +157,8 @@ bool operator>=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return false;
   if (!a.is_negative && b.is_negative) return true;
   bool abs_compare = BigInt::compare_abs(a.digits, b.digits);
-  return (a.is_negative) ? !abs_compare || a.digits == b.digits : abs_compare || a.digits == b.digits;
+  return (a.is_negative) ? !abs_compare || a.digits == 
+      b.digits : abs_compare || a.digits == b.digits;
 }
 
 bool operator<(const BigInt& a, const BigInt& b) {
@@ -172,7 +172,8 @@ bool operator<=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return true;
   if (!a.is_negative && b.is_negative) return false;
   bool abs_compare = BigInt::compare_abs(a.digits, b.digits);
-  return (a.is_negative) ? abs_compare || a.digits == b.digits : !abs_compare || a.digits == b.digits;
+  return (a.is_negative) ? abs_compare || a.digits ==
+      b.digits : !abs_compare || a.digits == b.digits;
 }
 
 bool operator==(const BigInt& a, const BigInt& b) {
@@ -183,7 +184,6 @@ bool operator!=(const BigInt& a, const BigInt& b) {
   return !(a == b);
 }
 
-// Оператор вывода в поток
 std::ostream& operator<<(std::ostream& out, const BigInt& n) {
   if (n.is_negative && n.digits != "0") {
     out << "-";
@@ -193,12 +193,10 @@ std::ostream& operator<<(std::ostream& out, const BigInt& n) {
 }
 
 bool BigInt::compare_abs(const std::string& a, const std::string& b) {
-  // Сравниваем длины
   if (a.length() != b.length()) {
     return a.length() < b.length();
   }
 
-  // Сравниваем цифры поразрядно
   for (size_t i = 0; i < a.length(); i++) {
     if (a[i] != b[i]) {
         return a[i] < b[i];
@@ -209,7 +207,6 @@ bool BigInt::compare_abs(const std::string& a, const std::string& b) {
 }
 
 std::string BigInt::add_abs(const std::string& a, const std::string& b) {
-  // Складываем числа (по цифрам)
   std::string result;
   int carry = 0;
   int na = a.length(), nb = b.length();
@@ -228,7 +225,6 @@ std::string BigInt::add_abs(const std::string& a, const std::string& b) {
 }
 
 std::string BigInt::subtract_abs(const std::string& a, const std::string& b) {
-  // Вычитаем числа (по цифрам)
   std::string result;
   int borrow = 0;
   int na = a.length(), nb = b.length();
@@ -243,14 +239,12 @@ std::string BigInt::subtract_abs(const std::string& a, const std::string& b) {
       result.insert(0, std::to_string(d));
   }
 
-  // Удаляем незначащие нули
   result.erase(0, std::min(result.find_first_not_of('0'), result.size() - 1));
 
   return result;
 }
 
 std::string BigInt::multiply_int(const std::string& a, int b) {
-  // Умножаем число на цифру (по цифрам)
   std::string result;
   int carry = 0;
   int na = a.length();
@@ -267,7 +261,6 @@ std::string BigInt::multiply_int(const std::string& a, int b) {
 }
 
 std::pair<std::string, int> BigInt::divide_int(const std::string& a, int b) {
-  // Делим число на цифру (по цифрам)
   std::string result;
   int remainder = 0;
   int na = a.length();
@@ -278,7 +271,6 @@ std::pair<std::string, int> BigInt::divide_int(const std::string& a, int b) {
     result.insert(0, std::to_string(q));
   }
 
-  // Удаляем незначащие нули
   result.erase(0, std::min(result.find_first_not_of('0'), result.size() - 1));
 
   return std::make_pair(result, remainder);
@@ -290,14 +282,14 @@ std::string BigInt::multiply(const std::string& a, const std::string& b) {
   for (int i = a.length() - 1; i >= 0; i--) {
     int carry = 0;
     for (int j = b.length() - 1; j >= 0; j--) {
-        int tmp = (result[i + j + 1] - '0') + (a[i] - '0') * (b[j] - '0') + carry;
+        int tmp=(result[i+j+1]-'0')+
+            (a[i]-'0')*(b[j]-'0') + carry;
         result[i + j + 1] = tmp % 10 + '0';
         carry = tmp / 10;
     }
     result[i] += carry;
   }
 
-    // Удаляем незначащие нули
   result.erase(0, std::min(result.find_first_not_of('0'), result.size() - 1));
 
   return result.back() == '0' ? "0" : result;
@@ -328,9 +320,10 @@ std::pair<std::string, std::string> BigInt::divide(const std::string& a,
     quotient.append(std::to_string(count));
   }
 
-  // Удаляем незначащие нули
-  quotient.erase(0, std::min(quotient.find_first_not_of('0'), quotient.size() - 1));
-  remainder.erase(0, std::min(remainder.find_first_not_of('0'), remainder.size() - 1));
+  quotient.erase(0, std::min(quotient.find_first_not_of('0'),
+      quotient.size() - 1));
+  remainder.erase(0, std::min(remainder.find_first_not_of('0'),
+      remainder.size() - 1));
 
   return std::make_pair(quotient, remainder);
 }

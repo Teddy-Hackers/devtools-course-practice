@@ -22,7 +22,8 @@ void vector3dApp::info(const char* appname, const char* message) {
         "  $ " + appname + " x1 y1 z1 " +
         "<operation> x2 y2 z2 \n" +
         "All arguments must be double-precision numbers.\n" +
-        "List of operations:\n 'get_norma'\n 'get_normalization'\n 'scalar_mult'\n 'vector_mult' \n";
+        "List of operations:\n 'get_norma'\n 'get_normalization'\n"+
+        "'scalar_mult'\n 'vector_mult' \n";
 }
 
 double checkFormat(const char* arg) {
@@ -39,22 +40,16 @@ double checkFormat(const char* arg) {
 std::string checkOperation(const char* arg) {
     std::string op;
     if (strcmp(arg, "get_norma") == 0) {
-        op = "get_norma";
-    }
+        op = "get_norma";}
     else if (strcmp(arg, "get_normalization") == 0) {
-        op = "get_normalization";
-    }
+        op = "get_normalization";}
     else if (strcmp(arg, "scalar_mult") == 0) {
-        op = "scalar_mult";
-    }
+        op = "scalar_mult";}
     else if (strcmp(arg, "vector_mult") == 0) {
-        op = "vector_mult";
-    }
+        op = "vector_mult";}
     else {
-        throw std::string("Wrong format of operation");
-    }
-    return op;
-}
+        throw std::string("Wrong format of operation");}
+    return op;}
 
 bool  vector3dApp::checkArgNumber(int argc, const char** argv) {
     if (argc == 1) {

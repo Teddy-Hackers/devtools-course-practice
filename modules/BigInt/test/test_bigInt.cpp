@@ -15,3 +15,8 @@ TEST(BigIntConstructor, LargeNegativeNumber) {
     EXPECT_EQ(a.is_negative, true);
     EXPECT_EQ(a.digits, "123456789012345678901234567890");
 }
+
+TEST(BigIntTest, DefaultConstructorTest) {
+    BigInt a;
+    EXPECT_EQ(a.to_string(), "0");
+}

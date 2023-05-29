@@ -31,30 +31,46 @@ TEST(BigIntTest, MultiplicationTest) {
 }
 
 TEST(BigIntTest, DivisionTest) {
-    BigInt a("99999999999999999999");
-    BigInt b("2");
-    BigInt c("50000000000000000000");
+    BigInt a("12345678901234567890");
+    BigInt b("99999");
+    BigInt c("123456789012345");
+
     EXPECT_EQ(a / b, c);
+    EXPECT_EQ(a % b, BigInt("999908"));
 }
 
 TEST(BigIntTest, GreaterThanTest) {
-    BigInt a("99999999999999999999");
-    BigInt b("1");
-    EXPECT_TRUE(a > b);
-    EXPECT_FALSE(b > a);
+    BigInt a("123456");
+    BigInt b("123456789");
+
+    EXPECT_FALSE(a > b);
+    EXPECT_TRUE(b > a);
+    EXPECT_FALSE(a > a);
 }
 
 TEST(BigIntTest, GreaterThanOrEqualToTest) {
-    BigInt a("99999999999999999999");
-    BigInt b("1");
-    EXPECT_TRUE(a >= b);
+    BigInt a("123456");
+    BigInt b("123456789");
+
+    EXPECT_FALSE(a >= b);
+    EXPECT_TRUE(b >= a);
     EXPECT_TRUE(a >= a);
-    EXPECT_FALSE(b >= a);
 }
 
 TEST(BigIntTest, LessThanTest) {
-    BigInt a("99999999999999999999");
-    BigInt b("100000000000000000000");
+    BigInt a("123456");
+    BigInt b("123456789");
+
     EXPECT_TRUE(a < b);
     EXPECT_FALSE(b < a);
+    EXPECT_FALSE(a < a);
+}
+
+TEST(BigIntTest, LessThanOrEqualToTest) {
+    BigInt a("123456");
+    BigInt b("123456789");
+
+    EXPECT_TRUE(a <= b);
+    EXPECT_FALSE(b <= a);
+    EXPECT_TRUE(a <= a);
 }

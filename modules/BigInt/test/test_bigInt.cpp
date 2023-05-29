@@ -133,3 +133,10 @@ TEST(BigIntTest, SubtractAbsTest) {
     std::string expected = "999999998765432108765432108766";
     EXPECT_EQ(BigInt::subtract_abs(a, b), expected);
 }
+
+TEST(BigIntTest, MultiplyIntTest) {
+    std::string a = "1000000000000000000000";
+    std::string b = "1234567891234567891234";
+    std::string expected = "1234567891234567891234000000000000000000000";
+    EXPECT_EQ(BigInt::multiply_int(a, b), expected);
+}

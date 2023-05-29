@@ -75,3 +75,12 @@ add_test(
 set_tests_properties (${prefix}_can_Count_Vector_Mult PROPERTIES
     PASS_REGULAR_EXPRESSION "9,1,-14"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_cant_Get_Normalization_Of_Null_Vector
+    COMMAND ${APPLICATION} 0 0 0 get_normalization
+)
+set_tests_properties (${prefix}_cant_Get_Normalization_Of_Null_Vector PROPERTIES
+    PASS_REGULAR_EXPRESSION "No normalization!"
+    LABELS "${MODULE}")
+

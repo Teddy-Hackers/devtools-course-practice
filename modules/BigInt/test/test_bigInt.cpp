@@ -10,6 +10,16 @@ TEST(BigIntTest, DefaultConstructorTest) {
     EXPECT_EQ(x.digits, "0");
 }
 
+TEST(BigIntTest, SingleParameterConstructorTest) {
+    BigInt x(12345);
+    BigInt y(-12345);
+
+    EXPECT_FALSE(x.is_negative);
+    EXPECT_EQ(x.digits, "12345");
+    EXPECT_TRUE(y.is_negative);
+    EXPECT_EQ(y.digits, "12345");
+}
+
 TEST(BigIntConstructor, LargePositiveNumber) {
     BigInt a("123456789012345678901234567890");
     EXPECT_EQ(a.is_negative, false);

@@ -52,7 +52,7 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
     return b + a;
   }
 
-  for (auto i = 0; i < b.digits.length(); i++) {
+  for (int i = 0; i < static_cast<int>(b.digits.length()); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     db = b.digits[b.digits.length() - i - 1] - '0';
     s = da + db + carry;
@@ -63,7 +63,8 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
     result.insert(0, std::to_string(s));
   }
 
-  for (auto i = b.digits.length(); i < a.digits.length(); i++) {
+  for (int i = static_cast<int>(b.digits.length());
+      i < static_cast<int>(a.digits.length()); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     s = da + carry;
 
@@ -82,6 +83,7 @@ BigInt operator+(const BigInt& a, const BigInt& b) {
 
 BigInt operator-(const BigInt& a, const BigInt& b) {
   std::string result;
+  std::string::size_type i = 0;
 
   if (a < b) {
     return BigInt("-") + (b - a);
@@ -90,7 +92,6 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
   int carry = 0;
   int da, db, d;
 
-  auto i = 0;
   for (; i < b.digits.length(); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     db = b.digits[b.digits.length() - i - 1] - '0';

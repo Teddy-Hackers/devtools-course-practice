@@ -28,6 +28,16 @@ TEST(BigIntTest, CopyConstructorTest) {
     EXPECT_EQ(x.digits, y.digits);
 }
 
+TEST(BigIntTest, AssignmentOperatorTest) {.
+    BigInt x(12345678901234567890);
+    BigInt y;
+
+    y = x;
+
+    EXPECT_EQ(x.is_negative, y.is_negative);
+    EXPECT_EQ(x.digits, y.digits);
+}
+
 TEST(BigIntConstructor, LargePositiveNumber) {
     BigInt a("123456789012345678901234567890");
     EXPECT_EQ(a.is_negative, false);

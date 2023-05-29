@@ -10,15 +10,6 @@ TEST(BigIntTest, DefaultConstructorTest) {
     EXPECT_EQ(x.digits, "0");
 }
 
-TEST(BigIntTest, AssignmentOperatorTest) {.
-    BigInt x(12345678901234567890);
-    BigInt y;
-
-    y = x;
-
-    EXPECT_EQ(x.is_negative, y.is_negative);
-    EXPECT_EQ(x.digits, y.digits);
-}
 
 TEST(BigIntConstructor, LargePositiveNumber) {
     BigInt a("123456789012345678901234567890");

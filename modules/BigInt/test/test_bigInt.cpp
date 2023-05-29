@@ -139,4 +139,13 @@ TEST(BigIntTest, MultiplyIntTest) {
     int b = 5;
     std::string expected = "5000000000000000000000";
     EXPECT_EQ(BigInt::multiply_int(a, b), expected);
+
+TEST(BigIntTest, DivideIntTest) {
+    std::string a = "123456789123456789123456789";
+    int b = 123456789;
+    std::string expected_quotient = "1000000001000000001";
+    int expected_remainder = 0;
+    std::pair<std::string, int> result = BigInt::divide_int(a, b);
+    EXPECT_EQ(result.first, expected_quotient);
+    EXPECT_EQ(result.second, expected_remainder);
 }

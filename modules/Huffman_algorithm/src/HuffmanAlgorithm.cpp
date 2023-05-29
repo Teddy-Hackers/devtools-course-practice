@@ -66,6 +66,10 @@ HuffmanCode::HuffmanCode() {
 }
 
 std::string HuffmanCode::encode(std::string text) {
+    if (text == "") {
+        throw std::string("The text can't be empty");
+    }
+
     buildHuffmanTree(text);
 
     std::string encodedText;
@@ -77,6 +81,13 @@ std::string HuffmanCode::encode(std::string text) {
 }
 
 std::string HuffmanCode::decode(std::string encodedText, HuffmanNode* root_code) {
+    if (encodedText == "") {
+        throw std::string("The text can't be empty");
+    }
+    if (root_code == nullptr) {
+        throw std::string("Root node can't be empty");
+    }
+
     std::string decodedText = "";
     HuffmanNode* current = root_code;
 
@@ -100,6 +111,9 @@ std::string HuffmanCode::decode(std::string encodedText, HuffmanNode* root_code)
 }
 
 HuffmanNode* HuffmanCode::getRoot() {
+    if (root == nullptr) {
+        throw std::string("Can't return empty root");
+    }
     return root;
 }
 

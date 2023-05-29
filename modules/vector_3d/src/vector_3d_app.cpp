@@ -40,18 +40,18 @@ double checkFormat(const char* arg) {
 std::string checkOperation(const char* arg) {
     std::string op;
     if (strcmp(arg, "get_norma") == 0) {
-        op = "get_norma";
+        op = "get_norma"
     } else {
         if (strcmp(arg, "get_normalization") == 0) {
-            op = "get_normalization";
+            op = "get_normalization"
         }
     } else {
         if (strcmp(arg, "scalar_mult") == 0) {
-            op = "scalar_mult";
+            op = "scalar_mult"
         }
     } else {
         if (strcmp(arg, "vector_mult") == 0) {
-            op = "vector_mult";
+            op = "vector_mult"
         }
     } else {
         throw std::string("Wrong format of operation");}

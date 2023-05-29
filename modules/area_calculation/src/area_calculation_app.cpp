@@ -10,6 +10,7 @@
 #include <sstream>
 #include <utility>
 
+
 PolygonApp::PolygonApp() {}
 
 std::string PolygonApp::operator()(int argc, const char** argv) {

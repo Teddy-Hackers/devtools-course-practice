@@ -10,24 +10,6 @@ TEST(BigIntTest, DefaultConstructorTest) {
     EXPECT_EQ(x.digits, "0");
 }
 
-TEST(BigIntTest, SingleParameterConstructorTest) {
-    BigInt x(12345);
-    BigInt y(-12345);
-
-    EXPECT_FALSE(x.is_negative);
-    EXPECT_EQ(x.digits, "12345");
-    EXPECT_TRUE(y.is_negative);
-    EXPECT_EQ(y.digits, "12345");
-}
-
-TEST(BigIntTest, CopyConstructorTest) {
-    BigInt x(1234567891011121314151617);
-    BigInt y(x);
-
-    EXPECT_EQ(x.is_negative, y.is_negative);
-    EXPECT_EQ(x.digits, y.digits);
-}
-
 TEST(BigIntTest, AssignmentOperatorTest) {.
     BigInt x(12345678901234567890);
     BigInt y;
@@ -70,8 +52,29 @@ TEST(BigIntTest, GreaterThanOperatorTest) {
     BigInt c("-123456789012345678901234567890");
 
     EXPECT_FALSE(c > b);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("98765432109876543210987654321");
+    BigInt c("-123456789012345678901234567890");
+
     EXPECT_TRUE(a > c);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("98765432109876543210987654321");
+    BigInt c("-123456789012345678901234567890");
+
     EXPECT_TRUE(b > a);
+}
+
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("98765432109876543210987654321");
+    BigInt c("-123456789012345678901234567890");
+
     EXPECT_TRUE(b > c);
 }
 

@@ -119,3 +119,11 @@ TEST(BigIntTest, NotEqualityOperatorTest) {
     EXPECT_TRUE(a != b);
     EXPECT_TRUE(b != c);
 }
+
+TEST(BigIntTest, AddAbsTest) {
+    // Test 1: adding two single-digit numbers
+    std::string a = "3";
+    std::string b = "7";
+    std::string expected = "10";
+    EXPECT_EQ(BigInt::add_abs(a, b), expected);
+}

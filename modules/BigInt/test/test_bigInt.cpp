@@ -37,7 +37,7 @@ TEST(BigIntMultiplicationOperator, LargePositiveNumbers) {
     BigInt b("987654321098765432109876543210");
     BigInt c = a * b;
     EXPECT_EQ(c.is_negative, false);
-    EXPECT_EQ(c.digits, 
+    EXPECT_EQ(c.digits,
     "121932631137021795533554550190627632733303376645344100");
 }
 

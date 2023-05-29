@@ -39,38 +39,74 @@ TEST(BigIntTest, DivisionTest) {
     EXPECT_EQ(a % b, BigInt("999908"));
 }
 
-TEST(BigIntTest, GreaterThanTest) {
-    BigInt a("123456");
-    BigInt b("123456789");
+TEST(BigIntTest, GreaterThanOperatorTest) {
+    BigInt a("123");
+    BigInt b("45");
+    BigInt c("-123");
 
-    EXPECT_FALSE(a > b);
     EXPECT_TRUE(b > a);
-    EXPECT_FALSE(a > a);
+    EXPECT_FALSE(a > b);
+    EXPECT_FALSE(c > a);
+    EXPECT_TRUE(a > c);
+    EXPECT_FALSE(c > b);
 }
 
-TEST(BigIntTest, GreaterThanOrEqualToTest) {
-    BigInt a("123456");
-    BigInt b("123456789");
+TEST(BigIntTest, GreaterThanOrEqualToOperatorTest) {
+    BigInt a("123");
+    BigInt b("123");
+    BigInt c("-123");
 
-    EXPECT_FALSE(a >= b);
     EXPECT_TRUE(b >= a);
-    EXPECT_TRUE(a >= a);
+    EXPECT_FALSE(a >= b);
+    EXPECT_TRUE(a >= c);
+    EXPECT_FALSE(c >= a);
+    EXPECT_TRUE(b >= b);
 }
 
-TEST(BigIntTest, LessThanTest) {
-    BigInt a("123456");
-    BigInt b("123456789");
+TEST(BigIntTest, LessThanOperatorTest) {
+    BigInt a("123");
+    BigInt b("45");
+    BigInt c("-123");
 
-    EXPECT_TRUE(a < b);
-    EXPECT_FALSE(b < a);
-    EXPECT_FALSE(a < a);
+    EXPECT_TRUE(b < a);
+    EXPECT_FALSE(a < b);
+    EXPECT_TRUE(c < a);
+    EXPECT_FALSE(a < c);
+    EXPECT_FALSE(c < c);
 }
 
-TEST(BigIntTest, LessThanOrEqualToTest) {
-    BigInt a("123456");
-    BigInt b("123456789");
+TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
+    BigInt a("123");
+    BigInt b("123");
+    BigInt c("-123");
 
-    EXPECT_TRUE(a <= b);
-    EXPECT_FALSE(b <= a);
-    EXPECT_TRUE(a <= a);
+    EXPECT_TRUE(b <= a);
+    EXPECT_FALSE(a <= b);
+    EXPECT_TRUE(c <= a);
+    EXPECT_FALSE(a <= c);
+    EXPECT_TRUE(b <= b);
+}
+
+TEST(BigIntTest, EqualityOperatorTest) {
+    BigInt a("123");
+    BigInt b("-123");
+    BigInt c("456");
+    BigInt d("123");
+
+    EXPECT_TRUE(a == d);
+    EXPECT_FALSE(a == b);
+    EXPECT_FALSE(b == c);
+    EXPECT_FALSE(a == c);
+}
+
+TEST(BigIntTest, NotEqualityOperatorTest) {
+    BigInt a("123");
+    BigInt b("-123");
+    BigInt c("456");
+    BigInt d("123");
+
+    EXPECT_FALSE(a != d);
+    EXPECT_TRUE(a != b);
+    EXPECT_TRUE(b != c);
+    EXPECT_TRUE(a != c);
 }

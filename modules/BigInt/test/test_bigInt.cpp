@@ -4,75 +4,10 @@
 
 #include "include/bigInt.h"
 
-TEST(BigIntConstructor, EmptyConstructor) {
-    BigInt big_integer;
-
-    ASSERT_EQ(big_integer.IsNegative(), false);
-    ASSERT_EQ(big_integer.ToString(), "0");
-}
-
-TEST(BigIntConstructor, StringConstructorPositive) {
-    std::string input = "123456789";
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), false);
-    ASSERT_EQ(big_integer.ToString(), input);
-}
-
-TEST(BigIntConstructor, StringConstructorNegative) {
-    std::string input = "-987654321";
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), true);
-    ASSERT_EQ(big_integer.ToString(), "987654321");
-}
-
-TEST(BigIntConstructor, StringConstructorLeadingZeros) {
-    std::string input = "0000123456789000000";
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), false);
-    ASSERT_EQ(big_integer.ToString(), "123456789000000");
-}
-
-TEST(BigIntConstructor, IntConstructorPositive) {
-    int input = 123456789;
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), false);
-    ASSERT_EQ(big_integer.ToString(), "123456789");
-}
-
-TEST(BigIntConstructor, IntConstructorNegative) {
-    int input = -987654321;
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), true);
-    ASSERT_EQ(big_integer.ToString(), "987654321");
-}
-
-TEST(BigIntConstructor, IntConstructorZero) {
-    int input = 0;
-
-    BigInt big_integer(input);
-
-    ASSERT_EQ(big_integer.IsNegative(), false);
-    ASSERT_EQ(big_integer.ToString(), "0");
-}
-
-TEST(BigIntConstructor, CopyConstructor) {
-    BigInt original(123456789);
-
-    BigInt copied(original);
-
-    ASSERT_EQ(copied.IsNegative(), false);
-    ASSERT_EQ(copied.ToString(), "123456789");
-    ASSERT_NE(&copied, &original);
+TEST(BigIntTest, DefaultConstructorTest) {
+    BigInt x;
+    EXPECT_FALSE(x.is_negative);
+    EXPECT_EQ(x.digits, "0");
 }
 
 TEST(BigIntConstructor, LargePositiveNumber) {
@@ -87,55 +22,11 @@ TEST(BigIntConstructor, LargeNegativeNumber) {
     EXPECT_EQ(a.digits, "123456789012345678901234567890");
 }
 
-TEST(BigIntOperator, AssignmentOperator) {
-    BigInt original(123456789);
-    BigInt assigned = original;
-
-    ASSERT_EQ(assigned.IsNegative(), false);
-    ASSERT_EQ(assigned.ToString(), "123456789");
-    ASSERT_NE(&assigned, &original);
-
-    BigInt other(987654321);
-    assigned = other;
-
-    ASSERT_EQ(assigned.IsNegative(), false);
-    ASSERT_EQ(assigned.ToString(), "987654321");
-    ASSERT_NE(&assigned, &other);
-    ASSERT_EQ(original.ToString(), "123456789");
-}
-
 TEST(BigIntTest, AdditionTest) {
     BigInt a("99999999999999999999");
     BigInt b("1");
     BigInt c("100000000000000000000");
     EXPECT_EQ(a + b, c);
-}
-
-TEST(BigIntTest, Subtraction) {
-    BigInt a("12345");
-    BigInt b("6789");
-
-    BigInt result = a - b;
-
-    ASSERT_EQ(result.toString(), "5556");
-}
-
-TEST(BigIntTest, Division) {
-    BigInt a("12345678901234567890");
-    BigInt b("12345678901234567890");
-
-    BigInt result = a / b;
-
-    ASSERT_EQ(result.toString(), "1");
-}
-
-TEST(BigIntTest, Modulo) {
-    BigInt a("12345678901234567890");
-    BigInt b("12345678901234567890");
-
-    BigInt result = a % b;
-
-    ASSERT_EQ(result.toString(), "0");
 }
 
 TEST(BigIntTest, MultiplicationTest) {

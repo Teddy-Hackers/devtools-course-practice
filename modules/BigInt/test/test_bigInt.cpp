@@ -57,16 +57,15 @@ TEST(BigIntTest, LessThanOperatorTest) {
     BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321");
 
-    EXPECT_TRUE(c < a);
-    EXPECT_FALSE(a < c);
+    EXPECT_TRUE(b < a);
+    EXPECT_FALSE(a < b);
 }
 
 TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
     BigInt a("123456789012345678901234567890");
     BigInt b("98765432109876543210987654321000");
 
-    EXPECT_TRUE(c <= a);
-    EXPECT_FALSE(a <= c);
+    EXPECT_TRUE(a <= b);
 }
 
 TEST(BigIntTest, EqualityOperatorTest) {

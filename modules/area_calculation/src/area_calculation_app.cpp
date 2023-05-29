@@ -48,8 +48,8 @@ std::string PolygonApp::reference(const std::string& appname) {
         + "Polygon area calculation. \n"
         + "Enter the points of the polygon: \n"
         + "Enter the coordinates of the points anticlockwise \n"
-        + "First, enter the x coordinate, next enter space and the y coordinate \n"
-        + "And also for all points.";
+        + "First, enter the x coordinate, \n"
+        + "Next enter space and the y coordinate, and also for all points.";
     return reference;
 }
 

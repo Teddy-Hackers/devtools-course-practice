@@ -45,15 +45,15 @@ std::string checkOperation(const char* arg) {
         if (strcmp(arg, "get_normalization") == 0) {
             op = "get_normalization";
         }
-    } else {
-            if (strcmp(arg, "scalar_mult") == 0) {
-            op = "scalar_mult";
-            }
         } else {
-                if (strcmp(arg, "vector_mult") == 0) {
+           if (strcmp(arg, "scalar_mult") == 0) {
+                op = "scalar_mult";
+           }
+           } else {
+             if (strcmp(arg, "vector_mult") == 0) {
                 op = "vector_mult";
-                }
-            } else {
+             }
+             } else {
                     throw std::string("Wrong format of operation");}
          return op;}
 

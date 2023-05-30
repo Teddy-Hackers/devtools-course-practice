@@ -78,5 +78,5 @@ TEST(HuffCodeTest, Get_NonEmpty_Root) {
     HuffmanCode huffmanCode;
     std::string text = "Hello!";
     std::string encoded_text = huffmanCode.encode(text);
-    EXPECT_NE(nullptr,huffmanCode.getRoot());
+    EXPECT_NE(nullptr, huffmanCode.getRoot());
 }

@@ -13,8 +13,8 @@ bool Compare::operator()(HuffmanNode* left, HuffmanNode* right) {
 }
 
 void HuffmanCode::buildHuffmanTree(std::string text) {
-    std::unordered_map<char, int> frequencyMap;
-    for (char c : text)
+    std::unordered_map<unsigned char, int> frequencyMap;
+    for (unsigned char c : text)
         frequencyMap[c]++;
 
     std::priority_queue<HuffmanNode*, std::vector<HuffmanNode*>, Compare> pq;
@@ -73,7 +73,7 @@ std::string HuffmanCode::encode(std::string text) {
     buildHuffmanTree(text);
 
     std::string encodedText;
-    for (char ch : text) {
+    for (unsigned char ch : text) {
         encodedText += huffmanCodes[ch];
     }
 
@@ -92,7 +92,7 @@ HuffmanNode* root_code) {
     std::string decodedText = "";
     HuffmanNode* current = root_code;
 
-    for (char bit : encodedText) {
+    for (unsigned char bit : encodedText) {
         if (bit == '0') {
             if (current->left)
                 current = current->left;

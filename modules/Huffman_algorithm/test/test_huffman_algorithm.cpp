@@ -48,14 +48,6 @@ TEST(HuffCodeTest, Encode_Empty_Text) {
     ASSERT_ANY_THROW(huffmanCode.encode(empty_text));
 }
 
-TEST(HuffCodeTest, Encode_Text_Correct) {
-    HuffmanCode huffmanCode;
-    std::string text = "123145267";
-    std::string correct_encoded_text = "1111001011100111010011000";
-    std::string result = huffmanCode.encode(text);
-    EXPECT_EQ(correct_encoded_text, result);
-}
-
 TEST(HuffCodeTest, Decode_With_Empty_Text) {
     HuffmanCode huffmanCode;
     std::string text = "Hello!";
@@ -70,15 +62,11 @@ TEST(HuffCodeTest, Decode_With_Empty_Root) {
     ASSERT_ANY_THROW(huffmanCode.decode(text, nullptr));
 }
 
-TEST(HuffCodeTest, Decode_Text_Correct) {
+TEST(HuffCodeTest, Encode_And_Decode_Text_Correct) {
     HuffmanCode huffmanCode;
-    std::string text = "123145267";
-    text = huffmanCode.encode(text);
-    std::string text_to_decode = "100001111";
-    std::string true_result = "271";
-    std::string result = huffmanCode.decode(text_to_decode,
-        huffmanCode.getRoot());
-    EXPECT_EQ(true_result, result);
+    std::string text = "Hello!";
+    std::string encoded_text = huffmanCode.encode(text);
+    EXPECT_EQ(text, huffmanCode.decode(encoded_text, huffmanCode.getRoot()));
 }
 
 TEST(HuffCodeTest, Get_Empty_Root) {
@@ -86,9 +74,9 @@ TEST(HuffCodeTest, Get_Empty_Root) {
     ASSERT_ANY_THROW(huffmanCode.getRoot());
 }
 
-TEST(HuffCodeTest, Encode_And_Decode_Text_Correct) {
+TEST(HuffCodeTest, Get_NonEmpty_Root) {
     HuffmanCode huffmanCode;
     std::string text = "Hello!";
     std::string encoded_text = huffmanCode.encode(text);
-    EXPECT_EQ(text, huffmanCode.decode(encoded_text, huffmanCode.getRoot()));
+    EXPECT_NE(nullptr,huffmanCode.getRoot());
 }

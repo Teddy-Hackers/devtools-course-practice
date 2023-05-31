@@ -22,6 +22,5 @@ class BaseCalculator {
         int base2;
         char operation;
     } Arguments;
-
 };
-#endif // MODULES_KONVERTERANDCALCULATOR_INCLUDE_CALCULATOR_APP_H_
+#endif  // MODULES_KONVERTERANDCALCULATOR_INCLUDE_CALCULATOR_APP_H_

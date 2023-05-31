@@ -24,4 +24,4 @@ class BaseCalculator {
     } Arguments;
 
 };
-#endif
+#endif // MODULES_KONVERTERANDCALCULATOR_INCLUDE_CALCULATOR_APP_H_

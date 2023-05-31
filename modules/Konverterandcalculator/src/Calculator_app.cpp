@@ -3,6 +3,7 @@
 #include <stdlib.h>
 
 #include <string>
+#include <cstring>
 #include <sstream>
 
 #include "include/Calculator_app.h"

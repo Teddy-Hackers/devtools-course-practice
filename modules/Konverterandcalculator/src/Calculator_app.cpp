@@ -1,8 +1,9 @@
 // Copyright 2023 Lapin Dmitriy
 
+#include <stdlib.h>
+
 #include <string>
 #include <sstream>
-#include <stdlib.h>
 
 #include "include/Calculator_app.h"
 #include "include/Calculator.h"

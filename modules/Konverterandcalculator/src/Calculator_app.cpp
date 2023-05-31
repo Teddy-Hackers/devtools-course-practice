@@ -37,17 +37,6 @@ bool BaseCalculator::validateNumberOfArguments(int argc, const char** argv) {
     return true;
 }
 
-double parseDouble(const char* arg) {
-    char* end;
-    double value = strtod(arg, &end);
-
-    if (end[0]) {
-        throw std::string("Wrong number format!");
-    }
-
-    return value;
-}
-
 double parseInt(const char* arg) {
     char* end;
     int value = static_cast<int>(strtol(arg, &end, 10));

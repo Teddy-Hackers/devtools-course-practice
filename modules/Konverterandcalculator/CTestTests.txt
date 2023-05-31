@@ -87,4 +87,23 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Divide_By_Zero PROPERTIES
     PASS_REGULAR_EXPRESSION "We cannot divide by zero!"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Divide_With_Different_Bases
+    COMMAND ${APPLICATION} 12 16 3 8 /
+)
+set_tests_properties (${prefix}_can_Divide_With_Different_Bases PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 6"
+    LABELS "${MODULE}")
+ 
+add_test(
+    NAME ${prefix}_can_Add_With_Different_Bases
+    COMMAND ${APPLICATION} 12 16 3 8 +
+)
+set_tests_properties (${prefix}_can_Add_With_Different_Bases PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 15"
+    LABELS "${MODULE}")
+ 
+ 
+
 #####

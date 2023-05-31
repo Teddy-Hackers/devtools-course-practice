@@ -1,5 +1,8 @@
 // Copyright 2023 Lapin Dmitriy
 
+#ifndef MODULES_KONVERTERANDCALCULATOR_INCLUDE_CALCULATOR_APP_H_
+#define MODULES_KONVERTERANDCALCULATOR_INCLUDE_CALCULATOR_APP_H_
+
 #include <string>
 
 class BaseCalculator {
@@ -21,3 +24,4 @@ class BaseCalculator {
     } Arguments;
 
 };
+#endif

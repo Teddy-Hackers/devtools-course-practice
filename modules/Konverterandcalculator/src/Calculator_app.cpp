@@ -1,14 +1,12 @@
 // Copyright 2023 Lapin Dmitriy
 
 #include "include/Calculator_app.h"
-
+#include "include/Calculator.h"
+#include "include/Converter.h"
 
 #include <string>
 #include <sstream>
 #include <stdlib.h>
-
-#include "include/Calculator.h"
-#include "include/Converter.h"
 
 
 BaseCalculator::BaseCalculator() : message_("") {}
@@ -22,7 +20,8 @@ void BaseCalculator::help(const char* appname, const char* message) {
           "  $ " + appname + " <num1> <base1> " +
           "<num2> <base2> <operation>\n\n" +
 
-          "Where first and third arguments are integer numbers and second and fourth arguments are bases " +
+          "Where first and third arguments are integer "+
+        "numbers and second and fourth arguments are bases " +
           "and <operation> is one of '+', '-', '*', '/'.\n";
 }
 
@@ -50,7 +49,7 @@ double parseDouble(const char* arg) {
 
 double parseInt(const char* arg) {
     char* end;
-    int value = (int)strtol(arg, &end, 10);
+    int value = static_cast<int>(strtol(arg, &end, 10));
 
     if (end[0]) {
         throw std::string("Wrong number format!");

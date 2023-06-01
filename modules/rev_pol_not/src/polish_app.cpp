@@ -28,7 +28,7 @@ std::string Application::operator()(int argc, const char* argv[]) {
 }
 
 std::string Application::help(const char* appname) {
-    return std::string{ "Revers Polish notation\nUsage: " }
-        + std::string{ appname }
-    + std::string{ " Enter problem <problem>\n        No limits" };
+    return std::string { "Revers Polish notation\nUsage: " }
+        + std::string { appname }
+    + std::string { " Enter problem <problem>\n        No limits" };
 }

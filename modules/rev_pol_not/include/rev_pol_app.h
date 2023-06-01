@@ -6,9 +6,9 @@
 #include <string>
 
 class Application {
-public:
+ public: 
     std::string operator()(int argc, const char* argv[]);
-private:
+ private: 
     static inline std::string help(const char* appname);
 };
 

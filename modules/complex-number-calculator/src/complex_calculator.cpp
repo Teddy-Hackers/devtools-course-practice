@@ -1,10 +1,12 @@
 // Copyright 2023 Elistratov Vladimir
 
+#include "include/complex_calculator.h"
+
+#include <stdbool.h>
+#include <string>
 #include <limits>
 #include <cmath>
 
-#include "include/complex_calculator.h"
-#include "include/division_by_zero_exception.h"
 
 const double eps = std::numeric_limits<double>::epsilon();
 
@@ -67,7 +69,7 @@ ComplexNumber ComplexNumber::operator/(const ComplexNumber& z) const {
   ComplexNumber division;
 
   if (equalsZero(z)) {
-    throw division_by_zero_exception("Can't divide by zero");
+    throw std::string("Can't divide by zero");
   } else {
     double denominator = 1.0 / (z.getRe() * z.getRe() + z.getIm() * z.getIm());
 

@@ -18,6 +18,16 @@ add_test(
 set_tests_properties (${prefix}_incorrect_arguments PROPERTIES
     PASS_REGULAR_EXPRESSION "Invalid argument"
     LABELS "${MODULE}")
+if (MSVC)
+add_test(
+    NAME ${prefix}_can_decode
+    COMMAND ${APPLICATION} 0001111110 l2 H1 e1 o1
+)
+set_tests_properties (${prefix}_can_decode PROPERTIES
+    PASS_REGULAR_EXPRESSION "Hello"
+    LABELS "${MODULE}")
+endif(MSVC)
+if (UNIX)
 add_test(
     NAME ${prefix}_can_decode
     COMMAND ${APPLICATION} 1000111101 H1 o1 l2 e1
@@ -25,10 +35,11 @@ add_test(
 set_tests_properties (${prefix}_can_decode PROPERTIES
     PASS_REGULAR_EXPRESSION "Hello"
     LABELS "${MODULE}")
+endif(UNIX)
 add_test(
     NAME ${prefix}_can_encode
     COMMAND ${APPLICATION} Hello
 )
 set_tests_properties (${prefix}_can_encode PROPERTIES
-    PASS_REGULAR_EXPRESSION "1000111101"
+    PASS_REGULAR_EXPRESSION "0001111110"
     LABELS "${MODULE}")

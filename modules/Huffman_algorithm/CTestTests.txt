@@ -20,7 +20,7 @@ set_tests_properties (${prefix}_incorrect_arguments PROPERTIES
     LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_decode
-    COMMAND ${APPLICATION} 0001111110 o1 l2 H1 e1
+    COMMAND ${APPLICATION} 0001111110 o1 l2 e1 H1
 )
 set_tests_properties (${prefix}_can_decode PROPERTIES
     PASS_REGULAR_EXPRESSION "Hello"

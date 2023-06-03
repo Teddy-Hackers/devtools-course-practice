@@ -6,8 +6,6 @@
 #include <iostream>
 #include "../include/HuffmanAlgorithm_application.h"
 
-//#include "include/complex_calculator.h"
-
 int main(int argc, const char** argv) {
     Application app;
     std::string output = app(argc, argv);

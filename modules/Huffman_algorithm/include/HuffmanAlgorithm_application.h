@@ -18,7 +18,6 @@ class Application {
     std::string message;
     int validateNumberOfArguments(int argc, const char** argv);
     void help(const char* app_name);
-    //std::vector<std::string> parseCode(const char* arg);
 };
 
 #endif  //  MODULES_HUFFMAN_ALGORITHM_INCLUDE_HUFFMANALGORITHM_APPLICATION_H_

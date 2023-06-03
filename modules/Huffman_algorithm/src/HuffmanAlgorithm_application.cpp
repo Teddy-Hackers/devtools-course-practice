@@ -14,7 +14,7 @@ void Application::help(const char* app_name) {
         .append(app_name)
         .append("\nIf you want to encode a string then enter this string")
         .append("\nIf you want to decode the encrypted string,\n")
-        .append("enter the code and the Huffman tree in the") 
+        .append("enter the code and the Huffman tree in the")
         .append("following format : \n")
         .append("<code> <char 1><frequency 1> <char 2><frequency 2>")
         .append(" ... <char n><frequency n>");

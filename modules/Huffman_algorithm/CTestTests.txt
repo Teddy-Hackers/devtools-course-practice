@@ -20,7 +20,7 @@ set_tests_properties (${prefix}_incorrect_arguments PROPERTIES
     LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_decode
-    COMMAND ${APPLICATION} 0001111110 o1 l2 H1 e1
+    COMMAND ${APPLICATION} 1000111101 o1 l2 H1 e1
 )
 set_tests_properties (${prefix}_can_decode PROPERTIES
     PASS_REGULAR_EXPRESSION "Hello"
@@ -30,5 +30,5 @@ add_test(
     COMMAND ${APPLICATION} Hello
 )
 set_tests_properties (${prefix}_can_encode PROPERTIES
-    PASS_REGULAR_EXPRESSION "0001111110"
+    PASS_REGULAR_EXPRESSION "1000111101"
     LABELS "${MODULE}")

@@ -36,6 +36,7 @@ set_tests_properties (${prefix}_can_decode PROPERTIES
     PASS_REGULAR_EXPRESSION "Hello"
     LABELS "${MODULE}")
 endif(UNIX)
+if (MSVC)
 add_test(
     NAME ${prefix}_can_encode
     COMMAND ${APPLICATION} Hello
@@ -43,3 +44,13 @@ add_test(
 set_tests_properties (${prefix}_can_encode PROPERTIES
     PASS_REGULAR_EXPRESSION "0001111110"
     LABELS "${MODULE}")
+endif(MSVC)
+if (UNIX)
+add_test(
+    NAME ${prefix}_can_encode
+    COMMAND ${APPLICATION} Hello
+)
+set_tests_properties (${prefix}_can_encode PROPERTIES
+    PASS_REGULAR_EXPRESSION "1000111101"
+    LABELS "${MODULE}")
+endif(UNIX)

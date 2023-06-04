@@ -14,7 +14,7 @@ class I3DApplication {
     std::string operator()(int argc, const char** argv);
  private:
     std::string message_;
-    void help(const char* appname, const char* message = "");
+    void help(const char* appname);
 };
 
 #endif  //  MODULES_INTERSECTIONS_INCLUDE_INTERSECTIONS_LINE_AND_PLANE_APP_H_

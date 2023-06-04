@@ -6,7 +6,7 @@
 
 I3DApplication::I3DApplication() = default;
 
-void I3DApplication::help(const char* appname, const char* message) {
+void I3DApplication::help(const char* appname) {
     std::string mes = std::string(message);
     mes += mes.empty() ? "" : "\n\n";
     message_ = mes +
@@ -24,15 +24,16 @@ void I3DApplication::help(const char* appname, const char* message) {
 }
 
 std::string I3DApplication::operator()(int argc, const char** argv) {
-    if (argc == 1)
+    if (argc == 1) {
         help(argv[0]);
-    char* ptr;
-    try {
+    }
+    else {
+        char* ptr;
         std::vector<double>plane = {
-            static_cast<double>(strtol(argv[1], &ptr, 10)),
-            static_cast<double>(strtol(argv[2], &ptr, 10)),
-            static_cast<double>(strtol(argv[3], &ptr, 10)),
-            static_cast<double>(strtol(argv[4], &ptr, 10)) };
+                    static_cast<double>(strtol(argv[1], &ptr, 10)),
+                    static_cast<double>(strtol(argv[2], &ptr, 10)),
+                    static_cast<double>(strtol(argv[3], &ptr, 10)),
+                    static_cast<double>(strtol(argv[4], &ptr, 10)) };
         std::vector<double>dot = {
             static_cast<double>(strtol(argv[5], &ptr, 10)),
             static_cast<double>(strtol(argv[6], &ptr, 10)),
@@ -47,9 +48,6 @@ std::string I3DApplication::operator()(int argc, const char** argv) {
             message_ = "A straight line belongs a plane";
         else
             message_ = "A straight line parallel a plane";
-    }
-    catch (const std::exception& err) {
-        help(argv[0], err.what());
     }
     return message_;
 }

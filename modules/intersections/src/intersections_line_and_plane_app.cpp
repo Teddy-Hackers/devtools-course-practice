@@ -30,13 +30,14 @@ std::string I3DApplication::operator()(int argc, const char** argv) {
     std::vector<double>plane = { static_cast<double>(strtol(argv[1], &ptr, 10)),
                                  static_cast<double>(strtol(argv[2], &ptr, 10)),
                                  static_cast<double>(strtol(argv[3], &ptr, 10)),
-                                 static_cast<double>(strtol(argv[4], &ptr, 10)) };
+                               static_cast<double>(strtol(argv[4], &ptr, 10)) };
     std::vector<double>dot = { static_cast<double>(strtol(argv[5], &ptr, 10)),
                                static_cast<double>(strtol(argv[6], &ptr, 10)),
                                static_cast<double>(strtol(argv[7], &ptr, 10)) };
-    std::vector<double>direction = { static_cast<double>(strtol(argv[8], &ptr, 10)),
-                                     static_cast<double>(strtol(argv[9], &ptr, 10)),
-                                     static_cast<double>(strtol(argv[10], &ptr, 10)) };
+    std::vector<double>direction = {
+                              static_cast<double>(strtol(argv[8], &ptr, 10)),
+                              static_cast<double>(strtol(argv[9], &ptr, 10)),
+                              static_cast<double>(strtol(argv[10], &ptr, 10)) };
     try {
         if (isInersection(plane, dot, direction).first == 0)
             message_ = "A straight line intersects a plane.";

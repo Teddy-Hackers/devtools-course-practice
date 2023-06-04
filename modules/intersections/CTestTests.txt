@@ -5,6 +5,13 @@
 set(prefix "${MODULE}")
 
 add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}_intersection_exists
     COMMAND ${APPLICATION} 3 2 3 4 1 2 1 1 2 3
 )

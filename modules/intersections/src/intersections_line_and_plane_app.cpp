@@ -12,8 +12,8 @@ void I3DApplication::help(const char* appname, const char* message) {
     message_ = mes +
         "This is application that finds intersection of inputs" +
         "of lines and planes.\n\n" +
-        "  $ " + 
-        appname + 
+        "  $ " +
+        appname +
         " <plane values> <dot values> <direction values> \n\n" +
         "Where <plane values> are four arguments for A B C and D" +
         "coefficients defining the plane \n\n" +

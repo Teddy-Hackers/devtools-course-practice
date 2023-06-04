@@ -13,13 +13,13 @@ TEST(Voronov_Alexandr_ComplexNumberTest, Complex_Copy_Number) {
     // Arrange
     double a = 13.0;
     double b = 13.0;
-    ComplexNumber cn( a , b);
+    ComplexNumber cn(a , b);
 
     // Act
     ComplexNumber cn1(cn);
 
     // Assert
-    EXPECT_EQ(cn1 , cn);
+    EXPECT_EQ(cn1, cn);
 }
 
 TEST(Voronov_Alexandr_ComplexNumberTest, Comolex_Number_Negative_Create) {
@@ -28,7 +28,7 @@ TEST(Voronov_Alexandr_ComplexNumberTest, Comolex_Number_Negative_Create) {
     double b = -11.0;
 
     // Act
-    ComplexNumber z (a , b);
+    ComplexNumber z(a , b);
 
     // Assert
     EXPECT_EQ(a , z.getRe());

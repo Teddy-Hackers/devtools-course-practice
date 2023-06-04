@@ -24,7 +24,7 @@ TEST(Shaposhnikova, count_VecOut_size) {
   c->CombGenerate();
   int a = c->factorial(c->getN() + c->getK() - 1);
   int b = c->factorial(c->getK()) * c->factorial(c->getN() - 1);
-  int vecSize =  a/b;
+  long unsigned int vecSize =  a/b;
 
   ASSERT_EQ(vecSize, c->VecOut.size());
 }

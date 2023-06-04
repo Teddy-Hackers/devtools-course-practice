@@ -35,8 +35,8 @@ std::string I3DApplication::operator()(int argc, const char** argv) {
                                static_cast<double>(strtol(argv[6], &ptr, 10)),
                                static_cast<double>(strtol(argv[7], &ptr, 10)) };
     std::vector<double>dir = { static_cast<double>(strtol(argv[8], &ptr, 10)),
-                               static_cast<double>(strtol(argv[9], &ptr, 10)),
-                               static_cast<double>(strtol(argv[10], &ptr, 10)) };
+                             static_cast<double>(strtol(argv[9], &ptr, 10)),
+                             static_cast<double>(strtol(argv[10], &ptr, 10)) };
     try {
         if (isInersection(plane, dot, dir).first == 0)
             message_ = "A straight line intersects a plane.";

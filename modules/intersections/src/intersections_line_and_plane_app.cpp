@@ -10,20 +10,33 @@ void I3DApplication::help(const char* appname, const char* message) {
     std::string mes = std::string(message);
     mes += mes.empty() ? "" : "\n\n";
     message_ = mes +
-        "This is application that finds intersection of inputs of lines and planes.\n\n" +
-        "  $ " + appname + " <plane values> <dot values> <direction values> \n\n" +
-        "Where <plane values> are four arguments for A B C and D coefficients defining the plane \n\n" +
-        "Where <dot values> are three arguments for A B C coefficients defining the dot \n\n" +
-        "Where <direction values> are three arguments for A B C coefficients defining the direction\n\n";
+        "This is application that finds intersection of inputs \
+        of lines and planes.\n\n" +
+        "  $ " + 
+        appname + 
+        " <plane values> <dot values> <direction values> \n\n" +
+        "Where <plane values> are four arguments for A B C and D \
+        coefficients defining the plane \n\n" +
+        "Where <dot values> are three arguments for A B C \
+        coefficients defining the dot \n\n" +
+        "Where <direction values> are three arguments for A B C \
+        coefficients defining the direction\n\n";
 }
 
 std::string I3DApplication::operator()(int argc, const char** argv) {
     if (argc == 1)
         help(argv[0]);
     char* ptr;
-    std::vector<double>plane = { strtol(argv[1], &ptr, 10), strtol(argv[2], &ptr, 10), strtol(argv[3], &ptr, 10), strtol(argv[4], &ptr, 10) };
-    std::vector<double>dot = { strtol(argv[5], &ptr, 10), strtol(argv[6], &ptr, 10), strtol(argv[7], &ptr, 10) };
-    std::vector<double>direction = { strtol(argv[8], &ptr, 10), strtol(argv[9], &ptr, 10), strtol(argv[10], &ptr, 10) };
+    std::vector<double>plane = { strtol(argv[1], &ptr, 10), 
+                                 strtol(argv[2], &ptr, 10), 
+                                 strtol(argv[3], &ptr, 10), 
+                                 strtol(argv[4], &ptr, 10) };
+    std::vector<double>dot = { strtol(argv[5], &ptr, 10), 
+                               strtol(argv[6], &ptr, 10), 
+                               strtol(argv[7], &ptr, 10) };
+    std::vector<double>direction = { strtol(argv[8], &ptr, 10), 
+                                     strtol(argv[9], &ptr, 10), 
+                                     strtol(argv[10], &ptr, 10) };
     try {
         if (isInersection(plane, dot, direction).first == 0)
             message_ = "A straight line intersects a plane.";

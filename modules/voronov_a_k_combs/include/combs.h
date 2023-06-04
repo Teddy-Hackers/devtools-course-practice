@@ -12,8 +12,8 @@ class combs {
  public:
     combs();
     combs(int a, int b);
-    bool setter(); 
-    int getter(); 
+    bool setter();
+    int getter();
     ~combs();
 };
 

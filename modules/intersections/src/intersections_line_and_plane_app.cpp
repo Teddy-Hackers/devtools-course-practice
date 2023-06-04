@@ -26,8 +26,7 @@ void I3DApplication::help(const char* appname) {
 std::string I3DApplication::operator()(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
-    }
-    else {
+    } else {
         char* ptr;
         std::vector<double>plane = {
                     static_cast<double>(strtol(argv[1], &ptr, 10)),

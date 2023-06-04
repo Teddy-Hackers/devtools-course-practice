@@ -25,12 +25,12 @@ void CombGen::CombGenerate() {
   std::vector<int> combErr;
   auto iter = combErr.cbegin();
   combErr.insert(iter, this->K, -1);
-  for (long unsigned int i = 0; i < comb.size(); i++) {
+  for (int i = 0; i < this->K; i++) {
     comb[i] = 0;
   }
   while (comb != combErr) {
     std::vector<int> combCopy;
-    for (long unsigned int i = 0; i < comb.size(); i++) {
+    for (int i = 0; i < this->K; i++) {
       combCopy.push_back(VecIn[comb[i]]);
     }
     VecOut.push_back(combCopy);

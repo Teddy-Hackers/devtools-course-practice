@@ -38,9 +38,9 @@ std::string I3DApplication::operator()(int argc, const char** argv) {
                              static_cast<double>(strtol(argv[9], &ptr, 10)),
                              static_cast<double>(strtol(argv[10], &ptr, 10)) };
     try {
-        if (isInersection(plane, dot, dir).first == 0)
+        if (isIntersection(plane, dot, dir).first == 0)
             message_ = "A straight line intersects a plane.";
-        else if (isInersection(plane, dot, dir).first == 1)
+        else if (isIntersection(plane, dot, dir).first == 1)
             message_ = "A straight line belongs a plane";
         else
             message_ = "A straight line parallel a plane";

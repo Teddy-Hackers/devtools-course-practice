@@ -7,9 +7,7 @@
 I3DApplication::I3DApplication() = default;
 
 void I3DApplication::help(const char* appname) {
-    std::string mes = std::string(message);
-    mes += mes.empty() ? "" : "\n\n";
-    message_ = mes +
+    message_ =
         "This is application that finds intersection of inputs" +
         "of lines and planes.\n\n" +
         "  $ " +

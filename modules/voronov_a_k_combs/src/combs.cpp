@@ -18,7 +18,7 @@ combs::combs(int _a, int _b) {
     }
     this->a = _a;
     this->b = _b;
-    this->v = v1;
+    this->v = v;
 }
 
 bool combs::setter() {

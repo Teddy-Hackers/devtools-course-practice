@@ -5,8 +5,6 @@
 
 #include <iostream>
 #include <vector>
-//using namespace std;
-
 
 class CombGen {
  private:
@@ -55,7 +53,7 @@ class CombGen {
 
   int factorial(int i) {
     if (i == 0) return 1;
-    else 
+    else
       return i * factorial(i - 1);
   }
 
@@ -63,7 +61,7 @@ class CombGen {
     K = k;
     N = n;
     Count = 0;
-  }  
+  }
   std::vector<int> NextComb(std::vector<int> combination);
   void CombGenerate();
 };

@@ -1,10 +1,10 @@
-//  Copyright 2023 Shaposhnikova Ekaterina
+// Copyright 2023 Shaposhnikova Ekaterina
 
 #include "include/Comb_gen.h"
 
-vector<int> CombGen::NextComb(vector<int> comb) {
+std::vector<int> CombGen::NextComb(std::vector<int> comb) {
   int i;
-  vector<int> combErr;
+  std::vector<int> combErr;
   auto iter = combErr.cbegin();
   combErr.insert(iter, this->K, -1);
   for (i = this->K - 1; i > -1 && comb[i] >= this->N - 1;) {
@@ -17,20 +17,19 @@ vector<int> CombGen::NextComb(vector<int> comb) {
   for (int j = i + 1; j < this->K; j++) {
     comb[j] = comb[i];
   }
-
   return comb;
 }
 
 void CombGen::CombGenerate() {
-  vector<int> comb(this->K);
-  vector<int> combErr;
+  std::vector<int> comb(this->K);
+  std::vector<int> combErr;
   auto iter = combErr.cbegin();
   combErr.insert(iter, this->K, -1);
   for (int i = 0; i < comb.size(); i++) {
     comb[i] = 0;
   }
   while (comb != combErr) {
-    vector<int> combCopy;
+    std::vector<int> combCopy;
     for (int i = 0; i < comb.size(); i++) {
       combCopy.push_back(VecIn[comb[i]]);
     }

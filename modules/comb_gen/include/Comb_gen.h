@@ -1,34 +1,33 @@
 //  Copyright 2023 Shaposhnikova Ekaterina
 
-#ifndef MODULES_COMB_GEN_COMB_GEN_H_
-#define MODULES_COMB_GEN_COMB_GEN_H_
+#ifndef MODULES_COMB_GEN_INCLUDE_COMB_GEN_H_
+#define MODULES_COMB_GEN_INCLUDE_COMB_GEN_H_
 
 #include <iostream>
 #include <vector>
-using namespace std;
+//using namespace std;
 
 
 class CombGen {
-private:
-  vector<int> VecIn;
-  
+ private:
+  std::vector<int> VecIn;
   int N;
   int K;
   int Count;
 
-public:
-  vector <vector<int>> VecOut;
-  vector<int> getVecIn() {
+ public:
+  std::vector <std::vector<int>> VecOut;
+  std::vector<int> getVecIn() {
     return VecIn;
   }
-  void setVecIn(vector<int> vec) {
+  void setVecIn(std::vector<int> vec) {
     VecIn = vec;
   }
 
-  vector<vector<int>> getVecOut() {
+  std::vector<std::vector<int>> getVecOut() {
     return VecOut;
   }
-  void setVecOut(vector<vector<int>> vec) {
+  void setVecOut(std::vector<std::vector<int>> vec) {
     VecOut = vec;
   }
 
@@ -54,20 +53,19 @@ public:
     K = k;
   }
 
-  int factorial(int i)
-  {
+  int factorial(int i) {
     if (i == 0) return 1;
-    else return i * factorial(i - 1);
+    else 
+      return i * factorial(i - 1);
   }
 
   CombGen(int n, int k) {
     K = k;
     N = n;
     Count = 0;
-  }
-  
-  vector<int> NextComb(vector<int> combination);
+  }  
+  std::vector<int> NextComb(std::vector<int> combination);
   void CombGenerate();
 };
 
-#endif  //  MODULES_COMB_GEN_COMB_GEN_H_
+#endif  //  MODULES_COMB_GEN_INCLUDE_COMB_GEN_H_

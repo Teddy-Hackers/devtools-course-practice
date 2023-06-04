@@ -17,7 +17,7 @@ void I3DApplication::help(const char* appname, const char* message) {
         " <plane values> <dot values> <direction values> \n\n" +
         "Where <plane values> are four arguments for A B C and D" +
         "coefficients defining the plane \n\n" +
-        "Where <dot values> are three arguments for A B C +
+        "Where <dot values> are three arguments for A B C"
         "coefficients defining the dot \n\n" +
         "Where <direction values> are three arguments for A B C" +
         "coefficients defining the direction\n\n";

@@ -1,9 +1,10 @@
+// Copyright 2023 Shaposhnikova Ekaterina
+
 #include <gtest/gtest.h>
 #include "include/Comb_gen.h"
 
-TEST(Shaposhnikova,test_constructor) {
+TEST(Shaposhnikova, test_constructor) {
   CombGen* c = new CombGen(4, 3);
-  
   ASSERT_EQ(c->getN(), 4);
   ASSERT_EQ(c->getK(), 3);
 }
@@ -25,7 +26,7 @@ TEST(Shaposhnikova, count_VecOut_size) {
   int b = c->factorial(c->getK()) * c->factorial(c->getN() - 1);
   int vecSize =  a/b;
 
-  ASSERT_EQ(vecSize,c->VecOut.size());
+  ASSERT_EQ(vecSize, c->VecOut.size());
 }
 
 TEST(Shaposhnikova, test_first_seq) {
@@ -33,7 +34,7 @@ TEST(Shaposhnikova, test_first_seq) {
   std::vector<int> vec = { 1, 2, 3, 4 };
   c->setVecIn(vec);
   c->CombGenerate();
-  std::vector<int> vec1 = { 1,1,1 };
+  std::vector<int> vec1 = { 1, 1, 1 };
 
   ASSERT_EQ(vec1, c->VecOut[0]);
 }
@@ -43,7 +44,7 @@ TEST(Shaposhnikova, test_last_seq) {
   std::vector<int> vec = { 1, 2, 3, 4 };
   c->setVecIn(vec);
   c->CombGenerate();
-  std::vector<int> vec1 = { 4,4,4 };
+  std::vector<int> vec1 = { 4, 4, 4 };
 
   ASSERT_EQ(vec1, c->VecOut[c->VecOut.size()-1]);
 }
@@ -53,7 +54,7 @@ TEST(Shaposhnikova, test_middle_seq) {
   std::vector<int> vec = { 1, 2, 3, 4 };
   c->setVecIn(vec);
   c->CombGenerate();
-  std::vector<int> vec1 = { 1,4,4 };
+  std::vector<int> vec1 = { 1, 4, 4 };
 
   ASSERT_EQ(vec1, c->VecOut[9]);
 }

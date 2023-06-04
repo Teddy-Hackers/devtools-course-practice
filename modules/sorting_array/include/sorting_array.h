@@ -14,7 +14,7 @@
  * the quadratic equation is an expression of the form ax^2+bx+c=0
  */
 
-void SortInsert(double* A, int ElemCounter);
+void SortInsert(double* Array, int ElemCounter);
 int partitionSortQuick(double* arrayPart, int start, int pivot);
 void SortQuick(double* Array, int startInd, int endInd);
 //! @}

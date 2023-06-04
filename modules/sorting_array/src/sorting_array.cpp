@@ -2,22 +2,22 @@
 
 #include "../include/sorting_array.h"
 
-void SortInsert(double* A, int ElemCounter) {
+void SortInsert(double* Array, int ElemCounter) {
   double min;
   int resInd;
   if (ElemCounter != 0) {
     for (int currentIndex = 0; currentIndex < ElemCounter; currentIndex++) {
-      min = A[currentIndex];
+      min = Array[currentIndex];
       resInd = currentIndex;
       for (int otherIndex = currentIndex + 1; otherIndex < ElemCounter;
            otherIndex++) {
-        if (A[otherIndex] < min) {
+        if (Array[otherIndex] < min) {
           resInd = otherIndex;
-          min = A[otherIndex];
+          min = Array[otherIndex];
         }
       }
-      A[resInd] = A[currentIndex];
-      A[currentIndex] = min;
+      Array[resInd] = Array[currentIndex];
+      Array[currentIndex] = min;
     }
   }
 }

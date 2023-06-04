@@ -39,8 +39,9 @@ int partitionSortQuick(double* arrayPart, int start, int pivot) {
           swapTemp = arrayPart[startInd];
           arrayPart[startInd] = arrayPart[pivot];
           arrayPart[pivot] = swapTemp;
-        } else
+        } else {
           startInd++;
+        }
       }
     }
     return pivot;

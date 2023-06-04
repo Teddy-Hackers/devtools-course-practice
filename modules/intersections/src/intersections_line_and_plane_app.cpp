@@ -34,14 +34,13 @@ std::string I3DApplication::operator()(int argc, const char** argv) {
     std::vector<double>dot = { static_cast<double>(strtol(argv[5], &ptr, 10)),
                                static_cast<double>(strtol(argv[6], &ptr, 10)),
                                static_cast<double>(strtol(argv[7], &ptr, 10)) };
-    std::vector<double>direction = {
-                              static_cast<double>(strtol(argv[8], &ptr, 10)),
-                              static_cast<double>(strtol(argv[9], &ptr, 10)),
-                              static_cast<double>(strtol(argv[10], &ptr, 10)) };
+    std::vector<double>dir = { static_cast<double>(strtol(argv[8], &ptr, 10)),
+                               static_cast<double>(strtol(argv[9], &ptr, 10)),
+                               static_cast<double>(strtol(argv[10], &ptr, 10)) };
     try {
-        if (isInersection(plane, dot, direction).first == 0)
+        if (isInersection(plane, dot, dir).first == 0)
             message_ = "A straight line intersects a plane.";
-        else if (isInersection(plane, dot, direction).first == 1)
+        else if (isInersection(plane, dot, dir).first == 1)
             message_ = "A straight line belongs a plane";
         else
             message_ = "A straight line parallel a plane";

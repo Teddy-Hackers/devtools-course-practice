@@ -24,7 +24,7 @@ PROPERTIES
 
 add_test(NAME ${prefix}_can_sum_matrix
     COMMAND ${APPLICATION} 1 1 1 1 plus)
-set_tests_properties(${prefix}_run_bad_big_argv_num
+set_tests_properties(${prefix}_can_sum_matrix
 PROPERTIES
     PASS_REGULAR_EXPRESSION "2"
     LABELS "${MODULE}")

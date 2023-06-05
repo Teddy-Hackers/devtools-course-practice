@@ -51,21 +51,19 @@ MatrixAPP::arguments MatrixAPP::param_parsing(int argc, char** argv) {
   auto delimeter = dot.find(",");
   for (int i = 0; i < size1 * size1 - 1; i++) {
     delimeter = dot.find(",");
-    mm1[(int)(i / size1)][(int)(i % size1)] =
+    mm1[static_cast<int>(i / size1)][static_cast<int>(i % size1)] =
         std::stof(dot.substr(0, delimeter));
   }
-  mm1[size1 - 1][size1 - 1] =
-      static_cast<int>(std::atoi(dot.substr(delimeter + 1)));
+  mm1[size1 - 1][size1 - 1] = std::stoi(dot.substr(delimeter + 1));
   args.m1 = matrix(mm1, size1, size1);
 
   std::string dot2 = argv[4];
   for (int i = 0; i < size2 * size2 - 1; i++) {
     delimeter = dot2.find(",");
-    mm2[(int)(i / size2)][(int)(i % size2)] =
+    mm2[static_cast<int>(i / size2)][static_cast<int>(i % size2)] =
         std::stof(dot2.substr(0, delimeter));
   }
-  mm2[size2 - 1][size2 - 1] =
-      static_cast<float>(std::stof(dot2.substr(delimeter + 1)));
+  mm2[size2 - 1][size2 - 1] = std::stoi(dot2.substr(delimeter + 1));
   args.m2 = matrix(mm2, size2, size2);
 
   args.operation = argv[5];

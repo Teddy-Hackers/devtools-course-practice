@@ -5,10 +5,10 @@
 #include <math.h>
 
 #include <iostream>
+#include <stdexcept>
 #include <string>
 
 std::string MatrixAPP::operator()(int argc, char** argv) {
-
   if (argc == 1) {
     return helping_text(argv[0]);
   }
@@ -19,7 +19,7 @@ std::string MatrixAPP::operator()(int argc, char** argv) {
     return "Need more arguments";
   }
   std::string str_result = "";
-  arguments args = param_parsing(argc,argv);
+  arguments args = param_parsing(argc, argv);
   matrix res;
   if (args.operation == "plus") {
     res = args.m1 + args.m2;
@@ -32,9 +32,7 @@ std::string MatrixAPP::operator()(int argc, char** argv) {
         }
       }
     }
-    
   }
-
   return str_result;
 }
 

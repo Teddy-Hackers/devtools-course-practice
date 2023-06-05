@@ -54,7 +54,7 @@ MatrixAPP::arguments MatrixAPP::param_parsing(int argc, char** argv) {
     mm1[(int)(i / size1)][(int)(i % size1)] =
         std::stof(dot.substr(0, delimeter));
   }
-  mm1[size1 - 1][size1 - 1] = std::stof(dot.substr(delimeter + 1));
+  mm1[size1 - 1][size1 - 1] = std::stoi(dot.substr(delimeter + 1));
   args.m1 = matrix(mm1, size1, size1);
 
   std::string dot2 = argv[4];
@@ -63,7 +63,7 @@ MatrixAPP::arguments MatrixAPP::param_parsing(int argc, char** argv) {
     mm2[(int)(i / size2)][(int)(i % size2)] =
         std::stof(dot2.substr(0, delimeter));
   }
-  mm2[size2 - 1][size2 - 1] = std::stof(dot2.substr(delimeter + 1));
+  mm2[size2 - 1][size2 - 1] = std::stoi(dot2.substr(delimeter + 1));
   args.m2 = matrix(mm2, size2, size2);
 
   args.operation = argv[5];

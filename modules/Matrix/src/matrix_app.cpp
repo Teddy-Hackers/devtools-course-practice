@@ -12,14 +12,13 @@ std::string MatrixAPP::operator()(int argc, char** argv) {
   if (argc == 1) {
     return helping_text(argv[0]);
   }
-  if (argc > 6) {
-    return "Too much arguments";
-  }
   if (argc < 5) {
     return "Need more arguments";
   }
   std::string str_result = "";
+  std::cout << "was in op";
   arguments args = param_parsing(argc, argv);
+  std::cout << "did parsing in op";
   matrix res;
   if (args.operation == "plus") {
     res = args.m1 + args.m2;
@@ -47,8 +46,8 @@ MatrixAPP::arguments MatrixAPP::param_parsing(int argc, char** argv) {
   double** mm1 = new double*[size1];
   double** mm2 = new double*[size2];
 
-  std::string dot = argv[3];
-  auto delimeter = dot.find(",");
+  std::cout << "was in parsing" std::string dot = argv[3];
+  auto delimeter;
   for (int i = 0; i < size1 * size1 - 1; i++) {
     delimeter = dot.find(",");
     mm1[static_cast<int>(i / size1)][static_cast<int>(i % size1)] =
@@ -56,8 +55,7 @@ MatrixAPP::arguments MatrixAPP::param_parsing(int argc, char** argv) {
   }
   mm1[size1 - 1][size1 - 1] = std::stoi(dot.substr(delimeter + 1));
   args.m1 = matrix(mm1, size1, size1);
-
-  std::string dot2 = argv[4];
+  std::cout << "was in 1 parsing" std::string dot2 = argv[4];
   for (int i = 0; i < size2 * size2 - 1; i++) {
     delimeter = dot2.find(",");
     mm2[static_cast<int>(i / size2)][static_cast<int>(i % size2)] =

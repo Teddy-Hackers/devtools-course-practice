@@ -3,10 +3,10 @@
 #ifndef MODULES_MATRIX_INCLUDE_MATRIX_APP_H_
 #define MODULES_MATRIX_INCLUDE_MATRIX_APP_H_
 
+#include "./matrix.h"
+
 #include <iostream>
 #include <string>
-
-#include "matrix.h"
 
 class MatrixAPP {
  public:

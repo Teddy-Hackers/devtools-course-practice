@@ -26,12 +26,18 @@ std::vector<int> Application::parseFromParam(int argc, char** argv) {
 std::string Application::calculate(std::vector<int> numbs) {
     std::string results;
     Function_Eyler f;
-    for (size_t i = 0; i < numbs.size(); i++) {
-        results.append("The Euler function for ");
-        results.append(std::to_string(numbs[i]));
-        results.append(" = ");
-        results.append(std::to_string(f.Function_Euler(numbs[i])));
-        results.append("\n");
+
+    try {
+        for (size_t i = 0; i < numbs.size(); i++) {
+            results.append("The Euler function for ");
+            results.append(std::to_string(numbs[i]));
+            results.append(" = ");
+            results.append(std::to_string(f.Function_Euler(numbs[i])));
+            results.append("\n");
+        }
+    } 
+    catch (std::exception exc) {
+        return exc.what();
     }
 
     return results;

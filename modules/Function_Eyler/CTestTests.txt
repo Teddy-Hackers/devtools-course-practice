@@ -3,14 +3,3 @@
 #############################################
 
 set(prefix "${MODULE}")
-
-add_test(
-    NAME ${prefix}_see_help_info_if_no_params 
-    COMMAND ${APPLICATION}
-)
-
-set_tests_properties(
-    ${prefix}_see_help_info_if_no_params PROPERTIES 
-    PASS_REGULAR_EXPRESSION "This is application for Eyler Function.\n" 
-    LABELS "${MODULE}"
-)

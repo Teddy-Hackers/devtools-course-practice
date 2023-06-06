@@ -12,14 +12,14 @@ TEST(Function_Eyler_App, Defult_App) {
 TEST(Function_Eyler_App, Correct_Creat) {
     Application application;
     int argc = 2;
-    char* argv[2] = { "1", "10" };
+    const char* argv[2] = { "1", "10" };
     EXPECT_NO_THROW(application(argc, argv));
 }
 
 TEST(Function_Eyler_App, No_Throw_Wiht_Zero_argc) {
     Application application;
     int argc = 0;
-    char* argv[2] = { "1", "10" };
+    const char* argv[2] = { "1", "10" };
     EXPECT_NO_THROW(application(argc, argv));
 }
 

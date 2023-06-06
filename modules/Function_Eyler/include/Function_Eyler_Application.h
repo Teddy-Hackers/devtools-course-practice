@@ -9,9 +9,9 @@
 
 class Application {
  public:
-    std::string operator()(int argc, char** argv);
+    std::string operator()(int argc, const char** argv);
     std::string help();
-    std::vector<int> parseFromParam(int argc, char** argv);
+    std::vector<int> parseFromParam(int argc, const char** argv);
     std::string calculate(std::vector<int> numbs);
 };
 

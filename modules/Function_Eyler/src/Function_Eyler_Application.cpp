@@ -11,7 +11,7 @@ std::string Application::help() {
     return message;
 }
 
-std::vector<int> Application::parseFromParam(int argc, char** argv) {
+std::vector<int> Application::parseFromParam(int argc, const char** argv) {
     std::vector<int> result_args;
     int tmp;
 
@@ -43,7 +43,7 @@ std::string Application::calculate(std::vector<int> numbs) {
     return results;
 }
 
-std::string Application::operator()(int argc, char** argv) {
+std::string Application::operator()(int argc, const char** argv) {
     if (argc < 2) {
         return help();
     }

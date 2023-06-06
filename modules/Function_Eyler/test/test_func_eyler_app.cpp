@@ -1,3 +1,5 @@
+//  Copyright 2023 Gosteeva Ekaterina
+
 #include <gtest/gtest.h>
 #include <cmath>
 #include "include/Function_Eyler.h"
@@ -11,7 +13,7 @@ TEST(Function_Eyler_App, Correct_Creat) {
     Application application;
     int argc = 2;
     char* argv[2] = { "1", "10" };
-    EXPECT_NO_THROW(application(argc,argv));
+    EXPECT_NO_THROW(application(argc, argv));
 }
 
 TEST(Function_Eyler_App, No_Throw_Wiht_Zero_argc) {

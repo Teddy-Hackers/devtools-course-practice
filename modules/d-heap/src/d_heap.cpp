@@ -1,4 +1,4 @@
-// Copyright 2023 Bykova Aleksandra 
+// Copyright 2023 Bykova Aleksandra
 
 #include <algorithm>
 #include "include/d_heap.h"

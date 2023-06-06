@@ -1,0 +1,33 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(NAME ${prefix}_see_help_info_if_no_params 
+    COMMAND ${APPLICATION})
+
+set_tests_properties(${prefix}_see_help_info_if_no_params PROPERTIES 
+    PASS_REGULAR_EXPRESSION "This is application for Eyler Function.\n" 
+    LABELS "${MODULE}")
+
+add_test(NAME ${prefix}_negative_param
+    COMMAND ${APPLICATION} 2 -1)
+
+set_tests_properties(${prefix}_negative_param PROPERTIES 
+    WILL_FAIL true
+    LABELS "${MODULE}")
+
+add_test(NAME ${prefix}_zero_param
+    COMMAND ${APPLICATION} 3 0)
+
+set_tests_properties(${prefix}_zero_param PROPERTIES 
+    WILL_FAIL true
+    LABELS "${MODULE}")
+
+add_test(NAME ${prefix}_running_version
+    COMMAND ${APPLICATION} 5 5)
+
+set_tests_properties(${prefix}_running_version PROPERTIES 
+    WILL_FAIL false
+    LABELS "${MODULE}")

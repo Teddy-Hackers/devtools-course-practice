@@ -7,7 +7,7 @@
 
 #include "../include/Function_Eyler_Application.h"
 
-int main(int argc, char** argv) {
+int main(int argc, const char** argv) {
     Application app;
     std::string output = app(argc, argv);
     std::cout << output;

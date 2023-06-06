@@ -37,7 +37,7 @@ std::string Application::calculate(std::vector<int> numbs) {
         }
     }
     catch (std::exception& exc) {
-        return exc.what();
+        std::cerr << exc.what();
     }
 
     return results;

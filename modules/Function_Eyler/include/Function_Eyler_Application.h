@@ -10,7 +10,6 @@
 class Application {
  public:
     std::string operator()(int argc, char** argv);
- private:
     std::string help();
     std::vector<int> parseFromParam(int argc, char** argv);
     std::string calculate(std::vector<int> numbs);

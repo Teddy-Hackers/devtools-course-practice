@@ -35,7 +35,7 @@ std::string Application::calculate(std::vector<int> numbs) {
             results.append(std::to_string(f.Function_Euler(numbs[i])));
             results.append("\n");
         }
-    } 
+    }
     catch (std::exception exc) {
         return exc.what();
     }

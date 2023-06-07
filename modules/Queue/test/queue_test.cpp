@@ -23,5 +23,5 @@ TEST(Queue, can_get_lenght) {
   Queue<int> queue;
   queue.push(1);
   queue.push(2);
-  EXPECT_EQ(2, queue.length());
+  EXPECT_EQ(2, queue.lenght());
 }

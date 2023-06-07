@@ -4,7 +4,6 @@
 
 #include "include/interpolation_search_app.h"
 
-
 int main(int argc, const char** argv) {
     InterpolationSearchApp interpolationSearchApp;
     std::string output = interpolationSearchApp(argc, argv);

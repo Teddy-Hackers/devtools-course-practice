@@ -2,13 +2,13 @@
 
 #include "include/queue.h"
 
-template <typename T>
+template <class T>
 Queue<T>::Queue() {
   size = 0;
   head = nullptr;
 }
 
-template <typename T>
+template <class T>
 Queue<T>::~Queue() {
   node *temp;
   while (head != nullptr) {
@@ -18,7 +18,7 @@ Queue<T>::~Queue() {
   }
 }
 
-template <typename T>
+template <class T>
 T Queue<T>::popit() {
   if (head == nullptr) {
     return nullptr;
@@ -33,7 +33,7 @@ T Queue<T>::popit() {
   return data;
 }
 
-template <typename T>
+template <class T>
 void Queue<T>::push(T data) {
   node *newNode = new node;
   newNode->data = data;
@@ -57,7 +57,7 @@ void Queue<T>::push(T data) {
   size++;
 }
 
-template <typename T>
+template <class T>
 int Queue<T>::length() {
   return size;
 }

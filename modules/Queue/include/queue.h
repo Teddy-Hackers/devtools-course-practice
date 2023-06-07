@@ -3,7 +3,7 @@
 #ifndef MODULES_QUEUE_INCLUDE_QUEUE_H_
 #define MODULES_QUEUE_INCLUDE_QUEUE_H_
 
-template <typename T>
+template <class T>
 class Queue {
   struct node {
     T data;

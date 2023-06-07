@@ -140,3 +140,9 @@ TEST(BigIntTest, MultiplyIntTest) {
     std::string expected = "5000000000000000000000";
     EXPECT_EQ(BigInt::multiply_int(a, b), expected);
 }
+
+TEST(BigIntConstructorTest, PositiveInput) {
+    BigInt a(12345);
+    EXPECT_EQ(a.ToString(), "12345");
+    EXPECT_FALSE(a.IsNegative());
+}

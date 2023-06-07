@@ -51,7 +51,7 @@ void Queue<T>::push(T data) {
       return;
     }
 
-    current = current->nextNode
+    current = current->nextNode;
   }
 
   size++;

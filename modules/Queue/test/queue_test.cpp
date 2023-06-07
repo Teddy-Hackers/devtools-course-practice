@@ -21,7 +21,7 @@ TEST(Queue, cant_pop_if_empty) {
 }
 
 TEST(Queue, can_get_lenght) {
-  TQueue<int> queue();
+  Queue<int> queue();
   queue.push(1);
   queue.push(2);
   EXPECT_EQ(2, queue.length());

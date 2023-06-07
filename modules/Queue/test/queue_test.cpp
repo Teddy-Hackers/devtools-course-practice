@@ -3,18 +3,18 @@
 #include "include/queue.h"
 #include <gtest/gtest.h>
 
-TEST(Queue, can_push) {
+TEST(MyQueue, can_push) {
   Queue<int> queue;
   ASSERT_NO_THROW(queue.push(2));
 }
 
-TEST(Queue, can_pop) {
+TEST(MyQueue, can_pop) {
   Queue<int> queue;
   queue.push(1);
   EXPECT_EQ(1, queue.popit());
 }
 
-TEST(Queue, can_get_lenght) {
+TEST(MyQueue, can_get_lenght) {
   Queue<int> queue;
   queue.push(1);
   queue.push(2);

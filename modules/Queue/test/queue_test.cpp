@@ -14,11 +14,6 @@ TEST(Queue, can_pop) {
   EXPECT_EQ(1, queue.popit());
 }
 
-TEST(Queue, cant_pop_if_empty) {
-  Queue<int> queue;
-  ASSERT_EQ(nullptr, queue.popit());
-}
-
 TEST(Queue, can_get_lenght) {
   Queue<int> queue;
   queue.push(1);

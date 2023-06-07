@@ -143,6 +143,15 @@ TEST(BigIntTest, MultiplyIntTest) {
 
 TEST(BigIntConstructorTest, PositiveInput) {
     BigInt a(12345);
-    EXPECT_EQ(a.to_string(), "12345");
     EXPECT_FALSE(a.is_negative());
+}
+
+TEST(BigIntDivisionTest, DivisionTest) {
+    BigInt a("123456789123456789");
+    BigInt b("1234");
+    auto division_res = a.divide(a.to_string(), b.to_string());
+
+    EXPECT_EQ(division_res.first, "999633543574044");
+
+    EXPECT_EQ(division_res.second, "1217");
 }

@@ -79,3 +79,25 @@ set_tests_properties(
     PASS_REGULAR_EXPRESSION "Not a number!"
     LABELS "${MODULE}"
 )
+
+add_test(
+    NAME ${prefix}_can_validate_target_element
+    COMMAND ${APPLICATION} 1 2 4 3 p
+)
+
+set_tests_properties(
+    ${prefix}_can_validate_target_element PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not a number!"
+    LABELS "${MODULE}"
+)
+
+add_test(
+    NAME ${prefix}_can_validate_negative_element_of_vector
+    COMMAND ${APPLICATION} 1 -p 4 3 1
+)
+
+set_tests_properties(
+    ${prefix}_can_validate_negative_element_of_vector PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not a number!"
+    LABELS "${MODULE}"
+)

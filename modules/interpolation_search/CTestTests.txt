@@ -68,13 +68,3 @@ set_tests_properties(
     PASS_REGULAR_EXPRESSION "4"
     LABELS "${MODULE}"
 )
-
-add_test(
-    NAME ${prefix}_can_validate_number_of_vector
-    COMMAND ${APPLICATION} 1 p 2 7
-)
-
-set_tests_properties (
-    ${prefix}_can_validate_number_of_vector PROPERTIES
-    LABELS "${MODULE}"
-)

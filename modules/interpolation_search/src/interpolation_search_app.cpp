@@ -3,7 +3,10 @@
 #include "include/interpolation_search_app.h"
 
 void InterpolationSearchApp::help() {
-    message.append("This is application for interpolation search");
+    message.append("This is application for interpolation search.\n")
+    .append("Please provide arguments in the following format:\n")
+    .append("<1 element> <2 element> ... <n element> <target_element>\n")
+    .append("All elements must be integer!");
 }
 
 std::string calc(std::vector<int> vec, int target) {
@@ -12,6 +15,14 @@ std::string calc(std::vector<int> vec, int target) {
     interpolationSearch interpolationSearch(vec);
 
     return std::to_string(interpolationSearch.search(target));
+}
+
+bool checkIsNumber(const char* elem) {
+    if (std::isdigit(elem[0])) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 std::string InterpolationSearchApp::operator() (int argc, const char** argv) {
@@ -25,10 +36,14 @@ std::string InterpolationSearchApp::operator() (int argc, const char** argv) {
     std::string result;
 
     for (int i = 1; i < argc - 1; i++) {
-        search_vector.push_back(std::atoi(argv[i]));
+        if (checkIsNumber(argv[i])) {
+            search_vector.push_back(std::atoi(argv[i]));
+        } else {
+            return "Not a number";
+        }
     }
 
-    result = calc(search_vector, target);
+    message = calc(search_vector, target);
 
-    return result;
+    return message;
 }

@@ -19,9 +19,10 @@ std::string calc(std::vector<int> vec, int target) {
 
 bool checkIsNumber(const char* elem) {
     std::string str(elem);
+    const int size_str = str.length();
 
     if (str[0] == '-') {
-        for (int i = 1; i < str.length(); i++) {
+        for (int i = 1; i < size_str; i++) {
             if (std::isdigit(str[i])) {
                 continue;
             } else {
@@ -29,7 +30,7 @@ bool checkIsNumber(const char* elem) {
             }
         }
     } else {
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = 0; i < size_str; i++) {
             if (std::isdigit(str[i])) {
                 continue;
             } else {

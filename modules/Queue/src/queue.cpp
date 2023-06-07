@@ -27,7 +27,7 @@ T Queue<T>::popit() {
   node *temp = head;
   T data = head->data;
   head = head->nextNext;
-  delete trmp;
+  delete temp;
   size--;
 
   return data;

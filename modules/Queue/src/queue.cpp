@@ -58,6 +58,6 @@ void Queue<T>::push(T data) {
 }
 
 template <typename T>
-int Queue<T>::lenght() {
+int Queue<T>::length() {
   return size;
 }

@@ -17,6 +17,29 @@ std::string calc(std::vector<int> vec, int target) {
     return std::to_string(interpolationSearch.search(target));
 }
 
+bool checkIsNumber(const char* elem) {
+    std::string str(elem);
+
+    if (str[0] == '-') {
+        for (int i = 1; i < str.length(); i++) {
+            if (std::isdigit(str[i])) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+    } else {
+        for (int i = 0; i < str.length(); i++) {
+            if (std::isdigit(str[i])) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 std::string InterpolationSearchApp::operator() (int argc, const char** argv) {
     if (argc <= 1) {
         help();
@@ -24,11 +47,21 @@ std::string InterpolationSearchApp::operator() (int argc, const char** argv) {
     }
 
     std::vector<int> search_vector;
-    int target = std::atoi(argv[argc - 1]);
+    int target;
     std::string result;
 
     for (int i = 1; i < argc - 1; i++) {
-        search_vector.push_back(std::atoi(argv[i]));
+        if (checkIsNumber(argv[i])) {
+            search_vector.push_back(std::atoi(argv[i]));
+        } else {
+            return "Not a number!";
+        }
+    }
+
+    if (checkIsNumber(argv[argc - 1])) {
+        target = std::atoi(argv[argc - 1]);
+    } else {
+        return "Not a number!";
     }
 
     message = calc(search_vector, target);

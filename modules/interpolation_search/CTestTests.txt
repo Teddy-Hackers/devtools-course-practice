@@ -68,3 +68,14 @@ set_tests_properties(
     PASS_REGULAR_EXPRESSION "4"
     LABELS "${MODULE}"
 )
+
+add_test(
+    NAME ${prefix}_can_validate_elements_of_vector
+    COMMAND ${APPLICATION} 1 2 p 3 1
+)
+
+set_tests_properties(
+    ${prefix}_can_validate_elements_of_vector PROPERTIES
+    PASS_REGULAR_EXPRESSION "Not a number!"
+    LABELS "${MODULE}"
+)

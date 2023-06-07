@@ -1,6 +1,6 @@
 // Copyright 2023 Sudomoykin Andrey
 
-#include "../include/queue.h"
+#include "include/queue.h"
 
 template <typename T>
 Queue<T>::Queue() {

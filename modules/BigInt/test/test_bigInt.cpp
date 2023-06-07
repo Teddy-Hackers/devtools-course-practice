@@ -143,6 +143,6 @@ TEST(BigIntTest, MultiplyIntTest) {
 
 TEST(BigIntConstructorTest, PositiveInput) {
     BigInt a(12345);
-    EXPECT_EQ(a.ToString(), "12345");
-    EXPECT_FALSE(a.IsNegative());
+    EXPECT_EQ(a.to_string(), "12345");
+    EXPECT_FALSE(a.is_negative());
 }

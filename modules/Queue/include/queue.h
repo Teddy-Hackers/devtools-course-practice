@@ -19,4 +19,4 @@ class Queue {
   T popit();
   int lenght();
 };
-#endif  //  MODULES_QUEUE_INCLUDE_QUEUE_H_
+#endif

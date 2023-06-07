@@ -16,7 +16,7 @@ TEST(Queue, can_pop) {
 
 TEST(Queue, cant_pop_if_empty) {
   Queue<int> queue();
-  ASSERT_EQ(nullptr, queue.popit);
+  ASSERT_EQ(nullptr, queue.popit());
 }
 
 TEST(Queue, can_get_lenght) {

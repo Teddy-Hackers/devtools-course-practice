@@ -17,6 +17,6 @@ class Queue {
   ~Queue();
   void push(T e);
   T popit();
-  int lenght();
+  int length();
 };
 #endif  // MODULES_QUEUE_INCLUDE_QUEUE_H_

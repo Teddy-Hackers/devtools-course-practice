@@ -102,12 +102,14 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components1) {
     g.Add_Edge(0, 1);
     g.Add_Edge(0, 2);
     g.Add_Edge(0, 3);
-    EXPECT_EQ(2, g.Get_Num_Of_Components());  // Expecting components:[0,1,2,3],[4]
+    // Expecting components:[0,1,2,3],[4]
+    EXPECT_EQ(2, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components2_no_edges) {
     Graph g(5);
-    EXPECT_EQ(5, g.Get_Num_Of_Components());  // Expecting components:[0],[1],[2],[3],[4]
+    // Expecting components:[0],[1],[2],[3],[4]
+    EXPECT_EQ(5, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
@@ -116,7 +118,8 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
     g.Add_Edge(0, 2);
     g.Add_Edge(4, 5);
     g.Add_Edge(5, 6);
-    EXPECT_EQ(6, g.Get_Num_Of_Components());  // Expecting components:[0,1,2],[3],[4,5,6],[7],[8],[9]
+    // Expecting components:[0,1,2],[3],[4,5,6],[7],[8],[9]
+    EXPECT_EQ(6, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, one_with_all) {

@@ -16,7 +16,7 @@ class Queue {
   Queue();
   ~Queue();
   void push(T e);
-  T popit();
+  T pop();
   int lenght();
 };
 
@@ -37,7 +37,7 @@ Queue<T>::~Queue() {
 }
 
 template <typename T>
-T Queue<T>::popit() {
+T Queue<T>::pop() {
   if (head == nullptr) {
     throw "exception";
   }

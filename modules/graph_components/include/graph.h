@@ -4,7 +4,6 @@
 #include<unordered_map>
 #include<list>
 #include<utility>
-#define MAXN 1000
 
 class Graph {
 public:
@@ -14,7 +13,9 @@ public:
 	void Add_Edge(uint64_t u, uint64_t w);
 	void Delete_Edge(uint64_t, uint64_t w);
 	bool Has_Edge(uint64_t, uint64_t w);
+	uint64_t Get_Num_Of_Components();
 private:
 	std::unordered_map<int, std::list<int>> adjacency_map;
 	uint64_t __num_of_nodes;
+	void Depth_Search(uint64_t start_node,bool* visited);
 };

@@ -9,7 +9,6 @@ class Queue {
     T data;
     node* nextNode;
   };
-  typedef node NODE;
   node* head;
   int size;
 

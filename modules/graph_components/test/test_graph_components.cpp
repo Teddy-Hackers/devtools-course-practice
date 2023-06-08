@@ -71,7 +71,7 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
     }
     Graph g(matrix, num_of_nodes);
     for (uint64_t i = 0; i < num_of_nodes; i++) {
-        for (uint64_t = i; j < num_of_nodes; j++) {
+        for (uint64_t j = 0; j < num_of_nodes; j++) {
             EXPECT_EQ(matrix[i][j], g.Has_Edge(i, j));
         }
     }

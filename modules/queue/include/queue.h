@@ -57,6 +57,8 @@ void Queue<T>::push(T data) {
   newNode->data = data;
   newNode->nextNode = nullptr;
 
+  size++;
+
   if (head == nullptr) {
     head = newNode;
     return;
@@ -66,7 +68,6 @@ void Queue<T>::push(T data) {
   while (current != nullptr) {
     if (current->nextNode == nullptr) {
       current->nextNode = newNode;
-      size++;
       return;
     }
 

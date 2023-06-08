@@ -43,7 +43,9 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test2) {
     Graph g(matrix, 3);
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
-           if (i != j)EXPECT_EQ(true, g.Has_Edge(i, j));
+           if (i != j) {
+            EXPECT_EQ(true, g.Has_Edge(i, j));
+           }
         }
     }
 }
@@ -54,9 +56,9 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
     uint64_t num_of_nodes = rand_r() % 100+1;
     bool** matrix;
     matrix = new bool* [num_of_nodes];
-    for (int i = 0; i < num_of_nodes; i++) {
+    for (uint64_t i = 0; i < num_of_nodes; i++) {
         matrix[i] = new bool[num_of_nodes];
-        for (int j = i; j < num_of_nodes; j++) {
+        for (uint64_t j = i; j < num_of_nodes; j++) {
             if (i == j) {
                 matrix[i][j] = false;
             } else {
@@ -68,8 +70,8 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
         }
     }
     Graph g(matrix, num_of_nodes);
-    for (int i = 0; i < num_of_nodes; i++) {
-        for (int j = i; j < num_of_nodes; j++) {
+    for (uint64_t i = 0; i < num_of_nodes; i++) {
+        for (uint64_t = i; j < num_of_nodes; j++) {
             EXPECT_EQ(matrix[i][j], g.Has_Edge(i, j));
         }
     }
@@ -103,13 +105,15 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components1) {
     g.Add_Edge(0, 2);
     g.Add_Edge(0, 3);
     // Expecting components:[0,1,2,3],[4]
-    EXPECT_EQ(2, g.Get_Num_Of_Components());
+    uint64_t expected = 2;
+    EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components2_no_edges) {
     Graph g(5);
     // Expecting components:[0],[1],[2],[3],[4]
-    EXPECT_EQ(5, g.Get_Num_Of_Components());
+    uint64_t expected = 5;
+    EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
@@ -119,7 +123,8 @@ TEST(Simeunovic_Aleksandar_Graph_Components, num_of_components3) {
     g.Add_Edge(4, 5);
     g.Add_Edge(5, 6);
     // Expecting components:[0,1,2],[3],[4,5,6],[7],[8],[9]
-    EXPECT_EQ(6, g.Get_Num_Of_Components());
+    uint64_t expected = 6;
+    EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, one_with_all) {
@@ -127,10 +132,11 @@ TEST(Simeunovic_Aleksandar_Graph_Components, one_with_all) {
     std::mt19937 rand_r(dev());
     uint64_t num_of_nodes = rand_r() % 100 + 1;
     Graph g(num_of_nodes);
-    for (int i = 1; i < num_of_nodes; i++) {
+    for (uint64_t i = 1; i < num_of_nodes; i++) {
         g.Add_Edge(0, i);
     }
-    EXPECT_EQ(1, g.Get_Num_Of_Components());
+    uint64_t expected = 1;
+    EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, every_pair_is_connected) {
@@ -138,10 +144,11 @@ TEST(Simeunovic_Aleksandar_Graph_Components, every_pair_is_connected) {
     std::mt19937 rand_r(dev());
     uint64_t num_of_nodes = rand_r() % 100 + 1;
     Graph g(num_of_nodes);
-    for (int i = 0; i < num_of_nodes; i++) {
-       for (int j = 0; j < num_of_nodes; j++) {
+    for (uint64_t i = 0; i < num_of_nodes; i++) {
+       for (uint64_t j = 0; j < num_of_nodes; j++) {
            g.Add_Edge(i, j);
         }
     }
-    EXPECT_EQ(1, g.Get_Num_Of_Components());
+    uint64_t expected = 1;
+    EXPECT_EQ(expected, g.Get_Num_Of_Components());
 }

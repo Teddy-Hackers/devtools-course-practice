@@ -1,4 +1,4 @@
-﻿// Copyright 2023 Sudomoykin Andrey
+﻿  //  Copyright 2023 Sudomoykin Andrey
 
 #include <gtest/gtest.h>
 

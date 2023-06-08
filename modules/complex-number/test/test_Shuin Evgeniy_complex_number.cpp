@@ -5,7 +5,7 @@
 #include "include/complex_number.h"
 
 TEST(Shuin_Evgeniy_tests, can_create_a_negative_number) {
-ComplexNumber comp(1,2);
+ComplexNumber comp(1, 2);
 
 EXPECT_EQ(1, comp.getRe());
 EXPECT_EQ(2, comp.getIm());

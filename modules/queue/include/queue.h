@@ -66,13 +66,12 @@ void Queue<T>::push(T data) {
   while (current != nullptr) {
     if (current->nextNode == nullptr) {
       current->nextNode = newNode;
+      size++;
       return;
     }
 
     current = current->nextNode;
   }
-
-  size++;
 }
 
 template <typename T>

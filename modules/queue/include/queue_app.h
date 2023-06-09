@@ -1,5 +1,5 @@
 // Copyright 2023 Prokofev Denis
-#ifndef MODULES_QUUE_INCLUDE_QUEUE_APP_H_
+#ifndef MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
 #define MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
 
 #include <stdio.h>
@@ -9,7 +9,6 @@ enum class Operations { push, get, length };
 
 template <class T>
 class QueueApp {
-
     std::string message;
   struct node {
     T data;
@@ -59,7 +58,7 @@ class QueueApp {
     current = current->nextNode;
   }
   }
-  T pop(){
+  T pop() {
       if (head == nullptr) {
     throw "exception";
   }

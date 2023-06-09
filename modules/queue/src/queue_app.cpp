@@ -56,17 +56,7 @@ bool QueueApp<T>::validateNumberOfArguments(int argc, const char** argv) {
 template<typename T>
 double QueueApp<T>::parseInt(const char* arg) {
     int result = 0;
-
-    try {
-        result = std::stoi(arg);
-    }
-    catch (const std::invalid_argument& e) {
-        throw std::string("ERROR: Cannot be cast to an integer!");
-    }
-    catch (const std::out_of_range& e) {
-        throw std::string("ERROR : Number out of range!");
-    }
-
+    result = std::stoi(arg);
     return result;
 }
 
@@ -80,10 +70,7 @@ Operations QueueApp<T>::parseOperation(const char* arg) {
         operation = Operations::get;
     } else if (strcmp(arg, "length") == 0) {
         operation = Operations::length;
-    } else {
-        throw std::string("ERROR: Wrong operation!");
     }
-
     return operation;
 }
 
@@ -107,9 +94,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
     TQueue<int> que(size);
     Operations operation;
     int operand;
-
-    try {
-        for (int i = 1; i <= size; ++i) {
+    for (int i = 1; i <= size; ++i) {
             que.Push(parseInt(argv[i]));
         }
 
@@ -119,10 +104,6 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
             operation = parseOperation(argv[argc - 2]);
             operand = parseInt(argv[argc - 1]);
         }
-    }
-    catch (const std::string& stringException) {
-        return stringException;
-    }
 
     std::ostringstream stream;
 

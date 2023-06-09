@@ -77,9 +77,22 @@ TEST(Simeunovic_Aleksandar_Graph_Components, matrix_adjacency_test3) {
     }
 }
 
+TEST(Simeunovic_Aleksandar_Graph_Components, unordered_map_constructor) {
+    std::unordered_map<int, std::list<int> > adjacency_map;
+    adjacency_map[0]={1, 2};
+    adjacency_map[1]={0};
+    Graph g(adjacency_map, 5);
+    EXPECT_NO_THROW();
+}
+
 TEST(Simeunovic_Aleksandar_Graph_Components, adding_edge_out_of_range) {
     Graph g(5);
     EXPECT_ANY_THROW({ g.Add_Edge(0, 5); });
+}
+
+TEST(Simeunovic_Aleksandar_Graph_Components, delete_edge_out_of_range) {
+    Graph g(5);
+    EXPECT_ANY_THROW({ g.Delete_Edge(0, 5); });
 }
 
 TEST(Simeunovic_Aleksandar_Graph_Components, adding_edge) {

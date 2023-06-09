@@ -8,10 +8,12 @@
 
 std::string GraphComponentsApp::help() {
   std::string helpStr;
-  helpStr.append("This is an app for counting the number of connectivity components in a graph.\n");
+  helpStr.append("This is an app for counting the number of connectivity ");
+  helpStr.append("components in a graph.\n");
   helpStr.append("Please enter the arguments in the following order:\n");
   helpStr.append("firstly, enter the number of vertices in the graph, ");
-  helpStr.append("then enter the vertices that are connected by edges in pairs.\n");
+  helpStr.append("then enter the vertices that are connected ");
+  helpStr.append("by edges in pairs.\n");
   helpStr.append("The number of arguments must be even and greater than one\n");
   return helpStr;
 }

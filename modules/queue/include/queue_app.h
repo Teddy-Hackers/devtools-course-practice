@@ -1,6 +1,5 @@
 // Copyright 2023 Prokofev Denis
-
-#ifndef MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
+#ifndef MODULES_QUUE_INCLUDE_QUEUE_APP_H_
 #define MODULES_QUEUE_INCLUDE_QUEUE_APP_H_
 
 #include <stdio.h>
@@ -26,11 +25,11 @@ class QueueApp {
   bool validateNumberOfArguments(int argc, const char** argv);
   double parseInt(const char* arg);
   Operations parseOperation(const char* arg)
-  QueueApp(){
+  QueueApp() {
     size = 0;
     head = nullptr;
   }
-  ~QueueApp(){
+  ~QueueApp() {
     node* temp;
   while (head != nullptr) {
     temp = head;
@@ -38,7 +37,7 @@ class QueueApp {
     delete temp;
   }
   }
-  void push(T e){
+  void push(T e) {
       node* newNode = new node;
   newNode->data = data;
   newNode->nextNode = nullptr;
@@ -73,7 +72,7 @@ class QueueApp {
 
   return data;
   }
-  int lenght(){
+  int lenght() {
      return size;
   }
 };

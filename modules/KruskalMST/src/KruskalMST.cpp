@@ -22,14 +22,14 @@ void KruskalMST::addEdge(int src, int dest, int weight) {
 }
 
 // Find the parent of a vertex
-int KruskalMST::findParent(std::vector<int>& parent, int i) {
+int KruskalMST::findParent(int* parent, int i) {
     if (parent[i] == -1)
         return i;
     return findParent(parent, parent[i]);
 }
 
 // Union of two subsets
-void KruskalMST::unionSubsets(std::vector<int>& parent, int x, int y) {
+void KruskalMST::unionSubsets(int* parent, int x, int y) {
     int xset = findParent(parent, x);
     int yset = findParent(parent, y);
     parent[xset] = yset;
@@ -40,9 +40,10 @@ std::vector<Edge> KruskalMST::getMinimumSpanningTree() {
     std::vector<Edge> result;
     std::sort(edges.begin(), edges.end(), [](Edge a, Edge b) {
         return a.weight < b.weight;
-    });
+        });
 
-    std::vector<int> parent(V, -1);
+    int* parent = new int[V];
+    std::fill(parent, parent + V, -1);
 
     for (const auto& edge : edges) {
         int x = findParent(parent, edge.src);
@@ -54,8 +55,11 @@ std::vector<Edge> KruskalMST::getMinimumSpanningTree() {
         }
     }
 
+    delete[] parent;
+
     return result;
 }
+
 
 // Get the weight of the minimum spanning tree
 int KruskalMST::getMinimumSpanningTreeWeight() {

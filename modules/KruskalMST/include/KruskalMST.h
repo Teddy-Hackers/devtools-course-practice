@@ -13,8 +13,8 @@ class KruskalMST {
     int V;  // Number of vertices
     std::vector<Edge> edges;  // Graph edges
 
-    int findParent(std::vector<int>& Sparent, int i);
-    void unionSubsets(std::vector<int>& parent, int x, int y);
+    int findParent(int* parent, int i);
+    void unionSubsets(int* parent, int x, int y);
 
  public:
     explicit KruskalMST(int V);

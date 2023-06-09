@@ -3,7 +3,7 @@
 #include "include/queue_app.h"
 #include <vector>
 #include <string>
-
+#include <algorithm>
 
 template <typename T>
 void QueueApp<T>::help() {

@@ -28,8 +28,9 @@ TEST(KruskalMSTTest, GetMinimumSpanningTree) {
     graph.addEdge(2, 3, 4);
 
     std::vector<Edge> mst = graph.getMinimumSpanningTree();
+    int size = static_cast<int>(mst.size());
 
-    EXPECT_EQ(3, mst.size());
+    EXPECT_EQ(3, size);
 }
 
 // Test case for getting the weight of the minimum spanning tree

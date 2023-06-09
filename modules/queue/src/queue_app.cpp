@@ -65,11 +65,11 @@ template<typename T>
 Operations QueueApp<T>::parseOperation(const char* arg) {
     Operations operation;
 
-    if (strcmp(arg, "push") == 0) {
+    if (arg == "push") {
         operation = Operations::push;
-    } else if (strcmp(arg, "get") == 0) {
+    } else if (arg == "get") {
         operation = Operations::get;
-    } else if (strcmp(arg, "length") == 0) {
+    } else if (arg == "length") {
         operation = Operations::length;
     }
     return operation;

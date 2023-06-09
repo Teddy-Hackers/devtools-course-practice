@@ -30,40 +30,16 @@ class QueueApp {
     size = 0;
     head = nullptr;
   }
-  ~QueueApp();
-  void push(T e);
-  T pop();
-  int lenght();
-};
-
-template <typename T>
-QueueApp<T>::~QueueApp() {
-  node* temp;
+  ~QueueApp(){
+    node* temp;
   while (head != nullptr) {
     temp = head;
     head = head->nextNode;
     delete temp;
   }
-}
-
-template <typename T>
-T QueueApp<T>::pop() {
-  if (head == nullptr) {
-    throw "exception";
   }
-
-  node* temp = head;
-  T data = head->data;
-  head = head->nextNode;
-  delete temp;
-  size--;
-
-  return data;
-}
-
-template <typename T>
-void QueueApp<T>::push(T data) {
-  node* newNode = new node;
+  void push(T e){
+      node* newNode = new node;
   newNode->data = data;
   newNode->nextNode = nullptr;
 
@@ -83,11 +59,23 @@ void QueueApp<T>::push(T data) {
 
     current = current->nextNode;
   }
-}
+  }
+  T pop(){
+      if (head == nullptr) {
+    throw "exception";
+  }
 
-template <typename T>
-int QueueApp<T>::lenght() {
-  return size;
-}
+  node* temp = head;
+  T data = head->data;
+  head = head->nextNode;
+  delete temp;
+  size--;
+
+  return data;
+  }
+  int lenght(){
+     return size;
+  }
+};
 
 #endif  //  MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

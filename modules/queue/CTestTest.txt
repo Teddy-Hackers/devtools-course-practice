@@ -1,0 +1,31 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_run
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_print_help
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_print_help PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is application for create Queue"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_push
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_push PROPERTIES
+    PASS_REGULAR_EXPRESSION "queue: 22 1 3"
+    LABELS "${MODULE}")

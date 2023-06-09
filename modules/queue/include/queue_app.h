@@ -19,13 +19,13 @@ class QueueApp {
   int size;
 
  public:
+     QueueApp();
   void help();
   std::string operator()(int argc, const char** argv);
   int findOperation(int argc, const char** argv);
   bool validateNumberOfArguments(int argc, const char** argv);
   double parseInt(const char* arg);
-  Operations parseOperation(const char* arg)
-  QueueApp();
+  Operations parseOperation(const char* arg);
   ~QueueApp();
   void push(T e);
   T pop();

@@ -9,7 +9,6 @@ enum class Operations { push, get, length };
 
 template <class T>
 class QueueApp {
-
     std::string message;
   struct node {
     T data;

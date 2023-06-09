@@ -81,8 +81,9 @@ TEST(KruskalMSTTest, DisconnectedGraph) {
 
     std::vector<Edge> mst = graph.getMinimumSpanningTree();
     int weight = graph.getMinimumSpanningTreeWeight();
+    int size = static_cast<int>(mst.size());
 
-    EXPECT_EQ(3, mst.size());
+    EXPECT_EQ(3, size);
     EXPECT_EQ(8, weight);
 }
 
@@ -97,7 +98,8 @@ TEST(KruskalMSTTest, DuplicateEdges) {
 
     std::vector<Edge> mst = graph.getMinimumSpanningTree();
     int weight = graph.getMinimumSpanningTreeWeight();
+    int size = static_cast<int>(mst.size());
 
-    EXPECT_EQ(3, mst.size());
+    EXPECT_EQ(3, size);
     EXPECT_EQ(14, weight);
 }

@@ -24,6 +24,22 @@ TEST(BigIntConstructorTest, NegativeNumber) {
     EXPECT_EQ(num.digits, "12345");
 }
 
+TEST(BigIntCopyConstructorTest, PositiveNumber) {
+    BigInt num1(12345);
+    BigInt num2(num1);
+
+    EXPECT_FALSE(num2.is_negative);
+    EXPECT_EQ(num2.digits, "12345");
+}
+
+TEST(BigIntCopyConstructorTest, NegativeNumber) {
+    BigInt num1(-54321);
+    BigInt num2(num1);
+
+    EXPECT_TRUE(num2.is_negative);
+    EXPECT_EQ(num2.digits, "54321");
+}
+
 TEST(BigIntConstructor, LargePositiveNumber) {
     BigInt a("123456789012345678901234567890");
     EXPECT_EQ(a.is_negative, false);

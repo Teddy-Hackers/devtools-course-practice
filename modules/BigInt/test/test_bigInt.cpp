@@ -96,6 +96,40 @@ TEST(BigIntTest, AdditionTest2) {
     EXPECT_EQ(a + b, c);
 }
 
+TEST(BigIntOperatorTest, SubtractionWithoutCarry) {
+    BigInt a("1234");
+    BigInt b("567");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("39333"));
+}
+
+TEST(BigIntOperatorTest, SubtractionWithCarry) {
+    BigInt a("100000");
+    BigInt b("99999");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("3999999"));
+}
+
+TEST(BigIntOperatorTest, SubtractionNegativeResult) {
+    BigInt a("123");
+    BigInt b("456");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("667"));
+}
+
+TEST(BigIntOperatorTest, SubtractionFromItself) {
+    BigInt a("12345");
+    BigInt result = a - a;
+    EXPECT_EQ(result, BigInt("0"));
+}
+
+TEST(BigIntOperatorTest, SubtractionByNegative) {
+    BigInt a("1234");
+    BigInt b("-567");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("1801"));
+}
+
 TEST(BigIntTest, MultiplicationTest) {
     BigInt a("99999999999999999999");
     BigInt b("2");

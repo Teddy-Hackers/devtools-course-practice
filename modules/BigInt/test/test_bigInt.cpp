@@ -15,6 +15,11 @@ TEST(BigIntTest, ConstructorTest) {
     BigInt num(n);
     EXPECT_FALSE(num.is_negative);
     EXPECT_EQ(num.digits, "12345");
+
+    int n = -54321;
+    BigInt num(n);
+    EXPECT_TRUE(num.is_negative);
+    EXPECT_EQ(num.digits, "54321");
 }
 
 TEST(BigIntConstructor, LargePositiveNumber) {

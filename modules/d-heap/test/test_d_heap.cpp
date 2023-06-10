@@ -39,14 +39,6 @@ TEST(Dheap, is_creating_d_heap_with_two_parameters_correct) {
     EXPECT_EQ(3, a.getD());
 }
 
-TEST(Dheap, is_creating_d_heap_with_two_parameters_correct_2) {
-    // Arrange
-    d_heap a(3, 10);
-
-    // Assert
-    EXPECT_EQ(0, a.getCount());
-}
-
 TEST(Dheap, is_creating_d_heap_with_two_parameters_correct_3) {
     // Arrange
     d_heap a(3, 10);

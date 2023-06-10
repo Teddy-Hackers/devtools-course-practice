@@ -57,7 +57,7 @@ processMinimumSpanningTree(int argc, char** argv) {
 
     KruskalMST graph(V);
 
-    for (int i = 0; i < edges.size(); i += 3) {
+    for (size_t i = 0; i < edges.size(); i += 3) {
         int src = edges[i];
         int dest = edges[i + 1];
         int weight = edges[i + 2];
@@ -92,7 +92,7 @@ processMinimumSpanningTreeWeight(int argc, char** argv) {
 
     KruskalMST graph(V);
 
-    for (int i = 0; i < edges.size(); i += 3) {
+    for (size_t i = 0; i < edges.size(); i += 3) {
         int src = edges[i];
         int dest = edges[i + 1];
         int weight = edges[i + 2];

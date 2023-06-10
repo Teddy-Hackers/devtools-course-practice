@@ -52,6 +52,36 @@ TEST(BigIntConstructor, LargeNegativeNumber) {
     EXPECT_EQ(a.digits, "123456789012345678901234567890");
 }
 
+TEST(BigIntAssignmentOperatorTest, PositiveNumber) {
+    BigInt num1(12345);
+    BigInt num2;
+
+    num2 = num1;
+
+    EXPECT_FALSE(num2.is_negative);
+    EXPECT_EQ(num2.digits, "12345");
+}
+
+TEST(BigIntAssignmentOperatorTest, NegativeNumber) {
+    BigInt num1(-54321);
+    BigInt num2;
+
+    num2 = num1;
+
+    EXPECT_TRUE(num2.is_negative);
+    EXPECT_EQ(num2.digits, "54321");
+}
+
+TEST(BigIntAssignmentOperatorTest, Zero) {
+    BigInt num1(0);
+    BigInt num2;
+
+    num2 = num1;
+
+    EXPECT_FALSE(num2.is_negative);
+    EXPECT_EQ(num2.digits, "0");
+}
+
 TEST(BigIntTest, AdditionTest) {
     BigInt a("99999999999999999999");
     BigInt b("1");

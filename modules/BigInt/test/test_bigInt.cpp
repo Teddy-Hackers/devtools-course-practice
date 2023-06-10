@@ -167,3 +167,8 @@ TEST(BigIntTest, DivideTest) {
     EXPECT_EQ(result.first, "200000000");
     EXPECT_EQ(result.second, "723456789");
 }
+
+TEST(BigIntOperatorPlus, Addition) {
+    EXPECT_EQ(BigInt("100"), BigInt("23") + BigInt("77"));
+    EXPECT_EQ(BigInt("100"), BigInt("77") + BigInt("23"));
+}

@@ -134,7 +134,7 @@ TEST(BigIntTest, MultiplicationTest) {
 TEST(BigIntDivisionTest, PositiveNumbers) {
     BigInt a("1000000000000000000000");
     BigInt b("5000000000000");
-    BigInt c ("200000");
+    BigInt c("200000");
     EXPECT_EQ(a / b, c);
 }
 

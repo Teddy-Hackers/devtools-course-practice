@@ -103,6 +103,13 @@ TEST(BigIntOperatorTest, SubtractionWithoutCarry) {
     EXPECT_EQ(result, BigInt("39333"));
 }
 
+TEST(BigIntOperatorTest, SubtractionWithCarry) {
+    BigInt a("100000");
+    BigInt b("99999");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("3999999"));
+}
+
 TEST(BigIntTest, MultiplicationTest) {
     BigInt a("99999999999999999999");
     BigInt b("2");

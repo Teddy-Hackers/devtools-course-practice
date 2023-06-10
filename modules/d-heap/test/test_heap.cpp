@@ -115,7 +115,7 @@ TEST(test_dheap, copy_constructor_test) {
   // Arrange & Act
   DHeap hp(4, 3);
   // Assert
-  ASSERT_NO_THROW(DHeap cpyhp(hp));
+  ASSERT_NO_THROW(DHeap a(hp));
 }
 
 TEST(test_dheap, throw_empty_test) {

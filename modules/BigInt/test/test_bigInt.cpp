@@ -153,3 +153,11 @@ TEST(BigIntTest, MultiplyTest) {
     std::string expected = "13717421012345792379430727023432098652065";
     EXPECT_EQ(BigInt::multiply(a, b), expected);
 }
+
+TEST(BigIntTest, DivideTest) {
+    std::string a = "123456789";
+    std::string b = "7";
+    std::pair<std::string, std::string> result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "17636684");
+    EXPECT_EQ(result.second, "1");
+}

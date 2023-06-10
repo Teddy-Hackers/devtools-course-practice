@@ -22,7 +22,10 @@ std::string MinimumSpanningTreeApp::processCommand(int argc, char** argv) {
         case 3:
             return processMinimumSpanningTreeWeight(argc, argv);
         default:
-            return getHelpMessage();
+            std::stringstream ss;
+            ss << "Invalid Command\n"
+               << getHelpMessage();
+            return ss.str();
     }
 }
 

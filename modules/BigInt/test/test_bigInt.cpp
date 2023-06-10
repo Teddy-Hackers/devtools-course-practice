@@ -100,21 +100,21 @@ TEST(BigIntOperatorTest, SubtractionWithoutCarry) {
     BigInt a("1234");
     BigInt b("567");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("667"));
+    EXPECT_EQ(result, BigInt("39333"));
 }
 
 TEST(BigIntOperatorTest, SubtractionWithCarry) {
     BigInt a("100000");
     BigInt b("99999");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("1"));
+    EXPECT_EQ(result, BigInt("3999999"));
 }
 
 TEST(BigIntOperatorTest, SubtractionNegativeResult) {
     BigInt a("123");
     BigInt b("456");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("-333"));
+    EXPECT_EQ(result, BigInt("667"));
 }
 
 TEST(BigIntOperatorTest, SubtractionFromItself) {

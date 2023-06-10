@@ -11,33 +11,33 @@ TEST(BigIntTest, DefaultConstructorTest) {
 }
 
 TEST(BigIntConstructorTest, PositiveNumber) {
-    int n = 12345678910111213141516;
+    int n = 12345;
     BigInt num(n);
     EXPECT_FALSE(num.is_negative);
-    EXPECT_EQ(num.digits, "12345678910111213141516");
+    EXPECT_EQ(num.digits, "12345");
 }
 
 TEST(BigIntConstructorTest, NegativeNumber) {
-    int n = -12345678910111213141516;
+    int n = -12345;
     BigInt num(n);
     EXPECT_TRUE(num.is_negative);
-    EXPECT_EQ(num.digits, "12345678910111213141516");
+    EXPECT_EQ(num.digits, "12345");
 }
 
 TEST(BigIntCopyConstructorTest, PositiveNumber) {
-    BigInt num1(12345678910111213141516);
+    BigInt num1(12345);
     BigInt num2(num1);
 
     EXPECT_FALSE(num2.is_negative);
-    EXPECT_EQ(num2.digits, "12345678910111213141516");
+    EXPECT_EQ(num2.digits, "12345");
 }
 
 TEST(BigIntCopyConstructorTest, NegativeNumber) {
-    BigInt num1(-12345678910111213141516);
+    BigInt num1(-54321);
     BigInt num2(num1);
 
     EXPECT_TRUE(num2.is_negative);
-    EXPECT_EQ(num2.digits, "12345678910111213141516");
+    EXPECT_EQ(num2.digits, "54321");
 }
 
 TEST(BigIntConstructor, LargePositiveNumber) {
@@ -53,23 +53,23 @@ TEST(BigIntConstructor, LargeNegativeNumber) {
 }
 
 TEST(BigIntAssignmentOperatorTest, PositiveNumber) {
-    BigInt num1(12345678910111213141516);
+    BigInt num1(12345);
     BigInt num2;
 
     num2 = num1;
 
     EXPECT_FALSE(num2.is_negative);
-    EXPECT_EQ(num2.digits, "12345678910111213141516");
+    EXPECT_EQ(num2.digits, "12345");
 }
 
 TEST(BigIntAssignmentOperatorTest, NegativeNumber) {
-    BigInt num1(-12345678910111213141516);
+    BigInt num1(-54321);
     BigInt num2;
 
     num2 = num1;
 
     EXPECT_TRUE(num2.is_negative);
-    EXPECT_EQ(num2.digits, "12345678910111213141516");
+    EXPECT_EQ(num2.digits, "54321");
 }
 
 TEST(BigIntAssignmentOperatorTest, Zero) {
@@ -134,8 +134,8 @@ TEST(BigIntTest, MultiplicationTest) {
 TEST(BigIntDivisionTest, PositiveNumbers) {
     BigInt a("1000000000000000000000");
     BigInt b("5000000000000");
-    BigInt c = a / b;
-    EXPECT_EQ(c.get_value(), "200000");
+    BigInt c = "200000";
+    EXPECT_EQ(a / b, c);
 }
 
 TEST(BigIntTest, GreaterThanOperatorTestFirst) {

@@ -70,7 +70,7 @@ Operations QueueApp<T>::parseOperation(const char* arg) {
     } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2]
     == 's' && arg[3] == 'h') {
         operation = Operations::pop;
-    } else if (arg[0] == 'l' && argp[1] == 'e' && arg[2] == 'n'
+    } else if (arg[0] == 'l' && arg[1] == 'e' && arg[2] == 'n'
     && argp[3] == 'g' && arg[4] == 't' && argp[5] == 'h') {
         operation = Operations::length;
     }
@@ -98,7 +98,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
     Operations operation;
     int operand;
     for (int i = 1; i <= size; ++i) {
-            que.Push(parseInt(argv[i]));
+            que.push(parseInt(argv[i]));
         }
 
         if (!withOperand) {
@@ -113,9 +113,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
     switch (operation) {
     case Operations::push:
         que.push(operand);
-        stream << "queue: ";
-        for (int i = 0; i < que.length(); i++)
-            stream << que[i] << " ";
+        stream << "push " << operand;
         break;
     case Operations::pop:
         stream << "pop element: " << std::to_string(que.pop());

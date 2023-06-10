@@ -28,7 +28,7 @@ class QueueApp {
   ~QueueApp();
   void push(T e);
   T pop();
-  int lenght();
+  int length();
 };
 
 template <typename T>
@@ -87,7 +87,7 @@ void QueueApp<T>::push(T data) {
 }
 
 template <typename T>
-int QueueApp<T>::lenght() {
+int QueueApp<T>::length() {
   return size;
 }
 

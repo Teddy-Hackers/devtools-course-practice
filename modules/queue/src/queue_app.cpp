@@ -67,7 +67,7 @@ Operations QueueApp<T>::parseOperation(const char* arg) {
 
     if (arg[0] == 'p' && arg[1] == 'u' && arg[2] == 's' && arg[3] == 'h') {
         operation = Operations::push;
-    } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2] 
+    } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2]
     == 's' && arg[3] == 'h') {
         operation = Operations::pop;
     } else if (arg == "length") {

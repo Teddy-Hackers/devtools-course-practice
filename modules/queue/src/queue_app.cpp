@@ -70,7 +70,7 @@ Operations QueueApp<T>::parseOperation(const char* arg) {
     } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2]
     == 's' && arg[3] == 'h') {
         operation = Operations::pop;
-    } else if (arg == "length") {
+    } else if (arg[0] == 'l' && argp[1] == 'e' && arg[2] == 'n' && argp[3] == 'g' && arg[4] == 't' && argp[5] == 'h') {
         operation = Operations::length;
     }
     return operation;
@@ -79,7 +79,7 @@ Operations QueueApp<T>::parseOperation(const char* arg) {
 template<typename T>
 std::string QueueApp<T>::operator()(int argc, const char** argv) {
     if (!validateNumberOfArguments(argc, argv)) {
-        return message_;
+        return message;
     }
 
     int size = 0;
@@ -93,7 +93,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
         withOperand = true;
     }
 
-    TQueue<int> que(size);
+    QueueApp<int> que(size);
     Operations operation;
     int operand;
     for (int i = 1; i <= size; ++i) {
@@ -123,6 +123,6 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
         stream << "queue length: " << std::to_string(que.length());
     }
 
-    message_ = stream.str();
-    return message_;
+    message = stream.str();
+    return message;
 }

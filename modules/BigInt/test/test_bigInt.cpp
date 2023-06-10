@@ -83,8 +83,8 @@ TEST(BigIntAssignmentOperatorTest, Zero) {
 }
 
 TEST(BigIntTest, AdditionTest) {
-    BigInt a("999");
-    BigInt ñ("101000");
+    BigInt a("998");
+    BigInt c("100999");
     BigInt b("100001");
     EXPECT_EQ(a + b, c);
 }

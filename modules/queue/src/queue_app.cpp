@@ -65,10 +65,10 @@ template<typename T>
 Operations QueueApp<T>::parseOperation(const char* arg) {
     Operations operation;
 
-    if (arg == "push") {
+    if (arg[0] == 'p' && arg[1] == 'u' && arg[2] == 's' && arg[3] == 'h') {
         operation = Operations::push;
-    } else if (arg == "get") {
-        operation = Operations::get;
+    } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2] == 's' && arg[3] == 'h') {
+        operation = Operations::pop;
     } else if (arg == "length") {
         operation = Operations::length;
     }
@@ -110,16 +110,16 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
 
     switch (operation) {
     case Operations::push:
-        que.Push(operand);
+        que.push(operand);
         stream << "queue: ";
-        for (int i = 0; i < que.Length(); i++)
+        for (int i = 0; i < que.length(); i++)
             stream << que[i] << " ";
         break;
-    case Operations::get:
-        stream << "get element: " << std::to_string(que.Get());
+    case Operations::pop:
+        stream << "pop element: " << std::to_string(que.pop());
         break;
     case Operations::length:
-        stream << "queue length: " << std::to_string(que.Length());
+        stream << "queue length: " << std::to_string(que.length());
     }
 
     message_ = stream.str();

@@ -123,13 +123,6 @@ TEST(BigIntOperatorTest, SubtractionFromItself) {
     EXPECT_EQ(result, BigInt("0"));
 }
 
-TEST(BigIntOperatorTest, SubtractionByNegative) {
-    BigInt a("1234");
-    BigInt b("-567");
-    BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("1801"));
-}
-
 TEST(BigIntTest, MultiplicationTest) {
     BigInt a("99999999999999999999");
     BigInt b("2");

@@ -149,7 +149,7 @@ TEST(BigIntTest, CompareAbsTest) {
 
 TEST(BigIntTest, MultiplyTest) {
     std::string a = "1000000000000000000000";
-    std::string b = "5";
-    std::string expected = "5000000000000000000000";
+    std::string b = "123456789101112131415";
+    std::string expected = "123456789101112131415000000000000000000000";
     EXPECT_EQ(BigInt::multiply(a, b), expected);
 }

@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string>
 
-enum class Operations { push, get, length };
+enum class Operations { push, pop, length };
 
 template <class T>
 class QueueApp {

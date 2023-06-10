@@ -25,8 +25,8 @@ int QueueApp<T>::findOperation(int argc, const char** argv) {
         return std::distance(dop.begin(), it) + 1;
     }
 
-    if (std::find(dop.begin(), dop.end(), "get") != dop.end()) {
-        it = std::find(dop.begin(), dop.end(), "get");
+    if (std::find(dop.begin(), dop.end(), "pop") != dop.end()) {
+        it = std::find(dop.begin(), dop.end(), "pop");
         return std::distance(dop.begin(), it) + 1;
     }
 

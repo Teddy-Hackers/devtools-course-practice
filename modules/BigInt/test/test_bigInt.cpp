@@ -140,3 +140,9 @@ TEST(BigIntTest, MultiplyIntTest) {
     std::string expected = "5000000000000000000000";
     EXPECT_EQ(BigInt::multiply_int(a, b), expected);
 }
+
+TEST(BigIntTest, CompareAbsTest) {
+    std::string a = "123456789";
+    std::string b = "234567891";
+    EXPECT_FALSE(BigInt::compare_abs(a, b));
+}

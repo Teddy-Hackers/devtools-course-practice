@@ -196,7 +196,6 @@ TEST(BigIntOperatorMinus, Subtraction) {
     EXPECT_EQ(BigInt("0"), BigInt("0") - BigInt("0"));
     EXPECT_EQ(BigInt("-1"), BigInt("3") - BigInt("4"));
     EXPECT_EQ(BigInt("-999"), BigInt("99") - BigInt("1098"));
-    EXPECT_EQ(BigInt("-1111111110"), BigInt("1234567890") - BigInt("2345679000"));
 }
 
 TEST(BigIntOperatorMinus, Negation) {

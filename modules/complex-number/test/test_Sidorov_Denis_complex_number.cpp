@@ -11,10 +11,10 @@ TEST(Sidorov_Denis_ComplexNumberTest, TEST_SUM) {
 }
 
 TEST(Sidorov_Denis_ComplexNumberTest, TEST_MINUS) {
-  ComplexNumber z1(50.0, 0.0);
+  ComplexNumber z1(50.0, 20.0);
   ComplexNumber z2(40.0, 10.0);
   ComplexNumber expression = z1 - z2;
-  EXPECT_EQ(expression, ComplexNumber(50.0, 30.0));
+  EXPECT_EQ(expression, ComplexNumber(10.0, 10.0));
 }
 
 TEST(Sidorov_Denis_ComplexNumberTest, TEST_MULT) {

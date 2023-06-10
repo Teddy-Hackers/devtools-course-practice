@@ -172,3 +172,45 @@ TEST(BigIntOperatorPlus, Addition) {
     EXPECT_EQ(BigInt("100"), BigInt("23") + BigInt("77"));
     EXPECT_EQ(BigInt("100"), BigInt("77") + BigInt("23"));
 }
+
+TEST(BigIntOperatorMinus, Subtraction)
+{
+    EXPECT_EQ(BigInt("0"), BigInt("") - BigInt(""));
+    EXPECT_EQ(BigInt("0"), BigInt("0") - BigInt(""));
+    EXPECT_EQ(BigInt("10"), BigInt("30") - BigInt("20"));
+    EXPECT_EQ(BigInt("10"), BigInt("20") - BigInt("10"));
+    EXPECT_EQ(BigInt("512"), BigInt("1024") - BigInt("512"));
+    EXPECT_EQ(BigInt("740740925"), BigInt("987654321") - BigInt("246913396"));
+    EXPECT_EQ(BigInt("11"), BigInt("25") - BigInt("14"));
+    EXPECT_EQ(BigInt("7"), BigInt("56") - BigInt("49"));
+    EXPECT_EQ(BigInt("900"), BigInt("999") - BigInt("99"));
+    EXPECT_EQ(BigInt("99999999999"), BigInt("100000000000") - BigInt("1"));
+    EXPECT_EQ(BigInt("-99999999999"), BigInt("1") - BigInt("100000000000"));
+    EXPECT_EQ(BigInt("4450"), BigInt("4500") - BigInt("50"));
+    EXPECT_EQ(BigInt("-4450"), BigInt("50") - BigInt("4500"));
+    EXPECT_EQ(BigInt("87037027"), BigInt("912345678") - BigInt("825308651"));
+    EXPECT_EQ(BigInt("-87037027"), BigInt("825308651") - BigInt("912345678"));
+    EXPECT_EQ(BigInt("-13"), BigInt("-5") - BigInt("8"));
+    EXPECT_EQ(BigInt("-3"), BigInt("8") - BigInt("11"));
+    EXPECT_EQ(BigInt("-1000"), BigInt("-4500") - BigInt("-3500"));
+    EXPECT_EQ(BigInt("1000"), BigInt("-3500") - BigInt("-4500"));
+    EXPECT_EQ(BigInt("0"), BigInt("0") - BigInt("0"));
+    EXPECT_EQ(BigInt("0"), BigInt("12345678901234567890") - BigInt("12345678901234567890"));
+    EXPECT_EQ(BigInt("0"), BigInt("-12345678901234567890") - BigInt("-12345678901234567890"));
+    EXPECT_EQ(BigInt("-1"), BigInt("3") - BigInt("4"));
+    EXPECT_EQ(BigInt("-999"), BigInt("99") - BigInt("1098"));
+    EXPECT_EQ(BigInt("-1111111110"), BigInt("1234567890") - BigInt("2345679000"));
+}
+
+TEST(BigIntOperatorMinus, Negation)
+{
+    EXPECT_EQ(BigInt("0"), -BigInt("0"));
+    EXPECT_EQ(BigInt("-50"), -BigInt("50"));
+    EXPECT_EQ(BigInt("50"), -BigInt("-50"));
+    EXPECT_EQ(BigInt("-12345678901234567890"), -BigInt("12345678901234567890"));
+    EXPECT_EQ(BigInt("12345678901234567890"), -BigInt("-12345678901234567890"));
+    EXPECT_EQ(BigInt("50"), -BigInt("--50"));
+    EXPECT_EQ(BigInt("-50"), -BigInt("- -50"));
+    EXPECT_EQ(BigInt("12345678901234567890"), -BigInt("-12345678901234567890"));
+    EXPECT_EQ(BigInt("-12345678901234567890"), -BigInt("--12345678901234567890"));
+}

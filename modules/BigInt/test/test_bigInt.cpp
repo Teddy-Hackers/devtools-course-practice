@@ -89,7 +89,7 @@ TEST(BigIntTest, AdditionTest) {
     EXPECT_EQ(a + b, c);
 }
 
-TEST(BigIntTest, AdditionTest) {
+TEST(BigIntTest, AdditionTest2) {
     BigInt a("99999999999999999999");
     BigInt b("1");
     BigInt c("100000000000000000000");

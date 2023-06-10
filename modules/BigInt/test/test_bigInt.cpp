@@ -160,4 +160,10 @@ TEST(BigIntTest, DivideTest) {
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
     EXPECT_EQ(result.first, "200000000");
     EXPECT_EQ(result.second, "723456789");
+
+    a = "123456789";
+    b = "7";
+    result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "17636684");
+    EXPECT_EQ(result.second, "1");
 }

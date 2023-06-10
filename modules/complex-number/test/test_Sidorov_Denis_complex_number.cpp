@@ -18,7 +18,10 @@ TEST(Sidorov_Denis_ComplexNumberTest, TEST_MINUS) {
 }
 
 TEST(Sidorov_Denis_ComplexNumberTest, TEST_MULT) {
-  ComplexNumber a(5.0, 5.0), b(3.0, 3.0), expected(15.0, 15.0);
-  ComplexNumber result = a * b;
-  ASSERT_EQ(result, expected);
+  ComplexNumber z1(5.0, 5.0);
+  ComplexNumber z2(3.0, 3.0);
+
+  ComplexNumber z1_M_z2 = z1 * z2;
+
+  EXPECT_EQ(z1_M_z2, ComplexNumber(0, 30));
 }

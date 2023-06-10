@@ -92,13 +92,6 @@ TEST(miheev_ivan_dheap, extract_min_with_equal_values_test) {
   ASSERT_EQ(1, hp.extractMin());
 }
 
-TEST(miheev_ivan_dheap, copy_constructor_test) {
-  // Arrange & Act
-  DHeap hp(4, 3);
-  // Assert
-  ASSERT_NO_THROW(DHeap(hp));
-}
-
 TEST(miheev_ivan_dheap, copy_constructor_equality_test) {
   // Arrange & Act
   DHeap hp(4, 3);

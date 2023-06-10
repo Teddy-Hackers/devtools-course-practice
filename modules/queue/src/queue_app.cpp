@@ -94,7 +94,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
         withOperand = true;
     }
 
-    QueueApp<int> que(size);
+    QueueApp<T> que(size);
     Operations operation;
     int operand;
     for (int i = 1; i <= size; ++i) {

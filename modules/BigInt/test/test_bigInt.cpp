@@ -11,7 +11,7 @@ TEST(BigIntTest, DefaultConstructorTest) {
 }
 
 TEST(BigIntTest, ConstructorTest) {
-    int x = 12345;
+    int n = 12345;
     BigInt num(n);
     EXPECT_FALSE(num.is_negative);
     EXPECT_EQ(num.digits, "12345");

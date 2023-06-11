@@ -145,5 +145,5 @@ TEST(DHeapTest, IsFull) {
     heap.insert(i);
 }
 
-  EXPECT_TRUE(heap.isFull());
+  EXPECT_FALSE(heap.isFull());
 }

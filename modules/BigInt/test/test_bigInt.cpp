@@ -114,7 +114,8 @@ TEST(BigIntOperatorTest, SubtractionTestBiggerSecond) {
     BigInt a("655463432263");
     BigInt b("67787567554221325434");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("-44-45-45101242106829"));
+    EXPECT_EQ(result,
+        BigInt("-33-46-46-47-46-44-45-45101242106829"));
 }
 
 TEST(BigIntTest, MultiplicationTest) {

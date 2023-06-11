@@ -143,9 +143,6 @@ bool operator>(const BigInt& a, const BigInt& b) {
 bool operator>=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return false;
   if (!a.is_negative && b.is_negative) return true;
-  bool abs_compare = BigInt::compare_abs(a.digits, b.digits);
-  return (a.is_negative) ? !abs_compare || a.digits ==
-      b.digits : abs_compare || a.digits == b.digits;
 }
 
 bool operator<(const BigInt& a, const BigInt& b) {
@@ -158,9 +155,6 @@ bool operator<(const BigInt& a, const BigInt& b) {
 bool operator<=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return true;
   if (!a.is_negative && b.is_negative) return false;
-  bool abs_compare = BigInt::compare_abs(a.digits, b.digits);
-  return (a.is_negative) ? abs_compare || a.digits ==
-      b.digits : !abs_compare || a.digits == b.digits;
 }
 
 bool operator==(const BigInt& a, const BigInt& b) {
@@ -288,22 +282,12 @@ std::pair<std::string, std::string> BigInt::divide(const std::string& a,
   while (i < a.length()) {
     remainder += a[i];
     i++;
-    if (remainder == "0") {
-        quotient.append("0");
-        continue;
-    }
     int count = 0;
     while (compare_abs(remainder, b)) {
         remainder = subtract_abs(remainder, b);
         count++;
     }
-    quotient.append(std::to_string(count));
   }
-
-  quotient.erase(0, std::min(quotient.find_first_not_of('0'),
-      quotient.size() - 1));
-  remainder.erase(0, std::min(remainder.find_first_not_of('0'),
-      remainder.size() - 1));
 
   return std::make_pair(quotient, remainder);
 }

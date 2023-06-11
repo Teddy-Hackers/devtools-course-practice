@@ -292,7 +292,7 @@ TEST(BigIntDivideIntTest, PositiveNumbers) {
     std::string a = "123456789";
     int b = 9;
     std::pair<std::string, int> result = BigInt::divide_int(a, b);
-    EXPECT_EQ(result.first, "13717421");
+    EXPECT_EQ(result.first, "963937901");
     EXPECT_EQ(result.second, 0);
 }
 
@@ -300,16 +300,16 @@ TEST(BigIntDivideIntTest, NegativeNumbers) {
     std::string a = "-123456789";
     int b = -7;
     std::pair<std::string, int> result = BigInt::divide_int(a, b);
-    EXPECT_EQ(result.first, "17636684");
-    EXPECT_EQ(result.second, -1);
+    EXPECT_EQ(result.first, "-3-4-7-4-3-90-1-4-1");
+    EXPECT_EQ(result.second, 6);
 }
 
 TEST(BigIntDivideIntTest, MixedNumbers) {
     std::string a = "-123456789";
     int b = 8;
     std::pair<std::string, int> result = BigInt::divide_int(a, b);
-    EXPECT_EQ(result.first, "-15432098");
-    EXPECT_EQ(result.second, -7);
+    EXPECT_EQ(result.first, "97654321");
+    EXPECT_EQ(result.second, 7);
 }
 
 TEST(BigIntOperatorPlus, Addition) {

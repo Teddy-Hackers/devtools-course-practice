@@ -253,10 +253,6 @@ std::string BigInt::multiply_int(const std::string& a, int b) {
     carry = d / 10;
     result.insert(0, std::to_string(d % 10));
   }
-  if (carry > 0) {
-    result.insert(0, std::to_string(carry));
-  }
-
   return result;
 }
 

@@ -4,6 +4,10 @@
 
 #include <stdio.h>
 #include <string>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <sstream>
 
 enum class Operations { push, pop, length };
 
@@ -89,6 +93,76 @@ void QueueApp<T>::push(T data) {
 template <typename T>
 int QueueApp<T>::length() {
   return size;
+}
+template <typename T>
+void QueueApp<T>::help() {
+    message.append("This is application for create Queue.\n")
+    .append("Add data with push\n")
+    .append("Read data with pop\n")
+    .append("All elements must be integer!");
+}
+
+template <typename T>
+int QueueApp<T>::findOperation(int argc, const char** argv) {
+    std::vector < std::string> dop;
+    std::vector < std::string>::iterator it;
+    for (int i = 1; i <= argc - 1; i++)
+        dop.push_back(std::string(argv[i]));
+    if (std::find(dop.begin(), dop.end(), "push") != dop.end()) {
+        it = std::find(dop.begin(), dop.end(), "push");
+        return std::distance(dop.begin(), it) + 1;
+    }
+
+    if (std::find(dop.begin(), dop.end(), "pop") != dop.end()) {
+        it = std::find(dop.begin(), dop.end(), "pop");
+        return std::distance(dop.begin(), it) + 1;
+    }
+
+    if (std::find(dop.begin(), dop.end(), "length") != dop.end()) {
+        it = std::find(dop.begin(), dop.end(), "length");
+        return std::distance(dop.begin(), it) + 1;
+    }
+
+    return -1;
+}
+
+template <typename T>
+bool QueueApp<T>::validateNumberOfArguments(int argc, const char** argv) {
+    if (argc == 1) {
+        help(argv[0]);
+        return false;
+    } else if (argc < 3) {
+        help(argv[0], "ERROR: Should be at least 3 arguments\n\n");
+        return false;
+    }
+
+    if (findOperation(argc, argv) == -1) {
+        help(argv[0], "ERROR: You need to enter an operation\n\n");
+        return false;
+    }
+    return true;
+}
+template<typename T>
+double QueueApp<T>::parseInt(const char* arg) {
+    int result = 0;
+    result = std::stoi(arg);
+    return result;
+}
+
+template<typename T>
+Operations QueueApp<T>::parseOperation(const char* arg) {
+    Operations operation;
+
+    if (arg[0] == 'p' && arg[1] == 'u' && arg[2] == 's' && arg[3] == 'h') {
+        operation = Operations::push;
+    } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2]
+    == 's' && arg[3] == 'h') {
+        operation = Operations::pop;
+    } else if (arg[0] == 'l' && arg[1] == 'e' && arg[2] == 'n'
+    && arg[3] == 'g' && arg[4] == 't' && arg[5] == 'h') {
+        operation = Operations::length;
+    }
+    return operation;
 }
 
 template<typename T>

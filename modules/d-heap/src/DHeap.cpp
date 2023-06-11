@@ -72,3 +72,11 @@ void DHeap::decreaseValue(int pos, int val) {
   // If heap is not heapified.
   heapify(pos);
 }
+
+bool DHeap::isEmpty() const {
+  return size == 0;
+}
+
+bool DHeap::isFull() const {
+  return size == capacity;
+}

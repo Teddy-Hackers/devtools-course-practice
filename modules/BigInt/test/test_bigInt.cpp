@@ -165,6 +165,13 @@ TEST(BigIntTest, LessThanOperatorTestSecond) {
     EXPECT_FALSE(a < b);
 }
 
+TEST(BigIntTest, LessThanOperatorTestSecond) {
+    BigInt a("123456789012345678901234567890");
+    BigInt b("12345678901234567890123456781");
+
+    EXPECT_FALSE(a < b);
+}
+
 TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
     BigInt a("-123456789012345678901234567890");
     BigInt b("123456789012345678901234567890");
@@ -326,4 +333,11 @@ TEST(BigIntTest, operator_output) {
     std::ostringstream oss;
     oss << a << " " << b << " " << c << " " << d;
     ASSERT_EQ("123456789 -987654321 0 -1", oss.str());
+}
+
+TEST(BigIntTest, DivisionOperatorTest) {
+    BigInt a("123");
+    BigInt b("3");
+    BigInt c = a / b;
+    EXPECT_EQ(c, BigInt("41"));
 }

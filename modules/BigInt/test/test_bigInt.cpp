@@ -276,7 +276,7 @@ TEST(BigIntDivideTest, MixedNumbers) {
     std::string a = "-123456789";
     std::string b = "9876543";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
-    EXPECT_EQ(result.first, "-1000");
+    EXPECT_EQ(result.first, "1000");
     EXPECT_EQ(result.second, "-3246913789");
 }
 

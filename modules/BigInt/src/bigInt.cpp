@@ -217,9 +217,6 @@ std::string BigInt::add_abs(const std::string& a, const std::string& b) {
     carry = s / 10;
     result.insert(0, std::to_string(s % 10));
   }
-  if (carry > 0) {
-    result.insert(0, std::to_string(carry));
-  }
 
   return result;
 }

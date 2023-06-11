@@ -316,3 +316,21 @@ TEST(BigIntOperatorPlus, Addition) {
     EXPECT_EQ(BigInt("100"), BigInt("23") + BigInt("77"));
     EXPECT_EQ(BigInt("100"), BigInt("77") + BigInt("23"));
 }
+
+TEST(BigIntTest, operator_output) {
+    BigInt a("123456789");
+    ASSERT_EQ("123456789", a.to_string());
+
+    BigInt b("-987654321");
+    ASSERT_EQ("-987654321", b.to_string());
+
+    BigInt c("0");
+    ASSERT_EQ("0", c.to_string());
+
+    BigInt d("-1");
+    ASSERT_EQ("-1", d.to_string());
+
+    std::ostringstream oss;
+    oss << a << " " << b << " " << c << " " << d;
+    ASSERT_EQ("123456789 -987654321 0 -1", oss.str());
+}

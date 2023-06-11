@@ -5,11 +5,11 @@
 set(prefix "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_run
+    NAME ${prefix}_can_run123
     COMMAND ${APPLICATION}
 )
 
-set_tests_properties (${prefix}_can_run PROPERTIES
+set_tests_properties (${prefix}_can_run123 PROPERTIES
     LABELS "${MODULE}")
 
 add_test(

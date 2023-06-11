@@ -169,7 +169,7 @@ TEST(BigIntTest, LessThanOperatorTestThird) {
     BigInt a("123456789012345678901234567890");
     BigInt b("12345678901234567890123456781");
 
-    EXPECT_FALSE(a < b);
+    EXPECT_TRUE(a < b);
 }
 
 TEST(BigIntTest, LessThanOrEqualToOperatorTest) {
@@ -339,5 +339,5 @@ TEST(BigIntTest, DivisionOperatorTest) {
     BigInt a("123");
     BigInt b("3");
     BigInt c = a / b;
-    EXPECT_EQ(c, BigInt("41"));
+    EXPECT_EQ(, BigInt("41"));
 }

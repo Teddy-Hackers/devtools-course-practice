@@ -125,3 +125,29 @@ TEST(test_dheap, throw_empty_test) {
   // Assert
   ASSERT_ANY_THROW(hp.extractMin());
 }
+
+TEST(DHeapTest, IsEmpty) {
+  DHeap heap(5, 2);
+
+  EXPECT_TRUE(heap.isEmpty());
+
+  heap.insert(1);
+  EXPECT_FALSE(heap.isEmpty());
+
+  heap.extractMin();
+  EXPECT_TRUE(heap.isEmpty());
+}
+
+TEST(DHeapTest, IsFull) {
+  DHeap heap(5, 2);
+
+  EXPECT_FALSE(heap.isFull());
+
+  for (int i = 0; i < 5; i++) {
+    heap.insert(i);
+  }
+  EXPECT_TRUE(heap.isFull());
+
+  heap.extractMin();
+  EXPECT_FALSE(heap.isFull());
+}

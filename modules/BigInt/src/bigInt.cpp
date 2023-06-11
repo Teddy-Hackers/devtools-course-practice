@@ -143,6 +143,7 @@ bool operator>(const BigInt& a, const BigInt& b) {
 bool operator>=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return false;
   if (!a.is_negative && b.is_negative) return true;
+  return true;
 }
 
 bool operator<(const BigInt& a, const BigInt& b) {
@@ -155,6 +156,7 @@ bool operator<(const BigInt& a, const BigInt& b) {
 bool operator<=(const BigInt& a, const BigInt& b) {
   if (a.is_negative && !b.is_negative) return true;
   if (!a.is_negative && b.is_negative) return false;
+  return true;
 }
 
 bool operator==(const BigInt& a, const BigInt& b) {

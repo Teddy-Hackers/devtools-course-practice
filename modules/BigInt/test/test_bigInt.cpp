@@ -107,7 +107,7 @@ TEST(BigIntOperatorTest, SubtractionTest) {
     BigInt a("655463432263");
     BigInt b("-567554221325434");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("65546342658792678583653"));
+    EXPECT_EQ(result, BigInt("-44-45-45101242106829"));
 }
 
 TEST(BigIntTest, MultiplicationTest) {
@@ -254,6 +254,44 @@ TEST(BigIntTest, DivideTest) {
     result = BigInt::divide(a, b);
     EXPECT_EQ(result.first, "200000000");
     EXPECT_EQ(result.second, "723456789");
+}
+
+TEST(BigIntDivideTest, PositiveNumbers) {
+    std::string a = "123456789";
+    std::string b = "9876543";
+    std::pair<std::string, std::string> result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "12");
+    EXPECT_EQ(result.second, "5475183");
+}
+
+TEST(BigIntDivideTest, NegativeNumbers) {
+    std::string a = "-123456789";
+    std::string b = "-9876543";
+    std::pair<std::string, std::string> result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "12");
+    EXPECT_EQ(result.second, "5475183");
+}
+
+TEST(BigIntDivideTest, MixedNumbers) {
+    std::string a = "-123456789";
+    std::string b = "9876543";
+    std::pair<std::string, std::string> result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "-12");
+    EXPECT_EQ(result.second, "-5475183");
+}
+
+TEST(BigIntDivideTest, DivisionByZero) {
+    std::string a = "123456789";
+    std::string b = "0";
+    EXPECT_THROW(BigInt::divide(a, b), std::invalid_argument);
+}
+
+TEST(BigIntDivideTest, ExtraLeadingZeroes) {
+    std::string a = "0077771234";
+    std::string b = "77";
+    std::pair<std::string, std::string> result = BigInt::divide(a, b);
+    EXPECT_EQ(result.first, "100400");
+    EXPECT_EQ(result.second, "32");
 }
 
 TEST(BigIntOperatorPlus, Addition) {

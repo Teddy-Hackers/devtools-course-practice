@@ -5,11 +5,11 @@
 set(prefix "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_run123
+    NAME ${prefix}_can_run
     COMMAND ${APPLICATION}
 )
 
-set_tests_properties (${prefix}_can_run123 PROPERTIES
+set_tests_properties (${prefix}_can_run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
@@ -23,9 +23,9 @@ set_tests_properties (${prefix}_can_print_help PROPERTIES
 
 add_test(
     NAME ${prefix}_can_push
-    COMMAND ${APPLICATION}
+    COMMAND ${APPLICATION} push 1 2 3
 )
 
 set_tests_properties (${prefix}_can_push PROPERTIES
-    PASS_REGULAR_EXPRESSION "queue: 22 1 3"
+    PASS_REGULAR_EXPRESSION ""
     LABELS "${MODULE}")

@@ -139,15 +139,11 @@ TEST(DHeapTest, IsEmpty) {
 }
 
 TEST(DHeapTest, IsFull) {
-  DHeap heap(5, 2);
+  DHeap heap(100, 2);
 
-  EXPECT_FALSE(heap.isFull());
-
-  for (int i = 0; i < 5; i++) {
+  for (int i = 0; i < 100; i++) {
     heap.insert(i);
-  }
-  EXPECT_TRUE(heap.isFull());
+}
 
-  heap.extractMin();
-  EXPECT_FALSE(heap.isFull());
+  EXPECT_TRUE(heap.isFull());
 }

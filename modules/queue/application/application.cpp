@@ -1,11 +1,12 @@
 // Copyright 2023 Prokofev Denis
 
 #include <stdio.h>
-
+#include <iostream>
 #include "include/queue_app.h"
 
 int main(int argc, const char** argv) {
     QueueApp<int> queueapp;
-    printf("%s\n", queueapp(argc, argv).c_str());
+    std::string output = queueapp(argc, argv);
+    std::cout << output << std::endl;
     return 0;
 }

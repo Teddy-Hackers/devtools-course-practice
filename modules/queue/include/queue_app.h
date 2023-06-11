@@ -128,15 +128,15 @@ int QueueApp<T>::findOperation(int argc, const char** argv) {
 template <typename T>
 bool QueueApp<T>::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
-        help(argv[0]);
+        help();
         return false;
     } else if (argc < 3) {
-        help(argv[0], "ERROR: Should be at least 3 arguments\n\n");
+        help();
         return false;
     }
 
     if (findOperation(argc, argv) == -1) {
-        help(argv[0], "ERROR: You need to enter an operation\n\n");
+        help();
         return false;
     }
     return true;

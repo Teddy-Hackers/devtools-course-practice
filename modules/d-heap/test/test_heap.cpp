@@ -32,7 +32,7 @@ TEST(test_dheap, empty_test) {
   // Arrange & Act
   DHeap hp;
   // Assert
-  ASSERT_NO_THROW(hp.isEmpty());
+  ASSERT_TRUE(hp.isEmpty());
 }
 
 TEST(test_dheap, not_empty_test) {
@@ -40,7 +40,7 @@ TEST(test_dheap, not_empty_test) {
   DHeap hp;
   hp.insert(1);
   // Assert
-  ASSERT_EQ(0, hp.isEmpty());
+  ASSERT_FALSE(hp.isEmpty());
 }
 
 TEST(test_dheap, full_test) {
@@ -49,7 +49,7 @@ TEST(test_dheap, full_test) {
   hp.insert(1);
 
   // Assert
-  ASSERT_NO_THROW(hp.isFull());
+  ASSERT_TRUE(hp.isFull());
 }
 
 TEST(test_dheap, not_full_test) {
@@ -57,7 +57,7 @@ TEST(test_dheap, not_full_test) {
   DHeap hp;
 
   // Assert
-  ASSERT_EQ(0, hp.isFull());
+  ASSERT_FALSE(hp.isFull());
 }
 
 TEST(test_dheap, insert_test) {

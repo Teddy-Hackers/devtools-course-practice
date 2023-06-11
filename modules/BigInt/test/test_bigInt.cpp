@@ -277,7 +277,7 @@ TEST(BigIntDivideTest, PositiveNumbersBiggerSecond) {
     std::string b = "98765431234567890";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
     EXPECT_EQ(result.first, "0");
-    EXPECT_EQ(result.second, "987655789");
+    EXPECT_EQ(result.second, "1234567");
 }
 
 TEST(BigIntDivideTest, NegativeNumbers) {

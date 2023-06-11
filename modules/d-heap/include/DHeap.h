@@ -33,8 +33,8 @@ class DHeap {
   }
 
   double extractMin();
-  bool isEmpty() { return size == 0; }
-  bool isFull() { return size == capacity; }
+  bool isEmpty() const { return size == 0; }
+  bool isFull() const { return size == capacity; }
   void insert(double n);
   void heapify(int idx);
   void deheapify(int idx);

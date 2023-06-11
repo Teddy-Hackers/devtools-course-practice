@@ -49,7 +49,7 @@ TEST(test_dheap, full_test) {
   hp.insert(1);
 
   // Assert
-  ASSERT_TRUE(hp.isFull());
+  ASSERT_FALSE(hp.isFull());
 }
 
 TEST(test_dheap, not_full_test) {

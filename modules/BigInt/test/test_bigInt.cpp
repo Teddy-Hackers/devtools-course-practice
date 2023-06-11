@@ -339,5 +339,5 @@ TEST(BigIntTest, DivisionOperatorTest) {
     BigInt a("123");
     BigInt b("3");
     BigInt c = a / b;
-    EXPECT_EQ(, BigInt("41"));
+    EXPECT_EQ(BigInt("41"));
 }

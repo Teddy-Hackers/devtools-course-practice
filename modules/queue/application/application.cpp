@@ -5,7 +5,7 @@
 #include "include/queue_app.h"
 
 int main(int argc, const char** argv) {
-    QueueApp<int> queueapp;
+    QueueApp<int> queueapp = QueueApp<int>();
     std::string output = queueapp(argc, argv);
     printf("%s\n", output.c_str());
     return 0;

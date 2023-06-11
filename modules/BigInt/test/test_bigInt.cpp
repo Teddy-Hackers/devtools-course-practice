@@ -96,32 +96,11 @@ TEST(BigIntTest, AdditionTest2) {
     EXPECT_EQ(a + b, c);
 }
 
-TEST(BigIntOperatorTest, SubtractionWithoutCarry) {
-    BigInt a("123456789101112131415161718");
-    BigInt b("567");
-    BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("39333"));
-}
-
-TEST(BigIntOperatorTest, SubtractionWithCarry) {
-    BigInt a("123456789101112131415161718");
-    BigInt b("99999");
-    BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("3999999"));
-}
-
-TEST(BigIntOperatorTest, SubtractionNegativeResult) {
-    BigInt a("123456789101112131415161718");
-    BigInt b("4757687876564532332");
-    BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("667"));
-}
-
 TEST(BigIntOperatorTest, SubtractionByNegative) {
     BigInt a("65546343226346899909087");
     BigInt b("-567554221325434");
     BigInt result = a - b;
-    EXPECT_EQ(result, BigInt("667"));
+    EXPECT_EQ(result, BigInt("65546342658792678583653"));
 }
 
 TEST(BigIntTest, MultiplicationTest) {

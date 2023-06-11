@@ -184,6 +184,14 @@ bool operator!=(const BigInt& a, const BigInt& b) {
   return !(a == b);
 }
 
+std::ostream& operator<<(std::ostream& out, const BigInt& n) {
+  if (n.is_negative && n.digits != "0") {
+    out << "-";
+  }
+  out << n.digits;
+  return out;
+}
+
 bool BigInt::compare_abs(const std::string& a, const std::string& b) {
   if (a.length() != b.length()) {
     return a.length() < b.length();

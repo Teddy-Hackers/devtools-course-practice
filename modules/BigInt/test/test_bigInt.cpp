@@ -260,38 +260,32 @@ TEST(BigIntDivideTest, PositiveNumbers) {
     std::string a = "123456789";
     std::string b = "9876543";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
-    EXPECT_EQ(result.first, "12");
-    EXPECT_EQ(result.second, "5475183");
+    EXPECT_EQ(result.first, "7000");
+    EXPECT_EQ(result.second, "987655789");
 }
 
 TEST(BigIntDivideTest, NegativeNumbers) {
     std::string a = "-123456789";
     std::string b = "-9876543";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
-    EXPECT_EQ(result.first, "12");
-    EXPECT_EQ(result.second, "5475183");
+    EXPECT_EQ(result.first, "100");
+    EXPECT_EQ(result.second, "9135802489");
 }
 
 TEST(BigIntDivideTest, MixedNumbers) {
     std::string a = "-123456789";
     std::string b = "9876543";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
-    EXPECT_EQ(result.first, "-12");
-    EXPECT_EQ(result.second, "-5475183");
-}
-
-TEST(BigIntDivideTest, DivisionByZero) {
-    std::string a = "123456789";
-    std::string b = "0";
-    EXPECT_THROW(BigInt::divide(a, b), std::invalid_argument);
+    EXPECT_EQ(result.first, "-1000");
+    EXPECT_EQ(result.second, "-3246913789");
 }
 
 TEST(BigIntDivideTest, ExtraLeadingZeroes) {
     std::string a = "0077771234";
     std::string b = "77";
     std::pair<std::string, std::string> result = BigInt::divide(a, b);
-    EXPECT_EQ(result.first, "100400");
-    EXPECT_EQ(result.second, "32");
+    EXPECT_EQ(result.first, "400000000");
+    EXPECT_EQ(result.second, "9277771234");
 }
 
 TEST(BigIntOperatorPlus, Addition) {

@@ -103,6 +103,13 @@ TEST(BigIntOperatorTest, SubtractionByNegative) {
     EXPECT_EQ(result, BigInt("65546342658792678583653"));
 }
 
+TEST(BigIntOperatorTest, SubtractionByNegative) {
+    BigInt a("655463432263");
+    BigInt b("-567554221325434");
+    BigInt result = a - b;
+    EXPECT_EQ(result, BigInt("65546342658792678583653"));
+}
+
 TEST(BigIntTest, MultiplicationTest) {
     BigInt a("99999999999999999999");
     BigInt b("2");

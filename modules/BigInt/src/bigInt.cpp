@@ -85,10 +85,6 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
   std::string result;
   std::string::size_type i = 0;
 
-  if (a < b) {
-    return BigInt("-") + (b - a);
-  }
-
   int carry = 0;
   int da, db, d;
 
@@ -110,20 +106,11 @@ BigInt operator-(const BigInt& a, const BigInt& b) {
   for (; i < a.digits.length(); i++) {
     da = a.digits[a.digits.length() - i - 1] - '0';
     d = da - carry;
-
-    if (d < 0) {
-        d += 10;
-        carry = 1;
-    } else {
-        carry = 0;
-    }
+    carry = 0;
 
     result.insert(0, std::to_string(d));
   }
 
-  while (result.length() > 1 && result.front() == '0') {
-    result.erase(0, 1);
-  }
 
   return BigInt(result);
 }

@@ -181,7 +181,7 @@ std::string QueueApp<T>::operator()(int argc, const char** argv) {
         withOperand = true;
     }
 
-    QueueApp<int> que();
+    QueueApp<int> que;
     Operations operation;
     int operand;
     for (int i = 1; i <= size; ++i) {

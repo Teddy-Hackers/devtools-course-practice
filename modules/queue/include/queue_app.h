@@ -101,7 +101,7 @@ template <typename T>
 int QueueApp<T>::parseInt(const char el) {
     int tmp =- 1;
     try {
-      tmp = std::stoi(argv[i]);
+      tmp = std::stoi(el);
     }
     catch (std::invalid_argument & ) {
         message.append("please write int");
@@ -114,19 +114,19 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
     if (argc != 1) {
-      message.append("write element")
+      message.append("write element");
     }
     return message;
   }
 
   std::string op = argv[1];
   if (op == "push") {
-      QueueApp <int> que;
+      //QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
           int n = parseInt(argv[i]);
           if (n = -1) return message;
-          que.push(n);
+          push(n);
         }
       }
       int n = parseInt(argv[2]);
@@ -134,22 +134,22 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       que.push(n);
       return toStr(&que);
   } else if (op == "pop") {
-      QueueApp <int> que;
+      //QueueApp <int> que;
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
           int n = parseInt(argv[i]);
           if (n = -1) return message;
-          que.push(n);
+          push(n);
         }
       }
-      que.pop();
+      pop();
       return toStr(&que);
   } else if (op == "length") {
-    QueueApp < int > que;
+    //QueueApp < int > que;
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
         int n = parseInt(argv[i]);
-        que.push(n);
+        push(n);
       }
     }
     message.append("size: ").append(std::to_string(que.length()))
@@ -163,12 +163,12 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 
 template <typename T>
 std::string QueueApp<T>::toStr(QueueApp <int> *que) {
-  if (que.length() == 0) {
+  if (length() == 0) {
     message.append("empty");
   } else {
     message.append("[ ");
-    while (que.length() != 0)
-      message.append(que -> pop()).append(" ");
+    while (length() != 0)
+      message.append(pop()).append(" ");
     message.append("]");
   }
   return message;

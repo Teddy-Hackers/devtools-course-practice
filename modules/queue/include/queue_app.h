@@ -15,7 +15,6 @@ template <class T>
 class QueueApp {
     std::string message;
     std::string queueToString(QueueApp<int>* queue);
-    std::string getHelpMessage();
   struct node {
     T data;
     node* nextNode;
@@ -107,16 +106,12 @@ void QueueApp<T>::help() {
 
 template <typename T>
 std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
-  if (argc == 1)
-    return getHelpMessage();
-  if (argc <= 2) {
-    std::stringstream ss;
-    ss << "Error: No elements provided.\n" <<
-      getHelpMessage();
-    return ss.str();
+  if (argc <= 2){
+    help();
+    return message;
   }
 
-  std::string command = argv[1];
+  //std::string command = argv[1];
   if (command == "push") {
     try {
       QueueApp < int > queue;
@@ -130,10 +125,9 @@ std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
       queue.push(element);
       return queueToString( & queue);
     } catch (std::invalid_argument & ) {
-        std::stringstream ss;
-        ss << "Error: Invalid element."
-           << " Only integers are allowed. Command push.\n";
-        return ss.str();
+        message.append("Error: Invalid element.")
+        .append(" Only integers are allowed. Command push.\n")
+        return message;
     }
   } else if (command == "pop") {
     try {
@@ -181,14 +175,4 @@ std::string QueueApp<T>::queueToString(QueueApp < int > * queue) {
   return ss.str();
 }
 
-template <typename T>
-std::string QueueApp<T>::getHelpMessage() {
-  std::stringstream ss;
-  ss << "Available commands:\n" <<
-      "  push <element> : Push an element to the queue." <<
-      " example: push 5 1 2 3 4\n" <<
-      "  pop : Pop an element from the queue. example: pop 1 2 3 4\n" <<
-      "  length : Get the length of the queue. example: length 1 2 3 4\n";
-  return ss.str();
-}
 #endif  //  MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

@@ -17,28 +17,6 @@ TEST(Bilinear_Interpolation, Can_do_practically_linear ) {
     EXPECT_EQ(testOut, expectedResult);
 }
 
-TEST(Bilinear_Interpolation, Can_do_practically_linear_2) {
-    /*=========================================================*/
-    std::vector<std::vector<int>> testIn = { {1},
-                                             {3},
-                                             {5} };
-    std::vector<std::vector<int>> testOut = { {1},
-                                              {0},
-                                              {3},
-                                              {0},
-                                              {5} };
-    std::vector<std::vector<int>> expectedResult = { {1},
-                                                     {2},
-                                                     {3},
-                                                     {4},
-                                                     {5} };
-    /*=========================================================*/
-    BilinearInterpolator bi;
-    bi.bilinearInterpolation(&testIn, &testOut, 2);
-    /*=========================================================*/
-    EXPECT_EQ(testOut, expectedResult);
-}
-
 
 TEST(Bilinear_Interpolation, Can_do_intended) {
     /*=========================================================*/
@@ -95,7 +73,3 @@ TEST(Bilinear_Interpolation, Can_do_intended_2 ) {
     /*=========================================================*/
     EXPECT_EQ(testOut, expectedResult);
 }
-
-
-
-

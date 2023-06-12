@@ -10,20 +10,18 @@
 
 class BilinearInterpolator{
  private:
-// void printMtx( std::vector<std::vector<int>> & src );
-void findNearest(int oldVecSize, int newVecSize,
+// void printMtx( std::vector<std::vector<int>> * src );
+void findNearest(int newVecSize,
                 int coord, int factor,
                 int * l, int * r);
 void linearInterpolationH(std::vector<std::vector<int>> * mtx, int yCoord,
                             int l, int r, int point);
 void linearInterpolationV(std::vector<std::vector<int>> * mtx, int xCoord,
                             int l, int r, int point);
-void bilinearInterpolation(std::vector<std::vector<int>> * oldMatrix,
-                            std::vector<std::vector<int>> * newMatrix,
+void bilinearInterpolation(std::vector<std::vector<int>> * newMatrix,
                             int yCoord, int xCoord, int factor);
  public:
-void bilinearInterpolation(std::vector<std::vector<int>> * oldMatrix,
-                            std::vector<std::vector<int>> * newMatrix,
+void bilinearInterpolation(std::vector<std::vector<int>> * newMatrix,
                             int factor);
 };
 

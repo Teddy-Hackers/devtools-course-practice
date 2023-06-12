@@ -14,5 +14,6 @@ class CombGenApp {
  private:
     std::string message;
     std::string help(std::string add_message = "");
-    bool parseInput(int argc, const char** argv, int* n, int* k, std::vector<int>* VecIn);
+    bool parseInput(int argc, const char** argv,
+    int* n, int* k, std::vector<int>* VecIn);
 };

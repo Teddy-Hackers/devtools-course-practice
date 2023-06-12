@@ -23,7 +23,8 @@ int* n, int* k, std::vector<int>* VecIn) {
         *n = std::stoi(argv[1]);
         if (*n <= 0)throw std::invalid_argument("n must be positive number!");
         if (argc - 3 != *n)
-        throw std::invalid_argument("Number of elements in vector should be equal n!");
+        throw std::invalid_argument
+        ("Number of elements in vector should be equal n!");
         *k = std::stoi(argv[2]);
         if (*k<1 || *k>*n)
         throw std::invalid_argument("K should be between 1 and N!");

@@ -113,7 +113,7 @@ template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
-    if (argc != 1 ) {
+    if (argc != 1) {
       message.append("write element")
     }
     return message;

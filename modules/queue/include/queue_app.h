@@ -11,7 +11,7 @@
 template <class T>
 class QueueApp {
     std::string message;
-    std::string toStr(QueueApp<int>* que);
+    std::string toStr();
   struct node {
     T data;
     node* nextNode;
@@ -132,7 +132,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       int n = parseInt(argv, 2);
       if (n = -1) return message;
       push(n);
-      return toStr(&que);
+      return toStr();
   } else if (op == "pop") {
       //  QueueApp <int> que;
       if (argc > 2) {
@@ -143,7 +143,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         }
       }
       pop();
-      return toStr(&que);
+      return toStr();
   } else if (op == "length") {
     //  QueueApp < int > que;
     if (argc > 2) {
@@ -162,13 +162,13 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 }
 
 template <typename T>
-std::string QueueApp<T>::toStr(QueueApp <int> *que) {
+std::string QueueApp<T>::toStr() {
   if (length() == 0) {
     message.append("empty");
   } else {
     message.append("[ ");
     while (length() != 0)
-      message.append(pop()).append(" ");
+      message.append(to_string(pop)()).append(" ");
     message.append("]");
   }
   return message;

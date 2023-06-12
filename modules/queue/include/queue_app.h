@@ -131,6 +131,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       int n = parseInt(argv, 2);
       if (n == -1) return message;
       push(n);
+      toStr();
       return message;
   } else if (op == "pop") {
       if (argc > 2) {
@@ -141,6 +142,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         }
       }
       pop();
+      toStr();
       return message;
   } else if (op == "length") {
     if (argc > 2) {

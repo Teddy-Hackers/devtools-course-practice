@@ -164,10 +164,10 @@ void QueueApp<T>::toStr() {
   if (length() == 0) {
     message.append("empty");
   } else {
-    message.append("[ ");
+    message.append("( ");
     while (length() != 0)
       message.append(std::to_string(pop())).append(" ");
-    message.append("]");
+    message.append(")");
   }
 }
 

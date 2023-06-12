@@ -17,7 +17,10 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is application for create Queue:"
+    PASS_REGULAR_EXPRESSION "This is application for create Queue. 
+    Add data with push\n
+    Read data with pop\n
+    All elements must be integer!"
     LABELS "${MODULE}")
 
 add_test(
@@ -57,7 +60,7 @@ add_test(
     COMMAND ${APPLICATION} push 3 2 1
 )
 set_tests_properties (${prefix}_can_Push_Elements PROPERTIES
-    PASS_REGULAR_EXPRESSION "[ 3 2 1 ]"
+    PASS_REGULAR_EXPRESSION "( 3 2 1 )"
     LABELS "${MODULE}")
 
 add_test(
@@ -65,7 +68,7 @@ add_test(
     COMMAND ${APPLICATION} push 3
 )
 set_tests_properties (${prefix}_can_Push_Element PROPERTIES
-    PASS_REGULAR_EXPRESSION "[ 3 ]"
+    PASS_REGULAR_EXPRESSION "( 3 )"
     LABELS "${MODULE}")
 
 add_test(
@@ -73,7 +76,7 @@ add_test(
     COMMAND ${APPLICATION} pop 3 2 1
 )
 set_tests_properties (${prefix}_can_Pop_Elements PROPERTIES
-    PASS_REGULAR_EXPRESSION "[ 2 1 ]"
+    PASS_REGULAR_EXPRESSION "( 2 1 )"
     LABELS "${MODULE}")
 
 add_test(

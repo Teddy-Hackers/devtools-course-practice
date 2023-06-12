@@ -106,7 +106,7 @@ template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
-    if (argc!=1){
+    if (argc !=1 ) {
       message.append("write element")
     }
     return message;
@@ -118,12 +118,12 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
-          int element = std::stoi(argv[i]);
-          que.push(element);
+          int n = std::stoi(argv[i]);
+          que.push(n);
         }
       }
-      int element = std::stoi(argv[2]);
-      que.push(element);
+      int n = std::stoi(argv[2]);
+      que.push(n);
       return printQue( &que);
     } catch (std::invalid_argument & ) {
         message.append("please write int");
@@ -134,8 +134,8 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       QueueApp <int> que;
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
-          int element = std::stoi(argv[i]);
-          que.push(element);
+          int n = std::stoi(argv[i]);
+          que.push(n);
         }
       }
       que.pop();
@@ -148,8 +148,8 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
     QueueApp < int > que;
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
-        int element = std::stoi(argv[i]);
-        que.push(element);
+        int n = std::stoi(argv[i]);
+        que.push(n);
       }
     }
     message.append("size: ").append(std::to_string(que.length()))

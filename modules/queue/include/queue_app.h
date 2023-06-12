@@ -121,16 +121,13 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 
   std::string op = argv[1];
   if (op == "push") {
-      if (argc > 3) {
-        for (int i = 3; i < argc; i++) {
+      if (argc > 2) {
+        for (int i = 2; i < argc; i++) {
           int n = parseInt(argv, i);
           if (n == -1) return message;
           push(n);
         }
       }
-      int n = parseInt(argv, 2);
-      if (n == -1) return message;
-      push(n);
       toStr();
       return message;
   } else if (op == "pop") {

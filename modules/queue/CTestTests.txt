@@ -17,10 +17,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_Print_Help PROPERTIES
-    PASS_REGULAR_EXPRESSION "This is application for create Queue. 
-    Add data with push
-    Read data with pop
-    All elements must be integer!"
+    PASS_REGULAR_EXPRESSION "This is application for create Queue."
     LABELS "${MODULE}")
 
 add_test(

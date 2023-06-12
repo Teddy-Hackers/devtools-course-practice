@@ -12,82 +12,82 @@ set_tests_properties (${prefix}_can_Run PROPERTIES
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Print_Help_Without_Arguments
+    NAME ${prefix}_can_Print_Help
     COMMAND ${APPLICATION}
 )
 
-set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Available commands:"
+set_tests_properties (${prefix}_can_Print_Help PROPERTIES
+    PASS_REGULAR_EXPRESSION "This is application for create Queue:"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Check_Number_Of_Arguments
+    NAME ${prefix}_cant_push_empty
     COMMAND ${APPLICATION} push
 )
-set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: No elements provided."
+set_tests_properties (${prefix}_cant_push_empty PROPERTIES
+    PASS_REGULAR_EXPRESSION "write element"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format_For_Push_Command
-    COMMAND ${APPLICATION} push i 1 2 3 4
+    NAME ${prefix}_cant_parse_char_push
+    COMMAND ${APPLICATION} push 4 g
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_For_Push_Command PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: Invalid element. Only integers are allowed. Command push."
+set_tests_properties (${prefix}_cant_parse_char_push PROPERTIES
+    PASS_REGULAR_EXPRESSION "please write int"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Number_Format_For_Pop_Command
-    COMMAND ${APPLICATION} pop i 1 2 3 4
+    NAME ${prefix}_cant_parse_char_pop
+    COMMAND ${APPLICATION} pop 4 g
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_For_Pop_Command PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: Invalid element. Only integers are allowed. Command pop."
+set_tests_properties (${prefix}_cant_parse_char_pop PROPERTIES
+    PASS_REGULAR_EXPRESSION "please write int"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Command
-    COMMAND ${APPLICATION} watermelon 1 1 2 3 4
+    NAME ${prefix}_error_cmd
+    COMMAND ${APPLICATION} what 4 5 2
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Command PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error: Invalid command."
+set_tests_properties (${prefix}_error_cmd PROPERTIES
+    PASS_REGULAR_EXPRESSION "err op"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Push_Elements
-    COMMAND ${APPLICATION} push 1 1 2 3 4
+    COMMAND ${APPLICATION} push 3 2 1
 )
 set_tests_properties (${prefix}_can_Push_Elements PROPERTIES
-    PASS_REGULAR_EXPRESSION "The queue is: { 1 2 3 4 1 }"
+    PASS_REGULAR_EXPRESSION "[ 3 2 1 ]"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Push_A_Single_Element
-    COMMAND ${APPLICATION} push 1
+    NAME ${prefix}_can_Push_Element
+    COMMAND ${APPLICATION} push 3
 )
-set_tests_properties (${prefix}_can_Push_A_Single_Element PROPERTIES
-    PASS_REGULAR_EXPRESSION "The queue is: { 1 }"
+set_tests_properties (${prefix}_can_Push_Element PROPERTIES
+    PASS_REGULAR_EXPRESSION "[ 3 ]"
     LABELS "${MODULE}")
 
 add_test(
     NAME ${prefix}_can_Pop_Elements
-    COMMAND ${APPLICATION} pop 1 1 2 3 4
+    COMMAND ${APPLICATION} pop 3 2 1
 )
 set_tests_properties (${prefix}_can_Pop_Elements PROPERTIES
-    PASS_REGULAR_EXPRESSION "The queue is: { 1 2 3 4 }"
+    PASS_REGULAR_EXPRESSION "[ 2 1 ]"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Pop_A_Single_Element
-    COMMAND ${APPLICATION} pop 1
+    NAME ${prefix}_can_Pop_Element
+    COMMAND ${APPLICATION} pop 6
 )
-set_tests_properties (${prefix}_can_Pop_A_Single_Element PROPERTIES
-    PASS_REGULAR_EXPRESSION "The queue is empty."
+set_tests_properties (${prefix}_can_Pop_Element PROPERTIES
+    PASS_REGULAR_EXPRESSION "empty"
     LABELS "${MODULE}")
 
 add_test(
-    NAME ${prefix}_can_Get_Length
-    COMMAND ${APPLICATION} length 1 2 3 4 5
+    NAME ${prefix}_can_print_size
+    COMMAND ${APPLICATION} length 5 4 2
 )
-set_tests_properties (${prefix}_can_Get_Length PROPERTIES
-    PASS_REGULAR_EXPRESSION "Queue length: 5"
+set_tests_properties (${prefix}_can_print_size PROPERTIES
+    PASS_REGULAR_EXPRESSION "size: 3"
     LABELS "${MODULE}")

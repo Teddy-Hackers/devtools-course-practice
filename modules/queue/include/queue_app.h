@@ -13,7 +13,7 @@ enum class Operations { push, pop, length };
 template <class T>
 class QueueApp {
     std::string message;
-    std::string queueToString(QueueApp<int>* que);
+    std::string printQue(QueueApp<int>* que);
   struct node {
     T data;
     node* nextNode;
@@ -106,6 +106,9 @@ template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
+    if (argc!=1){
+      message.append("write element")
+    }
     return message;
   }
 
@@ -121,10 +124,9 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       }
       int element = std::stoi(argv[2]);
       que.push(element);
-      return queueToString( & que);
+      return printQue( &que);
     } catch (std::invalid_argument & ) {
-        message.append("Error: Invalid element.")
-        .append(" Only integers are allowed. Command push.\n");
+        message.append("please write int");
         return message;
     }
   } else if (op == "pop") {
@@ -137,10 +139,9 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         }
       }
       que.pop();
-      return queueToString( & que);
+      return printQue( &que);
     } catch (std::invalid_argument & ) {
-        message.append("Error: Invalid element.")
-        .append(" Only integers are allowed. Command pop.\n");
+        message.append("please write int");
         return message;
     }
   } else if (op == "length") {
@@ -151,25 +152,24 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         que.push(element);
       }
     }
-    message.append("Queue length: ").append(std::to_string(que.length()))
+    message.append("size: ").append(std::to_string(que.length()))
     .append("\n");
   } else {
-    message.append("Error: operation.\n");
+    message.append("err op\n");
     help();
     return message;
   }
 }
 
 template <typename T>
-std::string QueueApp<T>::queueToString(QueueApp < int > * que) {
+std::string QueueApp<T>::printQue(QueueApp <int> *que) {
   if (que -> length() == 0)
-    return "The que is empty.\n";
-  std::stringstream ss;
-  ss << "The que is: { ";
+    return "empty";
+  message.append("[ ");
   while (que -> length() != 0)
-    ss << que -> pop() << " ";
-  ss << "}";
-  return ss.str();
+    message.append(que -> pop()).append(" ");
+  message.append("]");
+  return message;
 }
 
 #endif  //  MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

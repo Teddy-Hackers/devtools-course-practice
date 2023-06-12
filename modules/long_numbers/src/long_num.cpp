@@ -7,24 +7,28 @@ LongNumber::LongNumber() {}
 LongNumber::LongNumber(std::string src) {
     number = src;
     std::reverse(number.begin(), number.end());
+    for ( auto & c : number ) {
+        c -= '0';
+    }
 }
-const LongNumber LongNumber::operator+(const LongNumber &rhs) {
+LongNumber LongNumber::operator+(const LongNumber &rhs) const {
+    LongNumber tmp(*this);
     size_t minSize = std::min(number.size(), rhs.number.size());
     size_t maxSize = std::max(number.size(), rhs.number.size());
     uint8_t carry = 0;
     for ( size_t i = 0; i < minSize; ++i){
-        number[i] += rhs.number[i] + carry;
+        tmp.number[i] += rhs.number[i] + carry;
         carry = 0;
-        if ( number[i] >= 10 ){
-            number[i] -= 10;
+        if ( tmp.number[i] >= 10 ){
+            tmp.number[i] -= 10;
             carry = 1;
         }
     }
     for ( size_t i = minSize; i < maxSize; ++i){
-        number[i] += carry;
+        tmp.number[i] += carry;
         carry = 0;
-        if ( number[i] >= 10 ){
-            number[i] -= 10;
+        if ( tmp.number[i] >= 10 ){
+            tmp.number[i] -= 10;
             carry = 1;
         }
         else{
@@ -32,39 +36,36 @@ const LongNumber LongNumber::operator+(const LongNumber &rhs) {
         }
     }
     if ( carry ){
-        number += "1";
+        tmp.number += "1";
     }
-    return *this;
+    return tmp;
 }
 LongNumber LongNumber::operator+=(const LongNumber &rhs) {
     return *this;
 }
-const LongNumber LongNumber::operator-(const LongNumber &rhs) {
+LongNumber LongNumber::operator-(const LongNumber &rhs) const {
     return LongNumber();
 }
 LongNumber LongNumber::operator-=(const LongNumber &rhs) {
     return *this;
 }
-const LongNumber LongNumber::operator*(const LongNumber &rhs) {
+LongNumber LongNumber::operator*(const LongNumber &rhs) const {
     return LongNumber();
 }
 LongNumber LongNumber::operator*=(const LongNumber &rhs) {
     return *this;
 }
-const LongNumber LongNumber::operator/(const LongNumber &rhs) {
+LongNumber LongNumber::operator/(const LongNumber &rhs) const {
     return LongNumber();
 }
 LongNumber LongNumber::operator/=(const LongNumber &rhs) {
     return *this;
 }
-const bool LongNumber::operator==(const LongNumber &rhs) {
-    return false;
+bool LongNumber::operator==(const LongNumber &rhs) const {
+    return number == rhs.number;
 }
-const bool LongNumber::operator!=(const LongNumber &rhs) {
-    return false;
-}
-LongNumber LongNumber::operator=(LongNumber &&other) {
-    return *this;
+bool LongNumber::operator!=(const LongNumber &rhs) const {
+    return !(*this == rhs);
 }
 
 void LongNumber::print() {

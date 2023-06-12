@@ -45,60 +45,60 @@ int Graph::GetDiameter() {
     if (graph_size_ < 2) {
         return 0;
     }
-    std::vector<int> length_path(graph_size_, -1);
+    std::vector<int> wat_path(graph_size_, -1);
     std::queue<size_t> current_graph;
 
     current_graph.push(static_cast<size_t>(0));
-    length_path[0] = 0;
+    wat_path[0] = 0;
     while (!current_graph.empty()) {
         auto now = current_graph.front();
         current_graph.pop();
         for (size_t i = 0; i < graph_size_; ++i) {
             if (weights_[now][i]) {
-                auto new_cost = length_path[now] + weights_[now][i];
-                if (length_path[i] == -1 || new_cost < length_path[i]) {
-                    length_path[i] = new_cost;
+                auto new_cost = wat_path[now] + weights_[now][i];
+                if (wat_path[i] == -1 || new_cost < wat_path[i]) {
+                    wat_path[i] = new_cost;
                     current_graph.push(i);
                 }
             }
         }
     }
 
-    int diameter = length_path[1];
+    int diameter = wat_path[1];
     size_t max_way_index = 1;
     for (size_t i = 2; i < graph_size_; ++i) {
-        if (length_path[i] == -1) {
+        if (wat_path[i] == -1) {
             return -1;
         }
-        if (length_path[i] > diameter) {
-            diameter = length_path[i];
+        if (wat_path[i] > diameter) {
+            diameter = wat_path[i];
             max_way_index = i;
         }
     }
     for (size_t i = 0; i < graph_size_; ++i) {
-        length_path[i] = -1;
+        wat_path[i] = -1;
     }
 
     current_graph.push(max_way_index);
-    length_path[max_way_index] = 0;
+    wat_path[max_way_index] = 0;
     while (!current_graph.empty()) {
         auto now = current_graph.front();
         current_graph.pop();
         for (size_t i = 0; i < graph_size_; ++i) {
             if (weights_[now][i]) {
-                auto new_cost = length_path[now] + weights_[now][i];
-                if (length_path[i] == -1 || new_cost < length_path[i]) {
-                    length_path[i] = new_cost;
+                auto new_cost = wat_path[now] + weights_[now][i];
+                if (wat_path[i] == -1 || new_cost < wat_path[i]) {
+                    wat_path[i] = new_cost;
                     current_graph.push(i);
                 }
             }
         }
     }
 
-    diameter = length_path[0];
+    diameter = wat_path[0];
     for (size_t i = 1; i < graph_size_; ++i) {
-        if (length_path[i] > diameter) {
-            diameter = length_path[i];
+        if (wat_path[i] > diameter) {
+            diameter = wat_path[i];
         }
     }
     return diameter;

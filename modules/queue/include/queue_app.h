@@ -47,10 +47,6 @@ QueueApp<T>::~QueueApp() {
 
 template <typename T>
 T QueueApp<T>::pop() {
-  if (head == nullptr) {
-    throw "exception";
-  }
-
   node* temp = head;
   T data = head->data;
   head = head->nextNode;

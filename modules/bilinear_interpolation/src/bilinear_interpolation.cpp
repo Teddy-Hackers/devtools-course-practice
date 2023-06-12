@@ -66,8 +66,8 @@ void BilinearInterpolator::bilinearInterpolation(
                             std::vector<std::vector<int>> * oldMatrix,
                             std::vector<std::vector<int>> * newMatrix,
                             int factor) {
-    for ( auto i = 0; i < (*newMatrix).size(); ++i ) {
-        for ( auto j = 0; j < (*newMatrix)[i].size(); ++j ) {
+    for ( size_t i = 0; i < (*newMatrix).size(); ++i ) {
+        for ( size_t j = 0; j < (*newMatrix)[i].size(); ++j ) {
             bilinearInterpolation(oldMatrix, newMatrix, i, j, factor);
         }
     }

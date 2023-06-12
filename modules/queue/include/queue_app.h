@@ -99,9 +99,9 @@ void QueueApp<T>::help() {
 
 template <typename T>
 int QueueApp<T>::parseInt(const char el) {
-    int tmp=-1;
+    int tmp =- 1;
     try {
-      tmp=std::stoi(argv[i]);
+      tmp = std::stoi(argv[i]);
     }
     catch (std::invalid_argument & ) {
         message.append("please write int");
@@ -113,12 +113,11 @@ template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
-    if (argc !=1 ) {
+    if (argc != 1 ) {
       message.append("write element")
     }
     return message;
   }
-  
 
   std::string op = argv[1];
   if (op == "push") {

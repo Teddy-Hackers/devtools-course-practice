@@ -23,7 +23,7 @@ set_tests_properties (${prefix}_can_print_help PROPERTIES
 
 add_test(
     NAME ${prefix}_can_push
-    COMMAND ${APPLICATION} push 1 2 3
+    COMMAND ${APPLICATION} push 1 2 3 pop lenght
 )
 
 set_tests_properties (${prefix}_can_push PROPERTIES

@@ -104,7 +104,7 @@ void QueueApp<T>::help() {
 
 template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
-  if (argc <= 2){
+  if (argc <= 2) {
     help();
     return message;
   }

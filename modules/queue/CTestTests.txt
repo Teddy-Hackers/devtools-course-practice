@@ -1,0 +1,93 @@
+#############################################
+##### Testing
+#############################################
+
+set(prefix "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}_can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Print_Help_Without_Arguments
+    COMMAND ${APPLICATION}
+)
+
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Available commands:"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} push
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: No elements provided."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_For_Push_Command
+    COMMAND ${APPLICATION} push i 1 2 3 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_For_Push_Command PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: Invalid element. Only integers are allowed. Command push."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Number_Format_For_Pop_Command
+    COMMAND ${APPLICATION} pop i 1 2 3 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Number_Format_For_Pop_Command PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: Invalid element. Only integers are allowed. Command pop."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Command
+    COMMAND ${APPLICATION} watermelon 1 1 2 3 4
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Command PROPERTIES
+    PASS_REGULAR_EXPRESSION "Error: Invalid command."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Push_Elements
+    COMMAND ${APPLICATION} push 1 1 2 3 4
+)
+set_tests_properties (${prefix}_can_Push_Elements PROPERTIES
+    PASS_REGULAR_EXPRESSION "The queue is: { 1 2 3 4 1 }"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Push_A_Single_Element
+    COMMAND ${APPLICATION} push 1
+)
+set_tests_properties (${prefix}_can_Push_A_Single_Element PROPERTIES
+    PASS_REGULAR_EXPRESSION "The queue is: { 1 }"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Pop_Elements
+    COMMAND ${APPLICATION} pop 1 1 2 3 4
+)
+set_tests_properties (${prefix}_can_Pop_Elements PROPERTIES
+    PASS_REGULAR_EXPRESSION "The queue is: { 1 2 3 4 }"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Pop_A_Single_Element
+    COMMAND ${APPLICATION} pop 1
+)
+set_tests_properties (${prefix}_can_Pop_A_Single_Element PROPERTIES
+    PASS_REGULAR_EXPRESSION "The queue is empty."
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_Get_Length
+    COMMAND ${APPLICATION} length 1 2 3 4 5
+)
+set_tests_properties (${prefix}_can_Get_Length PROPERTIES
+    PASS_REGULAR_EXPRESSION "Queue length: 5"
+    LABELS "${MODULE}")

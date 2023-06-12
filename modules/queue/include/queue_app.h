@@ -96,6 +96,7 @@ template <typename T>
 int QueueApp<T>::length() {
   return size;
 }
+
 template <typename T>
 void QueueApp<T>::help() {
     message.append("This is application for create Queue.\n")
@@ -136,7 +137,7 @@ std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
     }
   } else if (command == "pop") {
     try {
-      Queue < int > queue;
+      QueueApp < int > queue;
       if (argc >= 3) {
         for (int i = 2; i < argc; i++) {
           int element = std::stoi(argv[i]);
@@ -152,14 +153,14 @@ std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
         return ss.str();
     }
   } else if (command == "length") {
-    Queue < int > queue;
+    QueueApp < int > queue;
     if (argc >= 3) {
       for (int i = 2; i < argc; i++) {
         int element = std::stoi(argv[i]);
         queue.push(element);
       }
     }
-    return "Queue length: " + std::to_string(queue.lenght()) + "\n";
+    return "Queue length: " + std::to_string(queue.length()) + "\n";
   } else {
     std::stringstream ss;
     ss << "Error: Invalid command.\n" <<
@@ -170,11 +171,11 @@ std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
 
 template <typename T>
 std::string QueueApp<T>::queueToString(QueueApp < int > * queue) {
-  if (queue -> lenght() == 0)
+  if (queue -> length() == 0)
     return "The queue is empty.\n";
   std::stringstream ss;
   ss << "The queue is: { ";
-  while (queue -> lenght() != 0)
+  while (queue -> length() != 0)
     ss << queue -> pop() << " ";
   ss << "}";
   return ss.str();

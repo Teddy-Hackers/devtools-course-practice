@@ -8,12 +8,10 @@
 #include <algorithm>
 #include <stdexcept>
 
-enum class Operations { push, pop, length };
-
 template <class T>
 class QueueApp {
     std::string message;
-    std::string printQue(QueueApp<int>* que);
+    std::string toStr(QueueApp<int>* que);
   struct node {
     T data;
     node* nextNode;
@@ -24,10 +22,7 @@ class QueueApp {
      QueueApp();
   void help();
   std::string operator()(int argc, const char** argv);
-  int findOperation(int argc, const char** argv);
-  bool validateNumberOfArguments(int argc, const char** argv);
-  int parseInt(std::string s);
-  Operations parseOperation(const char* arg);
+  int parseInt(const char el);
   ~QueueApp();
   void push(T e);
   T pop();
@@ -103,6 +98,18 @@ void QueueApp<T>::help() {
 }
 
 template <typename T>
+int QueueApp<T>::parseInt(const char el) {
+    int tmp=-1;
+    try {
+      tmp=std::stoi(argv[i]);
+    }
+    catch (std::invalid_argument & ) {
+        message.append("please write int");
+    }
+    return tmp;
+  }
+
+template <typename T>
 std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2) {
     help();
@@ -111,44 +118,38 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
     }
     return message;
   }
+  
 
   std::string op = argv[1];
   if (op == "push") {
-    try {
       QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
-          int n = std::stoi(argv[i]);
+          int n = parseInt(argv[i]);
+          if (n = -1) return message;
           que.push(n);
         }
       }
-      int n = std::stoi(argv[2]);
+      int n = parseInt(argv[2]);
+      if (n = -1) return message;
       que.push(n);
-      return printQue( &que);
-    } catch (std::invalid_argument & ) {
-        message.append("please write int");
-        return message;
-    }
+      return toStr(&que);
   } else if (op == "pop") {
-    try {
       QueueApp <int> que;
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
-          int n = std::stoi(argv[i]);
+          int n = parseInt(argv[i]);
+          if (n = -1) return message;
           que.push(n);
         }
       }
       que.pop();
-      return printQue( &que);
-    } catch (std::invalid_argument & ) {
-        message.append("please write int");
-        return message;
-    }
+      return toStr(&que);
   } else if (op == "length") {
     QueueApp < int > que;
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
-        int n = std::stoi(argv[i]);
+        int n = parseInt(argv[i]);
         que.push(n);
       }
     }
@@ -162,13 +163,15 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 }
 
 template <typename T>
-std::string QueueApp<T>::printQue(QueueApp <int> *que) {
-  if (que -> length() == 0)
-    return "empty";
-  message.append("[ ");
-  while (que -> length() != 0)
-    message.append(que -> pop()).append(" ");
-  message.append("]");
+std::string QueueApp<T>::toStr(QueueApp <int> *que) {
+  if (que.length() == 0) {
+    message.append("empty");
+  } else {
+    message.append("[ ");
+    while (que.length() != 0)
+      message.append(que -> pop()).append(" ");
+    message.append("]");
+  }
   return message;
 }
 

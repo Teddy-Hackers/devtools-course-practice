@@ -2,11 +2,11 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "include/queue_app.h"
+#include "../include/queue_app.h"
 
 int main(int argc, const char** argv) {
     QueueApp<int> queueapp;
-    std::string output = queueapp(argc, argv);
-    std::cout << output << std::endl;
-    return 0;
+    std::string output = queueapp.executeCommand(argc, argv);
+    printf("%s\n", output.c_str());
+    return 0;   
 }

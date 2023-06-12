@@ -7,26 +7,29 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <stdexcept>
 
 enum class Operations { push, pop, length };
 
 template <class T>
 class QueueApp {
     std::string message;
+    std::string queueToString(QueueApp<int>* queue);
+    std::string getHelpMessage();
   struct node {
     T data;
     node* nextNode;
   };
   node* head;
   int size;
-
  public:
      QueueApp();
   void help();
+  std::string executeCommand(int argc, const char** argv);
   std::string operator()(int argc, const char** argv);
   int findOperation(int argc, const char** argv);
   bool validateNumberOfArguments(int argc, const char** argv);
-  double parseInt(const char* arg);
+  int parseInt(std::string s);
   Operations parseOperation(const char* arg);
   ~QueueApp();
   void push(T e);
@@ -102,115 +105,89 @@ void QueueApp<T>::help() {
 }
 
 template <typename T>
-int QueueApp<T>::findOperation(int argc, const char** argv) {
-    std::vector < std::string> dop;
-    std::vector < std::string>::iterator it;
-    for (int i = 1; i <= argc - 1; i++)
-        dop.push_back(std::string(argv[i]));
-    if (std::find(dop.begin(), dop.end(), "push") != dop.end()) {
-        it = std::find(dop.begin(), dop.end(), "push");
-        return std::distance(dop.begin(), it) + 1;
-    }
+std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
+  if (argc == 1)
+    return getHelpMessage();
+  if (argc <= 2) {
+    std::stringstream ss;
+    ss << "Error: No elements provided.\n" <<
+      getHelpMessage();
+    return ss.str();
+  }
 
-    if (std::find(dop.begin(), dop.end(), "pop") != dop.end()) {
-        it = std::find(dop.begin(), dop.end(), "pop");
-        return std::distance(dop.begin(), it) + 1;
+  std::string command = argv[1];
+  if (command == "push") {
+    try {
+      QueueApp < int > queue;
+      if (argc > 3) {
+        for (int i = 3; i < argc; i++) {
+          int element = std::stoi(argv[i]);
+          queue.push(element);
+        }
+      }
+      int element = std::stoi(argv[2]);
+      queue.push(element);
+      return queueToString( & queue);
+    } catch (std::invalid_argument & ) {
+        std::stringstream ss;
+        ss << "Error: Invalid element."
+           << " Only integers are allowed. Command push.\n";
+        return ss.str();
     }
-
-    if (std::find(dop.begin(), dop.end(), "length") != dop.end()) {
-        it = std::find(dop.begin(), dop.end(), "length");
-        return std::distance(dop.begin(), it) + 1;
+  } else if (command == "pop") {
+    try {
+      Queue < int > queue;
+      if (argc >= 3) {
+        for (int i = 2; i < argc; i++) {
+          int element = std::stoi(argv[i]);
+          queue.push(element);
+        }
+      }
+      queue.pop();
+      return queueToString( & queue);
+    } catch (std::invalid_argument & ) {
+        std::stringstream ss;
+        ss << "Error: Invalid element."
+           << " Only integers are allowed. Command pop.\n";
+        return ss.str();
     }
-
-    return -1;
+  } else if (command == "length") {
+    Queue < int > queue;
+    if (argc >= 3) {
+      for (int i = 2; i < argc; i++) {
+        int element = std::stoi(argv[i]);
+        queue.push(element);
+      }
+    }
+    return "Queue length: " + std::to_string(queue.lenght()) + "\n";
+  } else {
+    std::stringstream ss;
+    ss << "Error: Invalid command.\n" <<
+      getHelpMessage();
+    return ss.str();
+  }
 }
 
 template <typename T>
-bool QueueApp<T>::validateNumberOfArguments(int argc, const char** argv) {
-    if (argc == 1) {
-        help();
-        return false;
-    } else if (argc < 3) {
-        help();
-        return false;
-    }
-
-    if (findOperation(argc, argv) == -1) {
-        help();
-        return false;
-    }
-    return true;
-}
-template<typename T>
-double QueueApp<T>::parseInt(const char* arg) {
-    int result = 0;
-    result = std::stoi(arg);
-    return result;
+std::string QueueApp<T>::queueToString(QueueApp < int > * queue) {
+  if (queue -> lenght() == 0)
+    return "The queue is empty.\n";
+  std::stringstream ss;
+  ss << "The queue is: { ";
+  while (queue -> lenght() != 0)
+    ss << queue -> pop() << " ";
+  ss << "}";
+  return ss.str();
 }
 
-template<typename T>
-Operations QueueApp<T>::parseOperation(const char* arg) {
-    Operations operation;
-
-    if (arg[0] == 'p' && arg[1] == 'u' && arg[2] == 's' && arg[3] == 'h') {
-        operation = Operations::push;
-    } else if (arg[0] == 'p' && arg[1] == 'u' && arg[2]
-    == 's' && arg[3] == 'h') {
-        operation = Operations::pop;
-    } else if (arg[0] == 'l' && arg[1] == 'e' && arg[2] == 'n'
-    && arg[3] == 'g' && arg[4] == 't' && arg[5] == 'h') {
-        operation = Operations::length;
-    }
-    return operation;
+template <typename T>
+std::string QueueApp<T>::getHelpMessage() {
+  std::stringstream ss;
+  ss << "Available commands:\n" <<
+      "  push <element> : Push an element to the queue." <<
+      " example: push 5 1 2 3 4\n" <<
+      "  pop : Pop an element from the queue. example: pop 1 2 3 4\n" <<
+      "  length : Get the length of the queue. example: length 1 2 3 4\n";
+  return ss.str();
 }
-
-template<typename T>
-std::string QueueApp<T>::operator()(int argc, const char** argv) {
-    if (!validateNumberOfArguments(argc, argv)) {
-        return message;
-    }
-
-    int size = 0;
-    bool withOperand = false;
-
-    if (findOperation(argc, argv) == argc - 1) {
-        size = argc - 2;
-        withOperand = false;
-    } else if (findOperation(argc, argv) == argc - 2) {
-        size = argc - 3;
-        withOperand = true;
-    }
-
-    QueueApp<int> que;
-    Operations operation;
-    int operand;
-    for (int i = 1; i <= size; ++i) {
-            que.push(parseInt(argv[i]));
-        }
-
-        if (!withOperand) {
-            operation = parseOperation(argv[argc - 1]);
-        } else {
-            operation = parseOperation(argv[argc - 2]);
-            operand = parseInt(argv[argc - 1]);
-        }
-
-    std::ostringstream stream;
-
-    switch (operation) {
-    case Operations::push:
-        que.push(operand);
-        stream << "push " << operand;
-        break;
-    case Operations::pop:
-        stream << "pop element: " << std::to_string(que.pop());
-        break;
-    case Operations::length:
-        stream << "queue length: " << std::to_string(que.length());
-    }
-
-    message = stream.str();
-    return message;
-}
-
 #endif  //  MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

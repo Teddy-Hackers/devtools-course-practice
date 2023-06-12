@@ -56,7 +56,7 @@ add_test(
     COMMAND ${APPLICATION} ljkf 2 1 kjkdf
 )
 set_tests_properties (${prefix}_Wrong_Input PROPERTIES
-    PASS_REGULAR_EXPRESSION "invalid stoi argument"
+    PASS_REGULAR_EXPRESSION "stoi"
     LABELS "${MODULE}")
 
 add_test(

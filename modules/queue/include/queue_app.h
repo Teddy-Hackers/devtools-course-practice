@@ -10,7 +10,7 @@
 
 template <class T>
 class QueueApp {
-    std::string message;
+    std::string message = "";
     std::string toStr();
   struct node {
     T data;
@@ -121,7 +121,6 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 
   std::string op = argv[1];
   if (op == "push") {
-      //  QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
           int n = parseInt(argv, i);
@@ -134,7 +133,6 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       push(n);
       return toStr();
   } else if (op == "pop") {
-      //  QueueApp <int> que;
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
           int n = parseInt(argv, i);
@@ -145,7 +143,6 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       pop();
       return toStr();
   } else if (op == "length") {
-    //  QueueApp < int > que;
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
         int n = parseInt(argv, 2);

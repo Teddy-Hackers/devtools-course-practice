@@ -27,5 +27,5 @@ add_test(
 )
 
 set_tests_properties (${prefix}_can_push PROPERTIES
-    PASS_REGULAR_EXPRESSION ""
+    PASS_REGULAR_EXPRESSION "2 3 2"
     LABELS "${MODULE}")

@@ -7,6 +7,7 @@
 class LongNumber{
  private:
     std::string number;
+    bool positive = true;
 
 
 
@@ -14,6 +15,8 @@ class LongNumber{
     LongNumber(const LongNumber & src);
     LongNumber();
     LongNumber(std::string src);
+    LongNumber operator-();
+    bool operator<(const LongNumber & rhs) const;
     LongNumber operator+(const LongNumber & rhs) const;
     LongNumber operator+=(const LongNumber & rhs);
     LongNumber operator-(const LongNumber & rhs) const;
@@ -24,7 +27,7 @@ class LongNumber{
     LongNumber operator/=(const LongNumber & rhs);
     bool operator==(const LongNumber & rhs) const;
     bool operator!=(const LongNumber & rhs) const;
-    void print();
+    void print() const;
 
 
 

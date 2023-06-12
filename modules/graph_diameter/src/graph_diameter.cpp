@@ -1,5 +1,5 @@
 // Copyright 2023 Khairetdinov Timur
-#include "include/gpaph_diameter.h"
+#include "include/graph_diameter.h"
 
 #include <algorithm>
 #include <queue>

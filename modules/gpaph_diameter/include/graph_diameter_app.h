@@ -1,6 +1,6 @@
 // Copyright 2023 Khairetdinov Timur
-#ifndef MODULES_GRAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_
-#define MODULES_GRAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_
+#ifndef MODULES_GPAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_
+#define MODULES_GPAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_
 
 #include <stdexcept>
 #include <string>
@@ -20,4 +20,4 @@ class GraphApplication {
     bool validate(int argc, const char** argv);
 };
 
-#endif  // MODULES_GRAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_
+#endif  // MODULES_GPAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_

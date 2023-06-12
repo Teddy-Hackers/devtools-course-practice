@@ -7,12 +7,12 @@
 
 TEST(Bilinear_Interpolation, Can_do_practically_linear ) {
     /*=========================================================*/
-    std::vector<std::vector<int>> testIn = { { 1, 3, 5 } };
+    // std::vector<std::vector<int>> testIn = { { 1, 3, 5 } };
     std::vector<std::vector<int>> testOut = { {1, 0, 3, 0, 5 } };
     std::vector<std::vector<int>> expectedResult = { {1, 2, 3, 4, 5 } };
     /*=========================================================*/
     BilinearInterpolator bi;
-    bi.bilinearInterpolation(&testIn, &testOut, 2);
+    bi.bilinearInterpolation(&testOut, 2);
     /*=========================================================*/
     EXPECT_EQ(testOut, expectedResult);
 }
@@ -20,10 +20,10 @@ TEST(Bilinear_Interpolation, Can_do_practically_linear ) {
 
 TEST(Bilinear_Interpolation, Can_do_intended) {
     /*=========================================================*/
-    std::vector<std::vector<int>> testIn = {         {1,      2,        3 },
-                                                     {4,      5,        6 },
-                                                     {7,      8,        9 },
-                                                     {10,     11,       12 } };
+    // std::vector<std::vector<int>> testIn = {         {1,      2,        3 },
+    //                                                  {4,      5,        6 },
+    //                                                  {7,      8,        9 },
+    //                                                  {10,     11,       12 } };
     std::vector<std::vector<int>> testOut = {        {1,  0,  2,   0,   3 },
                                                      {0,  0,  0,   0,   0 },
                                                      {4,  0,  5,   0,   6 },
@@ -40,17 +40,17 @@ TEST(Bilinear_Interpolation, Can_do_intended) {
                                                      {10, 11, 11, 12, 12} };
     /*=========================================================*/
     BilinearInterpolator bi;
-    bi.bilinearInterpolation(&testIn, &testOut, 2);
+    bi.bilinearInterpolation(&testOut, 2);
     /*=========================================================*/
     EXPECT_EQ(testOut, expectedResult);
 }
 
 TEST(Bilinear_Interpolation, Can_do_intended_2 ) {
     /*=========================================================*/
-    std::vector<std::vector<int>> testIn = {         {1,     3,      5 },
-                                                     {3,     5,      7 },
-                                                     {5,     7,      9 },
-                                                     {7,     9,      11 } };
+    // std::vector<std::vector<int>> testIn = {         {1,     3,      5 },
+    //                                                  {3,     5,      7 },
+    //                                                  {5,     7,      9 },
+    //                                                  {7,     9,      11 } };
 
     std::vector<std::vector<int>> testOut = {        {1,  0, 3,  0,  5 },
                                                      {0,  0, 0,  0,  0 },
@@ -69,7 +69,7 @@ TEST(Bilinear_Interpolation, Can_do_intended_2 ) {
                                                      {7,  8, 9, 10,  11} };
     /*=========================================================*/
     BilinearInterpolator bi;
-    bi.bilinearInterpolation(&testIn, &testOut, 2);
+    bi.bilinearInterpolation(&testOut, 2);
     /*=========================================================*/
     EXPECT_EQ(testOut, expectedResult);
 }

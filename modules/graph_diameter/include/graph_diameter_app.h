@@ -16,8 +16,8 @@ class GraphApplication {
         std::vector<std::vector<int>> matrix;
     } Arguments;
 
-    void info(const char* appname, const char* message = "");
-    bool validate(int argc, const char** argv);
+    void help(const char* appname, const char* message = "");
+    bool validateNumberOfArguments(int argc, const char** argv);
 };
 
 #endif  // MODULES_GRAPH_DIAMETER_INCLUDE_GRAPH_DIAMETER_APP_H_

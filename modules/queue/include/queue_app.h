@@ -168,7 +168,7 @@ std::string QueueApp<T>::toStr() {
   } else {
     message.append("[ ");
     while (length() != 0)
-      message.append(std::to_string(pop)()).append(" ");
+      message.append(std::to_string(pop())).append(" ");
     message.append("]");
   }
   return message;

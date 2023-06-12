@@ -33,12 +33,12 @@ void Graph::SetSize(size_t graph_new_size) {
     graph_size_ = graph_new_size;
 }
 
-void Graph::SetEdge(size_t first_elem, size_t second_elem, int weight) {
-    auto n = std::max(first_elem, second_elem);
+void Graph::SetEdge(size_t f_elem, size_t s_elem, int weight) {
+    auto n = std::max(f_elem, s_elem);
     if (n >= graph_size_) {
         this->SetSize(n + 1);
     }
-    weights_[first_elem][second_elem] = weights_[second_elem][first_elem] = weight;
+    weights_[f_elem][s_elem] = weights_[s_elem][f_elem] = weight;
 }
 
 int Graph::GetDiameter() {

@@ -125,12 +125,12 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
           int n = parseInt(argv, i);
-          if (n = -1) return message;
+          if (n == -1) return message;
           push(n);
         }
       }
       int n = parseInt(argv, 2);
-      if (n = -1) return message;
+      if (n == -1) return message;
       push(n);
       return toStr();
   } else if (op == "pop") {
@@ -138,7 +138,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
           int n = parseInt(argv, i);
-          if (n = -1) return message;
+          if (n == -1) return message;
           push(n);
         }
       }
@@ -152,7 +152,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         push(n);
       }
     }
-    message.append("size: ").append(std::to_string(que.length()))
+    message.append("size: ").append(std::to_string(length()))
     .append("\n");
   } else {
     message.append("err op\n");
@@ -168,7 +168,7 @@ std::string QueueApp<T>::toStr() {
   } else {
     message.append("[ ");
     while (length() != 0)
-      message.append(to_string(pop)()).append(" ");
+      message.append(std::to_string(pop)()).append(" ");
     message.append("]");
   }
   return message;

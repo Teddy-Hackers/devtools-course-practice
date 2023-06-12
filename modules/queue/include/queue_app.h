@@ -156,6 +156,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
     help();
     return message;
   }
+  return message;
 }
 
 template <typename T>

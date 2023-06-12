@@ -10,8 +10,8 @@
 
 template <class T>
 class QueueApp {
-    std::string message = "";
-    std::string toStr();
+    std::string message;
+    void toStr();
   struct node {
     T data;
     node* nextNode;
@@ -131,7 +131,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       int n = parseInt(argv, 2);
       if (n == -1) return message;
       push(n);
-      return toStr();
+      return message;
   } else if (op == "pop") {
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
@@ -141,7 +141,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
         }
       }
       pop();
-      return toStr();
+      return message;
   } else if (op == "length") {
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
@@ -159,7 +159,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
 }
 
 template <typename T>
-std::string QueueApp<T>::toStr() {
+void QueueApp<T>::toStr() {
   if (length() == 0) {
     message.append("empty");
   } else {
@@ -168,7 +168,6 @@ std::string QueueApp<T>::toStr() {
       message.append(std::to_string(pop())).append(" ");
     message.append("]");
   }
-  return message;
 }
 
 #endif  //  MODULES_QUEUE_INCLUDE_QUEUE_APP_H_

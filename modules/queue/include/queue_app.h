@@ -22,7 +22,7 @@ class QueueApp {
      QueueApp();
   void help();
   std::string operator()(int argc, const char** argv);
-  int parseInt(const char el);
+  int parseInt(const char **el, int id);
   ~QueueApp();
   void push(T e);
   T pop();
@@ -98,10 +98,10 @@ void QueueApp<T>::help() {
 }
 
 template <typename T>
-int QueueApp<T>::parseInt(const char el) {
+int QueueApp<T>::parseInt(const char **el, int id) {
     int tmp =- 1;
     try {
-      tmp = std::stoi(el);
+      tmp = std::stoi(el[id]);
     }
     catch (std::invalid_argument & ) {
         message.append("please write int");
@@ -124,20 +124,20 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
       //  QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
-          int n = parseInt(argv[i]);
+          int n = parseInt(argv, i);
           if (n = -1) return message;
           push(n);
         }
       }
-      int n = parseInt(argv[2]);
+      int n = parseInt(argv, 2);
       if (n = -1) return message;
-      que.push(n);
+      push(n);
       return toStr(&que);
   } else if (op == "pop") {
       //  QueueApp <int> que;
       if (argc > 2) {
         for (int i = 2; i < argc; i++) {
-          int n = parseInt(argv[i]);
+          int n = parseInt(argv, i);
           if (n = -1) return message;
           push(n);
         }
@@ -148,7 +148,7 @@ std::string QueueApp<T>::operator()(int argc, const char ** argv) {
     //  QueueApp < int > que;
     if (argc > 2) {
       for (int i = 2; i < argc; i++) {
-        int n = parseInt(argv[i]);
+        int n = parseInt(argv, 2);
         push(n);
       }
     }

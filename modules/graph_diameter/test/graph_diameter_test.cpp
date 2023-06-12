@@ -10,7 +10,7 @@ TEST(GraphConstructors, DefaultConstructor) {
 
 TEST(GraphConstructors, ParameterizedConstructorSizeT) {
     size_t graph_size{ 10 };
-    ASSERT_NO_THROW(Graph(graph_size));
+    ASSERT_NO_THROW(Graph graph_size);
 }
 
 TEST(GraphConstructors, ParameterizedConstructorVector) {
@@ -19,7 +19,7 @@ TEST(GraphConstructors, ParameterizedConstructorVector) {
      {1, 0, 1, 6},
      {2, 1, 0, 3},
      {3, 6, 3, 0} };
-    ASSERT_NO_THROW(Graph(weights));
+    ASSERT_NO_THROW(Graph weights);
 }
 
 TEST(GraphMemberFunctions, GetSizeNoThrow) {

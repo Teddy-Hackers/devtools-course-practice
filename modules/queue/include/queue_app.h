@@ -6,7 +6,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <sstream>
 #include <stdexcept>
 
 enum class Operations { push, pop, length };
@@ -14,7 +13,7 @@ enum class Operations { push, pop, length };
 template <class T>
 class QueueApp {
     std::string message;
-    std::string queueToString(QueueApp<int>* queue);
+    std::string queueToString(QueueApp<int>* que);
   struct node {
     T data;
     node* nextNode;
@@ -24,7 +23,6 @@ class QueueApp {
  public:
      QueueApp();
   void help();
-  std::string executeCommand(int argc, const char** argv);
   std::string operator()(int argc, const char** argv);
   int findOperation(int argc, const char** argv);
   bool validateNumberOfArguments(int argc, const char** argv);
@@ -105,72 +103,71 @@ void QueueApp<T>::help() {
 }
 
 template <typename T>
-std::string QueueApp<T>::executeCommand(int argc, const char ** argv) {
+std::string QueueApp<T>::operator()(int argc, const char ** argv) {
   if (argc <= 2){
     help();
     return message;
   }
 
-  //std::string command = argv[1];
-  if (command == "push") {
+  std::string op = argv[1];
+  if (op == "push") {
     try {
-      QueueApp < int > queue;
+      QueueApp <int> que;
       if (argc > 3) {
         for (int i = 3; i < argc; i++) {
           int element = std::stoi(argv[i]);
-          queue.push(element);
+          que.push(element);
         }
       }
       int element = std::stoi(argv[2]);
-      queue.push(element);
-      return queueToString( & queue);
+      que.push(element);
+      return queueToString( & que);
     } catch (std::invalid_argument & ) {
         message.append("Error: Invalid element.")
-        .append(" Only integers are allowed. Command push.\n")
+        .append(" Only integers are allowed. Command push.\n");
         return message;
     }
-  } else if (command == "pop") {
+  } else if (op == "pop") {
     try {
-      QueueApp < int > queue;
-      if (argc >= 3) {
+      QueueApp <int> que;
+      if (argc > 2) {
         for (int i = 2; i < argc; i++) {
           int element = std::stoi(argv[i]);
-          queue.push(element);
+          que.push(element);
         }
       }
-      queue.pop();
-      return queueToString( & queue);
+      que.pop();
+      return queueToString( & que);
     } catch (std::invalid_argument & ) {
-        std::stringstream ss;
-        ss << "Error: Invalid element."
-           << " Only integers are allowed. Command pop.\n";
-        return ss.str();
+        message.append("Error: Invalid element.")
+        .append(" Only integers are allowed. Command pop.\n");
+        return message;
     }
-  } else if (command == "length") {
-    QueueApp < int > queue;
-    if (argc >= 3) {
+  } else if (op == "length") {
+    QueueApp < int > que;
+    if (argc > 2) {
       for (int i = 2; i < argc; i++) {
         int element = std::stoi(argv[i]);
-        queue.push(element);
+        que.push(element);
       }
     }
-    return "Queue length: " + std::to_string(queue.length()) + "\n";
+    message.append("Queue length: ").append(std::to_string(que.length()))
+    .append("\n");
   } else {
-    std::stringstream ss;
-    ss << "Error: Invalid command.\n" <<
-      getHelpMessage();
-    return ss.str();
+    message.append("Error: operation.\n");
+    help();
+    return message;
   }
 }
 
 template <typename T>
-std::string QueueApp<T>::queueToString(QueueApp < int > * queue) {
-  if (queue -> length() == 0)
-    return "The queue is empty.\n";
+std::string QueueApp<T>::queueToString(QueueApp < int > * que) {
+  if (que -> length() == 0)
+    return "The que is empty.\n";
   std::stringstream ss;
-  ss << "The queue is: { ";
-  while (queue -> length() != 0)
-    ss << queue -> pop() << " ";
+  ss << "The que is: { ";
+  while (que -> length() != 0)
+    ss << que -> pop() << " ";
   ss << "}";
   return ss.str();
 }

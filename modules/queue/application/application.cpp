@@ -6,7 +6,7 @@
 
 int main(int argc, const char** argv) {
     QueueApp<int> queueapp;
-    std::string output = queueapp.executeCommand(argc, argv);
+    std::string output = queueapp(argc, argv);
     printf("%s\n", output.c_str());
     return 0;
 }

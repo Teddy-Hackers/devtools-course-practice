@@ -26,10 +26,10 @@ void LongCalculator::help(const char* appname, const char* message) {
           "and <operation> is one of '+', '-'\n";
 }
 
-/// @brief validates number of arguments, 3 for this particular case is the required amount
+/// @brief validates number of arguments, 3 for this particular case
 /// @param argc number of cmd arguments recieved
 /// @param argv arguments themselves
-/// @return 
+/// @return
 bool LongCalculator::validateNumberOfArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
@@ -44,7 +44,7 @@ bool LongCalculator::validateNumberOfArguments(int argc, const char** argv) {
 
 /// @brief get the operation, which is the 3-rd cmd argument
 /// @param arg argument to parse as argument
-/// @return 
+/// @return
 char parseOperation(const char* arg) {
     char op;
     if (strcmp(arg, "+") == 0) {
@@ -58,9 +58,9 @@ char parseOperation(const char* arg) {
 }
 
 /// @brief main functor
-/// @param argc 
-/// @param argv 
-/// @return 
+/// @param argc
+/// @param argv
+/// @return
 std::string LongCalculator::operator()(int argc, const char** argv) {
     Arguments args;
 

@@ -52,3 +52,17 @@ TEST(LongNumTest, Carry_last) {
     ASSERT_EQ(n3, expected);
     
 }
+
+TEST(LongNumTest, Add_Negative_Number) {
+    LongNumber n1("500");
+    LongNumber n2("501");
+    n2.changeSign();
+    LongNumber expected = LongNumber("1");
+    expected.changeSign();
+
+    LongNumber n3 = n1 + n2;
+    // std::cout << n3 << " " << expected << "\n";
+
+    ASSERT_EQ(n3, expected);
+    
+}

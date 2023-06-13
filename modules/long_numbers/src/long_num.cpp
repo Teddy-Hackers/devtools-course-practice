@@ -4,6 +4,7 @@
 
 LongNumber::LongNumber(const LongNumber &src) {
     number = src.number;
+    positive = src.positive;
 }
 LongNumber::LongNumber() {}
 LongNumber::LongNumber(std::string src) {
@@ -47,6 +48,23 @@ bool LongNumber::operator<(const LongNumber & rhs) const {
 }
 LongNumber LongNumber::operator+(const LongNumber &rhs) const {
     LongNumber tmp(*this);
+    if ( positive == rhs.positive ){
+        if ( !positive ) {
+            tmp.changeSign();
+        }
+    }
+    else{
+        if ( !positive ){
+            tmp.changeSign();
+            return rhs - tmp;
+        }
+        else {
+            LongNumber tmp2(rhs);
+            tmp2.changeSign();
+            return tmp - tmp2;
+        }
+    }
+
     size_t minSize = std::min(number.size(), rhs.number.size());
     size_t maxSize = std::max(number.size(), rhs.number.size());
     uint8_t carry = 0;
@@ -79,6 +97,7 @@ LongNumber LongNumber::operator+=(const LongNumber &rhs) {
     return *this;
 }
 LongNumber LongNumber::operator-(const LongNumber &rhs) const {
+    
     if ( *this == rhs )
         return LongNumber("0");
     LongNumber tmp(*this);

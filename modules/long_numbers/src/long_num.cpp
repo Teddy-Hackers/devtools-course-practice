@@ -8,11 +8,16 @@ LongNumber::LongNumber(const LongNumber &src) {
 }
 LongNumber::LongNumber() {}
 LongNumber::LongNumber(std::string src) {
+    int cnt;
     if ( src[0] == '-' ) {
         positive = false;
-    }
-    int cnt = std::count_if(
+        cnt = std::count_if(
         src.begin() + 1, src.end(), [](char c){ return !(std::isdigit(c)); });
+    } else {
+        cnt = std::count_if(
+        src.begin(), src.end(), [](char c){ return !(std::isdigit(c)); });
+    }
+
     if ( cnt > 0 ) {
         throw std::string("Wrong number format!");
     }

@@ -6,6 +6,7 @@
 #include "../include/long_num.h"
 #include <string>
 
+/// @brief calculator app, docs are in .cpp file, dont have time bye
 class LongCalculator{
  public:
     LongCalculator();

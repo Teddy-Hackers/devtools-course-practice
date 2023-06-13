@@ -334,3 +334,17 @@ TEST(BigIntTest, operator_output) {
     oss << a << " " << b << " " << c << " " << d;
     ASSERT_EQ("123456789 -987654321 0 -1", oss.str());
 }
+
+TEST(BigIntOperatorTest, DivideTest) {
+    BigInt a("123");
+    BigInt b("3");
+    BigInt c = a / b;
+    EXPECT_EQ(c, BigInt("41"));
+}
+
+TEST(BigIntOperatorTest, DivideTest) {
+    BigInt a("123");
+    BigInt b("3");
+    BigInt c = a % b;
+    EXPECT_EQ(c, BigInt("0"));
+}

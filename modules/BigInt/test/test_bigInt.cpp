@@ -342,7 +342,7 @@ TEST(BigIntOperatorTest, DivideTest) {
     EXPECT_EQ(c, BigInt("41"));
 }
 
-TEST(BigIntOperatorTest, DivideTest) {
+TEST(BigIntOperatorTest, Test) {
     BigInt a("123");
     BigInt b("3");
     BigInt c = a % b;

@@ -105,7 +105,7 @@ add_test(
     COMMAND ${APPLICATION} 101 22 -
 )
 set_tests_properties (${prefix}_can_sub_carry PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result = 89"
+    PASS_REGULAR_EXPRESSION "Result = 79"
     LABELS "${MODULE}")
 
 add_test(
@@ -113,7 +113,7 @@ add_test(
     COMMAND ${APPLICATION} 10001 2 -
 )
 set_tests_properties (${prefix}_can_chain_carry PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result = 89"
+    PASS_REGULAR_EXPRESSION "Result = 9999"
     LABELS "${MODULE}")
 
 add_test(
@@ -121,5 +121,6 @@ add_test(
     COMMAND ${APPLICATION} 99999999999999999999999999999999 1 -
 )
 set_tests_properties (${prefix}_can_no_carry PROPERTIES
-    PASS_REGULAR_EXPRESSION "Result = 89"
+    PASS_REGULAR_EXPRESSION "Result = 99999999999999999999999999999998"
     LABELS "${MODULE}")
+

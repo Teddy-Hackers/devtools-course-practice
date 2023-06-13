@@ -64,7 +64,7 @@ TEST(LongNumTest, Less_than) {
     ASSERT_TRUE(n1 < n2);
 }
 
-TEST(LongNumTest, Less_than) {
+TEST(LongNumTest, Less_than_2) {
     LongNumber n1("-500");
     LongNumber n2("-200");
     // bool expected = LongNumber("1");

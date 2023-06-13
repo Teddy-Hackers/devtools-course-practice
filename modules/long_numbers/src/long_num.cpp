@@ -53,6 +53,7 @@ bool LongNumber::operator<(const LongNumber & rhs) const {
     }
 }
 LongNumber LongNumber::operator+(const LongNumber &rhs) const {
+    LongNumber tmp(*this);
     size_t minSize = std::min(number.size(), rhs.number.size());
     size_t maxSize = std::max(number.size(), rhs.number.size());
     LongNumber tmp, tmp2;
@@ -106,6 +107,7 @@ LongNumber LongNumber::operator+=(const LongNumber &rhs) {
     return *this;
 }
 LongNumber LongNumber::operator-(const LongNumber &rhs) const {
+    
     if ( *this == rhs )
         return LongNumber("0");
     LongNumber tmp(*this);

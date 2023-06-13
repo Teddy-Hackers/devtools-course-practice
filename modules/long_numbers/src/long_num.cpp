@@ -1,3 +1,5 @@
+// Copyright 2023 Rezchikov Dmitrii
+
 #include "../include/long_num.h"
 
 LongNumber::LongNumber(const LongNumber &src) {
@@ -11,11 +13,12 @@ LongNumber::LongNumber(std::string src) {
         c -= '0';
     }
 }
-LongNumber LongNumber::operator-(){
-    positive = !positive;
-    return *this;
+LongNumber LongNumber::operator-() const {
+    LongNumber tmp(*this);
+    tmp.changeSign();
+    return tmp;
 }
-bool LongNumber::operator<(const LongNumber & rhs) const {
+bool LongNumber::absLess(const LongNumber & rhs) const {
     if ( number.size() == rhs.number.size() ) {
         for ( size_t i = this->number.size() - 1; i >= 0; --i){
             if ( number[i] < rhs.number[i] ){
@@ -29,6 +32,17 @@ bool LongNumber::operator<(const LongNumber & rhs) const {
     }
     else{
         return this->number.size() < rhs.number.size();
+    }
+}
+bool LongNumber::operator<(const LongNumber & rhs) const {
+    if ( positive != rhs.positive ){
+        return !positive && rhs.positive;
+    }
+    else if ( positive ) {
+        return absLess( rhs );
+    }
+    else {
+        return rhs.absLess(*this);
     }
 }
 LongNumber LongNumber::operator+(const LongNumber &rhs) const {
@@ -105,11 +119,8 @@ LongNumber LongNumber::operator-(const LongNumber &rhs) const {
         }
     }
     for ( auto it = tmp.number.rbegin(); it != tmp.number.rend(); ++it ){
-        // std::cout << "looking at " << (char)(*it + '0') << "\n";
         if ( *it != 0 ){
-            // std::cout << "num is " << (int)(it.base() - tmp.number.begin());
             tmp.number = tmp.number.substr(0, it.base() - tmp.number.begin());
-            // tmp.print();
             break;
         }
     }
@@ -132,16 +143,28 @@ LongNumber LongNumber::operator/=(const LongNumber &rhs) {
     return *this;
 }
 bool LongNumber::operator==(const LongNumber &rhs) const {
-    return number == rhs.number;
+    return (number == rhs.number) && (positive == rhs.positive);
 }
 bool LongNumber::operator!=(const LongNumber &rhs) const {
     return !(*this == rhs);
 }
 
-void LongNumber::print() const {
-    for ( auto it = number.rbegin(); it != number.rend(); ++it ){
-        std::cout << (char)(*it + '0');
+void LongNumber::changeSign() {
+    positive = !positive;
+}
+std::string LongNumber::getStr() const
+{
+    std::string str = "";
+    for ( auto it = number.rbegin(); it != number.rend(); ++it ) {
+        str += (char)(*it + '0');
     }
-    std::cout << "\n";
+    std::reverse(str.begin(), str.end());
+    if ( !positive ) {
+        str = "-" + str;
+    }
+    return str;
+}
+std::ostream &operator<<(std::ostream &os, const LongNumber &n) {
+    return os << n.getStr();
 }
 

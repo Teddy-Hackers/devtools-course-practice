@@ -1,12 +1,11 @@
-#include <stdlib.h>
-#include <iostream>
+// Copyright 2023 Rezchikov Dmitrii
 
-
+#include "../include/long_num_app.h"
 
 
 int main(int argc, const char** argv) {
-    // Application app;
-    // std::string output = app(argc, argv);
-    // std::cout << output;
+    LongCalculator app;
+    std::string output = app(argc, argv);
+    std::cout << output;
     return 0;
 }

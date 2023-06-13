@@ -2,17 +2,6 @@
 
 #include "../include/bilinear_interpolation.h"
 
-// void BilinearInterpolator::printMtx( std::vector<std::vector<int>> * src ){
-//     std::cout << "=======\n";
-//     for ( const auto & v : *src ){
-//         for ( const auto & x : v){
-//             std::cout << x << " ";
-//         }
-//         std::cout << "\n";
-//     }
-//     std::cout << "=======\n";
-// }
-
 void BilinearInterpolator::findNearest(int newVecSize,
                                     int coord, int factor, int * l, int * r) {
     *l = floor(
@@ -69,6 +58,4 @@ void BilinearInterpolator::bilinearInterpolation(
             bilinearInterpolation(newMatrix, i, j, factor);
         }
     }
-
-    // printMtx(newMatrix);
 }

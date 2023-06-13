@@ -41,12 +41,7 @@ char parseOperation(const char* arg) {
         op = '+';
     } else if (strcmp(arg, "-") == 0) {
         op = '-';
-    } /*else if (strcmp(arg, "*") == 0) {
-        op = '*';
-    } else if (strcmp(arg, "/") == 0) {
-        op = '/';
-    }*/ 
-    else {
+    } else {
         throw std::string("Wrong operation format!");
     }
     return op;

@@ -4,6 +4,7 @@
 #define MODULES_LONG_NUMBERS_INCLUDE_LONG_NUM_APP_H_
 
 #include "../include/long_num.h"
+#include <string>
 
 class LongCalculator{
  public:
@@ -20,4 +21,4 @@ class LongCalculator{
     } Arguments;
 };
 
-#endif //MODULES_LONG_NUMBERS_INCLUDE_LONG_NUM_APP_H_
+#endif  // MODULES_LONG_NUMBERS_INCLUDE_LONG_NUM_APP_H_

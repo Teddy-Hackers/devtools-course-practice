@@ -19,7 +19,7 @@ class LongNumber{
  public:
     LongNumber(const LongNumber & src);
     LongNumber();
-    LongNumber(std::string src);
+    explicit LongNumber(std::string src);
     LongNumber operator-() const;
     bool absLess(const LongNumber & rhs) const;
     bool operator<(const LongNumber & rhs) const;
@@ -37,4 +37,4 @@ class LongNumber{
     void changeSign();
 };
 
-#endif // MODULES_LONG_NUMBERS_INCLUDE_LONG_NUM_H_
+#endif  // MODULES_LONG_NUMBERS_INCLUDE_LONG_NUM_H_

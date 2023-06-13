@@ -91,3 +91,19 @@ add_test(
 set_tests_properties (${prefix}_can_big_ass_number PROPERTIES
     PASS_REGULAR_EXPRESSION "Result = 34690891355642221975358022222222197558024441999997778023"
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_sub_to_zero
+    COMMAND ${APPLICATION} 500 500 -
+)
+set_tests_properties (${prefix}_can_big_ass_number PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 0"
+    LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_can_sub_carry
+    COMMAND ${APPLICATION} 111 22 -
+)
+set_tests_properties (${prefix}_can_sub_carry PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 89"
+    LABELS "${MODULE}")

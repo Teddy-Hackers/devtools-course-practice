@@ -53,3 +53,50 @@ TEST(LongNumTest, Add_Negative_Number) {
     // std::cout << n3 << " " << expected << "\n";
     ASSERT_EQ(n3, expected);
 }
+
+TEST(LongNumTest, Less_than) {
+    LongNumber n1("-500");
+    LongNumber n2("500");
+    // bool expected = LongNumber("1");
+    // expected.changeSign();
+    // LongNumber n3 = n1 + n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_TRUE(n1 < n2);
+}
+
+TEST(LongNumTest, Less_than) {
+    LongNumber n1("-500");
+    LongNumber n2("-200");
+    // bool expected = LongNumber("1");
+    // expected.changeSign();
+    // LongNumber n3 = n1 + n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_TRUE(n1 < n2);
+}
+
+TEST(LongNumTest, Carry_Some) {
+    LongNumber n1("999");
+    LongNumber n2("11");
+    LongNumber expected = LongNumber("1010");
+    LongNumber n3 = n1 + n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_EQ(n3, expected);
+}
+
+TEST(LongNumTest, Plus_equals) {
+    LongNumber n1("499");
+    LongNumber n2("501");
+    LongNumber expected = LongNumber("1000");
+    n1 += n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_EQ(n1, expected);
+}
+
+TEST(LongNumTest, Minus_equals) {
+    LongNumber n1("501");
+    LongNumber n2("500");
+    LongNumber expected = LongNumber("1");
+    n1 -= n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_EQ(n1, expected);
+}

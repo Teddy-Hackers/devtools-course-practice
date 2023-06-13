@@ -69,11 +69,7 @@ LongNumber LongNumber::operator+(const LongNumber &rhs) const {
         tmp = LongNumber(rhs);
         tmp2 = LongNumber(*this);
     }
-    if ( positive == rhs.positive ) {
-        if ( !positive ) {
-            tmp.changeSign();
-        }
-    } else {
+    if ( positive != rhs.positive ) {
         if ( !tmp.positive ) {
             tmp.changeSign();
             return tmp2 - tmp;

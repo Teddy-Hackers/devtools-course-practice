@@ -28,9 +28,9 @@ class LongNumber{
     LongNumber operator-(const LongNumber & rhs) const;
     LongNumber operator-=(const LongNumber & rhs);
     LongNumber operator*(const LongNumber & rhs) const;
-    LongNumber operator*=(const LongNumber & rhs);
+    // LongNumber operator*=(const LongNumber & rhs);
     LongNumber operator/(const LongNumber & rhs) const;
-    LongNumber operator/=(const LongNumber & rhs);
+    // LongNumber operator/=(const LongNumber & rhs);
     bool operator==(const LongNumber & rhs) const;
     bool operator!=(const LongNumber & rhs) const;
     friend std::ostream& operator<<(std::ostream & os, const LongNumber & n);

@@ -100,3 +100,28 @@ TEST(LongNumTest, Minus_equals) {
     // std::cout << n3 << " " << expected << "\n";
     ASSERT_EQ(n1, expected);
 }
+
+TEST(LongNumTest, Mult) {
+    LongNumber n1("999");
+    LongNumber n2("1");
+    LongNumber expected = LongNumber("999");
+    LongNumber n3 = n1 * n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_EQ(n3, expected);
+}
+
+TEST(LongNumTest, Divide) {
+    LongNumber n1("999");
+    LongNumber n2("1");
+    LongNumber expected = LongNumber("999");
+    LongNumber n3 = n1 / n2;
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_EQ(n3, expected);
+}
+TEST(LongNumTest, Not_Equals) {
+    LongNumber n1("999");
+    LongNumber n2("11");
+    // std::cout << n3 << " " << expected << "\n";
+    ASSERT_TRUE(n1 != n2);
+}
+

@@ -157,15 +157,9 @@ LongNumber LongNumber::operator-=(const LongNumber &rhs) {
     return *this;
 }
 LongNumber LongNumber::operator*(const LongNumber &rhs) const {
-    return LongNumber();
-}
-LongNumber LongNumber::operator*=(const LongNumber &rhs) {
     return *this;
 }
 LongNumber LongNumber::operator/(const LongNumber &rhs) const {
-    return LongNumber();
-}
-LongNumber LongNumber::operator/=(const LongNumber &rhs) {
     return *this;
 }
 bool LongNumber::operator==(const LongNumber &rhs) const {

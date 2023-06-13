@@ -14,22 +14,18 @@ class LongNumber{
     std::string number;
     bool positive = true;
     std::string getStr() const;
-
-
  public:
     /// @brief string constructor
     /// @param src String representing a number 
     LongNumber(const LongNumber & src);
     /// @brief default constructor
     LongNumber();
-
     /// @brief copy constructor
     /// @param src 
     explicit LongNumber(std::string src);
     /// @brief unary minus operator
     /// @return number with opposite sign
     LongNumber operator-() const;
-
     /// @brief less by absoulute value
     /// @param rhs value to compare with
     /// @return true = less, false = not less
@@ -59,13 +55,11 @@ class LongNumber{
     /// @return 
     LongNumber operator*(const LongNumber & rhs) const;
     // LongNumber operator*=(const LongNumber & rhs);
-    
     /// @brief division (plsplspls)
     /// @param rhs 
     /// @return 
     LongNumber operator/(const LongNumber & rhs) const;
     // LongNumber operator/=(const LongNumber & rhs);
-    
     /// @brief classic equals
     /// @param rhs 
     /// @return 

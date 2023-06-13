@@ -40,3 +40,15 @@ TEST(LongNumTest, Subtract_from_lesser) {
     ASSERT_EQ(n3, expected);
 
 }
+
+TEST(LongNumTest, Carry_last) {
+    LongNumber n1("499");
+    LongNumber n2("501");
+    LongNumber expected = LongNumber("1000");
+
+    LongNumber n3 = n1 + n2;
+    // std::cout << n3 << " " << expected << "\n";
+
+    ASSERT_EQ(n3, expected);
+    
+}

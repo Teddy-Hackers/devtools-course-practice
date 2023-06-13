@@ -70,7 +70,7 @@ LongNumber LongNumber::operator+(const LongNumber &rhs) const {
         }
     }
     if ( carry ){
-        tmp.number += "1";
+        tmp.number += (char)(1);
     }
     return tmp;
 }
@@ -158,7 +158,7 @@ std::string LongNumber::getStr() const
     for ( auto it = number.rbegin(); it != number.rend(); ++it ) {
         str += (char)(*it + '0');
     }
-    std::reverse(str.begin(), str.end());
+    // std::reverse(str.begin(), str.end());
     if ( !positive ) {
         str = "-" + str;
     }

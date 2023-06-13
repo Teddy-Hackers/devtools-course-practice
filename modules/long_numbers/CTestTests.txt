@@ -124,3 +124,11 @@ set_tests_properties (${prefix}_can_no_carry PROPERTIES
     PASS_REGULAR_EXPRESSION "Result = 99999999999999999999999999999998"
     LABELS "${MODULE}")
 
+add_test(
+    NAME ${prefix}_can_normal_carry
+    COMMAND ${APPLICATION} 9990 25 -
+)
+set_tests_properties (${prefix}_can_normal_carry PROPERTIES
+    PASS_REGULAR_EXPRESSION "Result = 9965"
+    LABELS "${MODULE}")
+

@@ -2,7 +2,7 @@
 
 #include "../include/Hanoi_application.h"
 
-void HanoiApplication::Run(int argc, const char** argv) {
+std::string HanoiApplication::operator()(int argc, const char** argv) {
   if (!IsValid(argc, argv)) {
     std::cerr << validatorMessage << std::endl;
     return;

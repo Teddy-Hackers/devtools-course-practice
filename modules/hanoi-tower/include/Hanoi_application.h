@@ -9,8 +9,7 @@
 
 class HanoiApplication {
  public:
-  void Run(int argc, const char** argv);
- private:
+  std::string operator()(int argc, const char** argv);
   static int counter;
   bool IsValid(int argc, const char** argv);
   std::string validatorMessage;

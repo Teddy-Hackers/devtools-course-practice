@@ -1,16 +1,16 @@
 // Copyright 2023 Antonova Anastasya
 
 #ifndef MODULES_HANOI_TOWER_INCLUDE_HANOI_APPLICATION_H_
-#define MODULES_HANOI_TOWER_INCLUDE_HANOI_APPLICATION_H
+#define MODULES_HANOI_TOWER_INCLUDE_HANOI_APPLICATION_H_
 
 #include <iostream>
 #include <cstdlib>
 #include <string>
 
 class HanoiApplication {
-public:
+ public:
   void Run(int argc, const char** argv);
-private:
+ private:
   static int counter;
   bool IsValid(int argc, const char** argv);
   std::string validatorMessage;

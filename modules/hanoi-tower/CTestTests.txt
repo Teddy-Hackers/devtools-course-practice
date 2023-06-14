@@ -10,3 +10,11 @@ add_test(
 )
 set_tests_properties (${prefix}_go PROPERTIES
     LABELS "${MODULE}")
+
+add_test(
+    NAME ${prefix}_bad_arguments
+    COMMAND ${APPLICATION} 6 1 2 3 4 5 6
+)
+set_tests_properties (${prefix}_helping PROPERTIES
+    PASS_REGULAR_EXPRESSION "Invalid number of arguments"
+    LABELS "${MODULE}")

@@ -2,23 +2,25 @@
 
 #include "../include/Hanoi_application.h"
 
+#include <cstdlib>
+#include <iostream>
+#include <memory>
+#include <sstream>
+
+#include "../include/hanoi_tower.h"
+
 std::string HanoiApplication::operator()(int argc, const char** argv) {
-  if (!IsValid(argc, argv)) {
-    std::cerr << validatorMessage << std::endl;
-    return;
-  }
+  if (!IsValid(argc, argv)) return validatorMessage;
+
   int n = atoi(argv[1]);
   int from_rod = atoi(argv[2]);
   int to_rod = atoi(argv[3]);
   int aux_rod = atoi(argv[4]);
-  int result;
-  try {
-    result = tower_solve(n, from_rod, to_rod, aux_rod);
-    std::cout << "Number of moves: " << result << std::endl;
-  }
-  catch (std::string str) {
-    std::cerr << "Error: " << str << std::endl;
-  }
+
+  std::string result;
+
+  result = std::string("Result is: " + tower_solve(n, from_rod, to_rod, aux_rod));
+  return result;
 }
 
 bool HanoiApplication::IsValid(int argc, const char** argv) {

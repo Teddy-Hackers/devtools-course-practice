@@ -19,7 +19,8 @@ std::string HanoiApplication::operator()(int argc, const char** argv) {
 
   std::string result;
 
-  result = std::string("Result is: " + tower_solve(n, from_rod, to_rod, aux_rod));
+  result = std::string("Result is: " +
+      tower_solve(n, from_rod, to_rod, aux_rod));
   return result;
 }
 
